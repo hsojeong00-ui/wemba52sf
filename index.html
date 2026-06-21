@@ -180,8 +180,8 @@
         <button data-theme="dark" title="Dark">🌙</button>
       </div>
       <div class="toggle lang" role="group" aria-label="language">
-        <button data-lang="kr">한국어</button>
         <button data-lang="en">EN</button>
+        <button data-lang="kr">한국어</button>
         <button data-lang="cn">中文</button>
       </div>
     </div>
@@ -291,6 +291,7 @@ const T = {
     "sec-actions":{kr:"할 일",en:"To-do",cn:"待办"},
     "sec-canvas":{kr:"자료 맵",en:"Resource map",cn:"资料图"},
     "sec-social":{kr:"디너",en:"Dinner",cn:"聚餐"},
+    "sec-comments":{kr:"피드백",en:"Feedback",cn:"反馈"},
   },
   typeNames:    {
     registration:{kr:"등록",en:"REGISTER",cn:"选课"}, exam:{kr:"시험",en:"EXAM",cn:"考试"},
@@ -303,7 +304,7 @@ const TYPE_COLOR = {
   quiz:"var(--warn)", session:"var(--accent)", milestone:"var(--faint)",
 };
 
-let lang = localStorage.getItem("wemba_lang") || "kr";
+let lang = localStorage.getItem("wemba_lang") || "en";
 
 /* ---------- date helpers (PT = UTC-7 in summer) ---------- */
 const PT_OFFSET = "-07:00";
@@ -386,7 +387,7 @@ function render(){
     `<span style="color:var(--faint)">${T.weekly[lang]}</span>`;
 }
 
-const NAV_ORDER = ["sec-upcoming","sec-schedule","sec-bw","sec-actions","sec-canvas","sec-social"];
+const NAV_ORDER = ["sec-upcoming","sec-schedule","sec-bw","sec-actions","sec-canvas","sec-social","sec-comments"];
 function renderNav(){
   const nav = document.getElementById("jump");
   nav.innerHTML = NAV_ORDER.filter(id=>{
