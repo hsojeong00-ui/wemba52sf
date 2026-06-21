@@ -190,6 +190,8 @@
   .slide.lime{background:var(--grad); color:#14140d}
   .slide.paper{background:var(--panel); color:var(--ink)}
   .slide.mid{justify-content:center}
+  .slide.fitslide{overflow:hidden; justify-content:flex-start}
+  .slide .fit{width:100%; transform-origin:top center}
   .slide .kick{font-size:12px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; opacity:.62; margin-bottom:14px}
   .slide .wm{font-family:Georgia,serif; font-size:22px; margin-bottom:18px}
   .slide .big{font-family:var(--mono); font-size:clamp(40px,13vw,76px); font-weight:800; letter-spacing:-.03em; line-height:1; margin:0}
@@ -720,25 +722,30 @@ function buildStory(){
         `<span>${L(it.title)}<br><span style="opacity:.6;font-size:13px">${fmtWhen(it)}</span></span></li>`;
     }).join("")+`</ul></div>`);
 
-  // 수업 일정표
+  // 수업 일정표 (한 화면에 맞게 자동 축소)
   if(DATA.schedule){ const s = DATA.schedule; let rows="";
-    s.days.forEach(d=>{ rows += `<li style="font-weight:800;opacity:.55">${L(d.label)}</li>`;
+    s.days.forEach(d=>{ rows += `<li style="font-weight:800;opacity:.55;border:0;padding-top:6px">${L(d.label)}</li>`;
       d.rows.forEach(r=>{ rows += `<li class="row2"><span class="dd2" style="font-size:12px">${r.time}</span>`+
         `<span>${r.both?L(r.both):L(r.s1)+' / '+L(r.s2)}</span></li>`; }); });
-    slides.push(`<div class="slide paper"><div class="kick">${T.schedule[lang]} · ${L(s.weekend)}</div><ul>${rows}</ul></div>`);
+    slides.push(`<div class="slide paper fitslide"><div class="fit"><div class="kick">${T.schedule[lang]} · ${L(s.weekend)}</div><ul>${rows}</ul></div></div>`);
   }
 
-  // 과목별
+  // 과목별 (tip/핵심 모두 포함, 길면 자동 축소)
   DATA.courses.forEach(c=>{
-    slides.push(`<div class="slide paper"><div class="kick" style="color:${c.color};opacity:1">${c.code} · ${L(c.name)}</div>`+
-      `<h3>${L(c.headline)}</h3><ul>${c.points.slice(0,3).map(p=>`<li>• ${L(p)}</li>`).join("")}</ul></div>`);
+    const pts = c.points.map(p=>`<li>• ${L(p)}</li>`).join("");
+    const traps = c.traps.length
+      ? `<li style="margin-top:8px;font-weight:800;color:${c.color};border:0;padding:0">${T.traps[lang]}</li>`+
+        c.traps.map(t=>`<li>⚠ ${L(t)}</li>`).join("")
+      : "";
+    slides.push(`<div class="slide paper fitslide"><div class="fit"><div class="kick" style="color:${c.color};opacity:1">${c.code} · ${L(c.name)}</div>`+
+      `<h3>${L(c.headline)}</h3><ul>${pts}${traps}</ul></div></div>`);
   });
 
-  // 할 일
+  // 할 일 (길면 자동 축소)
   const saved = JSON.parse(localStorage.getItem("wemba_actions")||"{}");
-  slides.push(`<div class="slide paper"><div class="kick">${T.checklist[lang]}</div><ul>`+
+  slides.push(`<div class="slide paper fitslide"><div class="fit"><div class="kick">${T.checklist[lang]}</div><ul>`+
     DATA.actions.map(a=>{ const done=!!saved[a.id], over=!done && daysUntil(toDate(a.by).d)<0;
-      return `<li>${done?'✅':over?'🔴':'⚪'} ${L(a.label)}</li>`; }).join("")+`</ul></div>`);
+      return `<li>${done?'✅':over?'🔴':'⚪'} ${L(a.label)}</li>`; }).join("")+`</ul></div></div>`);
 
   // 디너
   if(DATA.social && DATA.social.url){
@@ -760,7 +767,21 @@ function applyStory(){
   document.querySelectorAll("#storyBars i").forEach((b,i)=> b.classList.toggle("on", i<=storyIndex));
 }
 function storyGo(i){ if(i<0){ storyIndex=0; applyStory(); return; } if(i>=storySlides){ closeStory(); return; } storyIndex=i; applyStory(); }
-function openStory(){ buildStory(); document.getElementById("story").hidden=false; document.body.style.overflow="hidden"; }
+function fitSlides(){
+  document.querySelectorAll("#storyTrack .fitslide").forEach(slide=>{
+    const fit = slide.querySelector(".fit"); if(!fit) return;
+    fit.style.transform = "";
+    const cs = getComputedStyle(slide);
+    const avail = slide.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+    const need = fit.scrollHeight;
+    if(need > avail + 1){ fit.style.transform = `scale(${Math.max(0.45, avail/need)})`; }
+  });
+}
+function openStory(){
+  buildStory();
+  document.getElementById("story").hidden=false; document.body.style.overflow="hidden";
+  requestAnimationFrame(()=>requestAnimationFrame(fitSlides));
+}
 function closeStory(){ document.getElementById("story").hidden=true; document.body.style.overflow=""; }
 
 document.getElementById("storyBtn").addEventListener("click", openStory);
@@ -788,6 +809,7 @@ document.getElementById("storyClose").addEventListener("click", closeStory);
     else if(e.key==="ArrowLeft") storyGo(storyIndex-1);
     else if(e.key==="Escape") closeStory();
   });
+  window.addEventListener("resize", ()=>{ if(!document.getElementById("story").hidden) fitSlides(); });
 })();
 
 applyTheme();
