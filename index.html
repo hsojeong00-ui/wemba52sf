@@ -177,6 +177,32 @@
   .tbl td:first-child{font-weight:700; white-space:nowrap}
   .tbl .w{color:var(--muted)}
 
+  /* story / 매거진 모드 */
+  .iconbtn{border:1px solid var(--line); background:var(--panel); border-radius:999px; padding:8px 12px; font-size:15px; cursor:pointer; box-shadow:var(--shadow); touch-action:manipulation; -webkit-tap-highlight-color:transparent}
+  .story{position:fixed; inset:0; z-index:1000; background:#0a0a08; display:flex; flex-direction:column; overscroll-behavior:contain; user-select:none}
+  .story[hidden]{display:none}
+  .story-bars{position:absolute; top:0; left:0; right:0; display:flex; gap:4px; padding:11px 12px; z-index:5}
+  .story-bars i{flex:1; height:3px; border-radius:2px; background:rgba(255,255,255,.28)}
+  .story-bars i.on{background:#fff}
+  .story-close{position:absolute; top:22px; right:14px; z-index:6; width:36px; height:36px; border:0; border-radius:50%; background:rgba(0,0,0,.3); color:#fff; font-size:15px; cursor:pointer}
+  .story-track{flex:1; display:flex; transition:transform .32s cubic-bezier(.4,0,.2,1); will-change:transform}
+  .slide{min-width:100%; height:100%; box-sizing:border-box; padding:62px 28px 76px; display:flex; flex-direction:column; overflow-y:auto; position:relative}
+  .slide.lime{background:var(--grad); color:#14140d}
+  .slide.paper{background:var(--panel); color:var(--ink)}
+  .slide.mid{justify-content:center}
+  .slide .kick{font-size:12px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; opacity:.62; margin-bottom:14px}
+  .slide .wm{font-family:Georgia,serif; font-size:22px; margin-bottom:18px}
+  .slide .big{font-family:var(--mono); font-size:clamp(40px,13vw,76px); font-weight:800; letter-spacing:-.03em; line-height:1; margin:0}
+  .slide .dnum{font-family:var(--mono); font-size:clamp(60px,22vw,120px); font-weight:800; letter-spacing:-.04em; line-height:.95}
+  .slide h3{font-family:var(--mono); font-size:clamp(22px,5.5vw,32px); font-weight:800; letter-spacing:-.01em; line-height:1.15; margin:.3em 0 0}
+  .slide .sub2{font-size:15px; opacity:.82; margin-top:8px; line-height:1.5}
+  .slide ul{list-style:none; margin:16px 0 0; padding:0; display:flex; flex-direction:column; gap:13px}
+  .slide li{font-size:15px; line-height:1.4}
+  .slide .row2{display:flex; gap:12px; align-items:baseline; border-bottom:1px solid rgba(128,128,110,.18); padding-bottom:13px}
+  .slide .dd2{font-family:var(--mono); font-weight:800; font-size:16px; min-width:50px; flex:0 0 auto}
+  .slide .sbtn{align-self:flex-start; margin-top:20px; background:#14140d; color:#fff; font-weight:800; font-size:14px; padding:13px 22px; border-radius:999px; text-decoration:none}
+  .slide .hint{position:absolute; bottom:26px; left:0; right:0; text-align:center; font-size:12px; opacity:.6}
+
   /* emoji reactions */
   .reactions{text-align:center; margin:44px 0 6px}
   .reactions .rlabel{color:var(--faint); font-size:12.5px; margin-bottom:11px}
@@ -203,6 +229,7 @@
       <div class="asof" id="asof"></div>
     </div>
     <div class="controls">
+      <button class="iconbtn" id="storyBtn" title="Story view">📖</button>
       <div class="toggle theme" role="group" aria-label="theme">
         <button data-theme="light" title="Light">☀️</button>
         <button data-theme="dark" title="Dark">🌙</button>
@@ -276,6 +303,12 @@
   <footer id="footer"></footer>
 </div>
 
+<div class="story" id="story" hidden>
+  <div class="story-bars" id="storyBars"></div>
+  <button class="story-close" id="storyClose" aria-label="close">✕</button>
+  <div class="story-track" id="storyTrack"></div>
+</div>
+
 <script src="data.js"></script>
 <script>
 /* ---------- i18n strings (UI chrome) ---------- */
@@ -307,6 +340,10 @@ const T = {
   stOver:       { kr:"기한 지남", en:"Overdue", cn:"已逾期" },
   dday:         { kr:"D-DAY", en:"TODAY", cn:"就在今天" },
   reactTitle:   { kr:"이 노트가 도움이 됐다면 한 번 눌러주세요 🙂", en:"Was this helpful? Tap a reaction 🙂", cn:"觉得有帮助就点一下吧 🙂" },
+  story:        { kr:"매거진 보기", en:"Story view", cn:"杂志视图" },
+  storyHint:    { kr:"탭하거나 옆으로 넘기세요 →", en:"Tap or swipe →", cn:"点击或左右滑动 →" },
+  storyEnd:     { kr:"화이팅! 🎓", en:"Good luck! 🎓", cn:"加油! 🎓" },
+  storyCloseHint:{ kr:"탭하면 닫혀요", en:"Tap to close", cn:"点击关闭" },
   dashName:     { kr:"생존 대시보드", en:"Survival Dashboard", cn:"生存看板" },
   canvasHead:   { kr:["과목","자료 위치","제출/퀴즈","주의"], en:["Subject","Where","Submit","Watch"], cn:["科目","资料位置","提交/测验","注意"] },
   nav:          {
@@ -654,6 +691,104 @@ document.querySelectorAll(".toggle.theme button").forEach(b=>{
 document.querySelectorAll(".toggle.lang button").forEach(b=>{
   b.addEventListener("click",()=>{ lang=b.dataset.lang; localStorage.setItem("wemba_lang",lang); render(); });
 });
+
+/* ---------- story / 매거진 모드 ---------- */
+let storyIndex = 0, storySlides = 0;
+function buildStory(){
+  const slides = [];
+  const sorted = [...DATA.deadlines].sort((a,b)=> toDate(a.date).d - toDate(b.date).d);
+
+  // 표지
+  slides.push(`<div class="slide lime mid"><div class="wm">Wharton</div>`+
+    `<div class="kick">Survival Dashboard</div><div class="big">WEMBA 52</div>`+
+    `<div class="sub2">${T.updated[lang]} · ${fmtUpdated(DATA.meta.lastUpdated)}</div>`+
+    `<div class="hint">${T.storyHint[lang]}</div></div>`);
+
+  // 다음 마감
+  const next = sorted.find(it=> daysUntil(toDate(it.date).d) >= 0);
+  if(next){ const n = daysUntil(toDate(next.date).d);
+    slides.push(`<div class="slide lime mid"><div class="kick">${T.nextDue[lang]}</div>`+
+      `<div class="dnum">${n===0?T.dday[lang]:'D-'+n}</div>`+
+      `<h3>${L(next.title)}</h3><div class="sub2">${fmtWhen(next)}</div></div>`);
+  }
+
+  // 다가오는 일정
+  const up = sorted.filter(it=> daysUntil(toDate(it.date).d) >= 0).slice(0,6);
+  if(up.length) slides.push(`<div class="slide paper"><div class="kick">${T.upcoming[lang]}</div><ul>`+
+    up.map(it=>{ const n=daysUntil(toDate(it.date).d);
+      return `<li class="row2"><span class="dd2">${n===0?T.today[lang]:'D-'+n}</span>`+
+        `<span>${L(it.title)}<br><span style="opacity:.6;font-size:13px">${fmtWhen(it)}</span></span></li>`;
+    }).join("")+`</ul></div>`);
+
+  // 수업 일정표
+  if(DATA.schedule){ const s = DATA.schedule; let rows="";
+    s.days.forEach(d=>{ rows += `<li style="font-weight:800;opacity:.55">${L(d.label)}</li>`;
+      d.rows.forEach(r=>{ rows += `<li class="row2"><span class="dd2" style="font-size:12px">${r.time}</span>`+
+        `<span>${r.both?L(r.both):L(r.s1)+' / '+L(r.s2)}</span></li>`; }); });
+    slides.push(`<div class="slide paper"><div class="kick">${T.schedule[lang]} · ${L(s.weekend)}</div><ul>${rows}</ul></div>`);
+  }
+
+  // 과목별
+  DATA.courses.forEach(c=>{
+    slides.push(`<div class="slide paper"><div class="kick" style="color:${c.color};opacity:1">${c.code} · ${L(c.name)}</div>`+
+      `<h3>${L(c.headline)}</h3><ul>${c.points.slice(0,3).map(p=>`<li>• ${L(p)}</li>`).join("")}</ul></div>`);
+  });
+
+  // 할 일
+  const saved = JSON.parse(localStorage.getItem("wemba_actions")||"{}");
+  slides.push(`<div class="slide paper"><div class="kick">${T.checklist[lang]}</div><ul>`+
+    DATA.actions.map(a=>{ const done=!!saved[a.id], over=!done && daysUntil(toDate(a.by).d)<0;
+      return `<li>${done?'✅':over?'🔴':'⚪'} ${L(a.label)}</li>`; }).join("")+`</ul></div>`);
+
+  // 디너
+  if(DATA.social && DATA.social.url){
+    slides.push(`<div class="slide lime"><div class="kick">${T.social[lang]}</div>`+
+      `<h3>${L(DATA.social.cta)}</h3><div class="sub2">${L(DATA.social.desc)}</div>`+
+      `<a class="sbtn" href="${DATA.social.embedUrl||DATA.social.url}" target="_blank" rel="noopener noreferrer">${L(DATA.social.cta)} ↗</a></div>`);
+  }
+
+  // 마무리
+  slides.push(`<div class="slide lime mid"><div class="big" style="font-size:clamp(30px,9vw,52px)">${T.storyEnd[lang]}</div>`+
+    `<div class="hint">${T.storyCloseHint[lang]}</div></div>`);
+
+  document.getElementById("storyTrack").innerHTML = slides.join("");
+  document.getElementById("storyBars").innerHTML = slides.map(()=>`<i></i>`).join("");
+  storySlides = slides.length; storyIndex = 0; applyStory();
+}
+function applyStory(){
+  document.getElementById("storyTrack").style.transform = `translateX(${-storyIndex*100}%)`;
+  document.querySelectorAll("#storyBars i").forEach((b,i)=> b.classList.toggle("on", i<=storyIndex));
+}
+function storyGo(i){ if(i<0){ storyIndex=0; applyStory(); return; } if(i>=storySlides){ closeStory(); return; } storyIndex=i; applyStory(); }
+function openStory(){ buildStory(); document.getElementById("story").hidden=false; document.body.style.overflow="hidden"; }
+function closeStory(){ document.getElementById("story").hidden=true; document.body.style.overflow=""; }
+
+document.getElementById("storyBtn").addEventListener("click", openStory);
+document.getElementById("storyClose").addEventListener("click", closeStory);
+(function(){
+  const story = document.getElementById("story");
+  let sx=0, sy=0, usedTouch=false;
+  story.addEventListener("touchstart", e=>{ usedTouch=true; const t=e.touches[0]; sx=t.clientX; sy=t.clientY; }, {passive:true});
+  story.addEventListener("touchend", e=>{
+    const t=e.changedTouches[0], dx=t.clientX-sx, dy=t.clientY-sy;
+    if(Math.abs(dx)>40 && Math.abs(dx)>Math.abs(dy)){ storyGo(storyIndex + (dx<0?1:-1)); return; }
+    if(Math.abs(dx)<10 && Math.abs(dy)<10){
+      if(e.target.closest("a,button,.story-bars")) return;
+      storyGo(t.clientX > window.innerWidth*0.5 ? storyIndex+1 : storyIndex-1);
+    }
+  }, {passive:true});
+  story.addEventListener("click", e=>{
+    if(usedTouch){ usedTouch=false; return; }
+    if(e.target.closest("a,button,.story-bars")) return;
+    storyGo(e.clientX > window.innerWidth*0.5 ? storyIndex+1 : storyIndex-1);
+  });
+  document.addEventListener("keydown", e=>{
+    if(document.getElementById("story").hidden) return;
+    if(e.key==="ArrowRight") storyGo(storyIndex+1);
+    else if(e.key==="ArrowLeft") storyGo(storyIndex-1);
+    else if(e.key==="Escape") closeStory();
+  });
+})();
 
 applyTheme();
 render();
