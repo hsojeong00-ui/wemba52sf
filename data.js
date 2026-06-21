@@ -19,7 +19,7 @@
    설정법: README.md "댓글 기능 켜기" 참고.
    cusdis.com 가입 → 사이트 등록 후 받는 App ID 를 따옴표 안에 붙여넣으세요.
    비워두면("") 댓글 영역은 "설정 전" 안내만 표시됩니다. */
-const CUSDIS_APP_ID = "";
+const CUSDIS_APP_ID = "86cf2bf3-a2ef-4640-9c42-58828ca9be8d";
 
 const DATA = {
   meta: {
