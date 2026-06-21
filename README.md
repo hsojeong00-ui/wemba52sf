@@ -17,15 +17,15 @@
 
 ---
 
-## 매주 발행 (운영 방식 A — Claude가 data.js 업데이트)
+## 발행/업데이트 (운영 방식 A — Claude가 data.js 업데이트)
 
-1. 새 주차 내용(노트 초안이든 "이거 추가/수정"이든)을 **Claude에게 전달**
+1. 새 내용(노트 초안이든 "이거 추가/수정"이든)을 **Claude에게 전달**
    → Claude가 `data.js` 를 갱신해 줌
 2. Sally는 GitHub에서 갱신된 `data.js` 를 **Commit** (또는 Claude가 만든 파일을 업로드)
 3. 약 1분 뒤 사이트 자동 반영
 
 > 직접 고치고 싶을 때를 위한 형식:
-> - `meta.weekLabel`, `meta.asOf` → 이번 주로 변경
+> - `meta.lastUpdated` → 업데이트한 날짜로 변경 (`"YYYY-MM-DD"`, 상단에 "최종 업데이트"로 표시)
 > - `deadlines[]` → 새 일정 추가. 날짜는 `"2026-07-09T19:00"`(시간 있음) 또는 `"2026-07-09"`(종일).
 >   `type`: `registration`/`exam`/`paper`/`quiz`/`session`/`milestone`, `hard:true` 면 빨간 "필수" 강조.
 > - 지난 일정은 지워도 되고 둬도 자동으로 "지남" 처리됩니다.

@@ -140,7 +140,7 @@ const DATA = {
     {
       code:"HSC", color:"#9c36b5",
       name:{ kr:"인적·사회적 자본 (MacDuffie)", en:"Human & Social Capital (MacDuffie)", cn:"人力与社会资本 (MacDuffie)" },
-      headline:{ kr:"7/3 시작 — 안 당하려면 미리", en:"Starts Jul 3 — don't get ambushed", cn:"7/3 开始 — 别被打措手不及" },
+      headline:{ kr:"7/3 시작 — 안 당하려면 미리", en:"Starts Jul 3 — don't get ambushed", cn:"7/3 开始 — 提前准备,别措手不及" },
       points:[
         { kr:"MGMT 교수 교체(MacDuffie) · 7/3 사전과제: Job Diagnostic Survey + MPS 점수 수업 전 계산", en:"Professor switches (MacDuffie) · Jul 3 pre-work: Job Diagnostic Survey + MPS score before class", cn:"MGMT 换教授(MacDuffie) · 7/3 课前作业: 课前算好 Job Diagnostic Survey + MPS 分数" },
         { kr:"Netflix Freedom & Responsibility 덱(Study.Net) 모듈 전 훑기", en:"Skim the Netflix Freedom & Responsibility deck (Study.Net) before the module", cn:"模块前浏览 Netflix Freedom & Responsibility 讲义(Study.Net)" },
