@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>WEMBA 52 생존 대시보드</title>
+<meta name="description" content="WEMBA 52 생존노트 — 마감·시험·과제 한눈에 보기" />
+<!-- 검색엔진 노출 차단 (링크 아는 사람만 접근) -->
+<meta name="robots" content="noindex, nofollow" />
+<style>
+  :root{
+    --bg:#0e1116; --panel:#171b22; --panel2:#1d222b; --line:#2a313c;
+    --ink:#e8edf4; --muted:#9aa6b6; --faint:#6b7787;
+    --accent:#4dabf7; --hard:#ff6b6b; --ok:#51cf66; --warn:#ffd43b;
+    --shadow:0 1px 0 rgba(255,255,255,.03), 0 12px 30px rgba(0,0,0,.35);
+    --r:16px;
+  }
+  /* 라이트 테마 변수 (수동 선택 시 + 시스템이 라이트이고 수동 선택 없을 때) */
+  :root[data-theme="light"]{
+    --bg:#f3f5f9; --panel:#ffffff; --panel2:#f6f8fb; --line:#e3e8f0;
+    --ink:#101620; --muted:#5a6577; --faint:#8a95a6;
+    --shadow:0 1px 2px rgba(16,22,32,.04), 0 10px 28px rgba(16,22,32,.08);
+  }
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme]){
+      --bg:#f3f5f9; --panel:#ffffff; --panel2:#f6f8fb; --line:#e3e8f0;
+      --ink:#101620; --muted:#5a6577; --faint:#8a95a6;
+      --shadow:0 1px 2px rgba(16,22,32,.04), 0 10px 28px rgba(16,22,32,.08);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{margin:0}
+  body{
+    background:radial-gradient(1200px 600px at 80% -10%, color-mix(in srgb,var(--accent) 12%, transparent), transparent), var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1120px; margin:0 auto; padding:24px 20px 80px}
+  a{color:var(--accent)}
+
+  /* header */
+  header.top{display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:8px}
+  .brand .kicker{font-size:13px; font-weight:700; letter-spacing:.12em; color:var(--accent); text-transform:uppercase}
+  .brand h1{margin:.1em 0 .15em; font-size:clamp(26px,4.5vw,40px); letter-spacing:-.02em; line-height:1.05}
+  .brand .sub{color:var(--muted); font-size:14px}
+  .brand .asof{color:var(--faint); font-size:12.5px; margin-top:2px}
+
+  .controls{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+  .toggle{display:inline-flex; background:var(--panel); border:1px solid var(--line); border-radius:999px; padding:3px; box-shadow:var(--shadow)}
+  .toggle button{border:0; background:transparent; color:var(--muted); font-weight:700; font-size:13px; padding:7px 13px; border-radius:999px; cursor:pointer; line-height:1}
+  .toggle button.on{background:var(--accent); color:#06121f}
+  .toggle.theme button{padding:7px 11px; font-size:15px}
+
+  /* hero countdown */
+  .hero{margin:18px 0 26px; background:linear-gradient(135deg, color-mix(in srgb,var(--hard) 22%, var(--panel)), var(--panel)); border:1px solid color-mix(in srgb,var(--hard) 35%, var(--line)); border-radius:var(--r); padding:22px 24px; box-shadow:var(--shadow); display:flex; align-items:center; gap:26px; flex-wrap:wrap}
+  .hero .label{font-size:12px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--hard)}
+  .hero h2{margin:.15em 0 .1em; font-size:clamp(20px,3vw,28px); letter-spacing:-.01em}
+  .hero .meta{color:var(--muted); font-size:13.5px}
+  .hero .count{margin-left:auto; text-align:center; min-width:120px}
+  .hero .count .num{font-size:clamp(40px,7vw,64px); font-weight:800; line-height:1; letter-spacing:-.03em}
+  .hero .count .unit{color:var(--muted); font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase}
+
+  /* jump nav */
+  .jump{position:sticky; top:0; z-index:30; display:flex; gap:7px; overflow-x:auto; padding:11px 20px;
+    margin:8px -20px 0; background:color-mix(in srgb,var(--bg) 85%, transparent); backdrop-filter:blur(10px);
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line); -webkit-overflow-scrolling:touch}
+  .jump::-webkit-scrollbar{height:0}
+  .jump a{flex:0 0 auto; font-size:12.5px; font-weight:700; color:var(--muted); text-decoration:none;
+    padding:6px 13px; border:1px solid var(--line); border-radius:999px; background:var(--panel); white-space:nowrap; transition:.15s}
+  .jump a:hover{color:var(--ink); border-color:var(--accent)}
+  .jump a.cur{color:#06121f; background:var(--accent); border-color:var(--accent)}
+
+  /* section */
+  section{margin:34px 0; scroll-margin-top:72px}
+  .h{display:flex; align-items:baseline; gap:10px; margin:0 0 14px}
+  .h h3{margin:0; font-size:18px; letter-spacing:-.01em}
+  .h .hint{color:var(--faint); font-size:12.5px}
+
+  /* grid helpers */
+  .grid{display:grid; gap:14px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g4{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+  @media(max-width:720px){ .g2{grid-template-columns:1fr} }
+
+  .card{background:var(--panel); border:1px solid var(--line); border-radius:var(--r); padding:18px; box-shadow:var(--shadow)}
+
+  /* deadlines list */
+  .dl{display:flex; flex-direction:column; gap:8px}
+  .month-sep{display:flex; align-items:center; gap:12px; margin:14px 2px 4px; color:var(--faint); font-size:12px; font-weight:800; letter-spacing:.12em; text-transform:uppercase}
+  .month-sep::after{content:""; flex:1; height:1px; background:var(--line)}
+  .month-sep:first-child{margin-top:0}
+  .row{display:flex; align-items:center; gap:14px; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:12px 14px; box-shadow:var(--shadow)}
+  .row.past{opacity:.42}
+  .dd{flex:0 0 64px; text-align:center}
+  .dd .big{font-size:20px; font-weight:800; line-height:1}
+  .dd .sm{font-size:10.5px; color:var(--faint); font-weight:700; letter-spacing:.1em; text-transform:uppercase}
+  .dd.urgent .big{color:var(--hard)} .dd.soon .big{color:var(--warn)}
+  .row .body{flex:1; min-width:0}
+  .row .ttl{font-weight:700; font-size:15px}
+  .row .det{color:var(--muted); font-size:13px; margin-top:1px}
+  .row .when{color:var(--faint); font-size:12px; margin-top:2px}
+  .pill{flex:0 0 auto; font-size:11px; font-weight:800; letter-spacing:.06em; padding:4px 9px; border-radius:999px; text-transform:uppercase}
+  .tag{display:inline-block; font-size:10.5px; font-weight:800; padding:2px 7px; border-radius:6px; letter-spacing:.04em; color:#06121f}
+
+  /* course cards */
+  .course .top{display:flex; align-items:center; gap:10px; margin-bottom:6px}
+  .course .dot{width:10px;height:10px;border-radius:50%}
+  .course .code{font-weight:800; letter-spacing:.04em}
+  .course .nm{color:var(--muted); font-size:12.5px}
+  .course .head{font-weight:700; margin:8px 0 10px; font-size:14.5px}
+  .course ul{margin:0; padding-left:0; list-style:none; display:flex; flex-direction:column; gap:7px}
+  .course li{font-size:13px; color:var(--ink); padding-left:16px; position:relative}
+  .course li::before{content:""; position:absolute; left:2px; top:8px; width:5px;height:5px;border-radius:50%; background:var(--faint)}
+  .course .traps{margin-top:12px; border-top:1px dashed var(--line); padding-top:10px}
+  .course .traps .lab{font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--hard); margin-bottom:6px}
+  .course .traps li::before{background:var(--hard)}
+
+  /* block week */
+  .bw{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+  @media(max-width:720px){ .bw{grid-template-columns:1fr} }
+  .opt{background:var(--panel2); border:1px solid var(--line); border-radius:12px; padding:16px}
+  .opt .code{font-weight:800; color:var(--accent)}
+  .opt .t{font-weight:700; margin:2px 0}
+  .opt .p{color:var(--faint); font-size:12px; margin-bottom:6px}
+  .opt .d{font-size:13px; color:var(--muted)}
+  .bw-note{grid-column:1/-1; color:var(--muted); font-size:12.5px}
+
+  /* checklist */
+  .check label{display:flex; gap:11px; align-items:flex-start; padding:9px 4px; border-bottom:1px solid var(--line); cursor:pointer; font-size:14px}
+  .check label:last-child{border-bottom:0}
+  .check input{margin-top:3px; width:17px;height:17px; accent-color:var(--accent); flex:0 0 auto}
+  .check .by{margin-left:auto; flex:0 0 auto; color:var(--faint); font-size:11.5px; font-weight:700; white-space:nowrap; padding-left:8px}
+  .check label.done span.txt{text-decoration:line-through; color:var(--faint)}
+  .progress{height:6px; background:var(--line); border-radius:999px; overflow:hidden; margin:4px 0 14px}
+  .progress > i{display:block; height:100%; background:var(--ok); width:0; transition:width .3s}
+
+  /* social / dinner */
+  .social-top{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:center}
+  .social-top .d{font-size:13px; color:var(--muted); flex:1; min-width:220px}
+  .cta{display:inline-block; background:var(--accent); color:#06121f; font-weight:800; font-size:13.5px; padding:10px 18px; border-radius:999px; text-decoration:none; white-space:nowrap}
+  .social-frame{width:100%; height:560px; border:1px solid var(--line); border-radius:12px; margin-top:14px; background:var(--panel2)}
+  .social-cap{color:var(--faint); font-size:11.5px; margin-top:6px}
+
+  /* schedule */
+  .sched{width:100%; border-collapse:collapse; font-size:13px; min-width:460px}
+  .sched th,.sched td{padding:9px 11px; border-bottom:1px solid var(--line); vertical-align:top; text-align:left}
+  .sched thead th{color:var(--faint); font-size:11px; text-transform:uppercase; letter-spacing:.07em; font-weight:800}
+  .sched .time{white-space:nowrap; color:var(--muted); font-weight:700; width:92px}
+  .sched tr.day td{background:var(--panel2); font-weight:800; font-size:12px; letter-spacing:.04em}
+  .sched td.both{color:var(--muted)}
+  .sched td.cls{font-weight:600}
+  .sched td.exam{color:var(--hard); font-weight:700}
+  .sched-notes{color:var(--faint); font-size:12px; margin-top:14px; display:flex; flex-direction:column; gap:5px}
+
+  /* table */
+  .tbl{width:100%; border-collapse:collapse; font-size:13px}
+  .tbl th,.tbl td{text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top}
+  .tbl th{color:var(--faint); font-size:11px; text-transform:uppercase; letter-spacing:.08em; font-weight:800}
+  .tbl td:first-child{font-weight:700; white-space:nowrap}
+  .tbl .w{color:var(--muted)}
+
+  footer{margin-top:46px; color:var(--faint); font-size:12.5px; text-align:center; border-top:1px solid var(--line); padding-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="brand">
+      <div class="kicker" id="kicker">Survival Dashboard</div>
+      <h1 id="title">WEMBA 52</h1>
+      <div class="sub" id="weekLabel"></div>
+      <div class="asof" id="asof"></div>
+    </div>
+    <div class="controls">
+      <div class="toggle theme" role="group" aria-label="theme">
+        <button data-theme="light" title="Light">☀️</button>
+        <button data-theme="dark" title="Dark">🌙</button>
+      </div>
+      <div class="toggle lang" role="group" aria-label="language">
+        <button data-lang="kr">한국어</button>
+        <button data-lang="en">EN</button>
+        <button data-lang="cn">中文</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="jump" id="jump"></nav>
+
+  <div class="hero" id="hero" hidden>
+    <div>
+      <div class="label" data-t="nextDue"></div>
+      <h2 id="heroTitle"></h2>
+      <div class="meta" id="heroMeta"></div>
+    </div>
+    <div class="count">
+      <div class="num" id="heroNum">–</div>
+      <div class="unit" id="heroUnit"></div>
+    </div>
+  </div>
+
+  <section id="sec-upcoming">
+    <div class="h"><h3 data-t="upcoming"></h3><span class="hint" data-t="upcomingHint"></span></div>
+    <div class="dl" id="deadlines"></div>
+  </section>
+
+  <section id="sec-schedule">
+    <div class="h"><h3 data-t="schedule"></h3><span class="hint" id="schedHint"></span></div>
+    <div class="card" id="schedule"></div>
+  </section>
+
+  <section id="sec-bw">
+    <div class="h"><h3 data-t="bwTitle"></h3><span class="hint" data-t="bwHint"></span></div>
+    <div class="card">
+      <div class="bw" id="blockWeek"></div>
+    </div>
+  </section>
+
+  <section id="sec-courses">
+    <div class="h"><h3 data-t="courses"></h3></div>
+    <div class="grid g2" id="courses"></div>
+  </section>
+
+  <section id="sec-actions">
+    <div class="h"><h3 data-t="checklist"></h3><span class="hint" data-t="checklistHint"></span></div>
+    <div class="card check">
+      <div class="progress"><i id="progFill"></i></div>
+      <div id="actions"></div>
+    </div>
+  </section>
+
+  <section id="sec-canvas">
+    <div class="h"><h3 data-t="canvas"></h3><span class="hint" data-t="canvasHint"></span></div>
+    <div class="card" style="overflow-x:auto">
+      <table class="tbl" id="canvas"></table>
+    </div>
+  </section>
+
+  <section id="sec-social">
+    <div class="h"><h3 data-t="social"></h3><span class="hint" data-t="socialHint"></span></div>
+    <div class="card" id="social"></div>
+  </section>
+
+  <section id="sec-comments">
+    <div class="h"><h3 data-t="comments"></h3><span class="hint" data-t="commentsHint"></span></div>
+    <div class="card" id="commentsBox"></div>
+  </section>
+
+  <footer id="footer"></footer>
+</div>
+
+<script src="data.js"></script>
+<script>
+/* ---------- i18n strings (UI chrome) ---------- */
+const T = {
+  kicker:       { kr:"생존 대시보드", en:"Survival Dashboard", cn:"生存看板" },
+  nextDue:      { kr:"가장 임박한 마감", en:"Next critical deadline", cn:"最近的关键截止" },
+  upcoming:     { kr:"다가오는 일정", en:"Upcoming", cn:"近期日程" },
+  upcomingHint: { kr:"오늘 기준 자동 정렬 · D-day 실시간 계산", en:"Auto-sorted from today · live D-day", cn:"按今天自动排序 · 实时倒计时" },
+  schedule:     { kr:"다음 수업 주말 일정표", en:"Next class weekend", cn:"下个上课周末课表" },
+  sec1:         { kr:"섹션 1", en:"Section 1", cn:"第1班" },
+  sec2:         { kr:"섹션 2", en:"Section 2", cn:"第2班" },
+  social:       { kr:"🍽️ 디너 & 소셜", en:"🍽️ Dinner & Social", cn:"🍽️ 聚餐 & 社交" },
+  socialHint:   { kr:"금요일 디너 약속은 여기서", en:"Friday dinner plans live here", cn:"周五聚餐在这里安排" },
+  socialFallback:{ kr:"↑ 아래에 안 보이면 위 버튼으로 열어주세요", en:"↑ If it doesn't load below, use the button above", cn:"↑ 如下方未显示,请用上方按钮打开" },
+  bwTitle:      { kr:"이번 주 결정 — Block Week 신청", en:"This week's decision — Block Week", cn:"本周决定 — Block Week 选课" },
+  bwHint:       { kr:"둘 중 하나 선택", en:"Pick one of two", cn:"二选一" },
+  courses:      { kr:"과목별 현황", en:"By course", cn:"各科状况" },
+  checklist:    { kr:"액션 체크리스트", en:"Action checklist", cn:"行动清单" },
+  checklistHint:{ kr:"체크 상태는 이 브라우저에 저장돼요", en:"Saved in this browser", cn:"勾选状态保存在本浏览器" },
+  canvas:       { kr:"Canvas 자료 위치 맵", en:"Canvas resource map", cn:"Canvas 资料位置图" },
+  canvasHint:   { kr:"뭐가 어디에 있는지", en:"Where everything lives", cn:"东西都在哪里" },
+  comments:     { kr:"피드백 · 댓글", en:"Feedback · Comments", cn:"反馈 · 评论" },
+  commentsHint: { kr:"정정·추가 제안 환영합니다 (이름과 함께 남겨주세요)", en:"Corrections & suggestions welcome (please include your name)", cn:"欢迎指正与补充建议(请留下名字)" },
+  commentsSetup:{ kr:"💬 댓글 기능은 설정 후 표시됩니다 — README의 '댓글 기능 켜기' 참고", en:"💬 Comments appear once configured — see 'Enable comments' in README", cn:"💬 评论功能配置后显示 — 参见 README 的 'Enable comments'" },
+  traps:        { kr:"함정 / 핵심", en:"Traps / key points", cn:"陷阱 / 要点" },
+  today:        { kr:"오늘", en:"TODAY", cn:"今天" },
+  done:         { kr:"지남", en:"PAST", cn:"已过" },
+  days:         { kr:"일 남음", en:"days left", cn:"天" },
+  hard:         { kr:"필수", en:"HARD", cn:"必做" },
+  dday:         { kr:"D-DAY", en:"TODAY", cn:"就在今天" },
+  weekly:       { kr:"매주 업데이트", en:"updated weekly", cn:"每周更新" },
+  dashName:     { kr:"생존 대시보드", en:"Survival Dashboard", cn:"生存看板" },
+  canvasHead:   { kr:["과목","자료 위치","제출/퀴즈","주의"], en:["Subject","Where","Submit","Watch"], cn:["科目","资料位置","提交/测验","注意"] },
+  nav:          {
+    "sec-upcoming":{kr:"다가오는 일정",en:"Upcoming",cn:"近期日程"},
+    "sec-schedule":{kr:"수업 일정표",en:"Class schedule",cn:"上课课表"},
+    "sec-bw":{kr:"이번 주 결정",en:"This week's decision",cn:"本周决定"},
+    "sec-actions":{kr:"할 일",en:"To-do",cn:"待办"},
+    "sec-canvas":{kr:"자료 맵",en:"Resource map",cn:"资料图"},
+    "sec-social":{kr:"디너",en:"Dinner",cn:"聚餐"},
+  },
+  typeNames:    {
+    registration:{kr:"등록",en:"REGISTER",cn:"选课"}, exam:{kr:"시험",en:"EXAM",cn:"考试"},
+    paper:{kr:"과제",en:"PAPER",cn:"论文"}, quiz:{kr:"퀴즈",en:"QUIZ",cn:"测验"},
+    session:{kr:"세션",en:"SESSION",cn:"辅导"}, milestone:{kr:"일정",en:"MILESTONE",cn:"节点"},
+  },
+};
+const TYPE_COLOR = {
+  registration:"var(--hard)", exam:"var(--hard)", paper:"var(--warn)",
+  quiz:"var(--warn)", session:"var(--accent)", milestone:"var(--faint)",
+};
+
+let lang = localStorage.getItem("wemba_lang") || "kr";
+
+/* ---------- date helpers (PT = UTC-7 in summer) ---------- */
+const PT_OFFSET = "-07:00";
+function toDate(s){ // "YYYY-MM-DD" or "YYYY-MM-DDTHH:mm" -> Date (PT-anchored)
+  const hasTime = s.includes("T");
+  const iso = hasTime ? `${s}:00${PT_OFFSET}` : `${s}T23:59:00${PT_OFFSET}`;
+  return { d:new Date(iso), allDay:!hasTime };
+}
+function startOfTodayPT(){
+  const now = new Date();
+  // current PT date string
+  const ptNow = new Date(now.toLocaleString("en-US",{timeZone:"America/Los_Angeles"}));
+  ptNow.setHours(0,0,0,0);
+  return ptNow;
+}
+function daysUntil(target){
+  const today = startOfTodayPT();
+  const t = new Date(target.toLocaleString("en-US",{timeZone:"America/Los_Angeles"}));
+  t.setHours(0,0,0,0);
+  return Math.round((t - today)/86400000);
+}
+const MON = { kr:["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
+              en:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+              cn:["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"] };
+const MON_FULL_EN = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const DOW = { kr:["일","월","화","수","목","금","토"], en:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+              cn:["周日","周一","周二","周三","周四","周五","周六"] };
+function ptOf(s){ const {d}=toDate(s); return new Date(d.toLocaleString("en-US",{timeZone:"America/Los_Angeles"})); }
+function monthKey(s){ const pt=ptOf(s); return pt.getFullYear()*100+pt.getMonth(); }
+function monthLabel(s){
+  const pt=ptOf(s), y=pt.getFullYear(), m=pt.getMonth();
+  if(lang==="en") return `${MON_FULL_EN[m]} ${y}`;
+  if(lang==="cn") return `${y}年${m+1}月`;
+  return `${y}년 ${m+1}월`;
+}
+function fmtWhen(item){
+  const {d,allDay} = toDate(item.date);
+  const pt = new Date(d.toLocaleString("en-US",{timeZone:"America/Los_Angeles"}));
+  const mo = MON[lang][pt.getMonth()], day = pt.getDate(), dow = DOW[lang][pt.getDay()];
+  let s;
+  if(lang==="kr") s = `${mo} ${day}일(${dow})`;
+  else if(lang==="cn") s = `${mo}${day}日(${dow})`;
+  else s = `${dow}, ${mo} ${day}`;
+  if(!allDay){
+    let h=pt.getHours(), m=pt.getMinutes(); const ap=h>=12?"PM":"AM"; h=h%12||12;
+    s += ` · ${h}:${String(m).padStart(2,"0")} ${ap} PT`;
+  }
+  return s;
+}
+
+/* ---------- render ---------- */
+function L(o){ return (o && (o[lang] ?? o.kr ?? o.en)) || ""; }
+
+function render(){
+  document.documentElement.lang = lang==="kr"?"ko":(lang==="cn"?"zh":"en");
+  document.querySelectorAll(".toggle.lang button").forEach(b=> b.classList.toggle("on", b.dataset.lang===lang));
+
+  // chrome text
+  document.querySelectorAll("[data-t]").forEach(el=>{ el.textContent = T[el.dataset.t][lang]; });
+  document.getElementById("kicker").textContent = T.kicker[lang];
+  document.getElementById("weekLabel").textContent = L(DATA.meta.weekLabel);
+  document.getElementById("asof").textContent = "✺ " + L(DATA.meta.asOf);
+
+  renderNav();
+
+  const sorted = [...DATA.deadlines].sort((a,b)=> toDate(a.date).d - toDate(b.date).d);
+
+  renderHero(sorted);
+  renderDeadlines(sorted);
+  renderSchedule();
+  renderSocial();
+  renderBlockWeek();
+  renderCourses();
+  renderActions();
+  renderCanvas();
+  renderComments();
+
+  document.getElementById("footer").innerHTML =
+    `WEMBA 52 ${T.dashName[lang]} · ${DATA.meta.author} · `+
+    `<span style="color:var(--faint)">${T.weekly[lang]}</span>`;
+}
+
+const NAV_ORDER = ["sec-upcoming","sec-schedule","sec-bw","sec-actions","sec-canvas","sec-social"];
+function renderNav(){
+  const nav = document.getElementById("jump");
+  nav.innerHTML = NAV_ORDER.filter(id=>{
+    const el = document.getElementById(id);
+    if(!el) return false;
+    if(id==="sec-social" && (!DATA.social || !DATA.social.url)) return false;
+    return true;
+  }).map(id=>`<a href="#${id}">${T.nav[id][lang]}</a>`).join("");
+}
+let _spy = false;
+function setupScrollSpy(){
+  if(_spy || !("IntersectionObserver" in window)) return; _spy = true;
+  const nav = document.getElementById("jump");
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(en=>{
+      if(!en.isIntersecting) return;
+      nav.querySelectorAll("a").forEach(a=>a.classList.remove("cur"));
+      const link = nav.querySelector(`a[href="#${en.target.id}"]`);
+      if(link){ link.classList.add("cur"); nav.scrollLeft = link.offsetLeft - 16; }
+    });
+  }, { rootMargin:"-72px 0px -65% 0px", threshold:0 });
+  document.querySelectorAll("section[id]").forEach(s=>obs.observe(s));
+}
+function renderHero(sorted){
+  const hero = document.getElementById("hero");
+  const next = sorted.find(it => daysUntil(toDate(it.date).d) >= 0 && (it.hard || it.type==="registration" || it.type==="exam" || it.type==="paper")) || sorted.find(it=>daysUntil(toDate(it.date).d)>=0);
+  if(!next){ hero.hidden = true; return; }
+  hero.hidden = false;
+  const n = daysUntil(toDate(next.date).d);
+  document.getElementById("heroTitle").textContent = L(next.title);
+  document.getElementById("heroMeta").textContent = fmtWhen(next) + (L(next.detail)? " · "+L(next.detail) : "");
+  document.getElementById("heroNum").textContent = n===0 ? T.dday[lang] : "D-"+n;
+  document.getElementById("heroUnit").textContent = n===0 ? "" : T.days[lang];
+}
+
+function renderDeadlines(sorted){
+  const box = document.getElementById("deadlines"); box.innerHTML="";
+  let curMonth = null;
+  sorted.forEach(it=>{
+    // 월이 바뀌면 구분선 삽입
+    const mk = monthKey(it.date);
+    if(mk !== curMonth){
+      curMonth = mk;
+      const sep = document.createElement("div"); sep.className="month-sep";
+      sep.textContent = monthLabel(it.date);
+      box.appendChild(sep);
+    }
+    const n = daysUntil(toDate(it.date).d);
+    const past = n < 0;
+    const pt = ptOf(it.date);
+    const urgent = !past && n<=2, soon = !past && n<=7 && n>2;
+    const row = document.createElement("div");
+    row.className = "row"+(past?" past":"");
+    const ddText = past ? T.done[lang] : (n===0 ? T.today[lang] : "D-"+n);
+    const dateBox = lang==="en" ? `${MON.en[pt.getMonth()]} ${pt.getDate()}` : `${pt.getMonth()+1}/${pt.getDate()}`;
+    row.innerHTML = `
+      <div class="dd ${urgent?'urgent':soon?'soon':''}">
+        <div class="big">${dateBox}</div>
+        <div class="sm">${ddText}</div>
+      </div>
+      <div class="body">
+        <div class="ttl">${L(it.title)} <span class="tag" style="background:${TYPE_COLOR[it.type]}">${T.typeNames[it.type][lang]}</span></div>
+        ${L(it.detail)?`<div class="det">${L(it.detail)}</div>`:""}
+        <div class="when">${fmtWhen(it)} · ${it.course}</div>
+      </div>
+      ${it.hard?`<div class="pill" style="background:color-mix(in srgb,var(--hard) 18%,transparent); color:var(--hard)">${T.hard[lang]}</div>`:""}
+    `;
+    box.appendChild(row);
+  });
+}
+
+function renderSchedule(){
+  const s = DATA.schedule;
+  if(!s){ document.getElementById("schedule").innerHTML=""; return; }
+  document.getElementById("schedHint").textContent = L(s.weekend);
+  let html = `<div style="overflow-x:auto"><table class="sched">`+
+    `<thead><tr><th></th><th>${T.sec1[lang]}</th><th>${T.sec2[lang]}</th></tr></thead><tbody>`;
+  s.days.forEach(day=>{
+    html += `<tr class="day"><td colspan="3">${L(day.label)}</td></tr>`;
+    day.rows.forEach(r=>{
+      if(r.both){
+        const isExam = /Midterm|중간|期中/.test(L(r.both));
+        html += `<tr><td class="time">${r.time}</td><td class="both ${isExam?'exam':''}" colspan="2">${L(r.both)}</td></tr>`;
+      } else {
+        html += `<tr><td class="time">${r.time}</td><td class="cls">${L(r.s1)}</td><td class="cls">${L(r.s2)}</td></tr>`;
+      }
+    });
+  });
+  html += `</tbody></table></div>`;
+  if(s.notes && s.notes.length)
+    html += `<div class="sched-notes">${s.notes.map(n=>`<span>${L(n)}</span>`).join("")}</div>`;
+  document.getElementById("schedule").innerHTML = html;
+}
+let _socialInit = false;
+function renderSocial(){
+  const s = DATA.social;
+  const sec = document.getElementById("sec-social");
+  if(!s || !s.url){ sec.style.display = "none"; return; }
+  sec.style.display = "";
+  const box = document.getElementById("social");
+  if(!_socialInit){                         // 카드/임베드는 한 번만 생성 (언어 토글 시 iframe 새로고침 방지)
+    _socialInit = true;
+    box.innerHTML =
+      `<div class="social-top">`+
+        `<div class="d" id="socialDesc"></div>`+
+        `<a class="cta" id="socialCta" href="${s.url}" target="_blank" rel="noopener"></a>`+
+      `</div>`+
+      (s.embed
+        ? `<iframe class="social-frame" src="${s.embedUrl||s.url}" loading="lazy" title="WEMBA SF Social"></iframe>`+
+          `<div class="social-cap" id="socialCap"></div>`
+        : ``);
+  }
+  document.getElementById("socialDesc").textContent = L(s.desc);
+  document.getElementById("socialCta").textContent = L(s.cta) + " ↗";
+  const cap = document.getElementById("socialCap");
+  if(cap) cap.textContent = T.socialFallback[lang];
+}
+function renderBlockWeek(){
+  const box = document.getElementById("blockWeek"); box.innerHTML="";
+  DATA.blockWeek.options.forEach(o=>{
+    const el = document.createElement("div"); el.className="opt";
+    el.innerHTML = `<div class="code">${o.code}</div>
+      <div class="t">${L(o.title)}</div>
+      <div class="p">${o.prof}</div>
+      <div class="d">${L(o.desc)}</div>`;
+    box.appendChild(el);
+  });
+  const note = document.createElement("div"); note.className="bw-note";
+  note.textContent = "ⓘ " + L(DATA.blockWeek.note);
+  box.appendChild(note);
+}
+
+function renderCourses(){
+  const box = document.getElementById("courses"); box.innerHTML="";
+  DATA.courses.forEach(c=>{
+    const el = document.createElement("div"); el.className="card course";
+    const pts = c.points.map(p=>`<li>${L(p)}</li>`).join("");
+    const traps = c.traps.length ? `<div class="traps"><div class="lab">${T.traps[lang]}</div><ul>${c.traps.map(t=>`<li>${L(t)}</li>`).join("")}</ul></div>` : "";
+    el.innerHTML = `
+      <div class="top"><span class="dot" style="background:${c.color}"></span>
+        <span class="code" style="color:${c.color}">${c.code}</span>
+        <span class="nm">${L(c.name)}</span></div>
+      <div class="head">${L(c.headline)}</div>
+      <ul>${pts}</ul>${traps}`;
+    box.appendChild(el);
+  });
+}
+
+function shortDate(s){
+  const pt=ptOf(s);
+  return lang==="en" ? `${MON.en[pt.getMonth()]} ${pt.getDate()}` : `${pt.getMonth()+1}/${pt.getDate()}`;
+}
+function byLabel(s){
+  if(lang==="kr") return `${shortDate(s)} 까지`;
+  if(lang==="cn") return `${shortDate(s)} 前`;
+  return `by ${shortDate(s)}`;
+}
+function renderActions(){
+  const box = document.getElementById("actions"); box.innerHTML="";
+  const saved = JSON.parse(localStorage.getItem("wemba_actions")||"{}");
+  DATA.actions.forEach(a=>{
+    const done = !!saved[a.id];
+    const lab = document.createElement("label"); lab.className = done?"done":"";
+    const byTxt = byLabel(a.by);
+    lab.innerHTML = `<input type="checkbox" ${done?"checked":""} data-id="${a.id}">
+      <span class="txt">${L(a.label)}</span><span class="by">${byTxt}</span>`;
+    box.appendChild(lab);
+  });
+  box.querySelectorAll("input").forEach(inp=>{
+    inp.addEventListener("change",()=>{
+      const s = JSON.parse(localStorage.getItem("wemba_actions")||"{}");
+      s[inp.dataset.id] = inp.checked; localStorage.setItem("wemba_actions",JSON.stringify(s));
+      inp.closest("label").classList.toggle("done", inp.checked);
+      updateProgress();
+    });
+  });
+  updateProgress();
+}
+function updateProgress(){
+  const saved = JSON.parse(localStorage.getItem("wemba_actions")||"{}");
+  const total = DATA.actions.length;
+  const done = DATA.actions.filter(a=>saved[a.id]).length;
+  document.getElementById("progFill").style.width = (total? done/total*100:0)+"%";
+}
+
+let _cusdisInit = false;
+function renderComments(){
+  const box = document.getElementById("commentsBox");
+  if(!CUSDIS_APP_ID){                       // 아직 설정 전 → 안내만
+    box.innerHTML = `<div style="color:var(--faint);font-size:13px">${T.commentsSetup[lang]}</div>`;
+    return;
+  }
+  if(_cusdisInit) return;                    // 위젯은 한 번만 삽입 (언어 토글 시 재삽입 방지)
+  _cusdisInit = true;
+  const theme = localStorage.getItem("wemba_theme") || (systemDark() ? "dark" : "light");
+  box.innerHTML =
+    `<div id="cusdis_thread"
+       data-host="https://cusdis.com"
+       data-app-id="${CUSDIS_APP_ID}"
+       data-page-id="wemba52"
+       data-page-url="${location.href}"
+       data-page-title="WEMBA 52 Survival Dashboard"
+       data-theme="${theme}"></div>`;
+  const s = document.createElement("script");
+  s.async = true; s.defer = true;
+  s.src = "https://cusdis.com/js/cusdis.es.js";
+  document.body.appendChild(s);
+}
+function renderCanvas(){
+  const t = document.getElementById("canvas");
+  const head = T.canvasHead[lang];
+  t.innerHTML = `<thead><tr>${head.map(h=>`<th>${h}</th>`).join("")}</tr></thead>
+    <tbody>${DATA.canvasMap.map(r=>`<tr>
+      <td>${r.subject}</td>
+      <td class="w">${L(r.where)}</td>
+      <td class="w">${L(r.submit)}</td>
+      <td class="w">${L(r.watch)}</td></tr>`).join("")}</tbody>`;
+}
+
+/* ---------- theme ---------- */
+function systemDark(){ return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches; }
+function applyTheme(){
+  const saved = localStorage.getItem("wemba_theme"); // "light" | "dark" | null(=시스템 따름)
+  if(saved){ document.documentElement.setAttribute("data-theme", saved); }
+  else { document.documentElement.removeAttribute("data-theme"); }
+  const effective = saved || (systemDark() ? "dark" : "light");
+  document.querySelectorAll(".toggle.theme button").forEach(b=> b.classList.toggle("on", b.dataset.theme===effective));
+}
+document.querySelectorAll(".toggle.theme button").forEach(b=>{
+  b.addEventListener("click",()=>{ localStorage.setItem("wemba_theme", b.dataset.theme); applyTheme(); });
+});
+
+/* ---------- language ---------- */
+document.querySelectorAll(".toggle.lang button").forEach(b=>{
+  b.addEventListener("click",()=>{ lang=b.dataset.lang; localStorage.setItem("wemba_lang",lang); render(); });
+});
+
+applyTheme();
+render();
+setupScrollSpy();
+</script>
+</body>
+</html>
