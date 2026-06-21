@@ -243,11 +243,6 @@
     <div class="card" id="social"></div>
   </section>
 
-  <section id="sec-comments">
-    <div class="h"><h3 data-t="comments"></h3><span class="hint" data-t="commentsHint"></span></div>
-    <div class="card" id="commentsBox"></div>
-  </section>
-
   <footer id="footer"></footer>
 </div>
 
@@ -272,9 +267,6 @@ const T = {
   checklistHint:{ kr:"체크 상태는 이 브라우저에 저장돼요", en:"Saved in this browser", cn:"勾选状态保存在本浏览器" },
   canvas:       { kr:"Canvas 자료 위치 맵", en:"Canvas resource map", cn:"Canvas 资料位置图" },
   canvasHint:   { kr:"뭐가 어디에 있는지", en:"Where everything lives", cn:"东西都在哪里" },
-  comments:     { kr:"피드백 · 댓글", en:"Feedback · Comments", cn:"反馈 · 评论" },
-  commentsHint: { kr:"정정·추가 제안 환영합니다 · 이름만 적으면 돼요 (이메일은 비워도 OK)", en:"Corrections & suggestions welcome · just your name (email optional)", cn:"欢迎指正与补充 · 只填名字即可(邮箱可留空)" },
-  commentsSetup:{ kr:"💬 댓글 기능은 설정 후 표시됩니다 — README의 '댓글 기능 켜기' 참고", en:"💬 Comments appear once configured — see 'Enable comments' in README", cn:"💬 评论功能配置后显示 — 参见 README 的 'Enable comments'" },
   traps:        { kr:"함정 / 핵심", en:"Traps / key points", cn:"陷阱 / 要点" },
   today:        { kr:"오늘", en:"TODAY", cn:"今天" },
   done:         { kr:"지남", en:"PAST", cn:"已过" },
@@ -291,7 +283,6 @@ const T = {
     "sec-actions":{kr:"할 일",en:"To-do",cn:"待办"},
     "sec-canvas":{kr:"자료 맵",en:"Resource map",cn:"资料图"},
     "sec-social":{kr:"디너",en:"Dinner",cn:"聚餐"},
-    "sec-comments":{kr:"피드백",en:"Feedback",cn:"反馈"},
   },
   typeNames:    {
     registration:{kr:"등록",en:"REGISTER",cn:"选课"}, exam:{kr:"시험",en:"EXAM",cn:"考试"},
@@ -380,14 +371,13 @@ function render(){
   renderCourses();
   renderActions();
   renderCanvas();
-  renderComments();
 
   document.getElementById("footer").innerHTML =
     `WEMBA 52 ${T.dashName[lang]} · ${DATA.meta.author} · `+
     `<span style="color:var(--faint)">${T.weekly[lang]}</span>`;
 }
 
-const NAV_ORDER = ["sec-upcoming","sec-schedule","sec-bw","sec-actions","sec-canvas","sec-social","sec-comments"];
+const NAV_ORDER = ["sec-upcoming","sec-schedule","sec-bw","sec-actions","sec-canvas","sec-social"];
 function renderNav(){
   const nav = document.getElementById("jump");
   nav.innerHTML = NAV_ORDER.filter(id=>{
@@ -573,29 +563,6 @@ function updateProgress(){
   document.getElementById("progFill").style.width = (total? done/total*100:0)+"%";
 }
 
-let _cusdisInit = false;
-function renderComments(){
-  const box = document.getElementById("commentsBox");
-  if(!CUSDIS_APP_ID){                       // 아직 설정 전 → 안내만
-    box.innerHTML = `<div style="color:var(--faint);font-size:13px">${T.commentsSetup[lang]}</div>`;
-    return;
-  }
-  if(_cusdisInit) return;                    // 위젯은 한 번만 삽입 (언어 토글 시 재삽입 방지)
-  _cusdisInit = true;
-  const theme = localStorage.getItem("wemba_theme") || (systemDark() ? "dark" : "light");
-  box.innerHTML =
-    `<div id="cusdis_thread"
-       data-host="https://cusdis.com"
-       data-app-id="${CUSDIS_APP_ID}"
-       data-page-id="wemba52"
-       data-page-url="${location.href}"
-       data-page-title="WEMBA 52 Survival Dashboard"
-       data-theme="${theme}"></div>`;
-  const s = document.createElement("script");
-  s.async = true; s.defer = true;
-  s.src = "https://cusdis.com/js/cusdis.es.js";
-  document.body.appendChild(s);
-}
 function renderCanvas(){
   const t = document.getElementById("canvas");
   const head = T.canvasHead[lang];
