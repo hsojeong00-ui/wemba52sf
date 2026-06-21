@@ -18,8 +18,7 @@
 const DATA = {
   meta: {
     cohort: "WEMBA 52",
-    weekLabel: { kr:"생존노트 #3 · 6월 22일 주", en:"Survival Note #3 · Week of June 22", cn:"生存笔记 #3 · 6月22日当周" },
-    asOf:     { kr:"6/20(토) 기준 Canvas 확인 · 정정 환영합니다", en:"Verified on Canvas as of Sat Jun 20 · corrections welcome", cn:"截至6/20(周六)已在Canvas核对 · 欢迎指正" },
+    lastUpdated: "2026-06-22",   // ← 업데이트할 때마다 이 날짜만 바꾸세요 (YYYY-MM-DD)
     author:   "Sally",
     tzLabel:  "PT",
   },
@@ -259,8 +258,8 @@ const DATA = {
      버튼만 남습니다. */
   social: {
     url: "https://wemba52sfsocial.netlify.app/",        // 버튼이 여는 전체 사이트
-    embedUrl: "https://wemba52sfsocial.netlify.app/#dinners", // 임베드는 디너 섹션으로 바로 스크롤
-    embed: true,
+    embedUrl: "https://wemba52sfsocial.netlify.app/#dinners", // (embed:true 일 때만 사용)
+    embed: false,   // 외부 사이트라 임베드하면 불필요한 정보가 따라옴 → 버튼만 표시
     desc: {
       kr:"금요일 디너는 동네·Afters를 함께 정하고 그룹(최대 8명)별로 식당을 골라요. 그룹에 참여하거나 직접 만들 수 있고, 팀 캡틴이 예약을 맡습니다. (목요일 도착·토요일 수업 후 모임도)",
       en:"For Friday dinner, pick a shared neighborhood/Afters, then each group (max 8) chooses its restaurant. Join a group or start your own; a team captain books it. (Thursday arrivals & Saturday after-class too.)",

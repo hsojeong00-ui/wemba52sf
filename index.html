@@ -9,58 +9,68 @@
 <meta name="robots" content="noindex, nofollow" />
 <style>
   :root{
-    --bg:#0e1116; --panel:#171b22; --panel2:#1d222b; --line:#2a313c;
-    --ink:#e8edf4; --muted:#9aa6b6; --faint:#6b7787;
-    --accent:#4dabf7; --hard:#ff6b6b; --ok:#51cf66; --warn:#ffd43b;
-    --shadow:0 1px 0 rgba(255,255,255,.03), 0 12px 30px rgba(0,0,0,.35);
-    --r:16px;
+    /* 다크 (토글 시) */
+    --bg:#15150f; --panel:#1e1e16; --panel2:#26261c; --line:#34342a;
+    --ink:#f3f3ea; --muted:#aeae9f; --faint:#7c7c6e;
+    --accent:#c8f23a; --hard:#ff6b66; --ok:#8bd44f; --warn:#e6c235;
+    --shadow:0 1px 0 rgba(255,255,255,.03), 0 14px 30px rgba(0,0,0,.45);
+    --r:18px;
+    --grad:linear-gradient(115deg, #cdf23a 0%, #e6f24e 55%, #eff06a 100%);
+    --mono:ui-monospace,"SF Mono","JetBrains Mono","Cascadia Code","Roboto Mono",Consolas,"Pretendard","Apple SD Gothic Neo","Malgun Gothic","맑은 고딕","PingFang SC","Microsoft YaHei","微软雅黑","Noto Sans KR","Noto Sans SC",sans-serif;
   }
-  /* 라이트 테마 변수 (수동 선택 시 + 시스템이 라이트이고 수동 선택 없을 때) */
+  /* 라이트(깨끗한 화이트 + 라임 포인트) — 기본 디자인 */
   :root[data-theme="light"]{
-    --bg:#f3f5f9; --panel:#ffffff; --panel2:#f6f8fb; --line:#e3e8f0;
-    --ink:#101620; --muted:#5a6577; --faint:#8a95a6;
-    --shadow:0 1px 2px rgba(16,22,32,.04), 0 10px 28px rgba(16,22,32,.08);
+    --bg:#f6f6f2; --panel:#ffffff; --panel2:#efefe8; --line:#e6e6dd;
+    --ink:#16160f; --muted:#5b5b50; --faint:#9a9a8c;
+    --accent:#bce62a; --hard:#e5484d; --ok:#5fa83a; --warn:#cc9a1f;
+    --shadow:0 1px 2px rgba(20,20,10,.05), 0 12px 28px rgba(20,20,10,.07);
   }
   @media (prefers-color-scheme: light){
     :root:not([data-theme]){
-      --bg:#f3f5f9; --panel:#ffffff; --panel2:#f6f8fb; --line:#e3e8f0;
-      --ink:#101620; --muted:#5a6577; --faint:#8a95a6;
-      --shadow:0 1px 2px rgba(16,22,32,.04), 0 10px 28px rgba(16,22,32,.08);
+      --bg:#f6f6f2; --panel:#ffffff; --panel2:#efefe8; --line:#e6e6dd;
+      --ink:#16160f; --muted:#5b5b50; --faint:#9a9a8c;
+      --accent:#bce62a; --hard:#e5484d; --ok:#5fa83a; --warn:#cc9a1f;
+      --shadow:0 1px 2px rgba(20,20,10,.05), 0 12px 28px rgba(20,20,10,.07);
     }
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   html,body{margin:0; touch-action:manipulation}
   body{
-    background:radial-gradient(1200px 600px at 80% -10%, color-mix(in srgb,var(--accent) 12%, transparent), transparent), var(--bg);
+    background:var(--bg);
     color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",Roboto,Helvetica,Arial,sans-serif;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Pretendard","Apple SD Gothic Neo","Malgun Gothic","맑은 고딕","PingFang SC","Microsoft YaHei","微软雅黑","Noto Sans KR","Noto Sans SC",Helvetica,Arial,sans-serif;
     line-height:1.55; -webkit-font-smoothing:antialiased;
   }
   .wrap{max-width:1120px; margin:0 auto; padding:24px 20px 80px}
-  a{color:var(--accent)}
+  a{color:var(--ink); text-underline-offset:2px}
 
   /* header */
   header.top{display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:8px}
-  .brand .kicker{font-size:13px; font-weight:700; letter-spacing:.12em; color:var(--accent); text-transform:uppercase}
-  .brand h1{margin:.1em 0 .15em; font-size:clamp(26px,4.5vw,40px); letter-spacing:-.02em; line-height:1.05}
+  .brand .wordmark{font-family:Georgia,"Times New Roman",serif; font-size:22px; font-weight:600; letter-spacing:.01em; color:var(--ink); line-height:1; margin-bottom:8px}
+  .brand .wmark-img{height:26px; width:auto; display:block; margin-bottom:8px}
+  .brand .kicker{font-size:12px; font-weight:700; letter-spacing:.14em; color:var(--muted); text-transform:uppercase}
+  .brand h1{font-family:var(--mono); margin:.1em 0 .15em; font-size:clamp(26px,4.5vw,40px); letter-spacing:-.03em; line-height:1.05; font-weight:800}
   .brand .sub{color:var(--muted); font-size:14px}
   .brand .asof{color:var(--faint); font-size:12.5px; margin-top:2px}
 
   .controls{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
   .toggle{display:inline-flex; background:var(--panel); border:1px solid var(--line); border-radius:999px; padding:3px; box-shadow:var(--shadow)}
   .toggle button{border:0; background:transparent; color:var(--muted); font-weight:700; font-size:13px; padding:9px 14px; border-radius:999px; cursor:pointer; line-height:1; touch-action:manipulation; -webkit-tap-highlight-color:transparent; user-select:none}
-  .toggle button.on{background:var(--accent); color:#06121f}
+  .toggle button.on{background:var(--ink); color:var(--bg)}
   .toggle.theme button{padding:9px 12px; font-size:15px}
 
-  /* hero countdown */
-  .hero{margin:18px 0 26px; background:linear-gradient(135deg, color-mix(in srgb,var(--hard) 22%, var(--panel)), var(--panel)); border:1px solid color-mix(in srgb,var(--hard) 35%, var(--line)); border-radius:var(--r); padding:22px 24px; box-shadow:var(--shadow); display:flex; align-items:center; gap:26px; flex-wrap:wrap}
-  .hero .label{font-size:12px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--hard)}
-  .hero h2{margin:.15em 0 .1em; font-size:clamp(20px,3vw,28px); letter-spacing:-.01em}
-  .hero .meta{color:var(--muted); font-size:13.5px}
-  .hero .count{margin-left:auto; text-align:center; min-width:120px}
-  .hero .count .num{font-size:clamp(40px,7vw,64px); font-weight:800; line-height:1; letter-spacing:-.03em}
-  .hero .count .unit{color:var(--muted); font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase}
+  /* hero countdown — 라임 그라데이션 카드 */
+  .hero{margin:18px 0 28px; background:var(--grad); color:#14140d; border-radius:24px; padding:26px 28px; box-shadow:var(--shadow); display:flex; align-items:center; gap:24px; flex-wrap:wrap}
+  .hero > div:first-child{flex:1; min-width:200px}
+  .hero .label{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#14140d; background:rgba(0,0,0,.08); padding:4px 11px; border-radius:999px}
+  .hero h2{font-family:var(--mono); margin:.55em 0 .22em; font-size:clamp(20px,3.4vw,30px); letter-spacing:-.02em; line-height:1.1; color:#14140d; font-weight:800}
+  .hero .meta{font-size:13px; color:#14140d; opacity:.78}
+  .hero .count{margin-left:auto; text-align:center; min-width:96px; padding:14px 20px; border-radius:18px; background:#14140d; color:#fff}
+  .hero .count .num{font-family:var(--mono); font-size:clamp(28px,5.5vw,44px); font-weight:800; line-height:1; letter-spacing:-.02em; color:#fff}
+  .hero .count .unit{margin-top:5px; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#fff; opacity:.72}
+  /* 임박(D-2 이내)하면 카운트 배지 빨강 */
+  .hero.urgent .count{background:var(--hard)}
 
   /* jump nav */
   .jump{position:sticky; top:0; z-index:30; display:flex; gap:7px; overflow-x:auto; padding:11px 20px;
@@ -70,12 +80,12 @@
   .jump a{flex:0 0 auto; font-size:12.5px; font-weight:700; color:var(--muted); text-decoration:none;
     padding:7px 13px; border:1px solid var(--line); border-radius:999px; background:var(--panel); white-space:nowrap; transition:.15s; touch-action:manipulation; -webkit-tap-highlight-color:transparent}
   .jump a:hover{color:var(--ink); border-color:var(--accent)}
-  .jump a.cur{color:#06121f; background:var(--accent); border-color:var(--accent)}
+  .jump a.cur{color:var(--bg); background:var(--ink); border-color:var(--ink)}
 
   /* section */
   section{margin:34px 0; scroll-margin-top:72px}
   .h{display:flex; align-items:baseline; gap:10px; margin:0 0 14px}
-  .h h3{margin:0; font-size:18px; letter-spacing:-.01em}
+  .h h3{font-family:var(--mono); margin:0; font-size:18px; letter-spacing:-.01em; font-weight:800}
   .h .hint{color:var(--faint); font-size:12.5px}
 
   /* grid helpers */
@@ -94,7 +104,7 @@
   .row{display:flex; align-items:center; gap:14px; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:12px 14px; box-shadow:var(--shadow)}
   .row.past{opacity:.42}
   .dd{flex:0 0 64px; text-align:center}
-  .dd .big{font-size:20px; font-weight:800; line-height:1}
+  .dd .big{font-family:var(--mono); font-size:19px; font-weight:800; line-height:1}
   .dd .sm{font-size:10.5px; color:var(--faint); font-weight:700; letter-spacing:.1em; text-transform:uppercase}
   .dd.urgent .big{color:var(--hard)} .dd.soon .big{color:var(--warn)}
   .row .body{flex:1; min-width:0}
@@ -107,7 +117,7 @@
   /* course cards */
   .course .top{display:flex; align-items:center; gap:10px; margin-bottom:6px}
   .course .dot{width:10px;height:10px;border-radius:50%}
-  .course .code{font-weight:800; letter-spacing:.04em}
+  .course .code{font-family:var(--mono); font-weight:800; letter-spacing:.02em}
   .course .nm{color:var(--muted); font-size:12.5px}
   .course .head{font-weight:700; margin:8px 0 10px; font-size:14.5px}
   .course ul{margin:0; padding-left:0; list-style:none; display:flex; flex-direction:column; gap:7px}
@@ -121,25 +131,31 @@
   .bw{display:grid; grid-template-columns:1fr 1fr; gap:14px}
   @media(max-width:720px){ .bw{grid-template-columns:1fr} }
   .opt{background:var(--panel2); border:1px solid var(--line); border-radius:12px; padding:16px}
-  .opt .code{font-weight:800; color:var(--accent)}
+  .opt .code{font-family:var(--mono); font-weight:800; color:var(--ink)}
   .opt .t{font-weight:700; margin:2px 0}
   .opt .p{color:var(--faint); font-size:12px; margin-bottom:6px}
   .opt .d{font-size:13px; color:var(--muted)}
   .bw-note{grid-column:1/-1; color:var(--muted); font-size:12.5px}
 
-  /* checklist */
-  .check label{display:flex; gap:11px; align-items:flex-start; padding:9px 4px; border-bottom:1px solid var(--line); cursor:pointer; font-size:14px}
-  .check label:last-child{border-bottom:0}
-  .check input{margin-top:3px; width:17px;height:17px; accent-color:var(--accent); flex:0 0 auto}
-  .check .by{margin-left:auto; flex:0 0 auto; color:var(--faint); font-size:11.5px; font-weight:700; white-space:nowrap; padding-left:8px}
-  .check label.done span.txt{text-decoration:line-through; color:var(--faint)}
+  /* checklist — 상태 행 스타일 */
+  .srow{display:flex; align-items:center; gap:14px; padding:13px 2px; border-bottom:1px solid var(--line); cursor:pointer; touch-action:manipulation; -webkit-tap-highlight-color:transparent}
+  .srow:last-child{border-bottom:0}
+  .srow .stext{flex:1; min-width:0}
+  .srow .stitle{font-size:14px; font-weight:600; color:var(--ink)}
+  .srow.done .stitle{text-decoration:line-through; color:var(--faint)}
+  .srow .sstat{font-size:12px; margin-top:3px; font-weight:700; color:var(--faint)}
+  .srow.done .sstat{color:var(--ok)}
+  .srow.over .sstat{color:var(--hard)}
+  .scircle{flex:0 0 auto; width:30px; height:30px; border-radius:50%; display:grid; place-items:center; font-size:15px; font-weight:800; border:2px solid var(--line); color:transparent; transition:.15s}
+  .srow.done .scircle{background:var(--ok); border-color:var(--ok); color:#fff}
+  .srow.over .scircle{background:var(--hard); border-color:var(--hard); color:#fff}
   .progress{height:6px; background:var(--line); border-radius:999px; overflow:hidden; margin:4px 0 14px}
   .progress > i{display:block; height:100%; background:var(--ok); width:0; transition:width .3s}
 
   /* social / dinner */
   .social-top{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:center}
   .social-top .d{font-size:13px; color:var(--muted); flex:1; min-width:220px}
-  .cta{display:inline-block; background:var(--accent); color:#06121f; font-weight:800; font-size:13.5px; padding:10px 18px; border-radius:999px; text-decoration:none; white-space:nowrap}
+  .cta{display:inline-flex; align-items:center; gap:7px; background:var(--ink); color:var(--bg); font-weight:800; font-size:13.5px; padding:11px 20px; border-radius:999px; text-decoration:none; white-space:nowrap}
   .social-frame{width:100%; height:560px; border:1px solid var(--line); border-radius:12px; margin-top:14px; background:var(--panel2)}
   .social-cap{color:var(--faint); font-size:11.5px; margin-top:6px}
 
@@ -161,7 +177,17 @@
   .tbl td:first-child{font-weight:700; white-space:nowrap}
   .tbl .w{color:var(--muted)}
 
-  footer{margin-top:46px; color:var(--faint); font-size:12.5px; text-align:center; border-top:1px solid var(--line); padding-top:18px}
+  /* emoji reactions */
+  .reactions{text-align:center; margin:44px 0 6px}
+  .reactions .rlabel{color:var(--faint); font-size:12.5px; margin-bottom:11px}
+  .reactions .rbtns{display:inline-flex; gap:8px; flex-wrap:wrap; justify-content:center}
+  .reactions button{font-size:22px; line-height:1; padding:9px 13px; border:1px solid var(--line); border-radius:14px; background:var(--panel); cursor:pointer; box-shadow:var(--shadow); transition:transform .1s, border-color .15s; touch-action:manipulation; -webkit-tap-highlight-color:transparent}
+  .reactions button:hover{border-color:var(--accent)}
+  .reactions button:active{transform:scale(.82)}
+  .float-emoji{position:fixed; font-size:26px; pointer-events:none; z-index:60; transform:translate(-50%,-50%); animation:floatUp 1s ease-out forwards}
+  @keyframes floatUp{0%{opacity:0; transform:translate(-50%,-50%) scale(.6)} 18%{opacity:1} 100%{opacity:0; transform:translate(-50%,-170px) scale(1.35)}}
+
+  footer{margin-top:30px; color:var(--faint); font-size:12.5px; text-align:center; border-top:1px solid var(--line); padding-top:18px}
 </style>
 </head>
 <body>
@@ -169,9 +195,11 @@
 
   <header class="top">
     <div class="brand">
+      <!-- 공식 로고 이미지를 쓰려면 아래 <div class="wordmark">…</div> 를
+           <img class="wmark-img" src="wharton-logo.png" alt="Wharton"> 로 교체하세요. -->
+      <div class="wordmark">Wharton</div>
       <div class="kicker" id="kicker">Survival Dashboard</div>
       <h1 id="title">WEMBA 52</h1>
-      <div class="sub" id="weekLabel"></div>
       <div class="asof" id="asof"></div>
     </div>
     <div class="controls">
@@ -223,6 +251,13 @@
     <div class="grid g2" id="courses"></div>
   </section>
 
+  <section id="sec-canvas">
+    <div class="h"><h3 data-t="canvas"></h3><span class="hint" data-t="canvasHint"></span></div>
+    <div class="card" style="overflow-x:auto">
+      <table class="tbl" id="canvas"></table>
+    </div>
+  </section>
+
   <section id="sec-actions">
     <div class="h"><h3 data-t="checklist"></h3><span class="hint" data-t="checklistHint"></span></div>
     <div class="card check">
@@ -231,17 +266,12 @@
     </div>
   </section>
 
-  <section id="sec-canvas">
-    <div class="h"><h3 data-t="canvas"></h3><span class="hint" data-t="canvasHint"></span></div>
-    <div class="card" style="overflow-x:auto">
-      <table class="tbl" id="canvas"></table>
-    </div>
-  </section>
-
   <section id="sec-social">
     <div class="h"><h3 data-t="social"></h3><span class="hint" data-t="socialHint"></span></div>
     <div class="card" id="social"></div>
   </section>
+
+  <div class="reactions" id="reactions"></div>
 
   <footer id="footer"></footer>
 </div>
@@ -272,8 +302,11 @@ const T = {
   done:         { kr:"지남", en:"PAST", cn:"已过" },
   days:         { kr:"일 남음", en:"days left", cn:"天" },
   hard:         { kr:"필수", en:"HARD", cn:"必做" },
+  updated:      { kr:"최종 업데이트", en:"Last updated", cn:"最近更新" },
+  stDone:       { kr:"완료", en:"Done", cn:"完成" },
+  stOver:       { kr:"기한 지남", en:"Overdue", cn:"已逾期" },
   dday:         { kr:"D-DAY", en:"TODAY", cn:"就在今天" },
-  weekly:       { kr:"매주 업데이트", en:"updated weekly", cn:"每周更新" },
+  reactTitle:   { kr:"이 노트가 도움이 됐다면 한 번 눌러주세요 🙂", en:"Was this helpful? Tap a reaction 🙂", cn:"觉得有帮助就点一下吧 🙂" },
   dashName:     { kr:"생존 대시보드", en:"Survival Dashboard", cn:"生存看板" },
   canvasHead:   { kr:["과목","자료 위치","제출/퀴즈","주의"], en:["Subject","Where","Submit","Watch"], cn:["科目","资料位置","提交/测验","注意"] },
   nav:          {
@@ -331,6 +364,12 @@ function monthLabel(s){
   if(lang==="cn") return `${y}年${m+1}月`;
   return `${y}년 ${m+1}월`;
 }
+function fmtUpdated(s){
+  const pt = ptOf(s), y = pt.getFullYear(), m = pt.getMonth(), d = pt.getDate();
+  if(lang==="en") return `${MON.en[m]} ${d}, ${y}`;
+  if(lang==="cn") return `${y}年${m+1}月${d}日`;
+  return `${y}. ${m+1}. ${d}.`;
+}
 function fmtWhen(item){
   const {d,allDay} = toDate(item.date);
   const pt = new Date(d.toLocaleString("en-US",{timeZone:"America/Los_Angeles"}));
@@ -356,8 +395,7 @@ function render(){
   // chrome text
   document.querySelectorAll("[data-t]").forEach(el=>{ el.textContent = T[el.dataset.t][lang]; });
   document.getElementById("kicker").textContent = T.kicker[lang];
-  document.getElementById("weekLabel").textContent = L(DATA.meta.weekLabel);
-  document.getElementById("asof").textContent = "✺ " + L(DATA.meta.asOf);
+  document.getElementById("asof").textContent = T.updated[lang] + " · " + fmtUpdated(DATA.meta.lastUpdated);
 
   renderNav();
 
@@ -371,13 +409,13 @@ function render(){
   renderCourses();
   renderActions();
   renderCanvas();
+  renderReactions();
 
   document.getElementById("footer").innerHTML =
-    `WEMBA 52 ${T.dashName[lang]} · ${DATA.meta.author} · `+
-    `<span style="color:var(--faint)">${T.weekly[lang]}</span>`;
+    `Wharton · WEMBA 52 ${T.dashName[lang]} · ${DATA.meta.author}`;
 }
 
-const NAV_ORDER = ["sec-upcoming","sec-schedule","sec-bw","sec-actions","sec-canvas","sec-social"];
+const NAV_ORDER = ["sec-upcoming","sec-schedule","sec-bw","sec-canvas","sec-actions","sec-social"];
 function renderNav(){
   const nav = document.getElementById("jump");
   nav.innerHTML = NAV_ORDER.filter(id=>{
@@ -407,6 +445,7 @@ function renderHero(sorted){
   if(!next){ hero.hidden = true; return; }
   hero.hidden = false;
   const n = daysUntil(toDate(next.date).d);
+  hero.classList.toggle("urgent", n <= 2);   // D-2 이내면 빨강 강조
   document.getElementById("heroTitle").textContent = L(next.title);
   document.getElementById("heroMeta").textContent = fmtWhen(next) + (L(next.detail)? " · "+L(next.detail) : "");
   document.getElementById("heroNum").textContent = n===0 ? T.dday[lang] : "D-"+n;
@@ -540,19 +579,22 @@ function renderActions(){
   const saved = JSON.parse(localStorage.getItem("wemba_actions")||"{}");
   DATA.actions.forEach(a=>{
     const done = !!saved[a.id];
-    const lab = document.createElement("label"); lab.className = done?"done":"";
-    const byTxt = byLabel(a.by);
-    lab.innerHTML = `<input type="checkbox" ${done?"checked":""} data-id="${a.id}">
-      <span class="txt">${L(a.label)}</span><span class="by">${byTxt}</span>`;
-    box.appendChild(lab);
-  });
-  box.querySelectorAll("input").forEach(inp=>{
-    inp.addEventListener("change",()=>{
+    const overdue = !done && daysUntil(toDate(a.by).d) < 0;
+    const row = document.createElement("div");
+    row.className = "srow"+(done?" done":overdue?" over":"");
+    row.setAttribute("role","button"); row.tabIndex = 0;
+    const stat = done ? T.stDone[lang]
+               : overdue ? `${T.stOver[lang]} · ${shortDate(a.by)}`
+               : byLabel(a.by);
+    const icon = done ? "✓" : overdue ? "✕" : "";
+    row.innerHTML = `<div class="stext"><div class="stitle">${L(a.label)}</div><div class="sstat">${stat}</div></div>`+
+      `<span class="scircle">${icon}</span>`;
+    row.addEventListener("click", ()=>{
       const s = JSON.parse(localStorage.getItem("wemba_actions")||"{}");
-      s[inp.dataset.id] = inp.checked; localStorage.setItem("wemba_actions",JSON.stringify(s));
-      inp.closest("label").classList.toggle("done", inp.checked);
-      updateProgress();
+      s[a.id] = !s[a.id]; localStorage.setItem("wemba_actions", JSON.stringify(s));
+      renderActions();
     });
+    box.appendChild(row);
   });
   updateProgress();
 }
@@ -563,6 +605,28 @@ function updateProgress(){
   document.getElementById("progFill").style.width = (total? done/total*100:0)+"%";
 }
 
+const REACTIONS = ["👍","🔥","🎉","🙏","💪","📚"];
+function spawnFloat(x, y, emoji){
+  const e = document.createElement("span");
+  e.className = "float-emoji"; e.textContent = emoji;
+  e.style.left = x + "px"; e.style.top = y + "px";
+  document.body.appendChild(e);
+  e.addEventListener("animationend", () => e.remove());
+}
+function renderReactions(){
+  const box = document.getElementById("reactions");
+  box.innerHTML = `<div class="rlabel">${T.reactTitle[lang]}</div>`+
+    `<div class="rbtns">${REACTIONS.map(e=>`<button type="button" data-e="${e}">${e}</button>`).join("")}</div>`;
+  box.querySelectorAll("button").forEach(b=>{
+    b.addEventListener("click", ()=>{
+      const r = b.getBoundingClientRect();
+      const cx = r.left + r.width/2, cy = r.top;
+      for(let i=0;i<3;i++){
+        setTimeout(()=> spawnFloat(cx + (Math.random()*36-18), cy, b.dataset.e), i*90);
+      }
+    });
+  });
+}
 function renderCanvas(){
   const t = document.getElementById("canvas");
   const head = T.canvasHead[lang];
@@ -577,10 +641,9 @@ function renderCanvas(){
 /* ---------- theme ---------- */
 function systemDark(){ return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches; }
 function applyTheme(){
-  const saved = localStorage.getItem("wemba_theme"); // "light" | "dark" | null(=시스템 따름)
-  if(saved){ document.documentElement.setAttribute("data-theme", saved); }
-  else { document.documentElement.removeAttribute("data-theme"); }
-  const effective = saved || (systemDark() ? "dark" : "light");
+  const saved = localStorage.getItem("wemba_theme") || "light"; // 기본: 따뜻한 크림 라이트
+  document.documentElement.setAttribute("data-theme", saved);
+  const effective = saved;
   document.querySelectorAll(".toggle.theme button").forEach(b=> b.classList.toggle("on", b.dataset.theme===effective));
 }
 document.querySelectorAll(".toggle.theme button").forEach(b=>{
