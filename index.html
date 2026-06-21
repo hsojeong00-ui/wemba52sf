@@ -138,7 +138,7 @@
   .bw-note{grid-column:1/-1; color:var(--muted); font-size:12.5px}
 
   /* checklist — 상태 행 스타일 */
-  .srow{display:flex; align-items:center; gap:14px; padding:13px 2px; border-bottom:1px solid var(--line); cursor:pointer; touch-action:manipulation; -webkit-tap-highlight-color:transparent}
+  .srow{display:flex; align-items:center; gap:14px; width:100%; padding:13px 2px; border:0; border-bottom:1px solid var(--line); background:transparent; font:inherit; color:inherit; text-align:left; cursor:pointer; touch-action:manipulation; -webkit-tap-highlight-color:transparent; -webkit-appearance:none; appearance:none}
   .srow:last-child{border-bottom:0}
   .srow .stext{flex:1; min-width:0}
   .srow .stitle{font-size:14px; font-weight:600; color:var(--ink)}
@@ -179,18 +179,18 @@
 
   /* story / 매거진 모드 */
   .iconbtn{border:1px solid var(--line); background:var(--panel); border-radius:999px; padding:8px 12px; font-size:15px; cursor:pointer; box-shadow:var(--shadow); touch-action:manipulation; -webkit-tap-highlight-color:transparent}
-  .story{position:fixed; inset:0; z-index:1000; background:#0a0a08; display:flex; flex-direction:column; overscroll-behavior:contain; user-select:none}
+  .story{position:fixed; inset:0; height:100vh; height:100dvh; z-index:1000; background:#0a0a08; display:flex; flex-direction:column; overscroll-behavior:contain; user-select:none}
   .story[hidden]{display:none}
   .story-bars{position:absolute; top:0; left:0; right:0; display:flex; gap:4px; padding:11px 12px; z-index:5}
-  .story-bars i{flex:1; height:3px; border-radius:2px; background:rgba(255,255,255,.28)}
-  .story-bars i.on{background:#fff}
+  .story-bars i{flex:1; height:3px; border-radius:2px; background:rgba(0,0,0,.22)}
+  .story-bars i.on{background:rgba(0,0,0,.82)}
   .story-close{position:absolute; top:22px; right:14px; z-index:6; width:36px; height:36px; border:0; border-radius:50%; background:rgba(0,0,0,.3); color:#fff; font-size:15px; cursor:pointer}
   .story-track{flex:1; display:flex; transition:transform .32s cubic-bezier(.4,0,.2,1); will-change:transform}
   .slide{min-width:100%; height:100%; box-sizing:border-box; padding:62px 28px 76px; display:flex; flex-direction:column; overflow-y:auto; position:relative}
   .slide.lime{background:var(--grad); color:#14140d}
   .slide.paper{background:var(--panel); color:var(--ink)}
   .slide.mid{justify-content:center}
-  .slide.fitslide{overflow:hidden; justify-content:flex-start}
+  .slide.fitslide{overflow:hidden; justify-content:flex-start; padding:54px 22px 26px}
   .slide .fit{width:100%; transform-origin:top center}
   .slide .kick{font-size:12px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; opacity:.62; margin-bottom:14px}
   .slide .wm{font-family:Georgia,serif; font-size:22px; margin-bottom:18px}
@@ -619,9 +619,9 @@ function renderActions(){
   DATA.actions.forEach(a=>{
     const done = !!saved[a.id];
     const overdue = !done && daysUntil(toDate(a.by).d) < 0;
-    const row = document.createElement("div");
+    const row = document.createElement("button");
+    row.type = "button";
     row.className = "srow"+(done?" done":overdue?" over":"");
-    row.setAttribute("role","button"); row.tabIndex = 0;
     const stat = done ? T.stDone[lang]
                : overdue ? `${T.stOver[lang]} · ${shortDate(a.by)}`
                : byLabel(a.by);
@@ -766,21 +766,23 @@ function applyStory(){
   document.getElementById("storyTrack").style.transform = `translateX(${-storyIndex*100}%)`;
   document.querySelectorAll("#storyBars i").forEach((b,i)=> b.classList.toggle("on", i<=storyIndex));
 }
-function storyGo(i){ if(i<0){ storyIndex=0; applyStory(); return; } if(i>=storySlides){ closeStory(); return; } storyIndex=i; applyStory(); }
+function storyGo(i){ if(i<0){ storyIndex=0; applyStory(); return; } if(i>=storySlides){ closeStory(); return; } storyIndex=i; applyStory(); fitSlides(); }
 function fitSlides(){
+  const vh = window.innerHeight;   // 모바일 실제 보이는 높이 (주소창 반영)
   document.querySelectorAll("#storyTrack .fitslide").forEach(slide=>{
     const fit = slide.querySelector(".fit"); if(!fit) return;
     fit.style.transform = "";
     const cs = getComputedStyle(slide);
-    const avail = slide.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+    const avail = vh - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
     const need = fit.scrollHeight;
-    if(need > avail + 1){ fit.style.transform = `scale(${Math.max(0.45, avail/need)})`; }
+    if(need > avail + 1){ fit.style.transform = `scale(${Math.max(0.4, avail/need)})`; }
   });
 }
 function openStory(){
   buildStory();
   document.getElementById("story").hidden=false; document.body.style.overflow="hidden";
   requestAnimationFrame(()=>requestAnimationFrame(fitSlides));
+  setTimeout(fitSlides, 300);   // 모바일 주소창 높이 변화 후 재조정
 }
 function closeStory(){ document.getElementById("story").hidden=true; document.body.style.overflow=""; }
 
