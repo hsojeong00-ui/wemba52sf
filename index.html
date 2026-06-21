@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>WEMBA 52 생존 대시보드</title>
+<title>WEMBA 52 Survival Dashboard</title>
 <meta name="description" content="WEMBA 52 생존노트 — 마감·시험·과제 한눈에 보기" />
 <!-- 검색엔진 노출 차단 (링크 아는 사람만 접근) -->
 <meta name="robots" content="noindex, nofollow" />
@@ -394,7 +394,7 @@ function render(){
 
   // chrome text
   document.querySelectorAll("[data-t]").forEach(el=>{ el.textContent = T[el.dataset.t][lang]; });
-  document.getElementById("kicker").textContent = T.kicker[lang];
+  document.getElementById("kicker").textContent = "Survival Dashboard";
   document.getElementById("asof").textContent = T.updated[lang] + " · " + fmtUpdated(DATA.meta.lastUpdated);
 
   renderNav();
@@ -412,7 +412,7 @@ function render(){
   renderReactions();
 
   document.getElementById("footer").innerHTML =
-    `Wharton · WEMBA 52 ${T.dashName[lang]} · ${DATA.meta.author}`;
+    `Wharton · WEMBA 52 Survival Dashboard · ${DATA.meta.author}`;
 }
 
 const NAV_ORDER = ["sec-upcoming","sec-schedule","sec-bw","sec-canvas","sec-actions","sec-social"];
@@ -522,7 +522,7 @@ function renderSocial(){
     box.innerHTML =
       `<div class="social-top">`+
         `<div class="d" id="socialDesc"></div>`+
-        `<a class="cta" id="socialCta" href="${s.url}" target="_blank" rel="noopener"></a>`+
+        `<a class="cta" id="socialCta" href="${s.embedUrl||s.url}" target="_blank" rel="noopener noreferrer"></a>`+
       `</div>`+
       (s.embed
         ? `<iframe class="social-frame" src="${s.embedUrl||s.url}" loading="lazy" title="WEMBA SF Social"></iframe>`+
