@@ -205,16 +205,6 @@
   .slide .sbtn{align-self:flex-start; margin-top:20px; background:#14140d; color:#fff; font-weight:800; font-size:14px; padding:13px 22px; border-radius:999px; text-decoration:none}
   .slide .hint{position:absolute; bottom:26px; left:0; right:0; text-align:center; font-size:12px; opacity:.6}
 
-  /* emoji reactions */
-  .reactions{text-align:center; margin:44px 0 6px}
-  .reactions .rlabel{color:var(--faint); font-size:12.5px; margin-bottom:11px}
-  .reactions .rbtns{display:inline-flex; gap:8px; flex-wrap:wrap; justify-content:center}
-  .reactions button{font-size:22px; line-height:1; padding:9px 13px; border:1px solid var(--line); border-radius:14px; background:var(--panel); cursor:pointer; box-shadow:var(--shadow); transition:transform .1s, border-color .15s; touch-action:manipulation; -webkit-tap-highlight-color:transparent}
-  .reactions button:hover{border-color:var(--accent)}
-  .reactions button:active{transform:scale(.82)}
-  .float-emoji{position:fixed; font-size:26px; pointer-events:none; z-index:60; transform:translate(-50%,-50%); animation:floatUp 1s ease-out forwards}
-  @keyframes floatUp{0%{opacity:0; transform:translate(-50%,-50%) scale(.6)} 18%{opacity:1} 100%{opacity:0; transform:translate(-50%,-170px) scale(1.35)}}
-
   footer{margin-top:30px; color:var(--faint); font-size:12.5px; text-align:center; border-top:1px solid var(--line); padding-top:18px}
 </style>
 </head>
@@ -300,8 +290,6 @@
     <div class="card" id="social"></div>
   </section>
 
-  <div class="reactions" id="reactions"></div>
-
   <footer id="footer"></footer>
 </div>
 
@@ -341,7 +329,6 @@ const T = {
   stDone:       { kr:"완료", en:"Done", cn:"完成" },
   stOver:       { kr:"기한 지남", en:"Overdue", cn:"已逾期" },
   dday:         { kr:"D-DAY", en:"TODAY", cn:"就在今天" },
-  reactTitle:   { kr:"이 노트가 도움이 됐다면 한 번 눌러주세요 🙂", en:"Was this helpful? Tap a reaction 🙂", cn:"觉得有帮助就点一下吧 🙂" },
   story:        { kr:"매거진 보기", en:"Story view", cn:"杂志视图" },
   storyHint:    { kr:"탭하거나 옆으로 넘기세요 →", en:"Tap or swipe →", cn:"点击或左右滑动 →" },
   storyEnd:     { kr:"화이팅! 🎓", en:"Good luck! 🎓", cn:"加油! 🎓" },
@@ -448,7 +435,6 @@ function render(){
   renderCourses();
   renderActions();
   renderCanvas();
-  renderReactions();
 
   document.getElementById("footer").innerHTML =
     `Wharton · WEMBA 52 Survival Dashboard · ${DATA.meta.author}`;
@@ -644,28 +630,6 @@ function updateProgress(){
   document.getElementById("progFill").style.width = (total? done/total*100:0)+"%";
 }
 
-const REACTIONS = ["👍","🔥","🎉","🙏","💪","📚"];
-function spawnFloat(x, y, emoji){
-  const e = document.createElement("span");
-  e.className = "float-emoji"; e.textContent = emoji;
-  e.style.left = x + "px"; e.style.top = y + "px";
-  document.body.appendChild(e);
-  e.addEventListener("animationend", () => e.remove());
-}
-function renderReactions(){
-  const box = document.getElementById("reactions");
-  box.innerHTML = `<div class="rlabel">${T.reactTitle[lang]}</div>`+
-    `<div class="rbtns">${REACTIONS.map(e=>`<button type="button" data-e="${e}">${e}</button>`).join("")}</div>`;
-  box.querySelectorAll("button").forEach(b=>{
-    b.addEventListener("click", ()=>{
-      const r = b.getBoundingClientRect();
-      const cx = r.left + r.width/2, cy = r.top;
-      for(let i=0;i<3;i++){
-        setTimeout(()=> spawnFloat(cx + (Math.random()*36-18), cy, b.dataset.e), i*90);
-      }
-    });
-  });
-}
 function renderCanvas(){
   const t = document.getElementById("canvas");
   const head = T.canvasHead[lang];
@@ -818,5 +782,8 @@ applyTheme();
 render();
 setupScrollSpy();
 </script>
+
+<!-- 방문 수 집계 (GoatCounter · 쿠키 없음 · 통계는 wemba52sf.goatcounter.com 에서) -->
+<script data-goatcounter="https://wemba52sf.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
