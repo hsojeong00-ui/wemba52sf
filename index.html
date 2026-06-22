@@ -9,11 +9,11 @@
 <meta name="robots" content="noindex, nofollow" />
 <style>
   :root{
-    /* 다크 (토글 시) */
-    --bg:#15150f; --panel:#1e1e16; --panel2:#26261c; --line:#34342a;
-    --ink:#f3f3ea; --muted:#aeae9f; --faint:#7c7c6e;
-    --accent:#c8f23a; --hard:#ff6b66; --ok:#8bd44f; --warn:#e6c235;
-    --shadow:0 1px 0 rgba(255,255,255,.03), 0 14px 30px rgba(0,0,0,.45);
+    /* 다크 (토글 시) — 대비 강화 */
+    --bg:#121309; --panel:#21241c; --panel2:#2c3026; --line:#414636;
+    --ink:#f4f3ec; --muted:#c0bfae; --faint:#8f8f7e;
+    --accent:#caf23f; --hard:#ff7a6e; --ok:#8bd44f; --warn:#e6c235;
+    --shadow:0 0 0 1px rgba(255,255,255,.04), 0 14px 30px rgba(0,0,0,.5);
     --r:18px;
     --grad:linear-gradient(115deg, #cdf23a 0%, #e6f24e 55%, #eff06a 100%);
     --mono:ui-monospace,"SF Mono","JetBrains Mono","Cascadia Code","Roboto Mono",Consolas,"Pretendard","Apple SD Gothic Neo","Malgun Gothic","맑은 고딕","PingFang SC","Microsoft YaHei","微软雅黑","Noto Sans KR","Noto Sans SC",sans-serif;
@@ -781,9 +781,16 @@ document.getElementById("storyClose").addEventListener("click", closeStory);
 applyTheme();
 render();
 setupScrollSpy();
+
+/* 방문 수 집계 (GoatCounter) — 로컬(file://)에선 생략, 실제 사이트(http/https)에서만 */
+if(location.protocol === "https:" || location.protocol === "http:"){
+  const gc = document.createElement("script");
+  gc.async = true;
+  gc.setAttribute("data-goatcounter", "https://wemba52sf.goatcounter.com/count");
+  gc.src = "https://gc.zgo.at/count.js";
+  document.body.appendChild(gc);
+}
 </script>
 
-<!-- 방문 수 집계 (GoatCounter · 쿠키 없음 · 통계는 wemba52sf.goatcounter.com 에서) -->
-<script data-goatcounter="https://wemba52sf.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
