@@ -7,6 +7,8 @@
 <meta name="description" content="WEMBA 52 생존노트 — 마감·시험·과제 한눈에 보기" />
 <!-- 검색엔진 노출 차단 (링크 아는 사람만 접근) -->
 <meta name="robots" content="noindex, nofollow" />
+<!-- 캐시 최소화 (업데이트가 빨리 반영되도록) -->
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
 <style>
   :root{
     /* 다크 (토글 시) — 대비 강화 */
@@ -53,6 +55,7 @@
   .brand h1{font-family:var(--mono); margin:.1em 0 .15em; font-size:clamp(26px,4.5vw,40px); letter-spacing:-.03em; line-height:1.05; font-weight:800}
   .brand .sub{color:var(--muted); font-size:14px}
   .brand .asof{color:var(--faint); font-size:12.5px; margin-top:2px}
+  .brand .asof a{color:var(--muted); text-decoration:underline; text-underline-offset:2px; font-weight:700}
 
   .controls{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
   .toggle{display:inline-flex; background:var(--panel); border:1px solid var(--line); border-radius:999px; padding:3px; box-shadow:var(--shadow)}
@@ -177,6 +180,29 @@
   .tbl td:first-child{font-weight:700; white-space:nowrap}
   .tbl .w{color:var(--muted)}
 
+  /* What's New + NEW 배지 */
+  .newbadge{display:inline-block; font-size:9px; font-weight:800; letter-spacing:.05em; background:var(--accent); color:#14140d; padding:1px 5px; border-radius:5px; margin-left:6px; vertical-align:middle; position:relative; top:-1px}
+  .wnew{display:flex; flex-direction:column; gap:0}
+  .wnew .wrow{display:flex; gap:12px; align-items:baseline; padding:11px 0; border-bottom:1px solid var(--line)}
+  .wnew .wrow:last-child{border-bottom:0}
+  .wnew .wdate{font-family:var(--mono); font-size:11.5px; font-weight:800; color:var(--faint); min-width:42px; flex:0 0 auto}
+  .wnew .wtext{font-size:14px; line-height:1.45}
+
+  /* 업데이트 내역 모달 (대시보드 테마) */
+  .histlink{cursor:pointer}
+  .modal{position:fixed; inset:0; z-index:900; background:rgba(10,10,8,.55); display:flex; align-items:center; justify-content:center; padding:20px}
+  .modal[hidden]{display:none}
+  .modal-card{background:var(--panel); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow); width:100%; max-width:520px; max-height:82vh; display:flex; flex-direction:column; overflow:hidden}
+  .modal-head{display:flex; align-items:center; justify-content:space-between; padding:17px 20px; border-bottom:1px solid var(--line)}
+  .modal-head h3{font-family:var(--mono); margin:0; font-size:17px; font-weight:800}
+  .modal-x{border:0; background:var(--panel2); color:var(--ink); width:30px; height:30px; border-radius:50%; font-size:13px; cursor:pointer; touch-action:manipulation}
+  .modal-body{padding:6px 20px 20px; overflow-y:auto}
+  .chlog{border-bottom:1px solid var(--line); padding:15px 0}
+  .chlog:last-child{border-bottom:0}
+  .chlog .cdate{font-family:var(--mono); font-weight:800; font-size:14px; margin-bottom:9px}
+  .chlog ul{margin:0; padding-left:18px; display:flex; flex-direction:column; gap:6px}
+  .chlog li{font-size:13.5px; color:var(--muted); line-height:1.45}
+
   /* story / 매거진 모드 */
   .iconbtn{border:1px solid var(--line); background:var(--panel); border-radius:999px; padding:8px 12px; font-size:15px; cursor:pointer; box-shadow:var(--shadow); touch-action:manipulation; -webkit-tap-highlight-color:transparent}
   .story{position:fixed; inset:0; height:100vh; height:100dvh; z-index:1000; background:#0a0a08; display:flex; flex-direction:column; overscroll-behavior:contain; user-select:none}
@@ -248,6 +274,11 @@
     </div>
   </div>
 
+  <section id="sec-whatsnew">
+    <div class="h"><h3 data-t="whatsNew"></h3><span class="hint" data-t="whatsNewHint"></span></div>
+    <div class="card" id="whatsNew"></div>
+  </section>
+
   <section id="sec-upcoming">
     <div class="h"><h3 data-t="upcoming"></h3><span class="hint" data-t="upcomingHint"></span></div>
     <div class="dl" id="deadlines"></div>
@@ -299,12 +330,23 @@
   <div class="story-track" id="storyTrack"></div>
 </div>
 
-<script src="data.js"></script>
+<div class="modal" id="history" hidden>
+  <div class="modal-card">
+    <div class="modal-head"><h3 id="historyTitle"></h3><button class="modal-x" id="historyClose" aria-label="close">✕</button></div>
+    <div class="modal-body" id="historyBody"></div>
+  </div>
+</div>
+
+<!-- data.js 를 매 로드마다 새로 받음 (캐시로 옛 내용 보이는 문제 방지) -->
+<script>document.write('<scr'+'ipt src="data.js?v=' + Date.now() + '"><\/scr'+'ipt>');</script>
 <script>
 /* ---------- i18n strings (UI chrome) ---------- */
 const T = {
   kicker:       { kr:"생존 대시보드", en:"Survival Dashboard", cn:"生存看板" },
   nextDue:      { kr:"가장 임박한 마감", en:"Next critical deadline", cn:"最近的关键截止" },
+  whatsNew:     { kr:"✨ What's New", en:"✨ What's New", cn:"✨ 最新动态" },
+  whatsNewHint: { kr:"지난 노트 이후 새로 나온 것", en:"New since the last note", cn:"上次以来的新内容" },
+  newBadge:     { kr:"NEW", en:"NEW", cn:"NEW" },
   upcoming:     { kr:"다가오는 일정", en:"Upcoming", cn:"近期日程" },
   upcomingHint: { kr:"오늘 기준 자동 정렬 · D-day 실시간 계산", en:"Auto-sorted from today · live D-day", cn:"按今天自动排序 · 实时倒计时" },
   schedule:     { kr:"다음 수업 주말 일정표", en:"Next class weekend", cn:"下个上课周末课表" },
@@ -326,6 +368,7 @@ const T = {
   days:         { kr:"일 남음", en:"days left", cn:"天" },
   hard:         { kr:"필수", en:"HARD", cn:"必做" },
   updated:      { kr:"최종 업데이트", en:"Last updated", cn:"最近更新" },
+  history:      { kr:"업데이트 내역", en:"Update history", cn:"更新记录" },
   stDone:       { kr:"완료", en:"Done", cn:"完成" },
   stOver:       { kr:"기한 지남", en:"Overdue", cn:"已逾期" },
   dday:         { kr:"D-DAY", en:"TODAY", cn:"就在今天" },
@@ -336,6 +379,7 @@ const T = {
   dashName:     { kr:"생존 대시보드", en:"Survival Dashboard", cn:"生存看板" },
   canvasHead:   { kr:["과목","자료 위치","제출/퀴즈","주의"], en:["Subject","Where","Submit","Watch"], cn:["科目","资料位置","提交/测验","注意"] },
   nav:          {
+    "sec-whatsnew":{kr:"✨ New",en:"✨ New",cn:"✨ 最新"},
     "sec-upcoming":{kr:"다가오는 일정",en:"Upcoming",cn:"近期日程"},
     "sec-schedule":{kr:"수업 일정표",en:"Class schedule",cn:"课程表"},
     "sec-bw":{kr:"이번 주 결정",en:"This week's decision",cn:"本周决定"},
@@ -421,13 +465,18 @@ function render(){
   // chrome text
   document.querySelectorAll("[data-t]").forEach(el=>{ el.textContent = T[el.dataset.t][lang]; });
   document.getElementById("kicker").textContent = "Survival Dashboard";
-  document.getElementById("asof").textContent = T.updated[lang] + " · " + fmtUpdated(DATA.meta.lastUpdated);
+  const hasLog = DATA.changelog && DATA.changelog.length;
+  const hist = hasLog ? ` · <a class="histlink" id="histOpen" href="#">${T.history[lang]}</a>` : "";
+  document.getElementById("asof").innerHTML = T.updated[lang] + " · " + fmtUpdated(DATA.meta.lastUpdated) + hist;
+  const hl = document.getElementById("histOpen");
+  if(hl) hl.addEventListener("click", e=>{ e.preventDefault(); openHistory(); });
 
   renderNav();
 
   const sorted = [...DATA.deadlines].sort((a,b)=> toDate(a.date).d - toDate(b.date).d);
 
   renderHero(sorted);
+  renderWhatsNew();
   renderDeadlines(sorted);
   renderSchedule();
   renderSocial();
@@ -440,7 +489,7 @@ function render(){
     `Wharton · WEMBA 52 Survival Dashboard · ${DATA.meta.author}`;
 }
 
-const NAV_ORDER = ["sec-upcoming","sec-schedule","sec-bw","sec-canvas","sec-actions","sec-social"];
+const NAV_ORDER = ["sec-whatsnew","sec-upcoming","sec-schedule","sec-bw","sec-canvas","sec-actions","sec-social"];
 function renderNav(){
   const nav = document.getElementById("jump");
   nav.innerHTML = NAV_ORDER.filter(id=>{
@@ -463,6 +512,16 @@ function setupScrollSpy(){
     });
   }, { rootMargin:"-72px 0px -65% 0px", threshold:0 });
   document.querySelectorAll("section[id]").forEach(s=>obs.observe(s));
+}
+function renderWhatsNew(){
+  const sec = document.getElementById("sec-whatsnew");
+  const list = DATA.whatsNew || [];
+  if(!list.length){ sec.style.display = "none"; return; }
+  sec.style.display = "";
+  document.getElementById("whatsNew").innerHTML =
+    `<div class="wnew">${list.map(it=>
+      `<div class="wrow"><span class="wdate">${it.date?shortDate(it.date):""}</span><span class="wtext">${L(it)}</span></div>`
+    ).join("")}</div>`;
 }
 function renderHero(sorted){
   const hero = document.getElementById("hero");
@@ -503,7 +562,7 @@ function renderDeadlines(sorted){
         <div class="sm">${ddText}</div>
       </div>
       <div class="body">
-        <div class="ttl">${L(it.title)} <span class="tag" style="background:${TYPE_COLOR[it.type]}">${T.typeNames[it.type][lang]}</span></div>
+        <div class="ttl">${L(it.title)} <span class="tag" style="background:${TYPE_COLOR[it.type]}">${T.typeNames[it.type][lang]}</span>${it.new?`<span class="newbadge">${T.newBadge[lang]}</span>`:""}</div>
         ${L(it.detail)?`<div class="det">${L(it.detail)}</div>`:""}
         <div class="when">${fmtWhen(it)} · ${it.course}</div>
       </div>
@@ -578,8 +637,9 @@ function renderCourses(){
   const box = document.getElementById("courses"); box.innerHTML="";
   DATA.courses.forEach(c=>{
     const el = document.createElement("div"); el.className="card course";
-    const pts = c.points.map(p=>`<li>${L(p)}</li>`).join("");
-    const traps = c.traps.length ? `<div class="traps"><div class="lab">${T.traps[lang]}</div><ul>${c.traps.map(t=>`<li>${L(t)}</li>`).join("")}</ul></div>` : "";
+    const nb = o => o.new ? `<span class="newbadge">${T.newBadge[lang]}</span>` : "";
+    const pts = c.points.map(p=>`<li>${L(p)}${nb(p)}</li>`).join("");
+    const traps = c.traps.length ? `<div class="traps"><div class="lab">${T.traps[lang]}</div><ul>${c.traps.map(t=>`<li>${L(t)}${nb(t)}</li>`).join("")}</ul></div>` : "";
     el.innerHTML = `
       <div class="top"><span class="dot" style="background:${c.color}"></span>
         <span class="code" style="color:${c.color}">${c.code}</span>
@@ -658,10 +718,26 @@ document.querySelectorAll(".toggle.lang button").forEach(b=>{
   b.addEventListener("click",()=>{ lang=b.dataset.lang; localStorage.setItem("wemba_lang",lang); render(); });
 });
 
+/* ---------- 업데이트 내역 모달 ---------- */
+function renderHistory(){
+  document.getElementById("historyTitle").textContent = T.history[lang];
+  const log = DATA.changelog || [];
+  document.getElementById("historyBody").innerHTML = log.map(e=>
+    `<div class="chlog"><div class="cdate">${fmtUpdated(e.date)}</div>`+
+    `<ul>${(e.items||[]).map(i=>`<li>${L(i)}</li>`).join("")}</ul></div>`
+  ).join("") || `<div style="color:var(--faint);padding:12px 0">—</div>`;
+}
+function openHistory(){ renderHistory(); document.getElementById("history").hidden=false; document.body.style.overflow="hidden"; }
+function closeHistory(){ document.getElementById("history").hidden=true; document.body.style.overflow=""; }
+document.getElementById("historyClose").addEventListener("click", closeHistory);
+document.getElementById("history").addEventListener("click", e=>{ if(e.target.id==="history") closeHistory(); });
+document.addEventListener("keydown", e=>{ if(e.key==="Escape" && !document.getElementById("history").hidden) closeHistory(); });
+
 /* ---------- story / 매거진 모드 ---------- */
 let storyIndex = 0, storySlides = 0;
 function buildStory(){
   const slides = [];
+  const nbS = o => o && o.new ? `<span class="newbadge">${T.newBadge[lang]}</span>` : "";
   const sorted = [...DATA.deadlines].sort((a,b)=> toDate(a.date).d - toDate(b.date).d);
 
   // 표지
@@ -683,7 +759,7 @@ function buildStory(){
   if(up.length) slides.push(`<div class="slide paper"><div class="kick">${T.upcoming[lang]}</div><ul>`+
     up.map(it=>{ const n=daysUntil(toDate(it.date).d);
       return `<li class="row2"><span class="dd2">${n===0?T.today[lang]:'D-'+n}</span>`+
-        `<span>${L(it.title)}<br><span style="opacity:.6;font-size:13px">${fmtWhen(it)}</span></span></li>`;
+        `<span>${L(it.title)}${nbS(it)}<br><span style="opacity:.6;font-size:13px">${fmtWhen(it)}</span></span></li>`;
     }).join("")+`</ul></div>`);
 
   // 수업 일정표 (한 화면에 맞게 자동 축소)
@@ -696,10 +772,10 @@ function buildStory(){
 
   // 과목별 (tip/핵심 모두 포함, 길면 자동 축소)
   DATA.courses.forEach(c=>{
-    const pts = c.points.map(p=>`<li>• ${L(p)}</li>`).join("");
+    const pts = c.points.map(p=>`<li>• ${L(p)}${nbS(p)}</li>`).join("");
     const traps = c.traps.length
       ? `<li style="margin-top:8px;font-weight:800;color:${c.color};border:0;padding:0">${T.traps[lang]}</li>`+
-        c.traps.map(t=>`<li>⚠ ${L(t)}</li>`).join("")
+        c.traps.map(t=>`<li>⚠ ${L(t)}${nbS(t)}</li>`).join("")
       : "";
     slides.push(`<div class="slide paper fitslide"><div class="fit"><div class="kick" style="color:${c.color};opacity:1">${c.code} · ${L(c.name)}</div>`+
       `<h3>${L(c.headline)}</h3><ul>${pts}${traps}</ul></div></div>`);

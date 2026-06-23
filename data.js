@@ -18,10 +18,35 @@
 const DATA = {
   meta: {
     cohort: "WEMBA 52",
-    lastUpdated: "2026-06-22",   // ← 업데이트할 때마다 이 날짜만 바꾸세요 (YYYY-MM-DD)
+    lastUpdated: "2026-06-24",   // ← 업데이트할 때마다 이 날짜만 바꾸세요 (YYYY-MM-DD)
     author:   "Sally",
     tzLabel:  "PT",
   },
+
+  /* ── 업데이트 내역 ───────────────────────────────────────────────────────
+     헤더의 "업데이트 내역" 링크를 누르면 대시보드 안에서 이 목록이 떠요.
+     매번 업데이트할 때 맨 위에 새 날짜 블록을 추가하세요 (최신이 위로).
+     비워두면([]) 헤더에 링크가 안 보입니다. */
+  changelog: [
+    { date:"2026-06-24", items:[
+      { kr:"ACCT Quiz 4·5 마감(7/3) 추가", en:"Added ACCT Quiz 4·5 deadline (Jul 3)", cn:"新增 ACCT Quiz 4·5 截止(7/3)" },
+      { kr:"MGMT 제안서 피드백 공개·Lead TA·Siggelkow 팁 2개 반영", en:"Added MGMT proposal feedback, Lead TAs, Siggelkow's 2 tips", cn:"新增 MGMT 提案反馈、助教组长、Siggelkow 两个提示" },
+      { kr:"업데이트 내역 보기 추가", en:"Added this update-history view", cn:"新增更新记录查看" },
+    ]},
+    { date:"2026-06-22", items:[
+      { kr:"Excel 라이브 세션(7/29) 추가", en:"Added Excel live session (Jul 29)", cn:"新增 Excel 直播课(7/29)" },
+    ]},
+    { date:"2026-06-21", items:[
+      { kr:"대시보드 최초 발행 (생존노트 #3 기준)", en:"Dashboard launched (from Survival Note #3)", cn:"看板首次发布(基于生存笔记 #3)" },
+    ]},
+  ],
+
+  /* ── What's New (기존 섹션에 안 맞는 새 소식 · 최신이 위로) ────────────────
+     해결되거나 오래된 항목은 지우면 됩니다. date 는 화면에 작은 날짜로 표시. */
+  whatsNew: [
+    { date:"2026-06-23", kr:"✅ Study.Net 자료 링크 복구 — 6/20~22 오류, 6/23 정상 확인 (안 열리던 리딩 다시 열림)", en:"✅ Study.Net materials links restored — Jun 20–22 outage fixed, confirmed Jun 23", cn:"✅ Study.Net 资料链接已恢复 — 6/20~22 故障,6/23 确认正常" },
+    { date:"2026-06-23", kr:"CareerFit & Goal Setting 세션 자료 게시 (녹화·슬라이드·설문) — 못 들었으면 녹화 확인", en:"CareerFit & Goal Setting session materials posted (recording, slides, survey) — watch the recording if you missed it", cn:"CareerFit & Goal Setting 课程资料已发布(录像·幻灯片·问卷)— 错过就看录像" },
+  ],
 
   /* ── 마감 / 일정 ──────────────────────────────────────────────────────────
      type: registration | exam | paper | quiz | session | milestone
@@ -57,6 +82,11 @@ const DATA = {
       date:"2026-07-03T09:30", type:"exam", course:"ACCT", hard:true,
       title:{ kr:"ACCT 중간고사", en:"ACCT midterm", cn:"ACCT 期中考试" },
       detail:{ kr:"9:30–11:30 AM · Room 660 · 합반 · 범위=매출채권까지 · 오픈북(ChatGPT 금지)", en:"9:30–11:30 AM · Room 660 · both sections · scope through A/R · open book (no ChatGPT)", cn:"上午9:30–11:30 · 660室 · 两班合并 · 范围=至应收账款 · 开卷(禁用ChatGPT)" },
+    },
+    {
+      date:"2026-07-03", type:"quiz", course:"ACCT", new:true,
+      title:{ kr:"ACCT Quiz 4·5 마감", en:"ACCT Quiz 4·5 due", cn:"ACCT Quiz 4·5 截止" },
+      detail:{ kr:"중간고사와 같은 날 · Quiz 1–3은 이미 마감", en:"Same day as the midterm · Quizzes 1–3 already closed", cn:"与期中同一天 · Quiz 1–3 已截止" },
     },
     {
       date:"2026-07-03", type:"milestone", course:"HSC",
@@ -122,8 +152,11 @@ const DATA = {
         { kr:"산업분석은 6 forces(5+보완재) 전부 · WTP/비용은 개념 논증이면 충분", en:"Industry analysis must cover all 6 forces (5+complementors) · WTP/cost can be conceptual", cn:"行业分析须涵盖全部6力(5力+互补者) · WTP/成本用概念论证即可" },
         { kr:"Canvas 신규: 'toolkit'(Strategy Omni) 핸드아웃 + Disney/TJ/Philips 슬라이드 + Philips 계산 문서", en:"New on Canvas: 'toolkit' (Strategy Omni) handout + Disney/TJ/Philips slides + Philips calculations", cn:"Canvas 新增: 'toolkit'(Strategy Omni) 讲义 + Disney/TJ/Philips 幻灯片 + Philips 计算文档" },
         { kr:"Janice Fisher(글쓰기 코치) 무료 첨삭 — Files 메모에서 슬롯 확인", en:"Janice Fisher (writing coach) free reviews — check her memo in Files for a slot", cn:"Janice Fisher(写作教练)免费批改 — 在 Files 备忘中查看名额" },
+        { new:true, kr:"팀 제안서 코멘트·점수 Canvas 공개(Grades) · Lead TA: Zorina Chen·Na Hyun Kim·Emily Ulrich", en:"Proposal comments & scores now on Canvas (Grades) · Lead TAs: Zorina Chen, Na Hyun Kim, Emily Ulrich", cn:"团队提案评语与分数已在 Canvas(Grades)公布 · 助教组长: Zorina Chen·Na Hyun Kim·Emily Ulrich" },
       ],
       traps:[
+        { new:true, kr:"Siggelkow 팁① 개념·프레임워크는 소수만 골라 깊게 (다 넣으면 깊이가 사라짐)", en:"Siggelkow tip 1: pick a few concepts/frameworks and go deep (cramming everything kills depth)", cn:"Siggelkow 提示①: 少选几个概念/框架深入(全塞进去会失去深度)" },
+        { new:true, kr:"Siggelkow 팁② 전략·HSC·글로벌 3모듈 '통합'이 핵심 — 한 영역 이슈가 다른 영역에 주는 영향을 연결, 가로지르는 결론", en:"Siggelkow tip 2: integrate the Strategy/HSC/Global modules — link how one area's issue affects another, with a cross-cutting conclusion", cn:"Siggelkow 提示②: 整合战略/HSC/全球三模块 — 把一个领域的问题如何影响另一领域串联,给出贯穿性结论" },
         { kr:"유추 빌리기 전에 '이게 왜 통했나?' 먼저 묻기", en:"Ask 'why did this actually work?' before borrowing any analogy", cn:"借用类比前先问'它当初为何奏效?'" },
         { kr:"two tests: 함께 가치 창출? / 그 가치 거두려고 꼭 소유해야?", en:"Two tests: create value together? / must you own it to capture that value?", cn:"两个检验: 是否共同创造价值? / 是否必须拥有才能获取该价值?" },
       ],
