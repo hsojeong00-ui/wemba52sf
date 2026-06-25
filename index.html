@@ -540,6 +540,8 @@ function renderDeadlines(sorted){
   const box = document.getElementById("deadlines"); box.innerHTML="";
   let curMonth = null;
   sorted.forEach(it=>{
+    const n = daysUntil(toDate(it.date).d);
+    if(n < 0) return;                          // 지난 일정은 표시 안 함
     // 월이 바뀌면 구분선 삽입
     const mk = monthKey(it.date);
     if(mk !== curMonth){
@@ -548,13 +550,11 @@ function renderDeadlines(sorted){
       sep.textContent = monthLabel(it.date);
       box.appendChild(sep);
     }
-    const n = daysUntil(toDate(it.date).d);
-    const past = n < 0;
     const pt = ptOf(it.date);
-    const urgent = !past && n<=2, soon = !past && n<=7 && n>2;
+    const urgent = n<=2, soon = n<=7 && n>2;
     const row = document.createElement("div");
-    row.className = "row"+(past?" past":"");
-    const ddText = past ? T.done[lang] : (n===0 ? T.today[lang] : "D-"+n);
+    row.className = "row";
+    const ddText = n===0 ? T.today[lang] : "D-"+n;
     const dateBox = lang==="en" ? `${MON.en[pt.getMonth()]} ${pt.getDate()}` : `${pt.getMonth()+1}/${pt.getDate()}`;
     row.innerHTML = `
       <div class="dd ${urgent?'urgent':soon?'soon':''}">

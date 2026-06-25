@@ -18,7 +18,7 @@
 const DATA = {
   meta: {
     cohort: "WEMBA 52",
-    lastUpdated: "2026-06-24",   // ← 업데이트할 때마다 이 날짜만 바꾸세요 (YYYY-MM-DD)
+    lastUpdated: "2026-06-26",   // ← 업데이트할 때마다 이 날짜만 바꾸세요 (YYYY-MM-DD)
     author:   "Sally",
     tzLabel:  "PT",
   },
@@ -28,6 +28,11 @@ const DATA = {
      매번 업데이트할 때 맨 위에 새 날짜 블록을 추가하세요 (최신이 위로).
      비워두면([]) 헤더에 링크가 안 보입니다. */
   changelog: [
+    { date:"2026-06-26", items:[
+      { kr:"⚠️ BEPP 미드텀 날짜 정정 — Canvas의 8·9월 날짜는 작년 잔재, 실제 미드텀 7/17·기말 8/15", en:"⚠️ BEPP exam dates fixed — Canvas Aug/Sep dates are last year's; real midterm 7/17, final 8/15", cn:"⚠️ 修正 BEPP 考试日期 — Canvas 的 8/9月为去年残留,实际期中 7/17、期末 8/15" },
+      { kr:"ACCT 중간 리뷰 시간 확정(6/29 7:30 PM), Pras 세션5·가격차별 6/30 연기, ePortfolios 6/30 삭제 반영", en:"ACCT review time set (Jun 29 7:30 PM), Pras Session 5 / Price Discrim moved to 6/30, ePortfolios deletion 6/30", cn:"确定 ACCT 复习时间(6/29 7:30 PM)、Pras 第5课·价格歧视移至6/30、ePortfolios 6/30删除" },
+      { kr:"Block Week 등록 마감 처리", en:"Block Week registration marked closed", cn:"Block Week 选课标记为已截止" },
+    ]},
     { date:"2026-06-24", items:[
       { kr:"ACCT Quiz 4·5 마감(7/3) 추가", en:"Added ACCT Quiz 4·5 deadline (Jul 3)", cn:"新增 ACCT Quiz 4·5 截止(7/3)" },
       { kr:"MGMT 제안서 피드백 공개·Lead TA·Siggelkow 팁 2개 반영", en:"Added MGMT proposal feedback, Lead TAs, Siggelkow's 2 tips", cn:"新增 MGMT 提案反馈、助教组长、Siggelkow 两个提示" },
@@ -44,8 +49,10 @@ const DATA = {
   /* ── What's New (기존 섹션에 안 맞는 새 소식 · 최신이 위로) ────────────────
      해결되거나 오래된 항목은 지우면 됩니다. date 는 화면에 작은 날짜로 표시. */
   whatsNew: [
-    { date:"2026-06-23", kr:"✅ Study.Net 자료 링크 복구 — 6/20~22 오류, 6/23 정상 확인 (안 열리던 리딩 다시 열림)", en:"✅ Study.Net materials links restored — Jun 20–22 outage fixed, confirmed Jun 23", cn:"✅ Study.Net 资料链接已恢复 — 6/20~22 故障,6/23 确认正常" },
-    { date:"2026-06-23", kr:"CareerFit & Goal Setting 세션 자료 게시 (녹화·슬라이드·설문) — 못 들었으면 녹화 확인", en:"CareerFit & Goal Setting session materials posted (recording, slides, survey) — watch the recording if you missed it", cn:"CareerFit & Goal Setting 课程资料已发布(录像·幻灯片·问卷)— 错过就看录像" },
+    { date:"2026-06-24", kr:"⚠️ BEPP Canvas 시험 날짜에 속지 마세요 — Aug 22/Sep 7은 작년(2025) 잔재. 실제 미드텀 7/17 · 기말 8/15 (Smetters 공지로 확인)", en:"⚠️ Don't trust the BEPP Canvas exam dates — Aug 22/Sep 7 are last year's (2025). Real midterm Jul 17, final Aug 15 (per Smetters)", cn:"⚠️ 别被 BEPP Canvas 考试日期骗了 — 8/22、9/7 是去年(2025)残留。实际期中 7/17、期末 8/15(Smetters 已确认)" },
+    { date:"2026-06-24", kr:"Block Week 등록 마감(6/24 9 AM). 포털에 '등록 옵션 없음' 표시 — 못 했으면 클래스 매니저 문의", en:"Block Week registration closed (6/24 9 AM). Portal shows 'no options' — contact your class manager if you missed it", cn:"Block Week 选课已截止(6/24 9 AM)。门户显示'无选项'— 错过请联系班级经理" },
+    { date:"2026-06-24", kr:"Pras 세션4(Monopoly) 녹화·슬라이드·연습문제 Dropbox 게시 · 가격차별은 6/30 세션5로 연기 (중간 전 마지막 신규 내용)", en:"Pras Session 4 (Monopoly) recording/slides/problems on Dropbox · Price Discrimination pushed to Session 5 on 6/30 (last new material before the midterm)", cn:"Pras 第4课(垄断)录像·幻灯片·练习题已上 Dropbox · 价格歧视推迟到 6/30 第5课(考前最后新内容)" },
+    { date:"2026-06-24", kr:"ePortfolios (Legacy) 6/30 영구 삭제 — 저장할 거 있으면 Account > ePortfolios(Legacy)에서 .zip 미리 다운로드", en:"ePortfolios (Legacy) permanently deleted Jun 30 — back up as .zip from Account > ePortfolios (Legacy) if needed", cn:"ePortfolios (Legacy) 6/30 永久删除 — 需要的话从 Account > ePortfolios (Legacy) 导出 .zip 备份" },
   ],
 
   /* ── 마감 / 일정 ──────────────────────────────────────────────────────────
@@ -74,9 +81,19 @@ const DATA = {
       detail:{ kr:"11:59 PM PT · 개인 ≤1,000단어 · 본인 회사 전략 이니셔티브 1개", en:"11:59 PM PT · individual ≤1,000 words · one initiative at your firm", cn:"晚11:59 PT · 个人 ≤1,000词 · 分析本公司一项战略举措" },
     },
     {
-      date:"2026-06-29T19:00", type:"session", course:"ACCT",
+      date:"2026-06-29T19:30", type:"session", course:"ACCT", new:true,
       title:{ kr:"ACCT 중간 리뷰 세션 (Lambert)", en:"ACCT midterm review (Lambert)", cn:"ACCT 期中复习课 (Lambert)" },
-      detail:{ kr:"월 저녁 · Zoom · 옛 중간고사 풀이 · 정확한 시간 추후 공지", en:"Mon eve · Zoom · works through an old midterm · exact time TBA", cn:"周一晚 · Zoom · 讲解往年期中卷 · 具体时间待定" },
+      detail:{ kr:"7:30 PM PT · Zoom(녹화 제공) · 옛 중간고사 풀이", en:"7:30 PM PT · Zoom (recorded) · works through an old midterm", cn:"7:30 PM PT · Zoom(提供录像)· 讲解往年期中卷" },
+    },
+    {
+      date:"2026-06-30", type:"session", course:"BEPP", new:true,
+      title:{ kr:"Pras 세션5 — 가격차별 본강의", en:"Pras Session 5 — Price Discrimination", cn:"Pras 第5课 — 价格歧视" },
+      detail:{ kr:"중간 전 마지막 신규 내용 · 세션4(Monopoly) 자료는 Dropbox에 게시됨", en:"Last new material before the midterm · Session 4 (Monopoly) materials posted on Dropbox", cn:"考前最后新内容 · 第4课(垄断)资料已在 Dropbox" },
+    },
+    {
+      date:"2026-06-30", type:"milestone", course:"행정", new:true,
+      title:{ kr:"ePortfolios (Legacy) 영구 삭제", en:"ePortfolios (Legacy) deleted", cn:"ePortfolios (Legacy) 永久删除" },
+      detail:{ kr:"저장할 거 있으면 Account > ePortfolios(Legacy)에서 .zip 미리 다운로드", en:"Back up as .zip from Account > ePortfolios (Legacy) if you need anything", cn:"需要的话从 Account > ePortfolios (Legacy) 导出 .zip 备份" },
     },
     {
       date:"2026-07-03T09:30", type:"exam", course:"ACCT", hard:true,
@@ -84,7 +101,7 @@ const DATA = {
       detail:{ kr:"9:30–11:30 AM · Room 660 · 합반 · 범위=매출채권까지 · 오픈북(ChatGPT 금지)", en:"9:30–11:30 AM · Room 660 · both sections · scope through A/R · open book (no ChatGPT)", cn:"上午9:30–11:30 · 660室 · 两班合并 · 范围=至应收账款 · 开卷(禁用ChatGPT)" },
     },
     {
-      date:"2026-07-03", type:"quiz", course:"ACCT", new:true,
+      date:"2026-07-03", type:"quiz", course:"ACCT",
       title:{ kr:"ACCT Quiz 4·5 마감", en:"ACCT Quiz 4·5 due", cn:"ACCT Quiz 4·5 截止" },
       detail:{ kr:"중간고사와 같은 날 · Quiz 1–3은 이미 마감", en:"Same day as the midterm · Quizzes 1–3 already closed", cn:"与期中同一天 · Quiz 1–3 已截止" },
     },
@@ -152,11 +169,11 @@ const DATA = {
         { kr:"산업분석은 6 forces(5+보완재) 전부 · WTP/비용은 개념 논증이면 충분", en:"Industry analysis must cover all 6 forces (5+complementors) · WTP/cost can be conceptual", cn:"行业分析须涵盖全部6力(5力+互补者) · WTP/成本用概念论证即可" },
         { kr:"Canvas 신규: 'toolkit'(Strategy Omni) 핸드아웃 + Disney/TJ/Philips 슬라이드 + Philips 계산 문서", en:"New on Canvas: 'toolkit' (Strategy Omni) handout + Disney/TJ/Philips slides + Philips calculations", cn:"Canvas 新增: 'toolkit'(Strategy Omni) 讲义 + Disney/TJ/Philips 幻灯片 + Philips 计算文档" },
         { kr:"Janice Fisher(글쓰기 코치) 무료 첨삭 — Files 메모에서 슬롯 확인", en:"Janice Fisher (writing coach) free reviews — check her memo in Files for a slot", cn:"Janice Fisher(写作教练)免费批改 — 在 Files 备忘中查看名额" },
-        { new:true, kr:"팀 제안서 코멘트·점수 Canvas 공개(Grades) · Lead TA: Zorina Chen·Na Hyun Kim·Emily Ulrich", en:"Proposal comments & scores now on Canvas (Grades) · Lead TAs: Zorina Chen, Na Hyun Kim, Emily Ulrich", cn:"团队提案评语与分数已在 Canvas(Grades)公布 · 助教组长: Zorina Chen·Na Hyun Kim·Emily Ulrich" },
+        { kr:"팀 제안서 코멘트·점수 Canvas 공개(Grades) · Lead TA: Zorina Chen·Na Hyun Kim·Emily Ulrich", en:"Proposal comments & scores now on Canvas (Grades) · Lead TAs: Zorina Chen, Na Hyun Kim, Emily Ulrich", cn:"团队提案评语与分数已在 Canvas(Grades)公布 · 助教组长: Zorina Chen·Na Hyun Kim·Emily Ulrich" },
       ],
       traps:[
-        { new:true, kr:"Siggelkow 팁① 개념·프레임워크는 소수만 골라 깊게 (다 넣으면 깊이가 사라짐)", en:"Siggelkow tip 1: pick a few concepts/frameworks and go deep (cramming everything kills depth)", cn:"Siggelkow 提示①: 少选几个概念/框架深入(全塞进去会失去深度)" },
-        { new:true, kr:"Siggelkow 팁② 전략·HSC·글로벌 3모듈 '통합'이 핵심 — 한 영역 이슈가 다른 영역에 주는 영향을 연결, 가로지르는 결론", en:"Siggelkow tip 2: integrate the Strategy/HSC/Global modules — link how one area's issue affects another, with a cross-cutting conclusion", cn:"Siggelkow 提示②: 整合战略/HSC/全球三模块 — 把一个领域的问题如何影响另一领域串联,给出贯穿性结论" },
+        { kr:"Siggelkow 팁① 개념·프레임워크는 소수만 골라 깊게 (다 넣으면 깊이가 사라짐)", en:"Siggelkow tip 1: pick a few concepts/frameworks and go deep (cramming everything kills depth)", cn:"Siggelkow 提示①: 少选几个概念/框架深入(全塞进去会失去深度)" },
+        { kr:"Siggelkow 팁② 전략·HSC·글로벌 3모듈 '통합'이 핵심 — 한 영역 이슈가 다른 영역에 주는 영향을 연결, 가로지르는 결론", en:"Siggelkow tip 2: integrate the Strategy/HSC/Global modules — link how one area's issue affects another, with a cross-cutting conclusion", cn:"Siggelkow 提示②: 整合战略/HSC/全球三模块 — 把一个领域的问题如何影响另一领域串联,给出贯穿性结论" },
         { kr:"유추 빌리기 전에 '이게 왜 통했나?' 먼저 묻기", en:"Ask 'why did this actually work?' before borrowing any analogy", cn:"借用类比前先问'它当初为何奏效?'" },
         { kr:"two tests: 함께 가치 창출? / 그 가치 거두려고 꼭 소유해야?", en:"Two tests: create value together? / must you own it to capture that value?", cn:"两个检验: 是否共同创造价值? / 是否必须拥有才能获取该价值?" },
       ],
@@ -167,11 +184,12 @@ const DATA = {
       headline:{ kr:"보물이 떴어요 · 중간고사 7/17", en:"A goldmine dropped · midterm Jul 17", cn:"宝藏上线了 · 期中 7/17" },
       points:[
         { kr:"과거 중간고사 5개년 + 솔루션(2021–2025) Files에 게시 · 정답본 강의노트(L5/L8/L9/L10–11)도", en:"5 years of past midterms + solutions (2021–2025) now in Files · plus filled-in notes (L5/L8/L9/L10–11)", cn:"5年期中真题+答案(2021–2025)已上传 Files · 还有带答案讲义(L5/L8/L9/L10–11)" },
-        { kr:"Smetters: ~7/6(2주 전)부터 과거 시험 풀기 시작 · 슬라이드 재독보다 문제 풀이가 본체", en:"Smetters: start past midterms ~Jul 6 (2 wks out) · problems > re-reading slides", cn:"Smetters: 约从7/6(考前2周)开始做真题 · 做题比重读幻灯片更重要" },
+        { new:true, kr:"Smetters 공부 순서: 추가문제·recitation 먼저 충분히 → 과거 미드텀은 ~7/6부터 (맥락 없이 기출부터 점프 금지)", en:"Smetters' order: do the Additional Problems & recitations first → start past midterms ~Jul 6 (don't jump to old exams without context)", cn:"Smetters 顺序: 先做附加题与 recitation → 历年期中约从7/6开始(别无背景就跳到真题)" },
         { kr:"가격차별→2부요금제→번들링 마무리 (동질 회원비 $18 / 이질 P*=$1.5, F*≈$1.13)", en:"Finished price-discrim → two-part tariff → bundling (homog. fee $18 / heterog. P*=$1.5, F*≈$1.13)", cn:"价格歧视→两部定价→捆绑销售已讲完(同质会员费$18 / 异质 P*=$1.5, F*≈$1.13)" },
         { kr:"Pras 도우미 세션(6/23) + RS3(6/24)·RS4(7/9)", en:"Pras help session (Jun 23) + RS3 (Jun 24)·RS4 (Jul 9)", cn:"Pras 辅导课(6/23) + RS3(6/24)·RS4(7/9)" },
       ],
       traps:[
+        { new:true, kr:"⚠️ Canvas 시험 날짜 함정 — Aug 22/Sep 7은 작년(2025) 잔재. 실제 미드텀 7/17 · 기말 8/15", en:"⚠️ Canvas date trap — Aug 22/Sep 7 are last year's (2025). Real midterm Jul 17, final Aug 15", cn:"⚠️ Canvas 日期陷阱 — 8/22、9/7 为去年(2025)残留。实际期中 7/17、期末 8/15" },
         { kr:"⚠️ Inkoo는 새 공지 대신 기존 공지를 수정 (메일 안 옴) — 공지 페이지 재방문", en:"⚠️ Inkoo edits the existing announcement silently (no email) — re-visit the page", cn:"⚠️ Inkoo 会直接改旧公告而非发新公告(无邮件)— 请重访公告页" },
       ],
     },
@@ -192,9 +210,9 @@ const DATA = {
   /* ── Block Week 선택 ─────────────────────────────────────────────────────*/
   blockWeek:{
     due:"2026-06-24T09:00",
-    note:{ kr:"둘 다 Pass/Fail · 교재 없음 · 추가 등록금 없음(22 CU 내). 8월 SFO(8/3–6). 관심으로 고르면 돼요.",
-           en:"Both Pass/Fail · no textbooks · no extra tuition (within 22 CU). Aug SFO (Aug 3–6). Pick by interest.",
-           cn:"两门都是 Pass/Fail · 无教材 · 无额外学费(22 CU 内)。8月 SFO(8/3–6)。按兴趣选即可。" },
+    note:{ kr:"⚠️ 등록 마감됨(6/24 9 AM) — 포털에 '등록 옵션 없음'. 못 했으면 클래스 매니저 문의. (둘 다 Pass/Fail·교재 없음·추가 등록금 없음 · 8월 SFO 8/3–6)",
+           en:"⚠️ Registration closed (6/24 9 AM) — portal shows 'no options'. Missed it? Contact your class manager. (Both Pass/Fail · no textbooks · no extra tuition · Aug SFO 8/3–6)",
+           cn:"⚠️ 选课已截止(6/24 9 AM)— 门户显示'无选项'。错过请联系班级经理。(两门均 Pass/Fail·无教材·无额外学费 · 8月 SFO 8/3–6)" },
     options:[
       {
         code:"LGST 8090", prof:"Rob DiGisi",
@@ -215,8 +233,6 @@ const DATA = {
 
   /* ── 액션 체크리스트 (체크 상태는 브라우저에 저장됨) ──────────────────────*/
   actions:[
-    { id:"a1", by:"2026-06-24", label:{ kr:"Block Week 과목 결정 후 등록 (수 9 AM PT 전)", en:"Decide & register Block Week course (before Wed 9 AM PT)", cn:"确定并完成 Block Week 选课(周三上午9点 PT 前)" } },
-    { id:"a2", by:"2026-06-24", label:{ kr:"RS3 워크시트 풀고 BEPP 리뷰 세션 참석", en:"Solve RS3 worksheet & attend BEPP review session", cn:"做完 RS3 练习题并参加 BEPP 复习课" } },
     { id:"a3", by:"2026-06-29", label:{ kr:"Strategy 페이퍼 작성 (필요시 Fisher 첨삭 슬롯 예약)", en:"Write Strategy paper (book Fisher review if wanted)", cn:"撰写战略论文(需要时预约 Fisher 批改)" } },
     { id:"a4", by:"2026-06-29", label:{ kr:"MGMT 6130 강의평가 작성 (upenn.edu/eval)", en:"Submit MGMT 6130 course eval (upenn.edu/eval)", cn:"填写 MGMT 6130 课程评价(upenn.edu/eval)" } },
     { id:"a5", by:"2026-07-03", label:{ kr:"ACCT 옛 중간고사 시간재고 풀이 + LIFO/FIFO 슬라이드 출력", en:"Time-drill old ACCT midterms + print LIFO/FIFO slide", cn:"限时做 ACCT 往年期中卷 + 打印 LIFO/FIFO 幻灯片" } },
