@@ -32,6 +32,7 @@ const DATA = {
       { kr:"⚠️ BEPP 미드텀 날짜 정정 — Canvas의 8·9월 날짜는 작년 잔재, 실제 미드텀 7/17·기말 8/15", en:"⚠️ BEPP exam dates fixed — Canvas Aug/Sep dates are last year's; real midterm 7/17, final 8/15", cn:"⚠️ 修正 BEPP 考试日期 — Canvas 的 8/9月为去年残留,实际期中 7/17、期末 8/15" },
       { kr:"ACCT 중간 리뷰 시간 확정(6/29 7:30 PM), Pras 세션5·가격차별 6/30 연기, ePortfolios 6/30 삭제 반영", en:"ACCT review time set (Jun 29 7:30 PM), Pras Session 5 / Price Discrim moved to 6/30, ePortfolios deletion 6/30", cn:"确定 ACCT 复习时间(6/29 7:30 PM)、Pras 第5课·价格歧视移至6/30、ePortfolios 6/30删除" },
       { kr:"Block Week 등록 마감 처리", en:"Block Week registration marked closed", cn:"Block Week 选课标记为已截止" },
+      { kr:"52 Family Day 설문(7/6) + 등록·성적 모드 확인 PDF 추가", en:"Added 52 Family Day survey (Jul 6) + registration/grade-modes PDF", cn:"新增 52 Family Day 问卷(7/6)+ 注册/成绩模式 PDF" },
     ]},
     { date:"2026-06-24", items:[
       { kr:"ACCT Quiz 4·5 마감(7/3) 추가", en:"Added ACCT Quiz 4·5 deadline (Jul 3)", cn:"新增 ACCT Quiz 4·5 截止(7/3)" },
@@ -53,6 +54,8 @@ const DATA = {
     { date:"2026-06-24", kr:"Block Week 등록 마감(6/24 9 AM). 포털에 '등록 옵션 없음' 표시 — 못 했으면 클래스 매니저 문의", en:"Block Week registration closed (6/24 9 AM). Portal shows 'no options' — contact your class manager if you missed it", cn:"Block Week 选课已截止(6/24 9 AM)。门户显示'无选项'— 错过请联系班级经理" },
     { date:"2026-06-24", kr:"Pras 세션4(Monopoly) 녹화·슬라이드·연습문제 Dropbox 게시 · 가격차별은 6/30 세션5로 연기 (중간 전 마지막 신규 내용)", en:"Pras Session 4 (Monopoly) recording/slides/problems on Dropbox · Price Discrimination pushed to Session 5 on 6/30 (last new material before the midterm)", cn:"Pras 第4课(垄断)录像·幻灯片·练习题已上 Dropbox · 价格歧视推迟到 6/30 第5课(考前最后新内容)" },
     { date:"2026-06-24", kr:"ePortfolios (Legacy) 6/30 영구 삭제 — 저장할 거 있으면 Account > ePortfolios(Legacy)에서 .zip 미리 다운로드", en:"ePortfolios (Legacy) permanently deleted Jun 30 — back up as .zip from Account > ePortfolios (Legacy) if needed", cn:"ePortfolios (Legacy) 6/30 永久删除 — 需要的话从 Account > ePortfolios (Legacy) 导出 .zip 备份" },
+    { date:"2026-06-26", kr:"🎉 52 Family Day @ Parklab Gardens(7/30) — 준비 설문 7/6까지 작성", en:"🎉 52 Family Day @ Parklab Gardens (Jul 30) — prep survey due Jul 6", cn:"🎉 52 Family Day @ Parklab Gardens(7/30)— 筹备问卷 7/6 前填写" },
+    { date:"2026-06-26", kr:"📄 Canvas에 '등록·성적 모드(P/F 등) 확인법' PDF 게시 — Block Week 마감 직후 한 번 볼 만함", en:"📄 'How to Check Registration & Grade Modes' PDF posted on Canvas — worth a look after the Block Week deadline", cn:"📄 Canvas 发布'如何查看注册与成绩模式(P/F等)'PDF — Block Week 截止后值得一看" },
   ],
 
   /* ── 마감 / 일정 ──────────────────────────────────────────────────────────
@@ -94,6 +97,11 @@ const DATA = {
       date:"2026-06-30", type:"milestone", course:"행정", new:true,
       title:{ kr:"ePortfolios (Legacy) 영구 삭제", en:"ePortfolios (Legacy) deleted", cn:"ePortfolios (Legacy) 永久删除" },
       detail:{ kr:"저장할 거 있으면 Account > ePortfolios(Legacy)에서 .zip 미리 다운로드", en:"Back up as .zip from Account > ePortfolios (Legacy) if you need anything", cn:"需要的话从 Account > ePortfolios (Legacy) 导出 .zip 备份" },
+    },
+    {
+      date:"2026-07-06", type:"milestone", course:"Cohort", new:true,
+      title:{ kr:"52 Family Day 설문 마감", en:"52 Family Day survey due", cn:"52 Family Day 问卷截止" },
+      detail:{ kr:"Parklab Gardens 행사(7/30) 준비용 설문 — 7/6(월)까지 작성", en:"Prep survey for the Parklab Gardens event (Jul 30) — fill out by Mon Jul 6", cn:"Parklab Gardens 活动(7/30)筹备问卷 — 7/6(周一)前填写" },
     },
     {
       date:"2026-07-03T09:30", type:"exam", course:"ACCT", hard:true,
@@ -238,6 +246,7 @@ const DATA = {
     { id:"a5", by:"2026-07-03", label:{ kr:"ACCT 옛 중간고사 시간재고 풀이 + LIFO/FIFO 슬라이드 출력", en:"Time-drill old ACCT midterms + print LIFO/FIFO slide", cn:"限时做 ACCT 往年期中卷 + 打印 LIFO/FIFO 幻灯片" } },
     { id:"a6", by:"2026-07-03", label:{ kr:"HSC 사전과제: Job Diagnostic Survey + MPS 점수", en:"HSC pre-work: Job Diagnostic Survey + MPS score", cn:"HSC 课前作业: Job Diagnostic Survey + MPS 分数" } },
     { id:"a7", by:"2026-07-06", label:{ kr:"BEPP 과거 중간고사(2021–25) 풀기 시작", en:"Start BEPP past midterms (2021–25)", cn:"开始做 BEPP 往年期中卷(2021–25)" } },
+    { id:"a9", by:"2026-07-06", label:{ kr:"52 Family Day 설문 작성 (Parklab Gardens)", en:"Fill out the 52 Family Day survey (Parklab Gardens)", cn:"填写 52 Family Day 问卷(Parklab Gardens)" } },
     { id:"a8", by:"2026-08-05", label:{ kr:"팀 TA 체크인 일정 잡기 (7/24–8/5)", en:"Schedule team TA check-in (Jul 24–Aug 5)", cn:"预约团队 TA 签到(7/24–8/5)" } },
   ],
 
