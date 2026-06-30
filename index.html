@@ -49,6 +49,7 @@
 
   /* header */
   header.top{display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:8px}
+  .brand .wordmark, .brand h1{cursor:pointer}
   .brand .wordmark{font-family:Georgia,"Times New Roman",serif; font-size:22px; font-weight:600; letter-spacing:.01em; color:var(--ink); line-height:1; margin-bottom:8px}
   .brand .wmark-img{height:26px; width:auto; display:block; margin-bottom:8px}
   .brand .kicker{font-size:12px; font-weight:700; letter-spacing:.14em; color:var(--muted); text-transform:uppercase}
@@ -693,6 +694,12 @@ document.querySelectorAll(".toggle.theme button").forEach(b=>{
 /* ---------- language ---------- */
 document.querySelectorAll(".toggle.lang button").forEach(b=>{
   b.addEventListener("click",()=>{ lang=b.dataset.lang; localStorage.setItem("wemba_lang",lang); render(); });
+});
+
+/* ---------- 좌상단 브랜드 클릭 → 맨 위로(홈) ---------- */
+document.querySelector(".brand").addEventListener("click", e=>{
+  if(e.target.closest("a")) return;   // '업데이트 내역' 링크는 제외
+  window.scrollTo({ top:0, behavior:"smooth" });
 });
 
 /* ---------- 업데이트 내역 모달 ---------- */
