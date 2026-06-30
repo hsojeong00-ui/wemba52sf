@@ -180,17 +180,15 @@ const DATA = {
     {
       code:"MGMT", color:"#1971c2",
       name:{ kr:"전략 6130 (Siggelkow)", en:"Strategy 6130 (Siggelkow)", cn:"战略 6130 (Siggelkow)" },
-      headline:{ kr:"Strategy 페이퍼 6/29 마감", en:"Strategy paper due Jun 29", cn:"战略论文 6/29 截止" },
+      headline:{ kr:"개인 페이퍼 마감(6/29) 끝 · 이제 팀 기말 (8/24)", en:"Individual paper done (Jun 29) · now the team final (Aug 24)", cn:"个人论文已交(6/29)· 现在团队期末(8/24)" },
       points:[
-        { kr:"개인 ≤1,000단어, 더블스페이스 · 본인 회사의 전략 이니셔티브 1개 분석", en:"Individual ≤1,000 words, double-spaced · analyze one strategic initiative at your firm", cn:"个人 ≤1,000词, 双倍行距 · 分析本公司一项战略举措" },
-        { kr:"산업분석은 6 forces(5+보완재) 전부 · WTP/비용은 개념 논증이면 충분", en:"Industry analysis must cover all 6 forces (5+complementors) · WTP/cost can be conceptual", cn:"行业分析须涵盖全部6力(5力+互补者) · WTP/成本用概念论证即可" },
-        { kr:"Canvas 신규: 'toolkit'(Strategy Omni) 핸드아웃 + Disney/TJ/Philips 슬라이드 + Philips 계산 문서", en:"New on Canvas: 'toolkit' (Strategy Omni) handout + Disney/TJ/Philips slides + Philips calculations", cn:"Canvas 新增: 'toolkit'(Strategy Omni) 讲义 + Disney/TJ/Philips 幻灯片 + Philips 计算文档" },
-        { kr:"Janice Fisher(글쓰기 코치) 무료 첨삭 — Files 메모에서 슬롯 확인", en:"Janice Fisher (writing coach) free reviews — check her memo in Files for a slot", cn:"Janice Fisher(写作教练)免费批改 — 在 Files 备忘中查看名额" },
-        { kr:"팀 제안서 코멘트·점수 Canvas 공개(Grades) · Lead TA: Zorina Chen·Na Hyun Kim·Emily Ulrich", en:"Proposal comments & scores now on Canvas (Grades) · Lead TAs: Zorina Chen, Na Hyun Kim, Emily Ulrich", cn:"团队提案评语与分数已在 Canvas(Grades)公布 · 助教组长: Zorina Chen·Na Hyun Kim·Emily Ulrich" },
+        { new:true, kr:"팀 페이퍼 TA 미팅 — 우리 팀 배정 TA 확인 후 Calendly로 8/5까지 (팀당 1슬롯 · 리드 Zorina Chen)", en:"Team-paper TA meeting — confirm your team's assigned TA, then book Calendly by Aug 5 (1 slot/team · Lead Zorina Chen)", cn:"团队论文 TA 会议 — 先确认本队 TA,8/5前用 Calendly 预约(每队1个 · 组长 Zorina Chen)" },
+        { kr:"팀 기말(8/24) 핵심 = 전략·HSC·글로벌 3모듈 통합 — 한 영역 이슈가 다른 영역에 주는 영향 연결, 가로지르는 결론", en:"Team final (Aug 24) key = integrate the Strategy/HSC/Global modules — link how one area affects another, with a cross-cutting conclusion", cn:"团队期末(8/24)关键 = 整合战略/HSC/全球三模块 — 串联各领域相互影响,给出贯穿性结论" },
+        { kr:"팀 제안서 코멘트·점수는 Canvas Grades에 공개됨", en:"Team-proposal comments & scores are posted on Canvas (Grades)", cn:"团队提案评语与分数已在 Canvas(Grades)公布" },
+        { kr:"전략 모듈 자료(toolkit·Disney/TJ/Philips·Philips 계산)는 Files에 — 팀 분석에 재활용 가능", en:"Strategy module materials (toolkit · Disney/TJ/Philips · Philips calcs) are in Files — reuse for the team analysis", cn:"战略模块资料(toolkit·Disney/TJ/Philips·Philips 计算)在 Files — 可用于团队分析" },
       ],
       traps:[
-        { kr:"Siggelkow 팁① 개념·프레임워크는 소수만 골라 깊게 (다 넣으면 깊이가 사라짐)", en:"Siggelkow tip 1: pick a few concepts/frameworks and go deep (cramming everything kills depth)", cn:"Siggelkow 提示①: 少选几个概念/框架深入(全塞进去会失去深度)" },
-        { kr:"Siggelkow 팁② 전략·HSC·글로벌 3모듈 '통합'이 핵심 — 한 영역 이슈가 다른 영역에 주는 영향을 연결, 가로지르는 결론", en:"Siggelkow tip 2: integrate the Strategy/HSC/Global modules — link how one area's issue affects another, with a cross-cutting conclusion", cn:"Siggelkow 提示②: 整合战略/HSC/全球三模块 — 把一个领域的问题如何影响另一领域串联,给出贯穿性结论" },
+        { kr:"개념·프레임워크는 소수만 골라 깊게 (다 넣으면 깊이가 사라짐)", en:"Pick a few concepts/frameworks and go deep (cramming everything kills depth)", cn:"少选几个概念/框架深入(全塞进去会失去深度)" },
         { kr:"유추 빌리기 전에 '이게 왜 통했나?' 먼저 묻기", en:"Ask 'why did this actually work?' before borrowing any analogy", cn:"借用类比前先问'它当初为何奏效?'" },
         { kr:"two tests: 함께 가치 창출? / 그 가치 거두려고 꼭 소유해야?", en:"Two tests: create value together? / must you own it to capture that value?", cn:"两个检验: 是否共同创造价值? / 是否必须拥有才能获取该价值?" },
       ],
@@ -204,7 +202,7 @@ const DATA = {
         { kr:"Smetters 공부 순서: 추가문제·recitation 먼저 충분히 → 과거 미드텀은 ~7/6부터 (맥락 없이 기출부터 점프 금지)", en:"Smetters' order: do the Additional Problems & recitations first → start past midterms ~Jul 6 (don't jump to old exams without context)", cn:"Smetters 顺序: 先做附加题与 recitation → 历年期中约从7/6开始(别无背景就跳到真题)" },
         { new:true, kr:"L12·13·14 (with blanks + Additional Problems) 게시 — 이번 주말 진도 · 번들링은 기출 빈출이라 혼합번들 최적화 꼭 숙지", en:"L12·13·14 (with blanks + Additional Problems) posted — this weekend's material · bundling is common on past exams, master mixed-bundling optimization", cn:"L12·13·14(with blanks + 附加题)已发布 — 本周末进度 · 捆绑销售是真题高频,务必掌握混合捆绑优化" },
         { kr:"가격차별→2부요금제→번들링 마무리 (동질 회원비 $18 / 이질 P*=$1.5, F*≈$1.13)", en:"Finished price-discrim → two-part tariff → bundling (homog. fee $18 / heterog. P*=$1.5, F*≈$1.13)", cn:"价格歧视→两部定价→捆绑销售已讲完(同质会员费$18 / 异质 P*=$1.5, F*≈$1.13)" },
-        { kr:"Pras 도우미 세션(6/23) + RS3(6/24)·RS4(7/9)", en:"Pras help session (Jun 23) + RS3 (Jun 24)·RS4 (Jul 9)", cn:"Pras 辅导课(6/23) + RS3(6/24)·RS4(7/9)" },
+        { kr:"남은 리뷰: RS4 (7/9 7 PM) · 지난 Pras·RS 세션 자료는 Dropbox/공지 페이지에", en:"Remaining review: RS4 (Jul 9, 7 PM) · past Pras/RS session materials are on Dropbox / the announcement page", cn:"剩余复习: RS4(7/9 7 PM)· 往期 Pras/RS 资料在 Dropbox/公告页" },
       ],
       traps:[
         { kr:"⚠️ Canvas 시험 날짜 함정 — Aug 22/Sep 7은 작년(2025) 잔재. 실제 미드텀 7/17 · 기말 8/15", en:"⚠️ Canvas date trap — Aug 22/Sep 7 are last year's (2025). Real midterm Jul 17, final Aug 15", cn:"⚠️ Canvas 日期陷阱 — 8/22、9/7 为去年(2025)残留。实际期中 7/17、期末 8/15" },
