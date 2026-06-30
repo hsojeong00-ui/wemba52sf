@@ -18,7 +18,7 @@
 const DATA = {
   meta: {
     cohort: "WEMBA 52",
-    lastUpdated: "2026-06-26",   // ← 업데이트할 때마다 이 날짜만 바꾸세요 (YYYY-MM-DD)
+    lastUpdated: "2026-06-30",   // ← 업데이트할 때마다 이 날짜만 바꾸세요 (YYYY-MM-DD)
     author:   "Sally",
     tzLabel:  "PT",
   },
@@ -28,6 +28,11 @@ const DATA = {
      매번 업데이트할 때 맨 위에 새 날짜 블록을 추가하세요 (최신이 위로).
      비워두면([]) 헤더에 링크가 안 보입니다. */
   changelog: [
+    { date:"2026-06-30", items:[
+      { kr:"HSC Day 1(7/3) JDS 사전과제 강조, BEPP L12·13·14 게시·RS3 정정 반영", en:"Emphasized HSC Day 1 (Jul 3) JDS pre-work; added BEPP L12·13·14 + RS3 correction", cn:"强调 HSC Day 1(7/3)JDS 课前作业;新增 BEPP L12·13·14 + RS3 更正" },
+      { kr:"7/30 Family Day · 8/5 팀 페이퍼 TA 미팅(Zorina) 일정 추가", en:"Added Jul 30 Family Day and Aug 5 team-paper TA meeting (Zorina)", cn:"新增 7/30 Family Day 与 8/5 团队论文 TA 会议(Zorina)" },
+      { kr:"7/3–4 주말 일정표: 섹션별 순서 다름 안내 추가", en:"Weekend schedule: noted Section 1/2 order differs", cn:"周末课表: 标注第1/2班顺序不同" },
+    ]},
     { date:"2026-06-26", items:[
       { kr:"⚠️ BEPP 미드텀 날짜 정정 — Canvas의 8·9월 날짜는 작년 잔재, 실제 미드텀 7/17·기말 8/15", en:"⚠️ BEPP exam dates fixed — Canvas Aug/Sep dates are last year's; real midterm 7/17, final 8/15", cn:"⚠️ 修正 BEPP 考试日期 — Canvas 的 8/9月为去年残留,实际期中 7/17、期末 8/15" },
       { kr:"ACCT 중간 리뷰 시간 확정(6/29 7:30 PM), Pras 세션5·가격차별 6/30 연기, ePortfolios 6/30 삭제 반영", en:"ACCT review time set (Jun 29 7:30 PM), Pras Session 5 / Price Discrim moved to 6/30, ePortfolios deletion 6/30", cn:"确定 ACCT 复习时间(6/29 7:30 PM)、Pras 第5课·价格歧视移至6/30、ePortfolios 6/30删除" },
@@ -50,12 +55,11 @@ const DATA = {
   /* ── What's New (기존 섹션에 안 맞는 새 소식 · 최신이 위로) ────────────────
      해결되거나 오래된 항목은 지우면 됩니다. date 는 화면에 작은 날짜로 표시. */
   whatsNew: [
-    { date:"2026-06-24", kr:"⚠️ BEPP Canvas 시험 날짜에 속지 마세요 — Aug 22/Sep 7은 작년(2025) 잔재. 실제 미드텀 7/17 · 기말 8/15 (Smetters 공지로 확인)", en:"⚠️ Don't trust the BEPP Canvas exam dates — Aug 22/Sep 7 are last year's (2025). Real midterm Jul 17, final Aug 15 (per Smetters)", cn:"⚠️ 别被 BEPP Canvas 考试日期骗了 — 8/22、9/7 是去年(2025)残留。实际期中 7/17、期末 8/15(Smetters 已确认)" },
-    { date:"2026-06-24", kr:"Block Week 등록 마감(6/24 9 AM). 포털에 '등록 옵션 없음' 표시 — 못 했으면 클래스 매니저 문의", en:"Block Week registration closed (6/24 9 AM). Portal shows 'no options' — contact your class manager if you missed it", cn:"Block Week 选课已截止(6/24 9 AM)。门户显示'无选项'— 错过请联系班级经理" },
-    { date:"2026-06-24", kr:"Pras 세션4(Monopoly) 녹화·슬라이드·연습문제 Dropbox 게시 · 가격차별은 6/30 세션5로 연기 (중간 전 마지막 신규 내용)", en:"Pras Session 4 (Monopoly) recording/slides/problems on Dropbox · Price Discrimination pushed to Session 5 on 6/30 (last new material before the midterm)", cn:"Pras 第4课(垄断)录像·幻灯片·练习题已上 Dropbox · 价格歧视推迟到 6/30 第5课(考前最后新内容)" },
-    { date:"2026-06-24", kr:"ePortfolios (Legacy) 6/30 영구 삭제 — 저장할 거 있으면 Account > ePortfolios(Legacy)에서 .zip 미리 다운로드", en:"ePortfolios (Legacy) permanently deleted Jun 30 — back up as .zip from Account > ePortfolios (Legacy) if needed", cn:"ePortfolios (Legacy) 6/30 永久删除 — 需要的话从 Account > ePortfolios (Legacy) 导出 .zip 备份" },
-    { date:"2026-06-26", kr:"🎉 52 Family Day @ Parklab Gardens(7/30) — 준비 설문 7/6까지 작성", en:"🎉 52 Family Day @ Parklab Gardens (Jul 30) — prep survey due Jul 6", cn:"🎉 52 Family Day @ Parklab Gardens(7/30)— 筹备问卷 7/6 前填写" },
-    { date:"2026-06-26", kr:"📄 Canvas에 '등록·성적 모드(P/F 등) 확인법' PDF 게시 — Block Week 마감 직후 한 번 볼 만함", en:"📄 'How to Check Registration & Grade Modes' PDF posted on Canvas — worth a look after the Block Week deadline", cn:"📄 Canvas 发布'如何查看注册与成绩模式(P/F等)'PDF — Block Week 截止后值得一看" },
+    { date:"2026-06-29", kr:"📝 HSC Day 1(7/3) 사전과제 — JDS Short Form(첫 직장 기준) 작성 + MPS 점수 계산해 오기. 양식: MGMT 6130 ▸ Files ▸ H&SC Extras", en:"📝 HSC Day 1 (Jul 3) pre-work — fill the JDS Short Form (first job) + compute your MPS. Forms: MGMT 6130 ▸ Files ▸ H&SC Extras", cn:"📝 HSC Day 1(7/3)课前作业 — 填写 JDS Short Form(第一份工作)并算出 MPS。表单: MGMT 6130 ▸ Files ▸ H&SC Extras" },
+    { date:"2026-06-29", kr:"🗓️ 7/3–4 주말 일정표 게시 — 섹션 1·2가 BEPP/MGMT 순서 반대! 본인 섹션 꼭 확인", en:"🗓️ Jul 3–4 weekend schedule posted — Sections 1 & 2 run BEPP/MGMT in opposite order. Check your section!", cn:"🗓️ 7/3–4 周末课表已发布 — 第1/2班 BEPP/MGMT 顺序相反!请确认自己的班" },
+    { date:"2026-06-29", kr:"BEPP L12·13·14(with blanks + Additional Problems) 게시 · RS3 정정: RedLine 번들가 $23 유지가 최적 · 번들링은 기출 빈출", en:"BEPP L12·13·14 (with blanks + Additional Problems) posted · RS3 fix: RedLine bundle price stays $23 · bundling shows up often on past exams", cn:"BEPP L12·13·14(with blanks + 附加题)已发布 · RS3 更正: RedLine 捆绑价维持 $23 · 捆绑销售为真题高频" },
+    { date:"2026-06-29", kr:"📄 팀 페이퍼 TA 미팅 — 먼저 우리 팀 배정 TA 확인 후, 팀당 1슬롯 Calendly로 8/5까지 예약 (리드 TA Zorina Chen · 질문: 전략→Emily, 글로벌→Na Hyun)", en:"📄 Team-paper TA meeting — first confirm your team's assigned TA, then book 1 Calendly slot per team by Aug 5 (Lead TA Zorina Chen · Strategy Qs → Emily, Global → Na Hyun)", cn:"📄 团队论文 TA 会议 — 先确认本队分配的 TA,再每队 8/5 前用 Calendly 约1个名额(组长 Zorina Chen · 战略→Emily,全球→Na Hyun)" },
+    { date:"2026-06-29", kr:"📣 Wharton-Penn 강의평가 최종 리마인더 — 마감 임박, 작성하세요", en:"📣 Final reminder: Wharton-Penn course evaluations — deadline near, please submit", cn:"📣 Wharton-Penn 课程评价最后提醒 — 临近截止,请填写" },
   ],
 
   /* ── 마감 / 일정 ──────────────────────────────────────────────────────────
@@ -69,11 +73,6 @@ const DATA = {
       detail:{ kr:"~6–8 PM PT · 치트시트 + 기출 연습", en:"~6–8 PM PT · cheat sheet + past-exam drills", cn:"~下午6–8点 PT · 速查表 + 历年真题练习" },
     },
     {
-      date:"2026-06-24T09:00", type:"registration", course:"Block Week", hard:true,
-      title:{ kr:"여름 Block Week 수강신청 마감", en:"Summer Block Week registration", cn:"暑期 Block Week 选课截止" },
-      detail:{ kr:"9 AM PT / 12 PM ET · 코스등록 포털 · 8월 SFO 과목 둘 중 하나 선택", en:"9 AM PT / 12 PM ET · registration portal · pick one of two Aug SFO courses", cn:"上午9点 PT / 中午12点 ET · 选课门户 · 8月 SFO 两门课二选一" },
-    },
-    {
       date:"2026-06-24T19:00", type:"session", course:"BEPP",
       title:{ kr:"BEPP Review Session 3 (Inkoo)", en:"BEPP Review Session 3 (Inkoo)", cn:"BEPP 复习课 3 (Inkoo)" },
       detail:{ kr:"7:00–8:30 PM PT · RS3 워크시트 먼저 풀고 가기", en:"7:00–8:30 PM PT · solve the RS3 worksheet first", cn:"晚7:00–8:30 PT · 先做完 RS3 练习题再来" },
@@ -84,22 +83,22 @@ const DATA = {
       detail:{ kr:"11:59 PM PT · 개인 ≤1,000단어 · 본인 회사 전략 이니셔티브 1개", en:"11:59 PM PT · individual ≤1,000 words · one initiative at your firm", cn:"晚11:59 PT · 个人 ≤1,000词 · 分析本公司一项战略举措" },
     },
     {
-      date:"2026-06-29T19:30", type:"session", course:"ACCT", new:true,
+      date:"2026-06-29T19:30", type:"session", course:"ACCT",
       title:{ kr:"ACCT 중간 리뷰 세션 (Lambert)", en:"ACCT midterm review (Lambert)", cn:"ACCT 期中复习课 (Lambert)" },
       detail:{ kr:"7:30 PM PT · Zoom(녹화 제공) · 옛 중간고사 풀이", en:"7:30 PM PT · Zoom (recorded) · works through an old midterm", cn:"7:30 PM PT · Zoom(提供录像)· 讲解往年期中卷" },
     },
     {
-      date:"2026-06-30", type:"session", course:"BEPP", new:true,
+      date:"2026-06-30", type:"session", course:"BEPP",
       title:{ kr:"Pras 세션5 — 가격차별 본강의", en:"Pras Session 5 — Price Discrimination", cn:"Pras 第5课 — 价格歧视" },
       detail:{ kr:"중간 전 마지막 신규 내용 · 세션4(Monopoly) 자료는 Dropbox에 게시됨", en:"Last new material before the midterm · Session 4 (Monopoly) materials posted on Dropbox", cn:"考前最后新内容 · 第4课(垄断)资料已在 Dropbox" },
     },
     {
-      date:"2026-06-30", type:"milestone", course:"행정", new:true,
+      date:"2026-06-30", type:"milestone", course:"행정",
       title:{ kr:"ePortfolios (Legacy) 영구 삭제", en:"ePortfolios (Legacy) deleted", cn:"ePortfolios (Legacy) 永久删除" },
       detail:{ kr:"저장할 거 있으면 Account > ePortfolios(Legacy)에서 .zip 미리 다운로드", en:"Back up as .zip from Account > ePortfolios (Legacy) if you need anything", cn:"需要的话从 Account > ePortfolios (Legacy) 导出 .zip 备份" },
     },
     {
-      date:"2026-07-06", type:"milestone", course:"Cohort", new:true,
+      date:"2026-07-06", type:"milestone", course:"Cohort",
       title:{ kr:"52 Family Day 설문 마감", en:"52 Family Day survey due", cn:"52 Family Day 问卷截止" },
       detail:{ kr:"Parklab Gardens 행사(7/30) 준비용 설문 — 7/6(월)까지 작성", en:"Prep survey for the Parklab Gardens event (Jul 30) — fill out by Mon Jul 6", cn:"Parklab Gardens 活动(7/30)筹备问卷 — 7/6(周一)前填写" },
     },
@@ -114,14 +113,14 @@ const DATA = {
       detail:{ kr:"중간고사와 같은 날 · Quiz 1–3은 이미 마감", en:"Same day as the midterm · Quizzes 1–3 already closed", cn:"与期中同一天 · Quiz 1–3 已截止" },
     },
     {
-      date:"2026-07-03", type:"milestone", course:"HSC",
-      title:{ kr:"HSC 모듈 시작 (사전과제)", en:"HSC module starts (pre-work)", cn:"HSC 模块开始 (课前作业)" },
-      detail:{ kr:"Job Diagnostic Survey + MPS 점수 수업 전 작성 · Netflix 덱 훑기", en:"Complete Job Diagnostic Survey + MPS score before class · skim Netflix deck", cn:"课前完成 Job Diagnostic Survey + MPS 分数 · 浏览 Netflix 讲义" },
+      date:"2026-07-03", type:"milestone", course:"HSC", new:true,
+      title:{ kr:"HSC 모듈 Day 1 (사전과제 필수)", en:"HSC module Day 1 (pre-work required)", cn:"HSC 模块 Day 1 (课前作业必做)" },
+      detail:{ kr:"오후 진행 · JDS Short Form(첫 직장) + MPS 점수 수업 전 완료 · Netflix 덱 훑기 · 양식: MGMT 6130 ▸ Files ▸ H&SC Extras", en:"Afternoon · finish JDS Short Form (first job) + MPS before class · skim Netflix deck · forms in MGMT 6130 ▸ Files ▸ H&SC Extras", cn:"下午 · 课前完成 JDS Short Form(第一份工作)+ MPS · 浏览 Netflix 讲义 · 表单: MGMT 6130 ▸ Files ▸ H&SC Extras" },
     },
     {
-      date:"2026-07-09", type:"session", course:"BEPP",
+      date:"2026-07-09T19:00", type:"session", course:"BEPP",
       title:{ kr:"BEPP Review Session 4 (Inkoo)", en:"BEPP Review Session 4 (Inkoo)", cn:"BEPP 复习课 4 (Inkoo)" },
-      detail:{ kr:"", en:"", cn:"" },
+      detail:{ kr:"7 PM PT", en:"7 PM PT", cn:"7 PM PT" },
     },
     {
       date:"2026-07-17T09:30", type:"exam", course:"BEPP", hard:true,
@@ -137,6 +136,16 @@ const DATA = {
       date:"2026-07-29T13:00", type:"session", course:"Excel",
       title:{ kr:"라이브 세션: Using AI with Excel", en:"Live session: Using AI with Excel", cn:"直播课: Using AI with Excel" },
       detail:{ kr:"1:00–2:00 PM PT · 선택 · 엑셀 스킬자료(Level 1·2 가이드 + 연습파일 + 단축키)는 Cohort Comm > Files에 1년간 상시", en:"1:00–2:00 PM PT · optional · Excel skill kit (Level 1·2 guides + practice files + shortcuts) is in Cohort Comm > Files for a year", cn:"下午1:00–2:00 PT · 选修 · Excel 技能资料(Level 1·2 指南 + 练习文件 + 快捷键)在 Cohort Comm > Files,保留一年" },
+    },
+    {
+      date:"2026-07-30T17:30", type:"milestone", course:"Cohort", new:true,
+      title:{ kr:"52 Family Day @ Parklab Gardens", en:"52 Family Day @ Parklab Gardens", cn:"52 Family Day @ Parklab Gardens" },
+      detail:{ kr:"5:30–8:30 PM · 준비 설문은 7/6까지", en:"5:30–8:30 PM · prep survey due Jul 6", cn:"5:30–8:30 PM · 筹备问卷 7/6 前" },
+    },
+    {
+      date:"2026-08-05", type:"milestone", course:"MGMT", new:true,
+      title:{ kr:"팀 페이퍼 TA 미팅 예약 마감", en:"Team-paper TA meeting booked", cn:"团队论文 TA 会议预约截止" },
+      detail:{ kr:"⚠️ 우리 팀 배정 TA 확인 후 예약 · 팀당 Calendly 1슬롯 · 팀 조율 먼저 (리드 Zorina Chen · 전략→Emily, 글로벌→Na Hyun)", en:"⚠️ Confirm your team's assigned TA, then book · 1 Calendly slot per team · coordinate first (Lead Zorina Chen · Strategy→Emily, Global→Na Hyun)", cn:"⚠️ 先确认本队分配的 TA 再预约 · 每队 Calendly 1个名额 · 先组内协调(组长 Zorina Chen · 战略→Emily,全球→Na Hyun)" },
     },
     {
       date:"2026-08-03", type:"milestone", course:"Block Week",
@@ -192,12 +201,13 @@ const DATA = {
       headline:{ kr:"보물이 떴어요 · 중간고사 7/17", en:"A goldmine dropped · midterm Jul 17", cn:"宝藏上线了 · 期中 7/17" },
       points:[
         { kr:"과거 중간고사 5개년 + 솔루션(2021–2025) Files에 게시 · 정답본 강의노트(L5/L8/L9/L10–11)도", en:"5 years of past midterms + solutions (2021–2025) now in Files · plus filled-in notes (L5/L8/L9/L10–11)", cn:"5年期中真题+答案(2021–2025)已上传 Files · 还有带答案讲义(L5/L8/L9/L10–11)" },
-        { new:true, kr:"Smetters 공부 순서: 추가문제·recitation 먼저 충분히 → 과거 미드텀은 ~7/6부터 (맥락 없이 기출부터 점프 금지)", en:"Smetters' order: do the Additional Problems & recitations first → start past midterms ~Jul 6 (don't jump to old exams without context)", cn:"Smetters 顺序: 先做附加题与 recitation → 历年期中约从7/6开始(别无背景就跳到真题)" },
+        { kr:"Smetters 공부 순서: 추가문제·recitation 먼저 충분히 → 과거 미드텀은 ~7/6부터 (맥락 없이 기출부터 점프 금지)", en:"Smetters' order: do the Additional Problems & recitations first → start past midterms ~Jul 6 (don't jump to old exams without context)", cn:"Smetters 顺序: 先做附加题与 recitation → 历年期中约从7/6开始(别无背景就跳到真题)" },
+        { new:true, kr:"L12·13·14 (with blanks + Additional Problems) 게시 — 이번 주말 진도 · 번들링은 기출 빈출이라 혼합번들 최적화 꼭 숙지", en:"L12·13·14 (with blanks + Additional Problems) posted — this weekend's material · bundling is common on past exams, master mixed-bundling optimization", cn:"L12·13·14(with blanks + 附加题)已发布 — 本周末进度 · 捆绑销售是真题高频,务必掌握混合捆绑优化" },
         { kr:"가격차별→2부요금제→번들링 마무리 (동질 회원비 $18 / 이질 P*=$1.5, F*≈$1.13)", en:"Finished price-discrim → two-part tariff → bundling (homog. fee $18 / heterog. P*=$1.5, F*≈$1.13)", cn:"价格歧视→两部定价→捆绑销售已讲完(同质会员费$18 / 异质 P*=$1.5, F*≈$1.13)" },
         { kr:"Pras 도우미 세션(6/23) + RS3(6/24)·RS4(7/9)", en:"Pras help session (Jun 23) + RS3 (Jun 24)·RS4 (Jul 9)", cn:"Pras 辅导课(6/23) + RS3(6/24)·RS4(7/9)" },
       ],
       traps:[
-        { new:true, kr:"⚠️ Canvas 시험 날짜 함정 — Aug 22/Sep 7은 작년(2025) 잔재. 실제 미드텀 7/17 · 기말 8/15", en:"⚠️ Canvas date trap — Aug 22/Sep 7 are last year's (2025). Real midterm Jul 17, final Aug 15", cn:"⚠️ Canvas 日期陷阱 — 8/22、9/7 为去年(2025)残留。实际期中 7/17、期末 8/15" },
+        { kr:"⚠️ Canvas 시험 날짜 함정 — Aug 22/Sep 7은 작년(2025) 잔재. 실제 미드텀 7/17 · 기말 8/15", en:"⚠️ Canvas date trap — Aug 22/Sep 7 are last year's (2025). Real midterm Jul 17, final Aug 15", cn:"⚠️ Canvas 日期陷阱 — 8/22、9/7 为去年(2025)残留。实际期中 7/17、期末 8/15" },
         { kr:"⚠️ Inkoo는 새 공지 대신 기존 공지를 수정 (메일 안 옴) — 공지 페이지 재방문", en:"⚠️ Inkoo edits the existing announcement silently (no email) — re-visit the page", cn:"⚠️ Inkoo 会直接改旧公告而非发新公告(无邮件)— 请重访公告页" },
       ],
     },
@@ -206,7 +216,7 @@ const DATA = {
       name:{ kr:"인적·사회적 자본 (MacDuffie)", en:"Human & Social Capital (MacDuffie)", cn:"人力与社会资本 (MacDuffie)" },
       headline:{ kr:"7/3 시작 — 안 당하려면 미리", en:"Starts Jul 3 — don't get ambushed", cn:"7/3 开始 — 提前准备,别措手不及" },
       points:[
-        { kr:"MGMT 교수 교체(MacDuffie) · 7/3 사전과제: Job Diagnostic Survey + MPS 점수 수업 전 계산", en:"Professor switches (MacDuffie) · Jul 3 pre-work: Job Diagnostic Survey + MPS score before class", cn:"MGMT 换教授(MacDuffie) · 7/3 课前作业: 课前算好 Job Diagnostic Survey + MPS 分数" },
+        { new:true, kr:"7/3 Day1 사전과제(필수): JDS Short Form을 '대학 졸업 후 첫 직장' 기준으로 작성 → MPS 점수 계산해 오기. 양식: MGMT 6130 ▸ Files ▸ H&SC Extras", en:"Jul 3 Day-1 pre-work (required): fill the JDS Short Form for your 'first job after college' → compute your MPS. Forms: MGMT 6130 ▸ Files ▸ H&SC Extras", cn:"7/3 Day1 课前作业(必做): 以'大学毕业后第一份工作'填写 JDS Short Form → 算出 MPS。表单: MGMT 6130 ▸ Files ▸ H&SC Extras" },
         { kr:"Netflix Freedom & Responsibility 덱(Study.Net) 모듈 전 훑기", en:"Skim the Netflix Freedom & Responsibility deck (Study.Net) before the module", cn:"模块前浏览 Netflix Freedom & Responsibility 讲义(Study.Net)" },
         { kr:"Study.Net 코스팩 일찍 받았으면 다시 받기 (HSC 리딩 나중에 추가됨)", en:"Re-download the Study.Net coursepack if you got it early (HSC readings added later)", cn:"若早前已下载 Study.Net 课程包请重新下载(HSC 阅读材料后来才加)" },
         { kr:"HSC 페이퍼 7/27 · 팀 기말 8/24 · 팀 TA 체크인(필수) 7/24–8/5", en:"HSC paper Jul 27 · final team project Aug 24 · mandatory TA check-in Jul 24–Aug 5", cn:"HSC 论文 7/27 · 团队期末 8/24 · 团队 TA 签到(必须) 7/24–8/5" },
@@ -214,30 +224,6 @@ const DATA = {
       traps:[],
     },
   ],
-
-  /* ── Block Week 선택 ─────────────────────────────────────────────────────*/
-  blockWeek:{
-    due:"2026-06-24T09:00",
-    note:{ kr:"⚠️ 등록 마감됨(6/24 9 AM) — 포털에 '등록 옵션 없음'. 못 했으면 클래스 매니저 문의. (둘 다 Pass/Fail·교재 없음·추가 등록금 없음 · 8월 SFO 8/3–6)",
-           en:"⚠️ Registration closed (6/24 9 AM) — portal shows 'no options'. Missed it? Contact your class manager. (Both Pass/Fail · no textbooks · no extra tuition · Aug SFO 8/3–6)",
-           cn:"⚠️ 选课已截止(6/24 9 AM)— 门户显示'无选项'。错过请联系班级经理。(两门均 Pass/Fail·无教材·无额外学费 · 8月 SFO 8/3–6)" },
-    options:[
-      {
-        code:"LGST 8090", prof:"Rob DiGisi",
-        title:{ kr:"Sport Business Management", en:"Sport Business Management", cn:"Sport Business Management(体育商业管理)" },
-        desc:{ kr:"스포츠 산업 전략, 스트리밍·프랜차이즈 경제, 스폰서십. Oracle Park 투어 + 자이언츠 CTO/CRO 면담으로 마무리. 청강 가능.",
-               en:"Sports industry strategy, streaming/franchise economics, sponsorship. Ends with an Oracle Park tour + Giants CTO/CRO visit. Audit allowed.",
-               cn:"体育产业战略、流媒体与特许经营经济、赞助。以 Oracle Park 参观 + 巨人队 CTO/CRO 会面收尾。可旁听。" },
-      },
-      {
-        code:"MKTG 8530", prof:"Americus Reed",
-        title:{ kr:"Sales 3.0 & Future of Revenue Growth", en:"Sales 3.0 & Future of Revenue Growth", cn:"Sales 3.0 & Future of Revenue Growth(销售3.0与营收增长未来)" },
-        desc:{ kr:"심리학 + AI + 고객 영향력, 7개 셀링 프레임워크. 기말시험 없음(참여 + 성찰과제).",
-               en:"Psychology + AI + customer influence, 7 selling frameworks. No final exam (participation + reflections).",
-               cn:"心理学 + AI + 客户影响力,7个销售框架。无期末考(参与 + 反思作业)。" },
-      },
-    ],
-  },
 
   /* ── 액션 체크리스트 (체크 상태는 브라우저에 저장됨) ──────────────────────*/
   actions:[
@@ -247,7 +233,7 @@ const DATA = {
     { id:"a6", by:"2026-07-03", label:{ kr:"HSC 사전과제: Job Diagnostic Survey + MPS 점수", en:"HSC pre-work: Job Diagnostic Survey + MPS score", cn:"HSC 课前作业: Job Diagnostic Survey + MPS 分数" } },
     { id:"a7", by:"2026-07-06", label:{ kr:"BEPP 과거 중간고사(2021–25) 풀기 시작", en:"Start BEPP past midterms (2021–25)", cn:"开始做 BEPP 往年期中卷(2021–25)" } },
     { id:"a9", by:"2026-07-06", label:{ kr:"52 Family Day 설문 작성 (Parklab Gardens)", en:"Fill out the 52 Family Day survey (Parklab Gardens)", cn:"填写 52 Family Day 问卷(Parklab Gardens)" } },
-    { id:"a8", by:"2026-08-05", label:{ kr:"팀 TA 체크인 일정 잡기 (7/24–8/5)", en:"Schedule team TA check-in (Jul 24–Aug 5)", cn:"预约团队 TA 签到(7/24–8/5)" } },
+    { id:"a8", by:"2026-08-05", label:{ kr:"팀 페이퍼 TA 미팅 — 우리 팀 배정 TA 확인 후 Calendly 예약(팀당 1개), 8/5까지", en:"Team-paper TA meeting — confirm our team's TA, then book on Calendly (1 per team), by Aug 5", cn:"团队论文 TA 会议 — 确认本队 TA 后用 Calendly 预约(每队1个),8/5前" } },
   ],
 
   /* ── Canvas 자료 위치 맵 ─────────────────────────────────────────────────*/
@@ -308,6 +294,7 @@ const DATA = {
       },
     ],
     notes: [
+      { kr:"⚠️ 섹션 1·2가 BEPP/MGMT 순서 반대 — 본인 섹션 꼭 확인 · 금 오후 MGMT 6130 = HSC 모듈 Day 1 (MacDuffie)", en:"⚠️ Sections 1 & 2 run BEPP/MGMT in opposite order — check your section · Fri PM MGMT 6130 = HSC module Day 1 (MacDuffie)", cn:"⚠️ 第1/2班 BEPP/MGMT 顺序相反 — 请确认自己的班 · 周五下午 MGMT 6130 = HSC 模块 Day 1 (MacDuffie)" },
       { kr:"🏨 호텔: The Hyatt Regency SF (5 Embarcadero Ctr)", en:"🏨 Hotel: The Hyatt Regency SF (5 Embarcadero Ctr)", cn:"🏨 酒店: The Hyatt Regency SF (5 Embarcadero Ctr)" },
       { kr:"📚 스터디룸: Board Rooms A·B·C · 금 5:00–11:00 PM", en:"📚 Study rooms: Board Rooms A·B·C · Fri 5:00–11:00 PM", cn:"📚 自习室: Board Rooms A·B·C · 周五 5:00–11:00 PM" },
       { kr:"🍻 Wharton Pub: Hyatt Eclipse Bar · 금 8:30–11:30 PM", en:"🍻 Wharton Pub: Hyatt Eclipse Bar · Fri 8:30–11:30 PM", cn:"🍻 Wharton Pub: Hyatt Eclipse Bar · 周五 8:30–11:30 PM" },

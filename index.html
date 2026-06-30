@@ -289,13 +289,6 @@
     <div class="card" id="schedule"></div>
   </section>
 
-  <section id="sec-bw">
-    <div class="h"><h3 data-t="bwTitle"></h3><span class="hint" data-t="bwHint"></span></div>
-    <div class="card">
-      <div class="bw" id="blockWeek"></div>
-    </div>
-  </section>
-
   <section id="sec-courses">
     <div class="h"><h3 data-t="courses"></h3></div>
     <div class="grid g2" id="courses"></div>
@@ -480,7 +473,6 @@ function render(){
   renderDeadlines(sorted);
   renderSchedule();
   renderSocial();
-  renderBlockWeek();
   renderCourses();
   renderActions();
   renderCanvas();
@@ -489,7 +481,7 @@ function render(){
     `Wharton · WEMBA 52 Survival Dashboard · ${DATA.meta.author}`;
 }
 
-const NAV_ORDER = ["sec-whatsnew","sec-upcoming","sec-schedule","sec-bw","sec-canvas","sec-actions","sec-social"];
+const NAV_ORDER = ["sec-whatsnew","sec-upcoming","sec-schedule","sec-canvas","sec-actions","sec-social"];
 function renderNav(){
   const nav = document.getElementById("jump");
   nav.innerHTML = NAV_ORDER.filter(id=>{
@@ -618,21 +610,6 @@ function renderSocial(){
   const cap = document.getElementById("socialCap");
   if(cap) cap.textContent = T.socialFallback[lang];
 }
-function renderBlockWeek(){
-  const box = document.getElementById("blockWeek"); box.innerHTML="";
-  DATA.blockWeek.options.forEach(o=>{
-    const el = document.createElement("div"); el.className="opt";
-    el.innerHTML = `<div class="code">${o.code}</div>
-      <div class="t">${L(o.title)}</div>
-      <div class="p">${o.prof}</div>
-      <div class="d">${L(o.desc)}</div>`;
-    box.appendChild(el);
-  });
-  const note = document.createElement("div"); note.className="bw-note";
-  note.textContent = "ⓘ " + L(DATA.blockWeek.note);
-  box.appendChild(note);
-}
-
 function renderCourses(){
   const box = document.getElementById("courses"); box.innerHTML="";
   DATA.courses.forEach(c=>{
