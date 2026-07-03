@@ -574,13 +574,21 @@ function renderDeadlines(sorted){
   });
 }
 
-function renderSchedule(){
+/* 진행 중이거나 다음으로 다가오는 주말을 자동 선택 (end가 지나면 다음 주말로 전환) */
+function currentWeekend(){
   const s = DATA.schedule;
-  if(!s){ document.getElementById("schedule").innerHTML=""; return; }
-  document.getElementById("schedHint").textContent = L(s.weekend);
+  if(!s || !s.weekends || !s.weekends.length) return null;
+  return s.weekends.find(w => daysUntil(toDate(w.end).d) >= 0) || null;
+}
+function renderSchedule(){
+  const sec = document.getElementById("sec-schedule");
+  const w = currentWeekend();
+  if(!w){ sec.style.display="none"; return; }
+  sec.style.display = "";
+  document.getElementById("schedHint").textContent = L(w.label);
   let html = `<div style="overflow-x:auto"><table class="sched">`+
     `<thead><tr><th></th><th>${T.sec1[lang]}</th><th>${T.sec2[lang]}</th></tr></thead><tbody>`;
-  s.days.forEach(day=>{
+  w.days.forEach(day=>{
     html += `<tr class="day"><td colspan="3">${L(day.label)}</td></tr>`;
     day.rows.forEach(r=>{
       if(r.both){
@@ -592,8 +600,9 @@ function renderSchedule(){
     });
   });
   html += `</tbody></table></div>`;
-  if(s.notes && s.notes.length)
-    html += `<div class="sched-notes">${s.notes.map(n=>`<span>${L(n)}</span>`).join("")}</div>`;
+  const notes = DATA.schedule.notes;
+  if(notes && notes.length)
+    html += `<div class="sched-notes">${notes.map(n=>`<span>${L(n)}</span>`).join("")}</div>`;
   document.getElementById("schedule").innerHTML = html;
 }
 let _socialInit = false;
@@ -773,12 +782,13 @@ function buildStory(){
         `<span>${L(it.title)}${nbS(it)}<br><span style="opacity:.6;font-size:13px">${fmtWhen(it)}</span></span></li>`;
     }).join("")+`</ul></div>`);
 
-  // 수업 일정표 (한 화면에 맞게 자동 축소)
-  if(DATA.schedule){ const s = DATA.schedule; let rows="";
-    s.days.forEach(d=>{ rows += `<li style="font-weight:800;opacity:.55;border:0;padding-top:6px">${L(d.label)}</li>`;
+  // 수업 일정표 (자동 선택된 주말 · 한 화면에 맞게 자동 축소)
+  const wk = currentWeekend();
+  if(wk){ let rows="";
+    wk.days.forEach(d=>{ rows += `<li style="font-weight:800;opacity:.55;border:0;padding-top:6px">${L(d.label)}</li>`;
       d.rows.forEach(r=>{ rows += `<li class="row2"><span class="dd2" style="font-size:12px">${r.time}</span>`+
         `<span>${r.both?L(r.both):L(r.s1)+' / '+L(r.s2)}</span></li>`; }); });
-    slides.push(`<div class="slide paper fitslide"><div class="fit"><div class="kick">${T.schedule[lang]} · ${L(s.weekend)}</div><ul>${rows}</ul></div></div>`);
+    slides.push(`<div class="slide paper fitslide"><div class="fit"><div class="kick">${T.schedule[lang]} · ${L(wk.label)}</div><ul>${rows}</ul></div></div>`);
   }
 
   // 과목별 (tip/핵심 모두 포함, 길면 자동 축소)

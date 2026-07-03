@@ -34,6 +34,7 @@ const DATA = {
       { kr:"BEPP 범위(L12–14)·치트시트 정책 TBC 표시", en:"Marked BEPP scope (L12–14) & cheat-sheet policy as TBC", cn:"BEPP 范围(L12–14)与小抄政策标记为待确认" },
       { kr:"Block Week 섹션 신설(Fall 라인업·규칙) · 일정표를 다음 주말(7/17)로 교체 · 지난 시간 표현 정리", en:"New Block Week section (Fall lineup & rules) · schedule switched to next weekend (Jul 17) · cleaned stale time wording", cn:"新增 Block Week 板块(Fall 课程与规则)· 课表切换到下个周末(7/17)· 清理过时时间表述" },
       { kr:"Fall BW 전체 10과목으로 보완(교수·날짜 포함) + Spring '27 프리뷰 추가", en:"Completed Fall BW lineup to all 10 courses (profs & dates) + Spring '27 peek", cn:"补全 Fall BW 全部10门课(含教授·日期)+ Spring '27 预告" },
+      { kr:"일정표 자동 전환 — 주말이 끝나야 다음 주말로 넘어가요 (수업 중엔 그 주말 표시)", en:"Schedule now auto-switches — shows the current weekend until it ends, then the next one", cn:"课表自动切换 — 周末结束前显示当前周末,结束后自动切到下一个" },
     ]},
     { date:"2026-07-02", items:[
       { kr:"Fall Block Week 등록·드롭(W) 정책·라인업 추가 · 7/6 Course Match add/drop 일정", en:"Added Fall Block Week registration, drop/W policy & lineup · Jul 6 Course Match add/drop", cn:"新增 Fall Block Week 报名·退课(W)政策·课程清单 · 7/6 Course Match 加退" },
@@ -270,18 +271,51 @@ const DATA = {
     ],
   },
 
-  /* ── 다음 수업 주말 일정표 ───────────────────────────────────────────────
-     rows: { time, both } = 양 섹션 공통(한 칸) / { time, s1, s2 } = 섹션별
-     각 칸 텍스트는 { kr, en, cn }. 강의명·교수·강의실은 보통 3언어 동일하게.
+  /* ── 수업 주말 일정표 (자동 전환) ─────────────────────────────────────────
+     weekends[] 에 아는 주말을 전부 넣어두면, 사이트가 "진행 중이거나 다음으로
+     다가오는 주말"을 자동으로 골라 보여줍니다 (end 지나면 다음 주말로 전환).
+     start/end: "YYYY-MM-DD" · rows: {time, both} = 공통 / {time, s1, s2} = 섹션별
   ----------------------------------------------------------------------------*/
   schedule: {
-    weekend: { kr:"7월 17일(금)–18일(토) · SFO", en:"Fri Jul 17 – Sat Jul 18 · SFO", cn:"7月17日(周五)–18日(周六) · SFO" },
-    days: [
+    weekends: [
       {
-        label: { kr:"금요일 7/17", en:"Friday 7/17", cn:"周五 7/17" },
-        rows: [
-          { time:"9:30–11:30", both:{ kr:"BEPP 중간고사 · 합반 · 5문제/120분", en:"BEPP Midterm · both sections · 5 problems/120 min", cn:"BEPP 期中 · 两班合并 · 5题/120分钟" } },
-          { time:"오후~", both:{ kr:"이후 일정 미게시 — 공식 주말 일정표 나오면 업데이트", en:"Rest TBA — will update when the official weekend schedule is posted", cn:"其余待公布 — 官方周末课表发布后更新" } },
+        start:"2026-07-03", end:"2026-07-04",
+        label: { kr:"7월 3일(금)–4일(토) · SFO", en:"Fri Jul 3 – Sat Jul 4 · SFO", cn:"7月3日(周五)–4日(周六) · SFO" },
+        days: [
+          {
+            label: { kr:"금요일 7/3", en:"Friday 7/3", cn:"周五 7/3" },
+            rows: [
+              { time:"8:30–9:30",  both:{ kr:"조식 · Dining Room", en:"Breakfast · Dining Room", cn:"早餐 · Dining Room" } },
+              { time:"9:30–11:30", both:{ kr:"ACCT 6130 중간고사 · Lambert · Room 660 (합반)", en:"ACCT 6130 Midterm · Lambert · Room 660 (both sections)", cn:"ACCT 6130 期中 · Lambert · Room 660 (两班合并)" } },
+              { time:"11:30–1:00", both:{ kr:"중식 · Dining Room", en:"Lunch · Dining Room", cn:"午餐 · Dining Room" } },
+              { time:"1:00–4:00",  s1:{ kr:"MGMT 6130 · MacDuffie · Room 612", en:"MGMT 6130 · MacDuffie · Room 612", cn:"MGMT 6130 · MacDuffie · Room 612" }, s2:{ kr:"BEPP 6110 · Smetters · Room 615", en:"BEPP 6110 · Smetters · Room 615", cn:"BEPP 6110 · Smetters · Room 615" } },
+              { time:"4:00–5:00",  both:{ kr:"Evening Starters · 612/615 Break Area", en:"Evening Starters · 612/615 Break Area", cn:"Evening Starters · 612/615 Break Area" } },
+              { time:"4:15–6:15",  s1:{ kr:"BEPP 6110 · Smetters · Room 615", en:"BEPP 6110 · Smetters · Room 615", cn:"BEPP 6110 · Smetters · Room 615" }, s2:{ kr:"MGMT 6130 · MacDuffie · Room 612", en:"MGMT 6130 · MacDuffie · Room 612", cn:"MGMT 6130 · MacDuffie · Room 612" } },
+              { time:"6:30–8:00",  both:{ kr:"석식 · Dining Room", en:"Dinner · Dining Room", cn:"晚餐 · Dining Room" } },
+            ],
+          },
+          {
+            label: { kr:"토요일 7/4", en:"Saturday 7/4", cn:"周六 7/4" },
+            rows: [
+              { time:"8:00–9:00",   both:{ kr:"조식 · Dining Room", en:"Breakfast · Dining Room", cn:"早餐 · Dining Room" } },
+              { time:"9:00–12:00",  s1:{ kr:"BEPP 6120 · Smetters · Room 615", en:"BEPP 6120 · Smetters · Room 615", cn:"BEPP 6120 · Smetters · Room 615" }, s2:{ kr:"MGMT 6130 · MacDuffie · Room 612", en:"MGMT 6130 · MacDuffie · Room 612", cn:"MGMT 6130 · MacDuffie · Room 612" } },
+              { time:"12:00–1:00",  both:{ kr:"중식 · Dining Room", en:"Lunch · Dining Room", cn:"午餐 · Dining Room" } },
+              { time:"1:00–4:00",   s1:{ kr:"MGMT 6130 · MacDuffie · Room 612", en:"MGMT 6130 · MacDuffie · Room 612", cn:"MGMT 6130 · MacDuffie · Room 612" }, s2:{ kr:"BEPP 6120 · Smetters · Room 615", en:"BEPP 6120 · Smetters · Room 615", cn:"BEPP 6120 · Smetters · Room 615" } },
+            ],
+          },
+        ],
+      },
+      {
+        start:"2026-07-17", end:"2026-07-18",
+        label: { kr:"7월 17일(금)–18일(토) · SFO", en:"Fri Jul 17 – Sat Jul 18 · SFO", cn:"7月17日(周五)–18日(周六) · SFO" },
+        days: [
+          {
+            label: { kr:"금요일 7/17", en:"Friday 7/17", cn:"周五 7/17" },
+            rows: [
+              { time:"9:30–11:30", both:{ kr:"BEPP 중간고사 · 합반 · 5문제/120분", en:"BEPP Midterm · both sections · 5 problems/120 min", cn:"BEPP 期中 · 两班合并 · 5题/120分钟" } },
+              { time:"오후~", both:{ kr:"이후 일정 미게시 — 공식 주말 일정표 나오면 업데이트", en:"Rest TBA — will update when the official weekend schedule is posted", cn:"其余待公布 — 官方周末课表发布后更新" } },
+            ],
+          },
         ],
       },
     ],
