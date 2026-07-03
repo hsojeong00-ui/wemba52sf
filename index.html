@@ -290,6 +290,13 @@
     <div class="card" id="schedule"></div>
   </section>
 
+  <section id="sec-bw">
+    <div class="h"><h3 data-t="bwTitle"></h3><span class="hint" data-t="bwHint"></span></div>
+    <div class="card">
+      <div class="bw" id="blockWeek"></div>
+    </div>
+  </section>
+
   <section id="sec-courses">
     <div class="h"><h3 data-t="courses"></h3></div>
     <div class="grid g2" id="courses"></div>
@@ -349,8 +356,8 @@ const T = {
   social:       { kr:"🍽️ 디너 & 소셜", en:"🍽️ Dinner & Social", cn:"🍽️ 聚餐 & 社交" },
   socialHint:   { kr:"금요일 디너 약속은 여기서", en:"Friday dinner plans live here", cn:"周五聚餐在这里安排" },
   socialFallback:{ kr:"↑ 아래에 안 보이면 위 버튼으로 열어주세요", en:"↑ If it doesn't load below, use the button above", cn:"↑ 如下方未显示,请用上方按钮打开" },
-  bwTitle:      { kr:"이번 주 결정 — Block Week 신청", en:"This week's decision — Block Week", cn:"本周决定 — Block Week 选课" },
-  bwHint:       { kr:"둘 중 하나 선택", en:"Pick one of two", cn:"二选一" },
+  bwTitle:      { kr:"Block Week — Fall 2026", en:"Block Week — Fall 2026", cn:"Block Week — Fall 2026" },
+  bwHint:       { kr:"라인업 · 규칙 · add/drop", en:"Lineup · rules · add/drop", cn:"课程 · 规则 · 加退" },
   courses:      { kr:"과목별 현황", en:"By course", cn:"各科状况" },
   checklist:    { kr:"액션 체크리스트", en:"Action checklist", cn:"行动清单" },
   checklistHint:{ kr:"체크 상태는 이 브라우저에 저장돼요", en:"Saved in this browser", cn:"勾选状态保存在本浏览器" },
@@ -376,6 +383,7 @@ const T = {
     "sec-whatsnew":{kr:"✨ New",en:"✨ New",cn:"✨ 最新"},
     "sec-upcoming":{kr:"다가오는 일정",en:"Upcoming",cn:"近期日程"},
     "sec-schedule":{kr:"수업 일정표",en:"Class schedule",cn:"课程表"},
+    "sec-bw":{kr:"Block Week",en:"Block Week",cn:"Block Week"},
     "sec-bw":{kr:"이번 주 결정",en:"This week's decision",cn:"本周决定"},
     "sec-actions":{kr:"할 일",en:"To-do",cn:"待办"},
     "sec-canvas":{kr:"자료 맵",en:"Resource map",cn:"资料图"},
@@ -474,6 +482,7 @@ function render(){
   renderDeadlines(sorted);
   renderSchedule();
   renderSocial();
+  renderBlockWeek();
   renderCourses();
   renderActions();
   renderCanvas();
@@ -482,7 +491,7 @@ function render(){
     `Wharton · WEMBA 52 Survival Dashboard · ${DATA.meta.author}`;
 }
 
-const NAV_ORDER = ["sec-whatsnew","sec-upcoming","sec-schedule","sec-canvas","sec-actions","sec-social"];
+const NAV_ORDER = ["sec-whatsnew","sec-upcoming","sec-schedule","sec-bw","sec-canvas","sec-actions","sec-social"];
 function renderNav(){
   const nav = document.getElementById("jump");
   nav.innerHTML = NAV_ORDER.filter(id=>{
@@ -610,6 +619,24 @@ function renderSocial(){
   document.getElementById("socialCta").textContent = L(s.cta) + " ↗";
   const cap = document.getElementById("socialCap");
   if(cap) cap.textContent = T.socialFallback[lang];
+}
+function renderBlockWeek(){
+  const bw = DATA.blockWeek;
+  const sec = document.getElementById("sec-bw");
+  if(!bw || !bw.options || !bw.options.length){ sec.style.display="none"; return; }
+  sec.style.display = "";
+  const box = document.getElementById("blockWeek"); box.innerHTML = "";
+  bw.options.forEach(o=>{
+    const el = document.createElement("div"); el.className = "opt";
+    el.innerHTML = `<div class="code">${o.code}</div>
+      <div class="t">${L(o.title)}</div>
+      <div class="p">${o.meta||""}</div>
+      <div class="d">${L(o.desc)}</div>`;
+    box.appendChild(el);
+  });
+  const note = document.createElement("div"); note.className = "bw-note";
+  note.textContent = "ⓘ " + L(bw.note);
+  box.appendChild(note);
 }
 function renderCourses(){
   const box = document.getElementById("courses"); box.innerHTML="";
