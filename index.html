@@ -76,16 +76,16 @@
   /* 임박(D-2 이내)하면 카운트 배지 빨강 */
   .hero.urgent .count{background:var(--hard)}
 
-  /* 다음 수업 배너 (수업 주말에만 표시) */
-  .nextclass{margin:0 0 18px; background:var(--panel); border:2px solid var(--accent); border-radius:16px; padding:14px 18px; box-shadow:var(--shadow)}
+  /* 다음 수업 배너 (수업 주말에만, 맨 위 표시) */
+  .nextclass{margin:2px 0 16px; background:var(--panel); border:2px solid var(--accent); border-radius:16px; padding:14px 18px; box-shadow:var(--shadow)}
   .nextclass[hidden]{display:none}
   .nextclass .nc-head{font-family:var(--mono); font-size:11.5px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
   .nextclass .nc-body{font-size:15.5px; font-weight:700; margin-top:4px}
   .nextclass .nc-go{font-size:13px; font-weight:800; margin-top:6px; color:var(--ok)}
   .nextclass .nc-done{font-size:15px; font-weight:700}
 
-  /* 시험 응원 삽화 */
-  .examcheer{margin:0 0 22px}
+  /* 시험 응원 삽화 (맨 위) */
+  .examcheer{margin:2px 0 14px}
   .examcheer[hidden]{display:none}
   .examcheer svg{width:100%; height:auto; display:block; border-radius:16px}
 
@@ -144,15 +144,16 @@
   .course .traps .lab{font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--hard); margin-bottom:6px}
   .course .traps li::before{background:var(--hard)}
 
-  /* block week */
-  .bw{display:grid; grid-template-columns:1fr 1fr; gap:14px}
-  @media(max-width:720px){ .bw{grid-template-columns:1fr} }
-  .opt{background:var(--panel2); border:1px solid var(--line); border-radius:12px; padding:16px}
-  .opt .code{font-family:var(--mono); font-weight:800; color:var(--ink)}
-  .opt .t{font-weight:700; margin:2px 0}
-  .opt .p{color:var(--faint); font-size:12px; margin-bottom:6px}
-  .opt .d{font-size:13px; color:var(--muted)}
-  .bw-note{grid-column:1/-1; color:var(--muted); font-size:12.5px}
+  /* block week — 컴팩트 목록 */
+  .bw{display:grid; grid-template-columns:repeat(2,1fr); gap:6px 16px}
+  @media(max-width:560px){ .bw{grid-template-columns:1fr} }
+  .opt{display:flex; align-items:baseline; gap:9px; padding:8px 2px; border-bottom:1px solid var(--line)}
+  .opt .code{font-family:var(--mono); font-weight:800; font-size:12.5px; color:var(--ink); flex:0 0 auto; min-width:74px}
+  .opt .txt{flex:1; min-width:0}
+  .opt .t{font-size:13px; font-weight:600; line-height:1.25}
+  .opt .p{color:var(--faint); font-size:11px; margin-top:1px}
+  .opt .d{font-size:11.5px; color:var(--hard); margin-top:2px}
+  .bw-note{grid-column:1/-1; color:var(--muted); font-size:12px; margin-top:12px; padding-top:10px; border-top:1px dashed var(--line); line-height:1.5}
 
   /* checklist — 상태 행 스타일 */
   .srow{display:flex; align-items:center; gap:14px; width:100%; padding:13px 2px; border:0; border-bottom:1px solid var(--line); background:transparent; font:inherit; color:inherit; text-align:left; cursor:pointer; touch-action:manipulation; -webkit-tap-highlight-color:transparent; -webkit-appearance:none; appearance:none}
@@ -274,6 +275,10 @@
     </div>
   </header>
 
+  <div class="examcheer" id="examCheer" hidden></div>
+
+  <div class="nextclass" id="nextClass" hidden></div>
+
   <nav class="jump" id="jump"></nav>
 
   <div class="hero" id="hero" hidden>
@@ -287,10 +292,6 @@
       <div class="unit" id="heroUnit"></div>
     </div>
   </div>
-
-  <div class="nextclass" id="nextClass" hidden></div>
-
-  <div class="examcheer" id="examCheer" hidden></div>
 
   <section id="sec-whatsnew">
     <div class="h"><h3 data-t="whatsNew"></h3><span class="hint" data-t="whatsNewHint"></span></div>
@@ -382,7 +383,7 @@ const T = {
   socialFallback:{ kr:"↑ 아래에 안 보이면 위 버튼으로 열어주세요", en:"↑ If it doesn't load below, use the button above", cn:"↑ 如下方未显示,请用上方按钮打开" },
   bwTitle:      { kr:"Block Week — Fall 2026", en:"Block Week — Fall 2026", cn:"Block Week — Fall 2026" },
   bwHint:       { kr:"라인업 · 규칙 · add/drop", en:"Lineup · rules · add/drop", cn:"课程 · 规则 · 加退" },
-  courses:      { kr:"과목별 현황", en:"By course", cn:"各科状况" },
+  courses:      { kr:"과목별 현황", en:"By course", cn:"各科概况" },
   checklist:    { kr:"액션 체크리스트", en:"Action checklist", cn:"行动清单" },
   checklistHint:{ kr:"체크 상태는 이 브라우저에 저장돼요", en:"Saved in this browser", cn:"勾选状态保存在本浏览器" },
   canvas:       { kr:"Canvas 자료 위치 맵", en:"Canvas resource map", cn:"Canvas 资料位置图" },
@@ -408,7 +409,7 @@ const T = {
     "sec-upcoming":{kr:"다가오는 일정",en:"Upcoming",cn:"近期日程"},
     "sec-schedule":{kr:"수업 일정표",en:"Class schedule",cn:"课程表"},
     "sec-bw":{kr:"Block Week",en:"Block Week",cn:"Block Week"},
-    "sec-bw":{kr:"이번 주 결정",en:"This week's decision",cn:"本周决定"},
+    "sec-courses":{kr:"과목",en:"Courses",cn:"科目"},
     "sec-actions":{kr:"할 일",en:"To-do",cn:"待办"},
     "sec-canvas":{kr:"자료 맵",en:"Resource map",cn:"资料图"},
     "sec-social":{kr:"디너",en:"Dinner",cn:"聚餐"},
@@ -517,7 +518,7 @@ function render(){
     `Wharton · WEMBA 52 Survival Dashboard · ${DATA.meta.author}`;
 }
 
-const NAV_ORDER = ["sec-whatsnew","sec-upcoming","sec-schedule","sec-bw","sec-canvas","sec-actions","sec-social"];
+const NAV_ORDER = ["sec-whatsnew","sec-upcoming","sec-schedule","sec-bw","sec-courses","sec-canvas","sec-actions","sec-social"];
 function renderNav(){
   const nav = document.getElementById("jump");
   nav.innerHTML = NAV_ORDER.filter(id=>{
@@ -680,6 +681,8 @@ function renderNextClass(){
   const w = weekendForToday();                                  // 오늘이 수업 주말 당일일 때만
   if(!w){ box.hidden = true; return; }
   const now = ptNowD();
+  // 마지막 수업 종료 후 3시간 지나면 배너 숨김 (밤새 "수고했어요"가 남지 않게)
+  if(now.getTime() > weekendEndTime(w).getTime() + 3*3600*1000){ box.hidden = true; return; }
   const ws = ptOf(w.start); ws.setHours(0,0,0,0);
 
   let found = null, ongoing = false;
@@ -826,10 +829,12 @@ function renderBlockWeek(){
   const box = document.getElementById("blockWeek"); box.innerHTML = "";
   bw.options.forEach(o=>{
     const el = document.createElement("div"); el.className = "opt";
-    el.innerHTML = `<div class="code">${o.code}</div>
-      <div class="t">${L(o.title)}</div>
-      <div class="p">${o.meta||""}</div>
-      <div class="d">${L(o.desc)}</div>`;
+    const d = L(o.desc);
+    el.innerHTML = `<div class="code">${o.code}</div>`+
+      `<div class="txt"><div class="t">${L(o.title)}</div>`+
+      (o.meta ? `<div class="p">${o.meta}</div>` : "")+
+      (d ? `<div class="d">${d}</div>` : "")+
+      `</div>`;
     box.appendChild(el);
   });
   const note = document.createElement("div"); note.className = "bw-note";

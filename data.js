@@ -31,13 +31,16 @@ const DATA = {
     { date:"2026-07-04", items:[
       { kr:"ACCT 중간 완료 처리 · BEPP 미드텀 인텔(3차 가격차별·MR=MC·킹크 등) 반영", en:"ACCT midterm marked done · added BEPP midterm intel (3rd-degree PD, MR=MC, kink, etc.)", cn:"ACCT 期中已完成 · 新增 BEPP 期中情报(三级价格歧视·MR=MC·拐点等)" },
       { kr:"Block Week 1분 해설 추가 · 지난 7/3 일정·할일 정리", en:"Added 1-min Block Week explainer · cleaned up past Jul 3 items", cn:"新增 Block Week 一分钟说明 · 清理已过的 7/3 条目" },
-      { kr:"BEPP 범위(L12–14)·치트시트 정책 TBC 표시", en:"Marked BEPP scope (L12–14) & cheat-sheet policy as TBC", cn:"BEPP 范围(L12–14)与小抄政策标记为待确认" },
+      { kr:"BEPP 범위(L12–14)·치트시트 정책 TBC 표시", en:"Marked BEPP scope (L12–14) & cheat-sheet policy as TBC", cn:"BEPP 范围(L12–14)与速查表政策标记为待确认" },
       { kr:"Block Week 섹션 신설(Fall 라인업·규칙) · 일정표를 다음 주말(7/17)로 교체 · 지난 시간 표현 정리", en:"New Block Week section (Fall lineup & rules) · schedule switched to next weekend (Jul 17) · cleaned stale time wording", cn:"新增 Block Week 板块(Fall 课程与规则)· 课表切换到下个周末(7/17)· 清理过时时间表述" },
       { kr:"Fall BW 전체 10과목으로 보완(교수·날짜 포함) + Spring '27 프리뷰 추가", en:"Completed Fall BW lineup to all 10 courses (profs & dates) + Spring '27 peek", cn:"补全 Fall BW 全部10门课(含教授·日期)+ Spring '27 预告" },
       { kr:"일정표 자동 전환 — 주말이 끝나야 다음 주말로 넘어가요 (수업 중엔 그 주말 표시)", en:"Schedule now auto-switches — shows the current weekend until it ends, then the next one", cn:"课表自动切换 — 周末结束前显示当前周末,结束后自动切到下一个" },
       { kr:"수업 주말엔 '다음 수업+강의실' 안내 배너 · 시험 주간(D-6~) 응원 그림 · 7/17 강의실 TBA 표기", en:"Class weekends now show a 'next class + room' banner · exam-week (D-6) cheer illustration · Jul 17 room marked TBA", cn:"上课周末显示'下一节课+教室'提示 · 考试周(D-6起)加油插画 · 7/17 教室标记待公布" },
       { kr:"시험 끝난 날엔 '수고했어요!' 축하 그림으로 자동 전환 (다음날까지)", en:"On exam day, the illustration switches to a 'Great job!' celebration after the exam (through the next day)", cn:"考试当天考完后插画自动切换为'辛苦了!'祝贺版(持续到次日)" },
       { kr:"시간 기준 갱신 — 일정표는 마지막 수업이 끝나면 다음 주말로, 지난 시각의 일정은 목록에서 자동 제외", en:"Time-based updates — the schedule flips to the next weekend once the last class ends; items past their time drop off the list", cn:"按时间更新 — 最后一节课结束后课表切到下个周末,过点的日程自动移出列表" },
+      { kr:"다음 수업 배너를 맨 위로 이동 · 수업 종료 3시간 후 자동 숨김(밤새 안 남게)", en:"Moved the next-class banner to the top · auto-hides 3h after the last class (no overnight lingering)", cn:"下一节课提示移到最上方 · 末课后3小时自动隐藏(不留过夜)" },
+      { kr:"Block Week 섹션에 바로가기 링크 추가 — 코스 등록 포털·Course Match·Path@Penn", en:"Added quick links to the Block Week section — course registration, Course Match, Path@Penn", cn:"Block Week 板块新增快捷链接 — 选课门户·Course Match·Path@Penn" },
+      { kr:"상단 바로가기에 '과목' 추가 · 중국어 표현 점검(치트시트=速查表 통일) · nav 중복 버그 수정", en:"Added 'Courses' to the top nav · Chinese wording pass (cheat sheet = 速查表) · fixed a nav duplicate", cn:"顶部导航新增'科目' · 中文表述校订(cheat sheet 统一为速查表)· 修复导航重复" },
     ]},
     { date:"2026-07-02", items:[
       { kr:"Fall Block Week 등록·드롭(W) 정책·라인업 추가 · 7/6 Course Match add/drop 일정", en:"Added Fall Block Week registration, drop/W policy & lineup · Jul 6 Course Match add/drop", cn:"新增 Fall Block Week 报名·退课(W)政策·课程清单 · 7/6 Course Match 加退" },
@@ -73,7 +76,7 @@ const DATA = {
   whatsNew: [
     { date:"2026-07-03", kr:"🎉 ACCT 중간고사 완료(7/3)! 하나 끝났어요 — 성적은 추후 공지", en:"🎉 ACCT midterm done (Jul 3)! One down — grades TBD", cn:"🎉 ACCT 期中考完(7/3)!搞定一门 — 成绩待公布" },
     { date:"2026-07-03", kr:"🎯 BEPP 미드텀 인텔(튜터 세션발) — 계산문제는 3차 가격차별 중심 · 최적가격은 MR=MC · 부분점수 후하니 케이스 나열+근거만 써도 ≈90% — 자세한 건 BEPP 카드 참고", en:"🎯 BEPP midterm intel (from tutor sessions) — calc problems center on 3rd-degree price discrimination · exact price = set MR=MC · partial credit is generous: options + reasoning ≈ 90% — details in the BEPP card", cn:"🎯 BEPP 期中情报(辅导课)— 计算题以三级价格歧视为核心 · 最优价格 = MR=MC · 部分分很慷慨: 列出情形+理由 ≈ 90% — 详见 BEPP 卡片" },
-    { date:"2026-07-03", kr:"⏳ 미확정(TBC) 2건: BEPP 범위에 L12–14(게임이론·경매) 포함 여부 · 치트시트 제공 vs 지참 — RS4(7/9)에서 확인 예정", en:"⏳ TBC ×2: whether BEPP scope includes L12–14 (game theory, auctions) · cheat sheet provided vs bring-your-own — confirming at RS4 (Jul 9)", cn:"⏳ 待确认×2: BEPP 范围是否含 L12–14(博弈论·拍卖)· 小抄是提供还是自带 — RS4(7/9)确认" },
+    { date:"2026-07-03", kr:"⏳ 미확정(TBC) 2건: BEPP 범위에 L12–14(게임이론·경매) 포함 여부 · 치트시트 제공 vs 지참 — RS4(7/9)에서 확인 예정", en:"⏳ TBC ×2: whether BEPP scope includes L12–14 (game theory, auctions) · cheat sheet provided vs bring-your-own — confirming at RS4 (Jul 9)", cn:"⏳ 待确认×2: BEPP 范围是否含 L12–14(博弈论·拍卖)· 速查表是提供还是自带 — RS4(7/9)确认" },
     { date:"2026-07-03", kr:"🏫 Fall Block Week 전체 라인업 공개 — 지난 노트는 5과목만 소개했는데 실제론 10과목! (OIDD 6530·HCMG 8600·OIDD 6140 Innovation·Global 2과목 추가) 전체 목록·규칙은 아래 'Block Week' 섹션 참고", en:"🏫 Fall Block Week complete lineup — the last note listed only 5 of 10 courses! (Added: OIDD 6530, HCMG 8600, OIDD 6140 Innovation & the two Global courses.) Full list & rules in the 'Block Week' section below", cn:"🏫 Fall Block Week 完整课程公开 — 上期只介绍了10门中的5门!(新增 OIDD 6530·HCMG 8600·OIDD 6140·两门 Global 课)完整列表与规则见下方 'Block Week' 板块" },
   ],
 
@@ -105,7 +108,7 @@ const DATA = {
     {
       date:"2026-07-17T09:30", type:"exam", course:"BEPP", hard:true,
       title:{ kr:"BEPP 중간고사", en:"BEPP midterm", cn:"BEPP 期中考试" },
-      detail:{ kr:"9:30–11:30 AM · 합반 · 5문제/120분 · 강의실 추후 공지 · 범위(L12–14)·치트시트 정책은 TBC — RS4에서 확인", en:"9:30–11:30 AM · joint · 5 problems/120 min · room TBA · scope (L12–14) & cheat-sheet policy TBC — confirm at RS4", cn:"上午9:30–11:30 · 合并班 · 5题/120分钟 · 教室待公布 · 范围(L12–14)与小抄政策待确认 — RS4 确认" },
+      detail:{ kr:"9:30–11:30 AM · 합반 · 5문제/120분 · 강의실 추후 공지 · 범위(L12–14)·치트시트 정책은 TBC — RS4에서 확인", en:"9:30–11:30 AM · joint · 5 problems/120 min · room TBA · scope (L12–14) & cheat-sheet policy TBC — confirm at RS4", cn:"上午9:30–11:30 · 合并班 · 5题/120分钟 · 教室待公布 · 范围(L12–14)与速查表政策待确认 — RS4 确认" },
     },
     {
       date:"2026-07-27", type:"paper", course:"HSC",
@@ -185,7 +188,7 @@ const DATA = {
       ],
       traps:[
         { new:true, kr:"⚠️ 단위 함정 — 모든 비용을 수요의 단위에 맞추기 (연간 라이선스→일당 · 에이커당→단위당)", en:"⚠️ Units trap — match every cost to the demand's unit (per-year license → per-day · per-acre → per-unit)", cn:"⚠️ 单位陷阱 — 所有成本要换算成需求的单位(年费→按天 · 每英亩→每单位)" },
-        { new:true, kr:"⏳ TBC: 범위에 L12–14(게임이론·경매) 포함 여부 · 치트시트 제공 vs 지참 — RS4(7/9)에서 확인", en:"⏳ TBC: whether L12–14 (game theory, auctions) are in scope · cheat sheet provided vs bring-your-own — confirm at RS4 (Jul 9)", cn:"⏳ 待确认: 范围是否含 L12–14(博弈论·拍卖)· 小抄提供还是自带 — RS4(7/9)确认" },
+        { new:true, kr:"⏳ TBC: 범위에 L12–14(게임이론·경매) 포함 여부 · 치트시트 제공 vs 지참 — RS4(7/9)에서 확인", en:"⏳ TBC: whether L12–14 (game theory, auctions) are in scope · cheat sheet provided vs bring-your-own — confirm at RS4 (Jul 9)", cn:"⏳ 待确认: 范围是否含 L12–14(博弈论·拍卖)· 速查表提供还是自带 — RS4(7/9)确认" },
         { kr:"⚠️ Canvas 시험 날짜 함정 — Aug 22/Sep 7은 작년(2025) 잔재. 실제 미드텀 7/17 · 기말 8/15", en:"⚠️ Canvas date trap — Aug 22/Sep 7 are last year's (2025). Real midterm Jul 17, final Aug 15", cn:"⚠️ Canvas 日期陷阱 — 8/22、9/7 为去年(2025)残留。实际期中 7/17、期末 8/15" },
         { kr:"⚠️ Inkoo는 새 공지 대신 기존 공지를 수정 (메일 안 옴) — 공지 페이지 재방문", en:"⚠️ Inkoo edits the existing announcement silently (no email) — re-visit the page", cn:"⚠️ Inkoo 会直接改旧公告而非发新公告(无邮件)— 请重访公告页" },
       ],
