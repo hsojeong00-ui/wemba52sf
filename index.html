@@ -551,9 +551,17 @@ function renderWhatsNew(){
       `<div class="wrow"><span class="wdate">${it.date?shortDate(it.date):""}</span><span class="wtext">${L(it)}</span></div>`
     ).join("")}</div>`;
 }
+/* 시간 기준 '지남' 판정 — 시각이 있으면 그 시각(+행사류는 3시간) 지나면 지남, 종일이면 그날 자정 */
+function isPastItem(it){
+  const { d, allDay } = toDate(it.date);
+  if(allDay) return daysUntil(d) < 0;
+  const isEvent = it.type==="exam" || it.type==="session" || it.type==="milestone";
+  const grace = isEvent ? 3*3600*1000 : 0;   // 마감(paper·quiz·registration)은 그 시각 즉시
+  return ptNowD().getTime() > ptOf(it.date).getTime() + grace;
+}
 function renderHero(sorted){
   const hero = document.getElementById("hero");
-  const next = sorted.find(it => daysUntil(toDate(it.date).d) >= 0 && (it.hard || it.type==="registration" || it.type==="exam" || it.type==="paper")) || sorted.find(it=>daysUntil(toDate(it.date).d)>=0);
+  const next = sorted.find(it => !isPastItem(it) && (it.hard || it.type==="registration" || it.type==="exam" || it.type==="paper")) || sorted.find(it => !isPastItem(it));
   if(!next){ hero.hidden = true; return; }
   hero.hidden = false;
   const n = daysUntil(toDate(next.date).d);
@@ -569,7 +577,7 @@ function renderDeadlines(sorted){
   let curMonth = null;
   sorted.forEach(it=>{
     const n = daysUntil(toDate(it.date).d);
-    if(n < 0) return;                          // 지난 일정은 표시 안 함
+    if(isPastItem(it)) return;                 // 지난 일정(시간 기준)은 표시 안 함
     // 월이 바뀌면 구분선 삽입
     const mk = monthKey(it.date);
     if(mk !== curMonth){
@@ -600,11 +608,37 @@ function renderDeadlines(sorted){
   });
 }
 
-/* 진행 중이거나 다음으로 다가오는 주말을 자동 선택 (end가 지나면 다음 주말로 전환) */
+/* 주말의 실제 종료 시각 = 마지막 수업이 끝나는 시각 (시간 없으면 end일 자정) */
+function weekendEndTime(w){
+  const ws = ptOf(w.start); ws.setHours(0,0,0,0);
+  let last = null;
+  w.days.forEach((day, i)=>{
+    day.rows.forEach(r=>{
+      const t = parseTimeRange(r.time); if(!t) return;
+      const en = new Date(ws); en.setDate(ws.getDate()+i); en.setHours(t.eh, t.em, 0, 0);
+      if(!last || en > last) last = en;
+    });
+  });
+  if(!last){ last = ptOf(w.end); last.setHours(23,59,0,0); }
+  return last;
+}
+/* 일정표에 보여줄 주말 — 날짜가 아니라 '마지막 수업 종료 시각' 기준으로 다음 주말로 전환 */
 function currentWeekend(){
   const s = DATA.schedule;
   if(!s || !s.weekends || !s.weekends.length) return null;
-  return s.weekends.find(w => daysUntil(toDate(w.end).d) >= 0) || null;
+  const now = ptNowD();
+  return s.weekends.find(w => weekendEndTime(w) > now) || null;
+}
+/* 오늘이 수업 주말 당일인지 (배너용 — 수업 끝난 저녁에도 '수고했어요' 유지) */
+function weekendForToday(){
+  const s = DATA.schedule;
+  if(!s || !s.weekends || !s.weekends.length) return null;
+  const today = ptNowD(); today.setHours(0,0,0,0);
+  return s.weekends.find(w=>{
+    const ws = ptOf(w.start); ws.setHours(0,0,0,0);
+    const we = ptOf(w.end);  we.setHours(0,0,0,0);
+    return today >= ws && today <= we;
+  }) || null;
 }
 function renderSchedule(){
   const sec = document.getElementById("sec-schedule");
@@ -643,13 +677,10 @@ function parseTimeRange(str){
 const MEAL_RE = /조식|중식|석식|Breakfast|Lunch|Dinner|早餐|午餐|晚餐|Evening Starters|Dining/i;
 function renderNextClass(){
   const box = document.getElementById("nextClass");
-  const w = currentWeekend();
+  const w = weekendForToday();                                  // 오늘이 수업 주말 당일일 때만
   if(!w){ box.hidden = true; return; }
   const now = ptNowD();
-  const today = new Date(now); today.setHours(0,0,0,0);
   const ws = ptOf(w.start); ws.setHours(0,0,0,0);
-  const we = ptOf(w.end);  we.setHours(0,0,0,0);
-  if(today < ws || today > we){ box.hidden = true; return; }   // 수업 주말 당일이 아니면 숨김
 
   let found = null, ongoing = false;
   outer:
@@ -925,7 +956,7 @@ function buildStory(){
     `<div class="hint">${T.storyHint[lang]}</div></div>`);
 
   // 다음 마감
-  const next = sorted.find(it=> daysUntil(toDate(it.date).d) >= 0);
+  const next = sorted.find(it=> !isPastItem(it));
   if(next){ const n = daysUntil(toDate(next.date).d);
     slides.push(`<div class="slide lime mid"><div class="kick">${T.nextDue[lang]}</div>`+
       `<div class="dnum">${n===0?T.dday[lang]:'D-'+n}</div>`+
@@ -933,7 +964,7 @@ function buildStory(){
   }
 
   // 다가오는 일정
-  const up = sorted.filter(it=> daysUntil(toDate(it.date).d) >= 0).slice(0,6);
+  const up = sorted.filter(it=> !isPastItem(it)).slice(0,6);
   if(up.length) slides.push(`<div class="slide paper"><div class="kick">${T.upcoming[lang]}</div><ul>`+
     up.map(it=>{ const n=daysUntil(toDate(it.date).d);
       return `<li class="row2"><span class="dd2">${n===0?T.today[lang]:'D-'+n}</span>`+

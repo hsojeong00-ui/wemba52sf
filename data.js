@@ -36,7 +36,8 @@ const DATA = {
       { kr:"Fall BW 전체 10과목으로 보완(교수·날짜 포함) + Spring '27 프리뷰 추가", en:"Completed Fall BW lineup to all 10 courses (profs & dates) + Spring '27 peek", cn:"补全 Fall BW 全部10门课(含教授·日期)+ Spring '27 预告" },
       { kr:"일정표 자동 전환 — 주말이 끝나야 다음 주말로 넘어가요 (수업 중엔 그 주말 표시)", en:"Schedule now auto-switches — shows the current weekend until it ends, then the next one", cn:"课表自动切换 — 周末结束前显示当前周末,结束后自动切到下一个" },
       { kr:"수업 주말엔 '다음 수업+강의실' 안내 배너 · 시험 주간(D-6~) 응원 그림 · 7/17 강의실 TBA 표기", en:"Class weekends now show a 'next class + room' banner · exam-week (D-6) cheer illustration · Jul 17 room marked TBA", cn:"上课周末显示'下一节课+教室'提示 · 考试周(D-6起)加油插画 · 7/17 教室标记待公布" },
-      { kr:"시험 끝난 날엔 '수고했어요!' 축하 그림으로 자동 전환 (당일 자정까지)", en:"On exam day, the illustration switches to a 'Great job!' celebration after the exam (until midnight)", cn:"考试当天考完后插画自动切换为'辛苦了!'祝贺版(至当日午夜)" },
+      { kr:"시험 끝난 날엔 '수고했어요!' 축하 그림으로 자동 전환 (다음날까지)", en:"On exam day, the illustration switches to a 'Great job!' celebration after the exam (through the next day)", cn:"考试当天考完后插画自动切换为'辛苦了!'祝贺版(持续到次日)" },
+      { kr:"시간 기준 갱신 — 일정표는 마지막 수업이 끝나면 다음 주말로, 지난 시각의 일정은 목록에서 자동 제외", en:"Time-based updates — the schedule flips to the next weekend once the last class ends; items past their time drop off the list", cn:"按时间更新 — 最后一节课结束后课表切到下个周末,过点的日程自动移出列表" },
     ]},
     { date:"2026-07-02", items:[
       { kr:"Fall Block Week 등록·드롭(W) 정책·라인업 추가 · 7/6 Course Match add/drop 일정", en:"Added Fall Block Week registration, drop/W policy & lineup · Jul 6 Course Match add/drop", cn:"新增 Fall Block Week 报名·退课(W)政策·课程清单 · 7/6 Course Match 加退" },
