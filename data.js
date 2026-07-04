@@ -35,6 +35,8 @@ const DATA = {
       { kr:"Block Week 섹션 신설(Fall 라인업·규칙) · 일정표를 다음 주말(7/17)로 교체 · 지난 시간 표현 정리", en:"New Block Week section (Fall lineup & rules) · schedule switched to next weekend (Jul 17) · cleaned stale time wording", cn:"新增 Block Week 板块(Fall 课程与规则)· 课表切换到下个周末(7/17)· 清理过时时间表述" },
       { kr:"Fall BW 전체 10과목으로 보완(교수·날짜 포함) + Spring '27 프리뷰 추가", en:"Completed Fall BW lineup to all 10 courses (profs & dates) + Spring '27 peek", cn:"补全 Fall BW 全部10门课(含教授·日期)+ Spring '27 预告" },
       { kr:"일정표 자동 전환 — 주말이 끝나야 다음 주말로 넘어가요 (수업 중엔 그 주말 표시)", en:"Schedule now auto-switches — shows the current weekend until it ends, then the next one", cn:"课表自动切换 — 周末结束前显示当前周末,结束后自动切到下一个" },
+      { kr:"수업 주말엔 '다음 수업+강의실' 안내 배너 · 시험 주간(D-6~) 응원 그림 · 7/17 강의실 TBA 표기", en:"Class weekends now show a 'next class + room' banner · exam-week (D-6) cheer illustration · Jul 17 room marked TBA", cn:"上课周末显示'下一节课+教室'提示 · 考试周(D-6起)加油插画 · 7/17 教室标记待公布" },
+      { kr:"시험 끝난 날엔 '수고했어요!' 축하 그림으로 자동 전환 (당일 자정까지)", en:"On exam day, the illustration switches to a 'Great job!' celebration after the exam (until midnight)", cn:"考试当天考完后插画自动切换为'辛苦了!'祝贺版(至当日午夜)" },
     ]},
     { date:"2026-07-02", items:[
       { kr:"Fall Block Week 등록·드롭(W) 정책·라인업 추가 · 7/6 Course Match add/drop 일정", en:"Added Fall Block Week registration, drop/W policy & lineup · Jul 6 Course Match add/drop", cn:"新增 Fall Block Week 报名·退课(W)政策·课程清单 · 7/6 Course Match 加退" },
@@ -79,6 +81,11 @@ const DATA = {
      hard: true 이면 "놓치면 아픈" 빨간 강조
   ----------------------------------------------------------------------------*/
   deadlines: [
+    { // 지난 시험 — 목록엔 자동 숨김, '수고했어요' 축하 삽화 트리거용 (7/5 이후 삭제 가능)
+      date:"2026-07-03T09:30", type:"exam", course:"ACCT",
+      title:{ kr:"ACCT 중간고사", en:"ACCT midterm", cn:"ACCT 期中考试" },
+      detail:{ kr:"완료", en:"Done", cn:"完成" },
+    },
     {
       date:"2026-07-06", type:"milestone", course:"Cohort",
       title:{ kr:"52 Family Day 설문 마감", en:"52 Family Day survey due", cn:"52 Family Day 问卷截止" },
@@ -97,7 +104,7 @@ const DATA = {
     {
       date:"2026-07-17T09:30", type:"exam", course:"BEPP", hard:true,
       title:{ kr:"BEPP 중간고사", en:"BEPP midterm", cn:"BEPP 期中考试" },
-      detail:{ kr:"9:30–11:30 AM · 합반 · 5문제/120분 · 범위(L12–14)·치트시트 정책은 TBC — RS4에서 확인", en:"9:30–11:30 AM · joint · 5 problems/120 min · scope (L12–14) & cheat-sheet policy TBC — confirm at RS4", cn:"上午9:30–11:30 · 合并班 · 5题/120分钟 · 范围(L12–14)与小抄政策待确认 — RS4 确认" },
+      detail:{ kr:"9:30–11:30 AM · 합반 · 5문제/120분 · 강의실 추후 공지 · 범위(L12–14)·치트시트 정책은 TBC — RS4에서 확인", en:"9:30–11:30 AM · joint · 5 problems/120 min · room TBA · scope (L12–14) & cheat-sheet policy TBC — confirm at RS4", cn:"上午9:30–11:30 · 合并班 · 5题/120分钟 · 教室待公布 · 范围(L12–14)与小抄政策待确认 — RS4 确认" },
     },
     {
       date:"2026-07-27", type:"paper", course:"HSC",
@@ -312,8 +319,8 @@ const DATA = {
           {
             label: { kr:"금요일 7/17", en:"Friday 7/17", cn:"周五 7/17" },
             rows: [
-              { time:"9:30–11:30", both:{ kr:"BEPP 중간고사 · 합반 · 5문제/120분", en:"BEPP Midterm · both sections · 5 problems/120 min", cn:"BEPP 期中 · 两班合并 · 5题/120分钟" } },
-              { time:"오후~", both:{ kr:"이후 일정 미게시 — 공식 주말 일정표 나오면 업데이트", en:"Rest TBA — will update when the official weekend schedule is posted", cn:"其余待公布 — 官方周末课表发布后更新" } },
+              { time:"9:30–11:30", both:{ kr:"BEPP 중간고사 · 합반 · 5문제/120분 · Room 추후 공지", en:"BEPP Midterm · both sections · 5 problems/120 min · Room TBA", cn:"BEPP 期中 · 两班合并 · 5题/120分钟 · 教室待公布" } },
+              { time:"오후~", both:{ kr:"이후 일정·강의실 미게시 — 공식 주말 일정표 나오면 업데이트", en:"Rest of schedule & rooms TBA — will update when the official weekend schedule posts", cn:"其余日程与教室待公布 — 官方周末课表发布后更新" } },
             ],
           },
         ],
