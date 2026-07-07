@@ -37,7 +37,7 @@ const DATA = {
      비워두면([]) 헤더에 링크가 안 보입니다. */
   changelog: [
     { date:"2026-07-06", items:[
-      { kr:"BEPP 미드텀 확정 — 범위 L1–8 · closed book + 직접 만든 치트시트 1장(8.5×11 양면). L12–14·L10–11 영상은 기말 범위. 번들링(L9)만 RS4서 확인 대기", en:"BEPP midterm confirmed — scope L1–8 · closed book + one self-made cheat sheet (8.5×11, both sides). L12–14 & L10–11 video are final material. Only bundling (L9) TBC at RS4", cn:"BEPP 期中确定 — 范围 L1–8 · 闭卷 + 自制速查表1页(8.5×11双面)。L12–14 与 L10–11 视频属期末。仅捆绑(L9)待 RS4 确认" },
+      { kr:"BEPP 미드텀 확정 — 범위 L1–8 · closed book + 직접 만든 치트시트 1장(8.5×11 양면). L12–14·L10–11 영상은 기말 범위. 번들링(L9)은 수업에서 언급 → 미드텀보다 기말에 나올 가능성", en:"BEPP midterm confirmed — scope L1–8 · closed book + one self-made cheat sheet (8.5×11, both sides). L12–14 & L10–11 video are final material. Bundling (L9) came up in class → more likely a final topic than a midterm one", cn:"BEPP 期中确定 — 范围 L1–8 · 闭卷 + 自制速查表1页(8.5×11双面)。L12–14 与 L10–11 视频属期末。捆绑(L9)课上提过 → 更可能属期末而非期中" },
       { kr:"BEPP 기출 7세트 완성(2019–25) + Shivani 문제맵(2019 이후 5개 핵심주제 매 미드텀 출제) + Concept Refresher(마지막 점검용)", en:"BEPP practice set complete (2019–25, 7 exams) + Shivani's problem map (5 core topics on every midterm since 2019) + Concept Refresher (final inventory check)", cn:"BEPP 真题7套(2019–25)+ Shivani 题图(2019年起5大核心主题每次期中都考)+ Concept Refresher(最后清点)" },
       { kr:"ACCT 중간 통계 공개 — 평균 118.85/147·중앙 121.5(≈80%)·N=72·최고 142 · Lambert: 기말 잘 보면 가중치 상향, 상담 환영", en:"ACCT midterm stats out — mean 118.85/147, median 121.5 (≈80%), N=72, high 142 · Lambert: do better on the final and he'll weight it more; open to conversations", cn:"ACCT 期中统计公布 — 均分118.85/147·中位121.5(≈80%)·N=72·最高142 · Lambert: 期末更好会加大权重,欢迎面谈" },
       { kr:"MGMT/HSC Day1–2 슬라이드(Class1–4) Canvas Files ▸ Slides · MacDuffie가 여러분 조직의 성과평가·창업 청사진 사례 수집(7/17 주말 전)", en:"MGMT/HSC Day 1–2 slides (Class 1–4) on Canvas Files ▸ Slides · MacDuffie is collecting performance-appraisal & founder-blueprint examples from your orgs (before the Jul 17 weekend)", cn:"MGMT/HSC Day1–2 幻灯(Class1–4)在 Canvas Files ▸ Slides · MacDuffie 征集你所在组织的绩效评估与创始蓝图案例(7/17周末前)" },
@@ -93,7 +93,7 @@ const DATA = {
   /* ── What's New (기존 섹션에 안 맞는 새 소식 · 최신이 위로) ────────────────
      해결되거나 오래된 항목은 지우면 됩니다. date 는 화면에 작은 날짜로 표시. */
   whatsNew: [
-    { date:"2026-07-06", kr:"✅ BEPP 미드텀 확정 — 범위 L1–8 · closed book + 직접 만든 치트시트 1장(8.5×11 양면). L12–14·L10–11 영상은 기말. ⚠️ 번들링(L9)은 교수가 '반드시 나온다' 했으니 RS4(7/9)서 확인 — 그 전엔 번들링도 준비", en:"✅ BEPP midterm confirmed — scope L1–8 · closed book + one self-made cheat sheet (8.5×11, both sides). L12–14 & L10–11 video are for the final. ⚠️ Bundling (L9) — the prof said it'll 'definitely' show up; confirm at RS4 (7/9) and prep it meanwhile", cn:"✅ BEPP 期中确定 — 范围 L1–8 · 闭卷 + 自制速查表1页(8.5×11双面)。L12–14 与 L10–11 视频属期末。⚠️ 捆绑(L9)教授说'一定会考',RS4(7/9)确认前先准备" },
+    { date:"2026-07-06", kr:"✅ BEPP 미드텀 확정 — 범위 L1–8 · closed book + 직접 만든 치트시트 1장(8.5×11 양면). L12–14·L10–11 영상은 기말. 번들링(L9)은 교수가 수업에서 언급 → 미드텀보다 기말에 나올 가능성이 큼", en:"✅ BEPP midterm confirmed — scope L1–8 · closed book + one self-made cheat sheet (8.5×11, both sides). L12–14 & L10–11 video are for the final. Bundling (L9) came up in class → more likely on the final than the midterm", cn:"✅ BEPP 期中确定 — 范围 L1–8 · 闭卷 + 自制速查表1页(8.5×11双面)。L12–14 与 L10–11 视频属期末。捆绑(L9)教授课上提过 → 更可能出现在期末而非期中" },
     { date:"2026-07-06", kr:"📚 BEPP 기출 7세트 완성(2019–25) + Shivani 문제맵(2019 이후 5개 핵심주제가 매 미드텀 출제) + Concept Refresher(마지막 점검용). Kruthika 치트시트팩으로 시작하면 빈 페이지보다 빠름", en:"📚 BEPP practice set complete (2019–25, 7 exams) + Shivani's problem map (5 core topics on every midterm since 2019) + Concept Refresher (final check). Start from Kruthika's cheat-sheet pack, not a blank page", cn:"📚 BEPP 真题7套(2019–25)+ Shivani 题图(2019年起5大核心主题每次期中都考)+ Concept Refresher(最后清点)。用 Kruthika 速查表包起步更快" },
     { date:"2026-07-06", kr:"📊 ACCT 중간 통계 — 평균 118.85/147·중앙 121.5(≈80%)·N=72·최고 142. 하위권은 미완성 답안 → '모든 문항 완료'가 완벽보다 중요. Lambert: 기말 더 잘 보면 가중치를 실라버스보다 높게, 점수 불만 시 상담 환영", en:"📊 ACCT midterm stats — mean 118.85/147, median 121.5 (≈80%), N=72, high 142. The low tail was mostly incomplete papers → finishing every question beats perfection. Lambert: do better on the final and he'll weight it more heavily; open to conversations", cn:"📊 ACCT 期中统计 — 均分118.85/147·中位121.5(≈80%)·N=72·最高142。低分多为未完成答卷 → '答完每题'胜过完美。Lambert: 期末更好会加大权重,不满意欢迎面谈" },
     { date:"2026-07-06", kr:"🗣 MacDuffie가 7/17–18 수업에 녹일 '여러분 조직의 성과평가·창업 청사진 사례'를 수집 중 — 주말 전 이메일/공지 답글로 보내면 내 맥락이 수업에 반영됨 · Day1–2 슬라이드(Class1–4)는 Canvas Files ▸ Slides", en:"🗣 MacDuffie is collecting performance-appraisal & founder-blueprint examples from your own orgs for the 7/17–18 classes — email or reply before the weekend to get your context into class · Day 1–2 slides (Class 1–4) on Canvas Files ▸ Slides", cn:"🗣 MacDuffie 征集你所在组织的绩效评估与创始蓝图案例(用于7/17–18课)— 周末前邮件/回复公告即可把你的情境带进课堂 · Day1–2 幻灯(Class1–4)在 Canvas Files ▸ Slides" },
@@ -124,7 +124,7 @@ const DATA = {
     {
       date:"2026-07-09T19:00", type:"session", course:"BEPP", new:true,
       title:{ kr:"BEPP Review Session 4 (Inkoo)", en:"BEPP Review Session 4 (Inkoo)", cn:"BEPP 复习课 4 (Inkoo)" },
-      detail:{ kr:"7 PM PT · ⚠️ 목요일 (평소 수요일 아님) · 워크시트 먼저 · ❓번들링(L9) 미드텀 출제 여부 꼭 확인", en:"7 PM PT · ⚠️ Thursday (not the usual Wednesday) · do the worksheet first · ❓ confirm whether bundling (L9) is on the midterm", cn:"7 PM PT · ⚠️ 周四(非往常周三)· 先做练习题 · ❓务必确认捆绑(L9)是否考" },
+      detail:{ kr:"7 PM PT · ⚠️ 목요일 (평소 수요일 아님) · 워크시트 먼저 · 번들링(L9)은 기말 예상", en:"7 PM PT · ⚠️ Thursday (not the usual Wednesday) · do the worksheet first · bundling (L9) likely on the final", cn:"7 PM PT · ⚠️ 周四(非往常周三)· 先做练习题 · 捆绑(L9)预计期末" },
     },
     {
       date:"2026-07-16", type:"milestone", course:"HSC", new:true,
@@ -134,7 +134,7 @@ const DATA = {
     {
       date:"2026-07-17T09:30", type:"exam", course:"BEPP", hard:true, new:true,
       title:{ kr:"BEPP 중간고사", en:"BEPP midterm", cn:"BEPP 期中考试" },
-      detail:{ kr:"9:30–11:30 AM · 합반 · 5문제/120분 · 강의실 추후 공지 · ✅범위 L1–8 · closed book + 자작 치트시트 1장(8.5×11 양면) · 번들링(L9)은 RS4서 확인", en:"9:30–11:30 AM · joint · 5 problems/120 min · room TBA · ✅ scope L1–8 · closed book + one self-made cheat sheet (8.5×11, both sides) · bundling (L9) TBC at RS4", cn:"上午9:30–11:30 · 合并班 · 5题/120分钟 · 教室待公布 · ✅范围 L1–8 · 闭卷 + 自制速查表1页(8.5×11双面)· 捆绑(L9)RS4确认" },
+      detail:{ kr:"9:30–11:30 AM · 합반 · 5문제/120분 · 강의실 추후 공지 · ✅범위 L1–8 · closed book + 자작 치트시트 1장(8.5×11 양면) · 번들링(L9)은 기말 예상", en:"9:30–11:30 AM · joint · 5 problems/120 min · room TBA · ✅ scope L1–8 · closed book + one self-made cheat sheet (8.5×11, both sides) · bundling (L9) likely on the final", cn:"上午9:30–11:30 · 合并班 · 5题/120分钟 · 教室待公布 · ✅范围 L1–8 · 闭卷 + 自制速查表1页(8.5×11双面)· 捆绑(L9)预计期末" },
     },
     {
       date:"2026-07-27", type:"paper", course:"HSC", hard:true, new:true,
@@ -233,7 +233,7 @@ const DATA = {
       name:{ kr:"미시경제 MGEC (Smetters)", en:"Microecon MGEC (Smetters)", cn:"微观经济 MGEC (Smetters)" },
       headline:{ kr:"미드텀 7/17 · 기말 8/15 — 기출부터", en:"Midterm Jul 17 · final Aug 15 — start with past exams", cn:"期中 7/17 · 期末 8/15 — 先做真题" },
       points:[
-        { new:true, kr:"✅ 미드텀 확정 — 범위 L1–8 · closed book + 직접 만든 치트시트 1장(8.5×11 양면). L12–14·L10–11 영상은 기말 범위. ⚠️ 단 번들링(L9)은 교수가 '반드시 나온다' 했으니 RS4서 확인 — 그 전엔 번들링도 준비. 치트시트는 Kruthika 팩으로 시작하면 빠름", en:"✅ Midterm confirmed — scope L1–8 · closed book + one self-made cheat sheet (8.5×11, both sides). L12–14 & L10–11 video are final material. ⚠️ But bundling (L9): the prof said it'll 'definitely' appear — confirm at RS4, prep it until then. Start your sheet from Kruthika's pack", cn:"✅ 期中确定 — 范围 L1–8 · 闭卷 + 自制速查表1页(8.5×11双面)。L12–14 与 L10–11 视频属期末。⚠️ 但捆绑(L9)教授说'一定会考' — RS4确认前先准备。速查表用 Kruthika 包起步更快" },
+        { new:true, kr:"✅ 미드텀 확정 — 범위 L1–8 · closed book + 직접 만든 치트시트 1장(8.5×11 양면). L12–14·L10–11 영상은 기말 범위. 번들링(L9)은 교수가 수업에서 언급 → 미드텀보다 기말에 나올 가능성이 큼. 치트시트는 Kruthika 팩으로 시작하면 빠름", en:"✅ Midterm confirmed — scope L1–8 · closed book + one self-made cheat sheet (8.5×11, both sides). L12–14 & L10–11 video are final material. Bundling (L9) came up in class → more likely on the final than the midterm. Start your sheet from Kruthika's pack", cn:"✅ 期中确定 — 范围 L1–8 · 闭卷 + 自制速查表1页(8.5×11双面)。L12–14 与 L10–11 视频属期末。捆绑(L9)教授课上提过 → 更可能出现在期末而非期中。速查表用 Kruthika 包起步更快" },
         { new:true, kr:"기출 7세트 완성(2019–25)+솔루션 · Shivani 문제맵: 2019 이후 5개 핵심주제가 매 미드텀 출제 → 주제 마스터 후 매핑된 문제 풀기 · Concept Refresher는 마지막 1–2일 점검용(주 가이드 X, 모든 개념을 동일 비중으로 봄)", en:"Practice set complete (2019–25, 7 exams) + solutions · Shivani's problem map: all 5 core topics have appeared on every midterm since 2019 → master a topic, then work its mapped problems · Concept Refresher = a last-1–2-days inventory check (not your main guide — it weighs all concepts equally, the exam doesn't)", cn:"真题7套(2019–25)+答案 · Shivani 题图: 2019年起5大核心主题每次期中都考 → 掌握一个主题就做其对应题 · Concept Refresher 用于最后1–2天清点(非主指南,它对所有概念等权重)" },
         { kr:"\"시험문제가 현실, 추가문제는 실전보다 쉽다\" · 2019부터 차례로", en:"\"Exam problems are the reality — the additional problems are easier\" · start with 2019 and work forward", cn:"\"真题才是现实,附加题比实战简单\" · 从2019开始按序做" },
         { kr:"계산문제 핵심 = 3차 가격차별 (1·2차는 개념으로만 출제)", en:"Calc problems are built on 3rd-degree price discrimination (1st/2nd degree appear conceptually only)", cn:"计算题核心 = 三级价格歧视(一/二级只考概念)" },
@@ -241,7 +241,7 @@ const DATA = {
         { kr:"시그니처: 문제에 수요곡선이 2개 = 가격차별 문제 예고 (차별 가능한가부터 판단)", en:"Signature: two demand curves in a problem = a price-discrimination question is coming (first ask: can they discriminate?)", cn:"信号: 题里有两条需求曲线 = 价格歧视题(先判断能否歧视)" },
         { kr:"차별 불가 시: 수요를 반드시 수량형으로 합산(가격형 금지) + 킹크 포인트 확인 — Q나 P가 음수면 구간을 잘못 고른 것", en:"No discrimination possible: add demands in quantity form (never price form) + check the kink point — a negative Q or P means you picked the wrong segment", cn:"不能歧视时: 需求务必按数量形式相加(禁止价格形式)+ 检查拐点 — Q或P为负说明选错区间" },
         { kr:"부분점수 후함 — 케이스 나열 + 근거만 써도 ≈90%. 얼지 말고 경우의 수를 적기", en:"Partial credit is generous — writing the options + your reasoning ≈ 90% of the points. Don't freeze; list the cases", cn:"部分分很慷慨 — 列出情形+理由 ≈ 90% 分。别卡住,把情况写下来" },
-        { new:true, kr:"RS4 = 7/9(목) 7 PM — 워크시트 먼저 풀고, ❓번들링(L9) 출제 여부 질문 · RS 일정: …6/24·7/9(목)·8/5(기말용)", en:"RS4 = Thu Jul 9, 7 PM — do the worksheet first, and ask about bundling (L9) scope · RS schedule: …6/24 · 7/9 (Thu) · 8/5 (for the final)", cn:"RS4 = 7/9(周四)7 PM — 先做练习题,并询问捆绑(L9)是否考 · 复习课: …6/24·7/9(周四)·8/5(期末用)" },
+        { new:true, kr:"RS4 = 7/9(목) 7 PM — 워크시트 먼저 풀고 참석 · 번들링(L9)은 기말 예상 · RS 일정: …6/24·7/9(목)·8/5(기말용)", en:"RS4 = Thu Jul 9, 7 PM — do the worksheet first · bundling (L9) likely a final topic · RS schedule: …6/24 · 7/9 (Thu) · 8/5 (for the final)", cn:"RS4 = 7/9(周四)7 PM — 先做练习题 · 捆绑(L9)预计期末 · 复习课: …6/24·7/9(周四)·8/5(期末用)" },
       ],
       traps:[
         { kr:"⚠️ 단위 함정 — 모든 비용을 수요의 단위에 맞추기 (연간 라이선스→일당 · 에이커당→단위당)", en:"⚠️ Units trap — match every cost to the demand's unit (per-year license → per-day · per-acre → per-unit)", cn:"⚠️ 单位陷阱 — 所有成本要换算成需求的单位(年费→按天 · 每英亩→每单位)" },
@@ -266,7 +266,7 @@ const DATA = {
 
   /* ── 액션 체크리스트 (체크 상태는 브라우저에 저장됨) ──────────────────────*/
   actions:[
-    { id:"a11", by:"2026-07-09", label:{ kr:"RS4 워크시트 미리 풀기 + 번들링(L9) 질문 준비 (7/9 목 세션 전)", en:"Do the RS4 worksheet + prep the bundling (L9) question (before Thu Jul 9)", cn:"RS4 练习题提前做完 + 备好捆绑(L9)提问(7/9 周四课前)" } },
+    { id:"a11", by:"2026-07-09", label:{ kr:"RS4 워크시트 미리 풀기 (7/9 목 세션 전)", en:"Do the RS4 worksheet before Thursday's session (Jul 9)", cn:"RS4 练习题提前做完(7/9 周四课前)" } },
     { id:"a7", by:"2026-07-11", label:{ kr:"BEPP 기출(2019–25, 7세트) 풀기 — 문제맵 활용, 2019부터 차례로", en:"Work BEPP past exams (2019–25, 7 sets) — use the problem map, start with 2019", cn:"做 BEPP 真题(2019–25,7套)— 用题图,从2019按序做" } },
     { id:"a13", by:"2026-07-16", label:{ kr:"BEPP 치트시트 1장 만들기 (8.5×11 양면) — Kruthika 팩에서 시작", en:"Build your BEPP cheat sheet (8.5×11, both sides) — start from Kruthika's pack", cn:"制作 BEPP 速查表1页(8.5×11双面)— 从 Kruthika 包起步" } },
     { id:"a14", by:"2026-07-16", label:{ kr:"MacDuffie에게 내 조직 성과평가·창업 청사진 사례 보내기 (주말 전)", en:"Send MacDuffie your org's performance-appraisal & founder-blueprint examples (before the weekend)", cn:"把本组织绩效评估·创始蓝图案例发给 MacDuffie(周末前)" } },
