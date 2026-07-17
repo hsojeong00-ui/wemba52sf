@@ -301,27 +301,33 @@ const DATA = {
   canvasMap:[
     {
       subject:"BEPP (MGEC)",
-      where:{ kr:"Files > 1-Lectures: 'with blanks'(수업 전) → 'filled-in'(수업 후) + Additional Problems", en:"Files > 1-Lectures: 'with blanks' (pre) → 'filled-in' (post) + Additional Problems", cn:"Files > 1-Lectures: 'with blanks'(课前) → 'filled-in'(课后) + Additional Problems" },
+      where:{ kr:"Files > 1-Lectures: 'with blanks'(수업 전) → 'filled-in'(수업 후) + Additional Problems · L12·13 filled = 기말(게임이론)", en:"Files > 1-Lectures: 'with blanks' (pre) → 'filled-in' (post) + Additional Problems · L12·13 filled = final (game theory)", cn:"Files > 1-Lectures: 'with blanks'(课前) → 'filled-in'(课后) + Additional Problems · L12·13 filled = 期末(博弈论)" },
       submit:{ kr:"시험은 지면", en:"Exams on paper", cn:"考试为纸笔" },
-      watch:{ kr:"건너뛴 토픽은 Class Recordings 영상 · Inkoo는 공지를 조용히 수정", en:"Skipped topics in Class Recordings · Inkoo edits announcements silently", cn:"跳过的内容看 Class Recordings 录像 · Inkoo 会悄悄改公告" },
+      watch:{ kr:"📦 기출·기말 자료는 Pras 드롭박스(기출 미드텀 2019–25 · 기말 5세트 2020–24 · 정답 포함) + RS 풀이/노트 · 기말 토픽 리스트(8개) · 건너뛴 토픽은 Class Recordings · Inkoo는 공지를 조용히 수정", en:"📦 Past/final materials in Pras's Dropbox (midterms 2019–25 · 5 finals 2020–24 w/ answers) + RS solutions/notes · finals topic list (8) · skipped topics in Class Recordings · Inkoo edits announcements silently", cn:"📦 真题·期末资料在 Pras Dropbox(期中 2019–25 · 期末5套 2020–24,含答案)+ RS 答案/笔记 · 期末主题清单(8个)· 跳过的内容看 Class Recordings · Inkoo 会悄悄改公告" },
     },
     {
       subject:"ACCT",
-      where:{ kr:"Files > 세션별 번호 폴더 01–21 (핸드아웃+케이스 풀이)", en:"Files > numbered session folders 01–21 (handouts + case solutions)", cn:"Files > 各课时编号文件夹 01–21(讲义+案例答案)" },
-      submit:{ kr:"퀴즈는 Assignments 탭", en:"Quizzes in Assignments tab", cn:"测验在 Assignments 标签" },
-      watch:{ kr:"폴더 31/32 = 기출, 93 = 교과서 솔루션", en:"Folders 31/32 = past exams, 93 = textbook solutions", cn:"文件夹 31/32=往年卷, 93=教材答案" },
+      where:{ kr:"Files > 세션별 번호 폴더 01–21 (핸드아웃+케이스 풀이) · 미드텀 세트는 Files ▸ Midterm Exam ▸ Midterm–2026 (문제 PDF·풀이 docx·Quiz1–5 통계)", en:"Files > numbered session folders 01–21 (handouts + case solutions) · midterm set in Files ▸ Midterm Exam ▸ Midterm–2026 (questions PDF · solution docx · Quiz 1–5 stats)", cn:"Files > 各课时编号文件夹 01–21(讲义+案例答案)· 期中资料在 Files ▸ Midterm Exam ▸ Midterm–2026(试题 PDF·答案 docx·Quiz1–5 统计)" },
+      submit:{ kr:"퀴즈는 Assignments 탭 (Quiz 1–5는 8/14까지 재오픈)", en:"Quizzes in Assignments tab (Quizzes 1–5 re-open until Aug 14)", cn:"测验在 Assignments 标签(Quiz 1–5 重开至 8/14)" },
+      watch:{ kr:"폴더 31/32 = 기출, 93 = 교과서 솔루션 · 시험은 종이 채점 후 반환(147점 만점)", en:"Folders 31/32 = past exams, 93 = textbook solutions · exams hand-graded on paper & returned (out of 147)", cn:"文件夹 31/32=往年卷, 93=教材答案 · 考试纸质手批返还(满分147)" },
     },
     {
-      subject:"MGMT 6130",
-      where:{ kr:"Files > Slides · 실라버스/FAQ/Fisher 메모는 Files 루트 · 리딩·케이스는 Study.Net 탭", en:"Files > Slides · syllabus/FAQ/Fisher memo in Files root · readings & cases in Study.Net tab", cn:"Files > Slides · 大纲/FAQ/Fisher 备忘在 Files 根目录 · 阅读与案例在 Study.Net 标签" },
+      subject:"MGMT 6130 (전략·HSC)",
+      where:{ kr:"슬라이드=Files ▸ Slides(Class 1–4) · 실라버스/FAQ/Fisher 메모·정답 가이드=Files 루트 · 케이스=Study.Net 탭 · ⚠️ HSC 사전 리딩·스터디 질문은 **실라버스(v1.6)**에(공지 X)", en:"Slides = Files ▸ Slides (Class 1–4) · syllabus/FAQ/Fisher memo & answer guide = Files root · cases = Study.Net tab · ⚠️ HSC pre-readings & study questions live in the syllabus (v1.6), not announcements", cn:"幻灯=Files ▸ Slides(Class 1–4)· 大纲/FAQ/Fisher 备忘·答案指南=Files 根目录 · 案例=Study.Net 标签 · ⚠️ HSC 预读与思考题在**大纲(v1.6)**(非公告)" },
       submit:{ kr:"Assignments 탭 (페이퍼·프로포절)", en:"Assignments tab (papers & proposals)", cn:"Assignments 标签(论文与提案)" },
-      watch:{ kr:"두 섹션(751/752)이 한 사이트 공유 · Study.Net 팩 늦게 업데이트(재다운로드)", en:"Both sections (751/752) share one site · Study.Net pack updates late (re-download)", cn:"两个班(751/752)共用一个站点 · Study.Net 包更新较晚(需重新下载)" },
+      watch:{ kr:"두 섹션(751/752)이 한 사이트 공유 · Study.Net 팩 늦게 업데이트(재다운로드) · 채점 5축=Theory·Data·Analysis·Organization·Application", en:"Both sections (751/752) share one site · Study.Net pack updates late (re-download) · grading axes = Theory·Data·Analysis·Organization·Application", cn:"两个班(751/752)共用一个站点 · Study.Net 包更新较晚(需重新下载)· 评分5轴=Theory·Data·Analysis·Organization·Application" },
+    },
+    {
+      subject:"성적·납부 (Path@Penn · Penn.Pay)",
+      where:{ kr:"최종 letter grade·비공식 성적표 = Path@Penn (path.at.upenn.edu ▸ unofficialTranscript) · 등록금 명세서·분납 플랜 = Penn.Pay ▸ Payment Plans", en:"Final letter grades & unofficial transcript = Path@Penn (path.at.upenn.edu ▸ unofficialTranscript) · tuition statements & installment plans = Penn.Pay ▸ Payment Plans", cn:"最终等级成绩·非正式成绩单 = Path@Penn (path.at.upenn.edu ▸ unofficialTranscript)· 学费账单·分期计划 = Penn.Pay ▸ Payment Plans" },
+      submit:{ kr:"등록금 납부는 Penn.Pay", en:"Pay tuition on Penn.Pay", cn:"在 Penn.Pay 缴费" },
+      watch:{ kr:"💰 가을 등록금 7/31 마감(연체료) · 4개월 분납 플랜도 7/31까지 · 국제 은행은 PayMyTuition", en:"💰 Fall tuition due 7/31 (late penalty) · 4-month plan also closes 7/31 · international bank → PayMyTuition", cn:"💰 秋季学费 7/31 截止(滞纳金)· 4个月分期也在 7/31 前 · 海外银行用 PayMyTuition" },
     },
     {
       subject:"Cohort Communication",
-      where:{ kr:"Files > Weekend Schedule(매 수업 주말), Orientation, Resource Guides", en:"Files > Weekend Schedule (each class weekend), Orientation, Resource Guides", cn:"Files > Weekend Schedule(每个上课周末)、Orientation、Resource Guides" },
+      where:{ kr:"Files > Weekend Schedule(매 수업 주말), Orientation, Resource Guides · Block Week Instructions PDF = Files ▸ Classes–Block Week ▸ Term 2", en:"Files > Weekend Schedule (each class weekend), Orientation, Resource Guides · Block Week Instructions PDF = Files ▸ Classes–Block Week ▸ Term 2", cn:"Files > Weekend Schedule(每个上课周末)、Orientation、Resource Guides · Block Week Instructions PDF = Files ▸ Classes–Block Week ▸ Term 2" },
       submit:{ kr:"—", en:"—", cn:"—" },
-      watch:{ kr:"물류(버스·호텔·행사) · 테크/도서관 세션 녹화는 Class Recordings", en:"Logistics (bus/hotel/events) · tech/library session recordings in Class Recordings", cn:"后勤(班车·酒店·活动) · 技术/图书馆课录像在 Class Recordings" },
+      watch:{ kr:"물류(버스·호텔·행사) · 테크/도서관 세션 녹화는 Class Recordings · Excel 스킬킷(Level 1·2)도 여기 Files", en:"Logistics (bus/hotel/events) · tech/library session recordings in Class Recordings · Excel skill kit (Level 1·2) is here in Files too", cn:"后勤(班车·酒店·活动) · 技术/图书馆课录像在 Class Recordings · Excel 技能包(Level 1·2)也在此 Files" },
     },
   ],
 
