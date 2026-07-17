@@ -186,6 +186,7 @@
   .sched td.both{color:var(--muted)}
   .sched td.cls{font-weight:600}
   .sched td.exam{color:var(--hard); font-weight:700}
+  .sched .cls-read{margin-top:4px; font-weight:400; font-size:11px; color:var(--faint); line-height:1.4}
   .sched-notes{color:var(--faint); font-size:12px; margin-top:14px; display:flex; flex-direction:column; gap:5px}
 
   /* table */
@@ -652,11 +653,12 @@ function renderSchedule(){
   w.days.forEach(day=>{
     html += `<tr class="day"><td colspan="3">${L(day.label)}</td></tr>`;
     day.rows.forEach(r=>{
+      const cell = o => o ? `${L(o)}${o.read?`<div class="cls-read">📖 ${L(o.read)}</div>`:""}` : "";
       if(r.both){
         const isExam = /Midterm|중간|期中/.test(L(r.both));
-        html += `<tr><td class="time">${r.time}</td><td class="both ${isExam?'exam':''}" colspan="2">${L(r.both)}</td></tr>`;
+        html += `<tr><td class="time">${r.time}</td><td class="both ${isExam?'exam':''}" colspan="2">${cell(r.both)}</td></tr>`;
       } else {
-        html += `<tr><td class="time">${r.time}</td><td class="cls">${L(r.s1)}</td><td class="cls">${L(r.s2)}</td></tr>`;
+        html += `<tr><td class="time">${r.time}</td><td class="cls">${cell(r.s1)}</td><td class="cls">${cell(r.s2)}</td></tr>`;
       }
     });
   });
