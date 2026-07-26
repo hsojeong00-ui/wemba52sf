@@ -563,7 +563,9 @@ function isPastItem(it){
 }
 function renderHero(sorted){
   const hero = document.getElementById("hero");
-  const next = sorted.find(it => !isPastItem(it) && (it.hard || it.type==="registration" || it.type==="exam" || it.type==="paper")) || sorted.find(it => !isPastItem(it));
+  const next = sorted.find(it => !isPastItem(it) && it.pin)   // pin:true 면 배너에 강제 고정 (지나면 자동 해제)
+    || sorted.find(it => !isPastItem(it) && (it.hard || it.type==="registration" || it.type==="exam" || it.type==="paper"))
+    || sorted.find(it => !isPastItem(it));
   if(!next){ hero.hidden = true; return; }
   hero.hidden = false;
   const n = daysUntil(toDate(next.date).d);
