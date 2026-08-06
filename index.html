@@ -82,6 +82,7 @@
   .nextclass .nc-head{font-family:var(--mono); font-size:11.5px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
   .nextclass .nc-body{font-size:15.5px; font-weight:700; margin-top:4px}
   .nextclass .nc-go{font-size:13px; font-weight:800; margin-top:6px; color:var(--ok)}
+  .nextclass .nc-room{display:inline-block; background:var(--accent); color:#14140d; font-weight:800; padding:1px 9px; border-radius:999px; letter-spacing:.02em}
   .nextclass .nc-done{font-size:15px; font-weight:700}
 
   /* 시험 응원 삽화 (맨 위) */
@@ -309,16 +310,16 @@
     <div class="card" id="schedule"></div>
   </section>
 
+  <section id="sec-courses">
+    <div class="h"><h3 data-t="courses"></h3></div>
+    <div class="grid g2" id="courses"></div>
+  </section>
+
   <section id="sec-bw">
     <div class="h"><h3 data-t="bwTitle"></h3><span class="hint" data-t="bwHint"></span></div>
     <div class="card">
       <div class="bw" id="blockWeek"></div>
     </div>
-  </section>
-
-  <section id="sec-courses">
-    <div class="h"><h3 data-t="courses"></h3></div>
-    <div class="grid g2" id="courses"></div>
   </section>
 
   <section id="sec-canvas">
@@ -375,6 +376,7 @@ const T = {
   ncNow:        { kr:"🏫 지금 수업 중", en:"🏫 In class now", cn:"🏫 正在上课" },
   ncNext:       { kr:"🏫 다음 수업", en:"🏫 Next class", cn:"🏫 下一节课" },
   ncGo:         { kr:"강의실 확인하고 이동하세요 →", en:"Check the room and head over →", cn:"确认教室后前往 →" },
+  ncGoRoom:     { kr:"로 바로 이동 →", en:"— head straight there →", cn:"— 直接前往 →" },
   ncDone:       { kr:"이번 주말 수업 끝 — 수고했어요! 🎉", en:"Weekend classes are done — great job! 🎉", cn:"周末课程全部结束 — 辛苦了!🎉" },
   cheer:        { kr:"시험 화이팅!", en:"You got this!", cn:"考试加油!" },
   cheerDone:    { kr:"수고했어요!", en:"Great job!", cn:"辛苦了!" },
@@ -519,7 +521,7 @@ function render(){
     `Wharton · WEMBA 52 Survival Dashboard · ${DATA.meta.author}`;
 }
 
-const NAV_ORDER = ["sec-whatsnew","sec-upcoming","sec-schedule","sec-bw","sec-courses","sec-canvas","sec-actions","sec-social"];
+const NAV_ORDER = ["sec-whatsnew","sec-upcoming","sec-schedule","sec-courses","sec-bw","sec-canvas","sec-actions","sec-social"];
 function renderNav(){
   const nav = document.getElementById("jump");
   nav.innerHTML = NAV_ORDER.filter(id=>{
@@ -707,10 +709,16 @@ function renderNextClass(){
   const body = found.both
     ? `${L(found.both)}`
     : `<span style="color:var(--muted)">${T.sec1[lang]}</span> ${L(found.s1)}<br><span style="color:var(--muted)">${T.sec2[lang]}</span> ${L(found.s2)}`;
+  // 강의실을 셀 텍스트에서 뽑아 배너에 크게 표시 (합반=단일 강의실일 때) — 딴 걸 찾지 않도록
+  const roomTxt = found.both ? L(found.both) : (L(found.s1)+" "+L(found.s2));
+  const roomM = roomTxt.match(/Room\s*\d+[A-Za-z]?/i);
+  const goLine = (found.both && roomM)
+    ? `📍 <span class="nc-room">${roomM[0]}</span>${T.ncGoRoom[lang]}`
+    : T.ncGo[lang];
   box.innerHTML =
     `<div class="nc-head">${ongoing ? T.ncNow[lang] : T.ncNext[lang]} · ${found.time}</div>`+
     `<div class="nc-body">${body}</div>`+
-    `<div class="nc-go">${T.ncGo[lang]}</div>`;
+    `<div class="nc-go">${goLine}</div>`;
 }
 
 /* ── 시험 삽화 (Sally 손그림) ────────────────────────────────────────────
