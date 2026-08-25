@@ -4,37 +4,40 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>WEMBA 52 Survival Dashboard</title>
-<meta name="description" content="WEMBA 52 생존노트 — 마감·시험·과제 한눈에 보기" />
+<meta name="description" content="WEMBA 52 생존노트 — 마감·과제·수업 주말·블록위크 한눈에 보기" />
 <!-- 검색엔진 노출 차단 (링크 아는 사람만 접근) -->
 <meta name="robots" content="noindex, nofollow" />
 <!-- 캐시 최소화 (업데이트가 빨리 반영되도록) -->
 <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
 <style>
   :root{
-    /* 다크 (토글 시) — 대비 강화 */
-    --bg:#121309; --panel:#21241c; --panel2:#2c3026; --line:#414636;
-    --ink:#f4f3ec; --muted:#c0bfae; --faint:#8f8f7e;
-    --accent:#caf23f; --hard:#ff7a6e; --ok:#8bd44f; --warn:#e6c235;
+    /* 다크 (토글 시) — Klarna 블랙 + 핑크 */
+    --bg:#0b051d; --panel:#171128; --panel2:#211a35; --line:#332b47;
+    --ink:#f7f5fa; --muted:#b8b2c7; --faint:#857e96;
+    --accent:#ffb3c7; --hard:#ff7a9c; --ok:#6fbf95; --warn:#e0b45a;
     --shadow:0 0 0 1px rgba(255,255,255,.04), 0 14px 30px rgba(0,0,0,.5);
     --r:18px;
-    --grad:linear-gradient(115deg, #cdf23a 0%, #e6f24e 55%, #eff06a 100%);
+    --grad:linear-gradient(115deg, #ffb3c7 0%, #ffc9d8 55%, #ffdde6 100%);
     --mono:ui-monospace,"SF Mono","JetBrains Mono","Cascadia Code","Roboto Mono",Consolas,"Pretendard","Apple SD Gothic Neo","Malgun Gothic","맑은 고딕","PingFang SC","Microsoft YaHei","微软雅黑","Noto Sans KR","Noto Sans SC",sans-serif;
   }
-  /* 라이트(깨끗한 화이트 + 라임 포인트) — 기본 디자인 */
+  /* 라이트(화이트 + Klarna 핑크) — 기본 디자인 */
   :root[data-theme="light"]{
-    --bg:#f6f6f2; --panel:#ffffff; --panel2:#efefe8; --line:#e6e6dd;
-    --ink:#16160f; --muted:#5b5b50; --faint:#9a9a8c;
-    --accent:#bce62a; --hard:#e5484d; --ok:#5fa83a; --warn:#cc9a1f;
-    --shadow:0 1px 2px rgba(20,20,10,.05), 0 12px 28px rgba(20,20,10,.07);
+    --bg:#fafafa; --panel:#ffffff; --panel2:#f4f4f4; --line:#e8e8ea;
+    --ink:#0b051d; --muted:#5a5566; --faint:#8e8a99;
+    --accent:#ffb3c7; --hard:#c8385f; --ok:#2e7d57; --warn:#b5762b;
+    --shadow:0 1px 2px rgba(11,5,29,.05), 0 12px 28px rgba(11,5,29,.08);
+    --grad:linear-gradient(115deg, #ffb3c7 0%, #ffc9d8 55%, #ffdde6 100%);
   }
   @media (prefers-color-scheme: light){
     :root:not([data-theme]){
-      --bg:#f6f6f2; --panel:#ffffff; --panel2:#efefe8; --line:#e6e6dd;
-      --ink:#16160f; --muted:#5b5b50; --faint:#9a9a8c;
-      --accent:#bce62a; --hard:#e5484d; --ok:#5fa83a; --warn:#cc9a1f;
-      --shadow:0 1px 2px rgba(20,20,10,.05), 0 12px 28px rgba(20,20,10,.07);
+      --bg:#fafafa; --panel:#ffffff; --panel2:#f4f4f4; --line:#e8e8ea;
+      --ink:#0b051d; --muted:#5a5566; --faint:#8e8a99;
+      --accent:#ffb3c7; --hard:#c8385f; --ok:#2e7d57; --warn:#b5762b;
+      --shadow:0 1px 2px rgba(11,5,29,.05), 0 12px 28px rgba(11,5,29,.08);
+    --grad:linear-gradient(115deg, #ffb3c7 0%, #ffc9d8 55%, #ffdde6 100%);
     }
   }
+  [hidden]{display:none !important}
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   html,body{margin:0; touch-action:manipulation}
@@ -65,12 +68,12 @@
   .toggle.theme button{padding:9px 12px; font-size:15px}
 
   /* hero countdown — 라임 그라데이션 카드 */
-  .hero{margin:18px 0 28px; background:var(--grad); color:#14140d; border-radius:24px; padding:26px 28px; box-shadow:var(--shadow); display:flex; align-items:center; gap:24px; flex-wrap:wrap}
+  .hero{margin:18px 0 28px; background:var(--grad); color:#0b051d; border-radius:24px; padding:26px 28px; box-shadow:var(--shadow); display:flex; align-items:center; gap:24px; flex-wrap:wrap}
   .hero > div:first-child{flex:1; min-width:200px}
-  .hero .label{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#14140d; background:rgba(0,0,0,.08); padding:4px 11px; border-radius:999px}
-  .hero h2{font-family:var(--mono); margin:.55em 0 .22em; font-size:clamp(20px,3.4vw,30px); letter-spacing:-.02em; line-height:1.1; color:#14140d; font-weight:800}
-  .hero .meta{font-size:13px; color:#14140d; opacity:.78}
-  .hero .count{margin-left:auto; text-align:center; min-width:96px; padding:14px 20px; border-radius:18px; background:#14140d; color:#fff}
+  .hero .label{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#0b051d; background:rgba(0,0,0,.08); padding:4px 11px; border-radius:999px}
+  .hero h2{font-family:var(--mono); margin:.55em 0 .22em; font-size:clamp(20px,3.4vw,30px); letter-spacing:-.02em; line-height:1.1; color:#0b051d; font-weight:800}
+  .hero .meta{font-size:13px; color:#0b051d; opacity:.78}
+  .hero .count{margin-left:auto; text-align:center; min-width:96px; padding:14px 20px; border-radius:18px; background:#0b051d; color:#fff}
   .hero .count .num{font-family:var(--mono); font-size:clamp(28px,5.5vw,44px); font-weight:800; line-height:1; letter-spacing:-.02em; color:#fff}
   .hero .count .unit{margin-top:5px; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#fff; opacity:.72}
   /* 임박(D-2 이내)하면 카운트 배지 빨강 */
@@ -82,7 +85,7 @@
   .nextclass .nc-head{font-family:var(--mono); font-size:11.5px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
   .nextclass .nc-body{font-size:15.5px; font-weight:700; margin-top:4px}
   .nextclass .nc-go{font-size:13px; font-weight:800; margin-top:6px; color:var(--ok)}
-  .nextclass .nc-room{display:inline-block; background:var(--accent); color:#14140d; font-weight:800; padding:1px 9px; border-radius:999px; letter-spacing:.02em}
+  .nextclass .nc-room{display:inline-block; background:var(--accent); color:#0b051d; font-weight:800; padding:1px 9px; border-radius:999px; letter-spacing:.02em}
   .nextclass .nc-done{font-size:15px; font-weight:700}
 
   /* 시험 응원 삽화 (맨 위) */
@@ -130,7 +133,8 @@
   .row .det{color:var(--muted); font-size:13px; margin-top:1px}
   .row .when{color:var(--faint); font-size:12px; margin-top:2px}
   .pill{flex:0 0 auto; font-size:11px; font-weight:800; letter-spacing:.06em; padding:4px 9px; border-radius:999px; text-transform:uppercase}
-  .tag{display:inline-block; font-size:10.5px; font-weight:800; padding:2px 7px; border-radius:6px; letter-spacing:.04em; color:#06121f}
+  .tag{display:inline-block; font-size:10.5px; font-weight:800; padding:2px 8px; border-radius:6px; letter-spacing:.04em;
+       background:color-mix(in srgb,var(--tg) 17%,transparent) !important; color:var(--tg); border:1px solid color-mix(in srgb,var(--tg) 42%,transparent)}
 
   /* course cards */
   .course .top{display:flex; align-items:center; gap:10px; margin-bottom:6px}
@@ -198,12 +202,49 @@
   .tbl .w{color:var(--muted)}
 
   /* What's New + NEW 배지 */
-  .newbadge{display:inline-block; font-size:9px; font-weight:800; letter-spacing:.05em; background:var(--accent); color:#14140d; padding:1px 5px; border-radius:5px; margin-left:6px; vertical-align:middle; position:relative; top:-1px}
+  .newbadge{display:inline-block; font-size:9px; font-weight:800; letter-spacing:.05em; background:var(--accent); color:#0b051d; padding:1px 5px; border-radius:5px; margin-left:6px; vertical-align:middle; position:relative; top:-1px}
   .wnew{display:flex; flex-direction:column; gap:0}
   .wnew .wrow{display:flex; gap:12px; align-items:baseline; padding:11px 0; border-bottom:1px solid var(--line)}
   .wnew .wrow:last-child{border-bottom:0}
   .wnew .wdate{font-family:var(--mono); font-size:11.5px; font-weight:800; color:var(--faint); min-width:42px; flex:0 0 auto}
   .wnew .wtext{font-size:14px; line-height:1.45}
+
+  /* 임시 안내 카드 */
+  .notice{margin:2px 0 16px; background:var(--panel); border:2px dashed var(--accent); border-radius:16px; padding:13px 17px; box-shadow:var(--shadow)}
+  .notice .ntitle{font-size:13.5px; font-weight:800; margin-bottom:4px; color:var(--accent)}
+  .notice .nbody{font-size:13.5px; line-height:1.55; color:var(--ink)}
+  .ngrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:11px; margin-top:12px}
+  .ngroup{background:var(--panel2); border-radius:11px; padding:10px 12px}
+  .nglabel{display:flex; align-items:center; gap:7px; font-size:12px; font-weight:800; margin-bottom:5px}
+  .ngdot{width:9px; height:9px; border-radius:50%; flex:0 0 auto}
+  .ngcount{margin-left:auto; font-family:var(--mono); font-size:11px; font-weight:800; color:var(--faint)}
+  .ngnames{font-size:11.5px; line-height:1.65; color:var(--muted); word-break:keep-all}
+  .nfoot{margin-top:11px; font-size:12px; line-height:1.55; color:var(--muted); border-top:1px solid var(--line); padding-top:9px; white-space:pre-line}
+
+  /* 지금 준비가 필요한 것 — 요약 카드 */
+  .prepcard{padding:14px 16px}
+  .prepnote{background:color-mix(in srgb,var(--hard) 11%,transparent); border:1px solid color-mix(in srgb,var(--hard) 34%,transparent);
+            border-radius:12px; padding:12px 14px; font-size:13.5px; line-height:1.55; margin-bottom:14px}
+  .pgrid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px}
+  @media(max-width:760px){ .pgrid{grid-template-columns:1fr} }
+  .pcard{background:var(--panel2); border-radius:14px; border-left:5px solid var(--pc); padding:13px 15px 14px}
+  .pcardhead{display:flex; align-items:center; gap:7px; flex-wrap:wrap; margin-bottom:9px}
+  .pchip{background:color-mix(in srgb,var(--pc) 20%,transparent); color:var(--pc); font-size:11px; font-weight:800; padding:3px 9px; border-radius:999px; letter-spacing:.2px}
+  .pwhen{font-size:12.5px; font-weight:700; color:var(--muted)}
+  .pbadge{margin-left:auto; font-family:var(--mono); font-size:11px; font-weight:800; color:var(--pc);
+          background:color-mix(in srgb,var(--pc) 15%,transparent); padding:2px 8px; border-radius:999px; white-space:nowrap}
+  .pline{display:flex; gap:9px; align-items:flex-start; padding:5px 0}
+  .picon{flex:0 0 auto; width:17px; text-align:center; font-size:13px; line-height:1.5}
+  .ptext{font-size:13.5px; line-height:1.5; min-width:0}
+  .psub{display:block; font-size:11.5px; color:var(--faint); line-height:1.45; margin-top:1px}
+  .pflag{margin-top:10px; background:color-mix(in srgb,var(--hard) 13%,transparent); border-radius:9px;
+         padding:8px 11px; font-size:12.5px; line-height:1.5; font-weight:600}
+
+  /* 자료 맵 준비 중 */
+  .cvsoon{display:flex; flex-direction:column; align-items:center; gap:10px; padding:6px 0 14px}
+  .cvsoon img, .cvsoon svg{width:100%; max-width:520px; height:auto; border-radius:12px; display:block}
+  .cvsoon .cvtext{font-size:13.5px; line-height:1.55; color:var(--muted); text-align:center; max-width:560px}
+
 
   /* 업데이트 내역 모달 (대시보드 테마) */
   .histlink{cursor:pointer}
@@ -230,7 +271,7 @@
   .story-close{position:absolute; top:22px; right:14px; z-index:6; width:36px; height:36px; border:0; border-radius:50%; background:rgba(0,0,0,.3); color:#fff; font-size:15px; cursor:pointer}
   .story-track{flex:1; display:flex; transition:transform .32s cubic-bezier(.4,0,.2,1); will-change:transform}
   .slide{min-width:100%; height:100%; box-sizing:border-box; padding:62px 28px 76px; display:flex; flex-direction:column; overflow-y:auto; position:relative}
-  .slide.lime{background:var(--grad); color:#14140d}
+  .slide.lime{background:var(--grad); color:#0b051d}
   .slide.paper{background:var(--panel); color:var(--ink)}
   .slide.mid{justify-content:center}
   .slide.fitslide{overflow:hidden; justify-content:flex-start; padding:54px 22px 26px}
@@ -245,7 +286,7 @@
   .slide li{font-size:15px; line-height:1.4}
   .slide .row2{display:flex; gap:12px; align-items:baseline; border-bottom:1px solid rgba(128,128,110,.18); padding-bottom:13px}
   .slide .dd2{font-family:var(--mono); font-weight:800; font-size:16px; min-width:50px; flex:0 0 auto}
-  .slide .sbtn{align-self:flex-start; margin-top:20px; background:#14140d; color:#fff; font-weight:800; font-size:14px; padding:13px 22px; border-radius:999px; text-decoration:none}
+  .slide .sbtn{align-self:flex-start; margin-top:20px; background:#0b051d; color:#fff; font-weight:800; font-size:14px; padding:13px 22px; border-radius:999px; text-decoration:none}
   .slide .hint{position:absolute; bottom:26px; left:0; right:0; text-align:center; font-size:12px; opacity:.6}
 
   footer{margin-top:30px; color:var(--faint); font-size:12.5px; text-align:center; border-top:1px solid var(--line); padding-top:18px}
@@ -295,9 +336,11 @@
     </div>
   </div>
 
-  <section id="sec-whatsnew">
-    <div class="h"><h3 data-t="whatsNew"></h3><span class="hint" data-t="whatsNewHint"></span></div>
-    <div class="card" id="whatsNew"></div>
+  <div class="notice" id="notice" hidden></div>
+
+  <section id="sec-prep">
+    <div class="h"><h3 data-t="prep"></h3><span class="hint" id="prepHint"></span></div>
+    <div class="card prepcard" id="prep"></div>
   </section>
 
   <section id="sec-upcoming">
@@ -324,16 +367,9 @@
 
   <section id="sec-canvas">
     <div class="h"><h3 data-t="canvas"></h3><span class="hint" data-t="canvasHint"></span></div>
-    <div class="card" style="overflow-x:auto">
-      <table class="tbl" id="canvas"></table>
-    </div>
-  </section>
-
-  <section id="sec-actions">
-    <div class="h"><h3 data-t="checklist"></h3><span class="hint" data-t="checklistHint"></span></div>
-    <div class="card check">
-      <div class="progress"><i id="progFill"></i></div>
-      <div id="actions"></div>
+    <div class="card">
+      <div class="cvsoon" id="cvsoon" hidden></div>
+      <div style="overflow-x:auto"><table class="tbl" id="canvas"></table></div>
     </div>
   </section>
 
@@ -365,8 +401,7 @@
 const T = {
   kicker:       { kr:"생존 대시보드", en:"Survival Dashboard", cn:"生存看板" },
   nextDue:      { kr:"가장 임박한 마감", en:"Next critical deadline", cn:"最近的关键截止" },
-  whatsNew:     { kr:"✨ What's New", en:"✨ What's New", cn:"✨ 最新动态" },
-  whatsNewHint: { kr:"지난 노트 이후 새로 나온 것", en:"New since the last note", cn:"上次以来的新内容" },
+  prep:         { kr:"📖 지금 준비가 필요한 것", en:"📖 Prepare before class", cn:"📖 现在需要准备的" },
   newBadge:     { kr:"NEW", en:"NEW", cn:"NEW" },
   upcoming:     { kr:"다가오는 일정", en:"Upcoming", cn:"近期日程" },
   upcomingHint: { kr:"오늘 기준 자동 정렬 · D-day 실시간 계산", en:"Auto-sorted from today · live D-day", cn:"按今天自动排序 · 实时倒计时" },
@@ -387,8 +422,6 @@ const T = {
   bwTitle:      { kr:"Block Week — Fall 2026", en:"Block Week — Fall 2026", cn:"Block Week — Fall 2026" },
   bwHint:       { kr:"라인업 · 규칙 · add/drop", en:"Lineup · rules · add/drop", cn:"课程 · 规则 · 加退" },
   courses:      { kr:"과목별 현황", en:"By course", cn:"各科概况" },
-  checklist:    { kr:"액션 체크리스트", en:"Action checklist", cn:"行动清单" },
-  checklistHint:{ kr:"체크 상태는 이 브라우저에 저장돼요", en:"Saved in this browser", cn:"勾选状态保存在本浏览器" },
   canvas:       { kr:"Canvas 자료 위치 맵", en:"Canvas resource map", cn:"Canvas 资料位置图" },
   canvasHint:   { kr:"뭐가 어디에 있는지", en:"Where everything lives", cn:"东西都在哪里" },
   traps:        { kr:"함정 / 핵심", en:"Traps / key points", cn:"陷阱 / 要点" },
@@ -408,12 +441,11 @@ const T = {
   dashName:     { kr:"생존 대시보드", en:"Survival Dashboard", cn:"生存看板" },
   canvasHead:   { kr:["과목","자료 위치","제출/퀴즈","주의"], en:["Subject","Where","Submit","Watch"], cn:["科目","资料位置","提交/测验","注意"] },
   nav:          {
-    "sec-whatsnew":{kr:"✨ New",en:"✨ New",cn:"✨ 最新"},
+    "sec-prep":{kr:"📖 지금 준비",en:"📖 Prepare now",cn:"📖 现在准备"},
     "sec-upcoming":{kr:"다가오는 일정",en:"Upcoming",cn:"近期日程"},
     "sec-schedule":{kr:"수업 일정표",en:"Class schedule",cn:"课程表"},
     "sec-bw":{kr:"Block Week",en:"Block Week",cn:"Block Week"},
     "sec-courses":{kr:"과목",en:"Courses",cn:"科目"},
-    "sec-actions":{kr:"할 일",en:"To-do",cn:"待办"},
     "sec-canvas":{kr:"자료 맵",en:"Resource map",cn:"资料图"},
     "sec-social":{kr:"디너",en:"Dinner",cn:"聚餐"},
   },
@@ -505,23 +537,24 @@ function render(){
 
   const sorted = [...DATA.deadlines].sort((a,b)=> toDate(a.date).d - toDate(b.date).d);
 
-  renderHero(sorted);
-  renderNextClass();
-  renderExamCheer();
-  renderWhatsNew();
-  renderDeadlines(sorted);
-  renderSchedule();
-  renderSocial();
-  renderBlockWeek();
-  renderCourses();
-  renderActions();
-  renderCanvas();
+  const safe = (name, fn) => { try{ fn(); }catch(e){ console.error("[render] "+name+" 실패:", e); } };
+  safe("hero",       ()=>renderHero(sorted));
+  safe("nextClass",  renderNextClass);
+  safe("examCheer",  renderExamCheer);
+  safe("notice",     renderNotice);
+  safe("prep",       renderPrep);
+  safe("deadlines",  ()=>renderDeadlines(sorted));
+  safe("schedule",   renderSchedule);
+  safe("social",     renderSocial);
+  safe("blockWeek",  renderBlockWeek);
+  safe("courses",    renderCourses);
+  safe("canvas",     renderCanvas);
 
   document.getElementById("footer").innerHTML =
     `Wharton · WEMBA 52 Survival Dashboard · ${DATA.meta.author}`;
 }
 
-const NAV_ORDER = ["sec-whatsnew","sec-upcoming","sec-schedule","sec-courses","sec-bw","sec-canvas","sec-actions","sec-social"];
+const NAV_ORDER = ["sec-prep","sec-upcoming","sec-schedule","sec-courses","sec-bw","sec-canvas","sec-social"];
 function renderNav(){
   const nav = document.getElementById("jump");
   nav.innerHTML = NAV_ORDER.filter(id=>{
@@ -545,16 +578,52 @@ function setupScrollSpy(){
   }, { rootMargin:"-72px 0px -65% 0px", threshold:0 });
   document.querySelectorAll("section[id]").forEach(s=>obs.observe(s));
 }
-function renderWhatsNew(){
-  const sec = document.getElementById("sec-whatsnew");
-  const list = DATA.whatsNew || [];
-  if(!list.length){ sec.style.display = "none"; return; }
+/* ── 지금 준비가 필요한 것 (요약 카드) ─────────────────────────────────
+   DATA.prep = { window, note, cards:[{course, color, when, badge, lines:[{icon,text,sub}], flag}] } */
+function renderPrep(){
+  const sec = document.getElementById("sec-prep");
+  const P = DATA.prep;
+  if(!P || !P.cards || !P.cards.length){ sec.style.display="none"; return; }
   sec.style.display = "";
-  document.getElementById("whatsNew").innerHTML =
-    `<div class="wnew">${list.map(it=>
-      `<div class="wrow"><span class="wdate">${it.date?shortDate(it.date):""}</span><span class="wtext">${L(it)}</span></div>`
-    ).join("")}</div>`;
+  document.getElementById("prepHint").textContent = L(P.window);
+
+  const note = (P.note && L(P.note)) ? `<div class="prepnote">${L(P.note)}</div>` : "";
+
+  const cards = P.cards.map(c=>{
+    const lines = (c.lines||[]).map(ln=>
+      `<div class="pline"><span class="picon">${ln.icon||"·"}</span>`+
+      `<span class="ptext">${L(ln.text)}${ln.sub&&L(ln.sub)?`<span class="psub">${L(ln.sub)}</span>`:""}</span></div>`
+    ).join("");
+    const flag = (c.flag && L(c.flag)) ? `<div class="pflag">${L(c.flag)}</div>` : "";
+    return `<div class="pcard" style="--pc:${c.color||"#8a7460"}">
+        <div class="pcardhead">
+          <span class="pchip">${c.course||""}</span>
+          <span class="pwhen">${L(c.when)}</span>
+          ${c.badge&&L(c.badge)?`<span class="pbadge">${L(c.badge)}</span>`:""}
+        </div>
+        ${lines}${flag}
+      </div>`;
+  }).join("");
+
+  document.getElementById("prep").innerHTML = note + `<div class="pgrid">${cards}</div>`;
 }
+
+/* ── 임시 안내 카드 (until 날짜가 지나면 자동으로 사라짐) ───────────── */
+function renderNotice(){
+  const box = document.getElementById("notice");
+  const N = DATA.notice;
+  if(!N || !N.body){ box.hidden = true; return; }
+  if(N.until && daysUntil(toDate(N.until).d) < 0){ box.hidden = true; return; }
+  box.hidden = false;
+  const groups = (N.groups||[]).map(g=>
+    `<div class="ngroup"><div class="nglabel"><span class="ngdot" style="background:${g.color||"var(--accent)"}"></span>`+
+    `${L(g.label)}<span class="ngcount">${g.names? g.names.split("·").length : 0}</span></div>`+
+    `<div class="ngnames">${g.names||""}</div></div>`).join("");
+  box.innerHTML = `<div class="ntitle">${L(N.title)}</div><div class="nbody">${L(N.body)}</div>`+
+    (groups?`<div class="ngrid">${groups}</div>`:"")+
+    (N.foot&&L(N.foot)?`<div class="nfoot">${L(N.foot)}</div>`:"");
+}
+
 /* 시간 기준 '지남' 판정 — 시각이 있으면 그 시각(+행사류는 3시간) 지나면 지남, 종일이면 그날 자정 */
 function isPastItem(it){
   const { d, allDay } = toDate(it.date);
@@ -604,7 +673,7 @@ function renderDeadlines(sorted){
         <div class="sm">${ddText}</div>
       </div>
       <div class="body">
-        <div class="ttl">${L(it.title)} <span class="tag" style="background:${TYPE_COLOR[it.type]}">${T.typeNames[it.type][lang]}</span>${it.new?`<span class="newbadge">${T.newBadge[lang]}</span>`:""}</div>
+        <div class="ttl">${L(it.title)} <span class="tag" style="--tg:${TYPE_COLOR[it.type]}">${T.typeNames[it.type][lang]}</span>${it.new?`<span class="newbadge">${T.newBadge[lang]}</span>`:""}</div>
         ${L(it.detail)?`<div class="det">${L(it.detail)}</div>`:""}
         <div class="when">${fmtWhen(it)} · ${it.course}</div>
       </div>
@@ -668,8 +737,9 @@ function renderSchedule(){
   });
   html += `</tbody></table></div>`;
   const notes = DATA.schedule.notes;
-  if(notes && notes.length)
-    html += `<div class="sched-notes">${notes.map(n=>`<span>${L(n)}</span>`).join("")}</div>`;
+  const noteArr = Array.isArray(notes) ? notes : (notes ? [notes] : []);
+  if(noteArr.length)
+    html += `<div class="sched-notes">${noteArr.map(n=>`<span>${L(n)}</span>`).join("")}</div>`;
   document.getElementById("schedule").innerHTML = html;
 }
 /* ── 다음 수업 배너 — 수업 주말 당일에만 표시 ──────────────────────────────
@@ -872,7 +942,7 @@ function renderCourses(){
     const el = document.createElement("div"); el.className="card course";
     const nb = o => o.new ? `<span class="newbadge">${T.newBadge[lang]}</span>` : "";
     const pts = c.points.map(p=>`<li>${L(p)}${nb(p)}</li>`).join("");
-    const traps = c.traps.length ? `<div class="traps"><div class="lab">${T.traps[lang]}</div><ul>${c.traps.map(t=>`<li>${L(t)}${nb(t)}</li>`).join("")}</ul></div>` : "";
+    const traps = (c.traps && c.traps.length) ? `<div class="traps"><div class="lab">${T.traps[lang]}</div><ul>${c.traps.map(t=>`<li>${L(t)}${nb(t)}</li>`).join("")}</ul></div>` : "";
     el.innerHTML = `
       <div class="top"><span class="dot" style="background:${c.color}"></span>
         <span class="code" style="color:${c.color}">${c.code}</span>
@@ -892,46 +962,22 @@ function byLabel(s){
   if(lang==="cn") return `${shortDate(s)} 前`;
   return `by ${shortDate(s)}`;
 }
-function renderActions(){
-  const box = document.getElementById("actions"); box.innerHTML="";
-  const saved = JSON.parse(localStorage.getItem("wemba_actions")||"{}");
-  DATA.actions.forEach(a=>{
-    const done = !!saved[a.id];
-    const overdue = !done && daysUntil(toDate(a.by).d) < 0;
-    const row = document.createElement("button");
-    row.type = "button";
-    row.className = "srow"+(done?" done":overdue?" over":"");
-    const stat = done ? T.stDone[lang]
-               : overdue ? `${T.stOver[lang]} · ${shortDate(a.by)}`
-               : byLabel(a.by);
-    const icon = done ? "✓" : overdue ? "✕" : "";
-    row.innerHTML = `<div class="stext"><div class="stitle">${L(a.label)}</div><div class="sstat">${stat}</div></div>`+
-      `<span class="scircle">${icon}</span>`;
-    row.addEventListener("click", ()=>{
-      const s = JSON.parse(localStorage.getItem("wemba_actions")||"{}");
-      s[a.id] = !s[a.id]; localStorage.setItem("wemba_actions", JSON.stringify(s));
-      renderActions();
-    });
-    box.appendChild(row);
-  });
-  updateProgress();
-}
-function updateProgress(){
-  const saved = JSON.parse(localStorage.getItem("wemba_actions")||"{}");
-  const total = DATA.actions.length;
-  const done = DATA.actions.filter(a=>saved[a.id]).length;
-  document.getElementById("progFill").style.width = (total? done/total*100:0)+"%";
-}
 
 function renderCanvas(){
+  const wrap = document.getElementById("cvsoon");
+  const S = DATA.canvasSoon;
+  if(S && (S.svg || S.img)){
+    wrap.hidden = false;
+    wrap.innerHTML = (S.svg || (S.img?`<img src="${S.img}" alt="">`:""))+
+      (S.text&&L(S.text)?`<div class="cvtext">${L(S.text)}</div>`:"");
+  } else { wrap.hidden = true; }
+
   const t = document.getElementById("canvas");
   const head = T.canvasHead[lang];
-  t.innerHTML = `<thead><tr>${head.map(h=>`<th>${h}</th>`).join("")}</tr></thead>
-    <tbody>${DATA.canvasMap.map(r=>`<tr>
-      <td>${r.subject}</td>
-      <td class="w">${L(r.where)}</td>
-      <td class="w">${L(r.submit)}</td>
-      <td class="w">${L(r.watch)}</td></tr>`).join("")}</tbody>`;
+  t.innerHTML = `<thead><tr>${head.map(h=>`<th>${h}</th>`).join("")}</tr></thead>`+
+    `<tbody>${DATA.canvasMap.map(r=>
+      `<tr><td><b>${r.subject}</b></td><td>${L(r.where)}</td><td>${L(r.submit)}</td><td>${L(r.watch)}</td></tr>`
+    ).join("")}</tbody>`;
 }
 
 /* ---------- theme ---------- */
@@ -1021,11 +1067,16 @@ function buildStory(){
       `<h3>${L(c.headline)}</h3><ul>${pts}${traps}</ul></div></div>`);
   });
 
-  // 할 일 (길면 자동 축소)
-  const saved = JSON.parse(localStorage.getItem("wemba_actions")||"{}");
-  slides.push(`<div class="slide paper fitslide"><div class="fit"><div class="kick">${T.checklist[lang]}</div><ul>`+
-    DATA.actions.map(a=>{ const done=!!saved[a.id], over=!done && daysUntil(toDate(a.by).d)<0;
-      return `<li>${done?'✅':over?'🔴':'⚪'} ${L(a.label)}</li>`; }).join("")+`</ul></div></div>`);
+  // 지금 준비가 필요한 것 (길면 자동 축소)
+  if(DATA.prep && DATA.prep.cards && DATA.prep.cards.length){
+    DATA.prep.cards.forEach(c=>{
+      const rows = (c.lines||[]).map(ln=>`<li>${ln.icon||'·'} ${L(ln.text)}</li>`).join("");
+      const flag = (c.flag && L(c.flag)) ? `<li>⚠ ${L(c.flag)}</li>` : "";
+      slides.push(`<div class="slide paper fitslide"><div class="fit">`+
+        `<div class="kick" style="color:${c.color||'#8a7460'};opacity:1">${c.course||''} · ${L(c.when)}</div>`+
+        `<h3>${T.prep[lang]}</h3><ul>${rows}${flag}</ul></div></div>`);
+    });
+  }
 
   // 디너
   if(DATA.social && DATA.social.url){
