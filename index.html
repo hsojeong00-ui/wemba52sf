@@ -209,6 +209,11 @@
   .wnew .wdate{font-family:var(--mono); font-size:11.5px; font-weight:800; color:var(--faint); min-width:42px; flex:0 0 auto}
   .wnew .wtext{font-size:14px; line-height:1.45}
 
+  /* 학기 시작 축하 배너 */
+  .kickoff{margin:2px 0 18px; display:flex; flex-direction:column; align-items:center; gap:8px}
+  .kickoff svg{width:100%; max-width:620px; height:auto; border-radius:16px; display:block; box-shadow:var(--shadow)}
+  .kosub{font-size:13px; line-height:1.55; color:var(--muted); text-align:center; max-width:600px}
+
   /* 임시 안내 카드 */
   .notice{margin:2px 0 16px; background:var(--panel); border:2px dashed var(--accent); border-radius:16px; padding:13px 17px; box-shadow:var(--shadow)}
   .notice .ntitle{font-size:13.5px; font-weight:800; margin-bottom:4px; color:var(--accent)}
@@ -323,6 +328,8 @@
   <div class="nextclass" id="nextClass" hidden></div>
 
   <nav class="jump" id="jump"></nav>
+
+  <div class="kickoff" id="kickoff" hidden></div>
 
   <div class="hero" id="hero" hidden>
     <div>
@@ -541,6 +548,7 @@ function render(){
   safe("hero",       ()=>renderHero(sorted));
   safe("nextClass",  renderNextClass);
   safe("examCheer",  renderExamCheer);
+  safe("kickoff",    renderKickoff);
   safe("notice",     renderNotice);
   safe("prep",       renderPrep);
   safe("deadlines",  ()=>renderDeadlines(sorted));
@@ -606,6 +614,16 @@ function renderPrep(){
   }).join("");
 
   document.getElementById("prep").innerHTML = note + `<div class="pgrid">${cards}</div>`;
+}
+
+/* ── 학기 시작 축하 배너 (until 날짜가 지나면 자동으로 사라짐) ───────── */
+function renderKickoff(){
+  const box = document.getElementById("kickoff");
+  const K = DATA.kickoff;
+  if(!K || !K.svg){ box.hidden = true; return; }
+  if(K.until && daysUntil(toDate(K.until).d) < 0){ box.hidden = true; return; }
+  box.hidden = false;
+  box.innerHTML = K.svg + (K.sub && L(K.sub) ? `<div class="kosub">${L(K.sub)}</div>` : "");
 }
 
 /* ── 임시 안내 카드 (until 날짜가 지나면 자동으로 사라짐) ───────────── */
