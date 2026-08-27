@@ -13,7 +13,7 @@ const DATA = {
 
   meta: {
     cohort: "WEMBA 52",
-    lastUpdated: "2026-08-23",
+    lastUpdated:"2026-08-27",
     author:   "Sally",
     tzLabel:  "PT",
     cheerOverride: { date:"", sub:{ kr:"", en:"", cn:"" } },
@@ -98,10 +98,12 @@ const DATA = {
       {
         course:"FNCE 6130", color:"#0b051d",
         when:{ kr:"금 8/28 오전 · 토 8/29 오후 · Landry", en:"Fri Aug 28 AM · Sat Aug 29 PM · Landry", cn:"周五上午 · 周六下午 · Landry" },
-        badge:{ kr:"확인 필요", en:"Check again", cn:"需再确认" },
+        badge:{ kr:"준비물 없음", en:"Nothing to prep", cn:"无需准备" },
         lines:[
-          { icon:"⏳", text:{ kr:"**Canvas 사이트가 아직 안 열렸습니다** — 사전 리딩 지정 여부를 확인할 수 없습니다", en:"**The Canvas site is not open yet** — no way to confirm whether readings were assigned", cn:"**Canvas 网站尚未开放** — 无法确认是否指定预习" },
-                     sub:{ kr:"개강 직전에 열리는 경우가 많습니다. 목요일 밤에 한 번 더 보세요", en:"These often open right before the first session. Check again Thursday night", cn:"通常开课前才开放,请周四晚再确认" } },
+          { icon:"✅", text:{ kr:"**이번 주말 준비물이 없습니다** — 8/26 Canvas 사이트가 열리면서 확정됐습니다", en:"**Nothing to prepare for this weekend** — confirmed when the Canvas site opened on Aug 26", cn:"**本周末无需准备** — 8/26 Canvas 网站开放后已确认" },
+                     sub:{ kr:"Landry 교수 원문: *\"There is nothing you need to prepare or complete before our first class this weekend.\"* 강의 노트는 매 세션 전에 Canvas 에 올라옵니다", en:"Professor Landry: *\"There is nothing you need to prepare or complete before our first class this weekend.\"* Lecture notes go up on Canvas ahead of each session", cn:"Landry 教授原文:*\"There is nothing you need to prepare or complete before our first class this weekend.\"* 讲义将于每次课前上传 Canvas" } },
+          { icon:"📊", text:{ kr:"다만 **Quiz #1 이 9/10(목) 23:59 PT 마감**으로 이미 떠 있습니다", en:"That said, **Quiz #1 is already posted, due Thu Sep 10, 11:59 PM PT**", cn:"不过 **Quiz #1 已发布,9/10(周四)23:59 PT 截止**" },
+                     sub:{ kr:"범위는 Macroeconomic data · Production and economic growth · 15점 · 9/11 수업 전날 밤입니다", en:"Covers macroeconomic data and production/growth · 15 points · the night before the Sep 11 session", cn:"范围为宏观经济数据与生产/增长 · 15分 · 9/11 上课前夜" } },
           { icon:"📕", text:{ kr:"교재 *Macroeconomics* 6판 (Charles Jones)", en:"Textbook: *Macroeconomics*, 6th ed (Charles Jones)", cn:"教材 *Macroeconomics* 第6版(Charles Jones)" },
                      sub:{ kr:"ISBN 9781324063612 · 하드카피·ebook 둘 다 가능", en:"ISBN 9781324063612 · hardcopy or ebook", cn:"ISBN 9781324063612 · 纸质与电子版均可" } },
         ],
@@ -123,6 +125,26 @@ const DATA = {
 
   /* ── 업데이트 내역 (헤더 링크로만 표시) ─────────────────────────────── */
   changelog: [
+    { date:"2026-08-27", items:[
+      { kr:"🔴 **STAT 6130 학기 전체 일정이 공개됐습니다** — Canvas 에 **12개 항목**이 한꺼번에 떴습니다. Homework 1~4 · Quiz 1~5 · 중간(36점) · 기말(36점). ⚠️ **Homework 4 가 100점으로 이 과목 최대 항목**이고 **12/23 마감**이라 연말과 겹칩니다",
+        en:"🔴 **STAT 6130 posted its full term schedule** — **twelve items** appeared on Canvas at once: Homework 1 to 4, Quiz 1 to 5, a 36-point midterm and a 36-point final. ⚠️ **Homework 4 is worth 100 points, the largest single item**, and it is **due Dec 23**, right into the holidays",
+        cn:"🔴 **STAT 6130 全学期安排已公布** — Canvas 上一次性出现 **12 项**:Homework 1~4 · Quiz 1~5 · 期中(36分)· 期末(36分)。⚠️ **Homework 4 达100分,为本课单项最高**,且 **12/23 截止**,与年末重叠" },
+      { kr:"⏰ **마감 목록에 D-30 접기를 넣었습니다** — 항목이 27건으로 늘어 이번 주말 마감이 묻히지 않도록, 기본은 **30일 이내만** 보여주고 나머지는 '학기 전체 보기'로 펼칩니다",
+        en:"⏰ **The deadline list now folds at D-30** — with 27 items, the near-term ones were getting buried. By default only the **next 30 days** show; the rest open under 'Show the rest of the term'",
+        cn:"⏰ **截止列表新增 D-30 折叠** — 条目已达27项,为避免近期截止被淹没,默认仅显示**30天内**,其余点击「查看本学期全部」展开" },
+      { kr:"✅ **FNCE 6130 Canvas 오픈 (8/26) · 이번 주말 준비물 없음** — Landry 교수 원문: *\"There is nothing you need to prepare or complete before our first class this weekend.\"* 다만 **Quiz #1 이 9/10(목) 23:59 PT 마감**으로 이미 올라와 있습니다",
+        en:"✅ **FNCE 6130 opened on Canvas (Aug 26) with nothing to prepare** — Professor Landry: *\"There is nothing you need to prepare or complete before our first class this weekend.\"* That said, **Quiz #1 is already posted, due Thu Sep 10, 11:59 PM PT**",
+        cn:"✅ **FNCE 6130 已于 8/26 上线,本周末无需准备** — Landry 教授原文:*\"There is nothing you need to prepare or complete before our first class this weekend.\"* 但 **Quiz #1 已发布,9/10(周四)23:59 PT 截止**" },
+      { kr:"💻 **STAT 퀴즈는 Respondus LockDown Browser 가 필요합니다** — Canvas 에 연습용 퀴즈가 있으니 **시험 전에 미리 설치하고 한 번 돌려보세요.** 당일 설치하려다 시간을 버리는 경우가 많습니다",
+        en:"💻 **STAT quizzes require the Respondus LockDown Browser** — there is a practice quiz on Canvas, so **install it and try it before the real thing.** Installing on the day is where people lose time",
+        cn:"💻 **STAT 测验需要 Respondus LockDown Browser** — Canvas 上有练习测验,请**提前安装并试做一次**。当天临时安装最容易耽误时间" },
+      { kr:"🧥 **플리스 재킷 수령** — 금 8/28 **08:30~09:25 Room 660** · 금요일 오전 수업 쉬는 시간에도 가능합니다",
+        en:"🧥 **Fleece jacket pickup** — Fri Aug 28, **8:30 to 9:25 AM in Room 660**, and also during the Friday morning class break",
+        cn:"🧥 **抓绒外套领取** — 8/28(周五)**08:30~09:25 · Room 660**,周五上午课间亦可" },
+      { kr:"📌 **WEMBA Career Representatives 지원 마감 9/20** 추가 · **STAT 면제 시험 9/11(금) 첫 수업 시간** 도 마감 목록에 넣었습니다",
+        en:"📌 Added **WEMBA Career Representatives applications, due Sep 20**, and the **STAT waiver exam on Fri Sep 11 during the first class**",
+        cn:"📌 新增 **WEMBA Career Representatives 报名截止 9/20**,以及 **STAT 免修考试(9/11 周五首堂课时间)**" },
+    ]},
     { date:"2026-08-23", items:[
       { kr:"🔴 **LGST 6120 리딩 10편 · Quiz #1 발견** — 실라버스 원문을 열어보니 교수 메일에 없던 내용이 있었습니다. **금 3편 · 토 7편**의 지정 리딩과, **이번 주말 클로즈드북 Quiz #1(배점 10%)**. 최상단 '지금 준비가 필요한 것' 섹션을 새로 만들어 전부 나열했습니다",
         en:"🔴 **Found ten LGST 6120 readings and Quiz #1** — the syllabus contains what the professor's email did not: **three readings for Friday, seven for Saturday**, plus a **closed-book Quiz #1 this weekend worth 10%**. A new top section, 'Prepare before class', now lists all of them",
@@ -237,6 +259,112 @@ const DATA = {
       detail:{ kr:"시스템 자체가 닫히는 시각 · ⚠️ **개별 과목 마감은 이보다 훨씬 앞섭니다**",
               en:"When the system itself closes · ⚠️ **individual course deadlines land much earlier**",
               cn:"系统本身关闭的时刻 · ⚠️ **各课截止要早得多**" },
+    },
+
+    {
+      date:"2026-08-28T09:25", type:"session", course:"WEMBA", hard:false, new:true,
+      title:{ kr:"🧥 WEMBA 플리스 재킷 수령", en:"🧥 WEMBA fleece jacket pickup", cn:"🧥 WEMBA 抓绒外套领取" },
+      detail:{ kr:"금 **08:30~09:25 · Room 660** · **금요일 오전 수업 쉬는 시간에도** 받을 수 있습니다 · 조식(08:30 Dining Room)과 겹치니 일찍 움직이세요",
+              en:"Fri **8:30 to 9:25 AM, Room 660** · also available **during the Friday morning class break** · it overlaps breakfast at 8:30, so go early",
+              cn:"周五 **08:30~09:25 · Room 660** · **周五上午课间**亦可领取 · 与 08:30 早餐重叠,建议提早" },
+    },
+    {
+      date:"2026-09-10T23:59", type:"quiz", course:"FNCE", hard:true, new:true,
+      title:{ kr:"FNCE 6130 Quiz #1 (15점)", en:"FNCE 6130 Quiz #1 (15 pts)", cn:"FNCE 6130 Quiz #1(15分)" },
+      detail:{ kr:"범위 **Macroeconomic data · Production and economic growth** · Canvas 원문 9/11 06:59 UTC = **9/10(목) 23:59 PT** · **9/11 수업 전날 밤**입니다",
+              en:"Covers **macroeconomic data, production and economic growth** · Canvas shows Sep 11 06:59 UTC = **Thu Sep 10, 11:59 PM PT** · **the night before the Sep 11 session**",
+              cn:"范围 **宏观经济数据 · 生产与经济增长** · Canvas 原文 9/11 06:59 UTC = **9/10(周四)23:59 PT** · **即 9/11 上课前夜**" },
+    },
+    {
+      date:"2026-09-11", type:"exam", course:"STAT", hard:true, new:true,
+      title:{ kr:"STAT 6130 면제 시험 (첫 수업 시간)", en:"STAT 6130 waiver exam (during the first class)", cn:"STAT 6130 免修考试(首堂课时间)" },
+      detail:{ kr:"**9/11(금) 첫 수업 시간에 시행** · 불합격해도 불이익 없고 첫 수업 녹화를 볼 수 있습니다 · 샘플 문제와 풀이가 **Canvas ▸ Files** 에 이미 올라와 있습니다(`6130_example_exam.pdf` · Exam 1~3 + solutions)",
+              en:"**Given during the first class on Fri Sep 11** · no penalty for not passing, and a recording of the first session is available · a sample exam with solutions is already on **Canvas ▸ Files** (`6130_example_exam.pdf` plus Exams 1 to 3 with solutions)",
+              cn:"**9/11(周五)首堂课时间进行** · 未通过无不利影响,可观看首堂课录像 · 样题与解答已在 **Canvas ▸ Files**(`6130_example_exam.pdf` 及 Exam 1~3 与解答)" },
+    },
+    {
+      date:"2026-09-24T23:59", type:"quiz", course:"STAT", hard:true, new:true,
+      title:{ kr:"STAT 6130 Quiz 1 (5점)", en:"STAT 6130 Quiz 1 (5 pts)", cn:"STAT 6130 Quiz 1(5分)" },
+      detail:{ kr:"⚠️ **Respondus LockDown Browser 가 필요합니다.** Canvas 에 연습용 퀴즈(`Practice Quiz using New Quizzes`)가 있으니 **시험 전에 미리 설치하고 한 번 돌려보세요** — 당일 설치하려다 시간을 버리는 경우가 많습니다",
+              en:"⚠️ **Requires the Respondus LockDown Browser.** Canvas has a `Practice Quiz using New Quizzes` — **install it and run the practice quiz beforehand**; installing on the day is where people lose time",
+              cn:"⚠️ **需要 Respondus LockDown Browser。** Canvas 上有 `Practice Quiz using New Quizzes`,**请提前安装并试做一次** — 当天临时安装最容易耽误时间" },
+    },
+    {
+      date:"2026-09-25T23:59", type:"paper", course:"STAT", hard:true, new:true,
+      title:{ kr:"STAT 6130 Homework 1 (16점)", en:"STAT 6130 Homework 1 (16 pts)", cn:"STAT 6130 Homework 1(16分)" },
+      detail:{ kr:"9/25(금) 수업 주말 첫날 밤 마감",
+              en:"Due the night of Fri Sep 25, the first day of that class weekend",
+              cn:"9/25(周五)上课周末首日夜间截止" },
+    },
+    {
+      date:"2026-10-08T20:59", type:"quiz", course:"STAT", hard:true, new:true,
+      title:{ kr:"STAT 6130 Quiz 2 (5점)", en:"STAT 6130 Quiz 2 (5 pts)", cn:"STAT 6130 Quiz 2(5分)" },
+      detail:{ kr:"⚠️ **이 항목만 ET 자정 기준**으로 보입니다 — PT 로는 **저녁 8:59**. 첫 수업에서 확인하세요",
+              en:"⚠️ **this one looks like an ET midnight deadline** — that is **8:59 PM PT**. Confirm in the first session",
+              cn:"⚠️ **该项似按 ET 午夜计**,即 **PT 晚 8:59**。请在首堂课确认" },
+    },
+    {
+      date:"2026-10-09T23:59", type:"paper", course:"STAT", hard:true, new:true,
+      title:{ kr:"STAT 6130 Homework 2 (16점)", en:"STAT 6130 Homework 2 (16 pts)", cn:"STAT 6130 Homework 2(16分)" },
+      detail:{ kr:"10/9(금) 수업 주말 첫날 밤 마감",
+              en:"Due the night of Fri Oct 9",
+              cn:"10/9(周五)上课周末首日夜间截止" },
+    },
+    {
+      date:"2026-10-22T23:59", type:"quiz", course:"STAT", hard:true, new:true,
+      title:{ kr:"STAT 6130 Quiz 3 (5점)", en:"STAT 6130 Quiz 3 (5 pts)", cn:"STAT 6130 Quiz 3(5分)" },
+      detail:{ kr:"10/23 수업 주말 전날 밤",
+              en:"The night before the Oct 23 class weekend",
+              cn:"10/23 上课周末前夜" },
+    },
+    {
+      date:"2026-10-23T20:59", type:"exam", course:"STAT", hard:true, new:true,
+      title:{ kr:"STAT 6130 중간고사 (36점)", en:"STAT 6130 midterm (36 pts)", cn:"STAT 6130 期中考试(36分)" },
+      detail:{ kr:"**배점 36점** · ⚠️ **이 항목만 ET 자정 기준**으로 보입니다 — PT 로는 **저녁 8:59**. 첫 수업에서 확인하세요",
+              en:"**36 points** · ⚠️ **this one looks like an ET midnight deadline** — that is **8:59 PM PT**. Confirm in the first session",
+              cn:"**36分** · ⚠️ **该项似按 ET 午夜计**,即 **PT 晚 8:59**。请在首堂课确认" },
+    },
+    {
+      date:"2026-11-05T23:59", type:"quiz", course:"STAT", hard:true, new:true,
+      title:{ kr:"STAT 6130 Quiz 4 (5점)", en:"STAT 6130 Quiz 4 (5 pts)", cn:"STAT 6130 Quiz 4(5分)" },
+      detail:{ kr:"**같은 날 Homework 3 도 마감**입니다",
+              en:"**Homework 3 is due the same night**",
+              cn:"**同日 Homework 3 亦到期**" },
+    },
+    {
+      date:"2026-11-05T23:59", type:"paper", course:"STAT", hard:true, new:true,
+      title:{ kr:"STAT 6130 Homework 3 (50점)", en:"STAT 6130 Homework 3 (50 pts)", cn:"STAT 6130 Homework 3(50分)" },
+      detail:{ kr:"**배점 50점** — 앞의 두 과제(각 16점)보다 훨씬 큽니다 · Quiz 4 와 같은 날 마감이라 주의",
+              en:"**50 points**, far heavier than the first two assignments (16 each) · same night as Quiz 4",
+              cn:"**50分** — 远重于前两次作业(各16分)· 与 Quiz 4 同日截止" },
+    },
+    {
+      date:"2026-12-03T23:59", type:"quiz", course:"STAT", hard:true, new:true,
+      title:{ kr:"STAT 6130 Quiz 5 (5점)", en:"STAT 6130 Quiz 5 (5 pts)", cn:"STAT 6130 Quiz 5(5分)" },
+      detail:{ kr:"마지막 퀴즈",
+              en:"The last quiz",
+              cn:"最后一次测验" },
+    },
+    {
+      date:"2026-12-19T20:59", type:"exam", course:"STAT", hard:true, new:true,
+      title:{ kr:"STAT 6130 기말고사 (36점)", en:"STAT 6130 final exam (36 pts)", cn:"STAT 6130 期末考试(36分)" },
+      detail:{ kr:"**배점 36점** · ⚠️ **이 항목만 ET 자정 기준**으로 보입니다 — PT 로는 **저녁 8:59**. 첫 수업에서 확인하세요",
+              en:"**36 points** · ⚠️ **this one looks like an ET midnight deadline** — that is **8:59 PM PT**. Confirm in the first session",
+              cn:"**36分** · ⚠️ **该项似按 ET 午夜计**,即 **PT 晚 8:59**。请在首堂课确认" },
+    },
+    {
+      date:"2026-12-23T23:59", type:"paper", course:"STAT", hard:true, new:true,
+      title:{ kr:"STAT 6130 Homework 4 (100점)", en:"STAT 6130 Homework 4 (100 pts)", cn:"STAT 6130 Homework 4(100分)" },
+      detail:{ kr:"⚠️ **배점 100점으로 이 과목 최대 항목**입니다 · 12/23(수) 마감이라 **연말 일정과 겹칩니다**",
+              en:"⚠️ **100 points, the largest single item in this course** · due Wed Dec 23, which **collides with the holidays**",
+              cn:"⚠️ **100分,本课程单项最高** · 12/23(周三)截止,**与年末假期重叠**" },
+    },
+    {
+      date:"2026-09-20", type:"registration", course:"WEMBA", hard:false, new:true,
+      title:{ kr:"WEMBA Career Representatives 지원 마감", en:"WEMBA Career Representatives applications close", cn:"WEMBA Career Representatives 报名截止" },
+      detail:{ kr:"1년차 대상 리더십 기회 · 커리어 프로그램 기획에 참여 · 신청서는 **Canvas ▸ Files** 의 `WEMBA Career Representative Program - Application 2026.pdf`",
+              en:"A leadership opportunity for first years, shaping the career programming · the form is on **Canvas ▸ Files** as `WEMBA Career Representative Program - Application 2026.pdf`",
+              cn:"面向一年级的领导机会,参与职业项目策划 · 申请表见 **Canvas ▸ Files** 的 `WEMBA Career Representative Program - Application 2026.pdf`" },
     },
   ],
 
@@ -424,9 +552,9 @@ const DATA = {
   canvasSoon: {
     svg: `<svg viewBox="0 0 680 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="공사중 · to be updated"> <rect x="0" y="0" width="680" height="270" rx="12" fill="#f8f1e2"/> <g stroke="#2b2320" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"> <!-- ── Sally (정본 스펙 v3 · 가리키기 포즈) ── --> <g transform="translate(24,20)"> <ellipse cx="90" cy="92" rx="22" ry="24" fill="#3a2e28"/> <path d="M107 102 C118 108 122 124 117 140 C112 128 108 116 103 110 Z" fill="#3a2e28"/> <circle cx="107" cy="107" r="2.6" fill="#f2a9c4" stroke-width="1.1"/> <ellipse cx="90" cy="102" rx="18" ry="20" fill="#fdf6ea"/> <path d="M90 82 L90 87" fill="none" stroke-width="1.3"/> <path d="M76 96 C78 94 82 93 85 94" fill="none" stroke-width="1.3"/> <path d="M95 94 C98 93 102 94 104 96" fill="none" stroke-width="1.3"/> <path d="M79 104 C81 107 85 107 87 104" fill="none" stroke-width="1.6"/> <path d="M93 104 C95 107 99 107 101 104" fill="none" stroke-width="1.6"/> <path d="M86 114 C89 117 91 117 94 114" fill="none" stroke-width="1.5"/> <circle cx="77" cy="110" r="3" fill="#f4b8c8" stroke="none" opacity="0.75"/> <circle cx="103" cy="110" r="3" fill="#f4b8c8" stroke="none" opacity="0.75"/> <path d="M72 128 C62 132 60 148 62 178 L118 178 C120 148 118 132 108 128 C100 124 80 124 72 128 Z" fill="#7ba05b"/> <path d="M84 128 C87 133 93 133 96 128" fill="none" stroke="#c9a227" stroke-width="1.2"/> <circle cx="90" cy="134" r="1.6" fill="#c9a227" stroke="none"/> <!-- 왼팔: 아래 + 연필 --> <path d="M70 134 C60 141 56 152 55 162" fill="none" stroke="#7ba05b" stroke-width="6.5"/> <circle cx="54" cy="165" r="4.2" fill="#fdf6ea" stroke-width="1.4"/> <path d="M48 176 L60 156" fill="none" stroke="#f2a9c4" stroke-width="4"/> <path d="M47 179 L49 173 L52 175 Z" fill="#2b2320" stroke-width="1.1"/> <!-- 오른팔: 표지판 쪽으로 --> <path d="M110 132 C122 126 132 116 137 106" fill="none" stroke="#7ba05b" stroke-width="6.5"/> <circle cx="140" cy="103" r="4.2" fill="#fdf6ea" stroke-width="1.4"/> <path d="M80 178 L78 222 M100 178 L102 222" fill="none"/> <ellipse cx="74" cy="226" rx="8" ry="3.6" fill="#2b2320" stroke="none"/> <ellipse cx="106" cy="226" rx="8" ry="3.6" fill="#2b2320" stroke="none"/> </g> <!-- ── 공사중 표지판 ── --> <g transform="translate(258,42)"> <!-- 다리 --> <path d="M46 128 L34 186 M212 128 L224 186" fill="none" stroke-width="3"/> <!-- 판 --> <rect x="14" y="24" width="230" height="106" rx="9" fill="#fffdf6" stroke-width="2.4"/> <!-- 상단 사선 스트라이프 띠 --> <rect x="14" y="24" width="230" height="20" rx="9" fill="#f2a9c4" stroke="none"/> <rect x="14" y="35" width="230" height="9" fill="#f2a9c4" stroke="none"/> <path d="M22 44 L38 24 M52 44 L68 24 M82 44 L98 24 M112 44 L128 24 M142 44 L158 24 M172 44 L188 24 M202 44 L218 24" fill="none" stroke="#fffdf6" stroke-width="6"/> <rect x="14" y="24" width="230" height="20" rx="9" fill="none" stroke-width="2.2"/> <!-- 문구 --> <text x="129" y="82" font-family="'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR','PingFang SC',sans-serif" font-weight="800" font-size="26" letter-spacing="2" fill="#2b2320" stroke="none" text-anchor="middle">공사중</text> <text x="129" y="108" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="17" fill="#c14e78" stroke="none" text-anchor="middle">to be updated</text> </g> <!-- ── 라바콘 ── --> <g transform="translate(536,150)"> <ellipse cx="34" cy="76" rx="34" ry="8" fill="#f2a9c4" stroke-width="2"/> <path d="M22 72 L34 10 L46 72 Z" fill="#f2a9c4" stroke-width="2.2"/> <path d="M27 48 L41 48" fill="none" stroke="#fffdf6" stroke-width="6"/> <path d="M30 32 L38 32" fill="none" stroke="#fffdf6" stroke-width="5"/> </g> </g> </svg>`,
     text: {
-      kr:"과목 사이트가 순차적으로 열리는 중이라 **자료 위치는 계속 채워 나갑니다.** 지금은 **LGST 6120 · STAT 6130** 만 확인됐고, FNCE 6130 과 MKTG 6110 은 사이트가 열리는 대로 추가할게요.",
-      en:"Course sites are opening one by one, so **this map is still being filled in.** Only **LGST 6120 and STAT 6130** are confirmed so far; FNCE 6130 and MKTG 6110 will be added as soon as their sites go live.",
-      cn:"课程网站正陆续开放,**本资料图仍在持续补充。** 目前仅确认 **LGST 6120 与 STAT 6130**,FNCE 6130 与 MKTG 6110 将在网站上线后补上。" },
+      kr:"과목 사이트가 순차적으로 열리는 중이라 **자료 위치는 계속 채워 나갑니다.** **FNCE 6130 이 8/26 열렸습니다** — 이제 **LGST 6120 · FNCE 6130 · STAT 6130** 세 과목이 확인됐고 **MKTG 6110** 만 남았습니다.",
+      en:"Course sites are opening one by one, so **this map is still being filled in.** **FNCE 6130 went live on Aug 26** — that makes **LGST 6120, FNCE 6130 and STAT 6130** confirmed, leaving only **MKTG 6110**.",
+      cn:"课程网站正陆续开放,**本资料图仍在持续补充。** **FNCE 6130 已于 8/26 上线** — 现已确认 **LGST 6120 · FNCE 6130 · STAT 6130** 三门,仅剩 **MKTG 6110**。" },
   },
 
   /* ── Canvas 자료 위치 (열린 과목만) ─────────────────────────────────── */

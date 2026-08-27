@@ -38,6 +38,9 @@
     }
   }
   [hidden]{display:none !important}
+    strong{font-weight:700; color:inherit}
+    em{font-style:italic}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.92em; padding:1px 5px; border-radius:5px; background:color-mix(in srgb,var(--accent) 20%,transparent)}
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   html,body{margin:0; touch-action:manipulation}
@@ -122,6 +125,11 @@
   .month-sep{display:flex; align-items:center; gap:12px; margin:14px 2px 4px; color:var(--faint); font-size:12px; font-weight:800; letter-spacing:.12em; text-transform:uppercase}
   .month-sep::after{content:""; flex:1; height:1px; background:var(--line)}
   .month-sep:first-child{margin-top:0}
+  .dl-more{margin:14px 0 2px; align-self:flex-start; background:var(--panel); border:1px dashed var(--line); border-radius:999px;
+           padding:9px 18px; font:inherit; font-size:13px; font-weight:700; color:var(--faint); cursor:pointer; letter-spacing:.02em}
+  .dl-more:hover{color:var(--ink); border-style:solid}
+  .dl-later{display:flex; flex-direction:column; gap:8px}
+  .dl-later .month-sep:first-child{margin-top:6px}
   .row{display:flex; align-items:center; gap:14px; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:12px 14px; box-shadow:var(--shadow)}
   .row.past{opacity:.42}
   .dd{flex:0 0 64px; text-align:center}
@@ -412,6 +420,9 @@ const T = {
   newBadge:     { kr:"NEW", en:"NEW", cn:"NEW" },
   upcoming:     { kr:"다가오는 일정", en:"Upcoming", cn:"近期日程" },
   upcomingHint: { kr:"오늘 기준 자동 정렬 · D-day 실시간 계산", en:"Auto-sorted from today · live D-day", cn:"按今天自动排序 · 实时倒计时" },
+  moreOpen:     { kr:"학기 전체 보기", en:"Show the rest of the term", cn:"查看本学期全部" },
+  moreClose:    { kr:"접기", en:"Collapse", cn:"收起" },
+  moreCount:    { kr:"건 더", en:" more", cn:"项" },
   schedule:     { kr:"다음 수업 주말 일정표", en:"Next class weekend", cn:"下个上课周末课表" },
   sec1:         { kr:"섹션 1", en:"Section 1", cn:"第1班" },
   sec2:         { kr:"섹션 2", en:"Section 2", cn:"第2班" },
@@ -527,6 +538,44 @@ function fmtWhen(item){
 /* ---------- render ---------- */
 function L(o){ return (o && (o[lang] ?? o.kr ?? o.en)) || ""; }
 
+/* data.js 본문에 쓰인 **볼드** / *이탤릭* / `코드` 표기를 실제 서식으로 변환.
+   텍스트 노드만 훑으므로 속성값·SVG·스크립트를 건드리지 않는다. */
+function applyBold(root){
+  const SKIP = new Set(["SCRIPT","STYLE","TEXTAREA"]);
+  const RE = /\*\*(.+?)\*\*|\*([^*\n]+)\*|`([^`\n]+)`/;
+
+  // 문자열 -> DocumentFragment (볼드 안의 이탤릭까지 재귀 처리)
+  // ⚠️ 재귀 호출이 lastIndex 를 공유하면 무한 루프가 된다. 호출마다 새 인스턴스를 쓴다.
+  function build(str){
+    const frag = document.createDocumentFragment();
+    const REg = new RegExp(RE.source, "g");
+    let last = 0, m;
+    while((m = REg.exec(str))){
+      if(m.index > last) frag.appendChild(document.createTextNode(str.slice(last, m.index)));
+      let el;
+      if(m[1] !== undefined){ el = document.createElement("strong"); el.appendChild(build(m[1])); }
+      else if(m[2] !== undefined){ el = document.createElement("em"); el.textContent = m[2]; }
+      else { el = document.createElement("code"); el.textContent = m[3]; }
+      frag.appendChild(el);
+      last = m.index + m[0].length;
+    }
+    if(last < str.length) frag.appendChild(document.createTextNode(str.slice(last)));
+    return frag;
+  }
+
+  const walker = document.createTreeWalker(root || document.body, NodeFilter.SHOW_TEXT, {
+    acceptNode(n){
+      for(let p = n.parentNode; p && p !== document.body; p = p.parentNode){
+        if(SKIP.has(p.nodeName) || p.namespaceURI === "http://www.w3.org/2000/svg") return NodeFilter.FILTER_REJECT;
+      }
+      return RE.test(n.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+    }
+  });
+  const hits = []; let n;
+  while((n = walker.nextNode())) hits.push(n);
+  for(const node of hits) node.parentNode.replaceChild(build(node.nodeValue), node);
+}
+
 function render(){
   document.documentElement.lang = lang==="kr"?"ko":(lang==="cn"?"zh":"en");
   document.querySelectorAll(".toggle.lang button").forEach(b=> b.classList.toggle("on", b.dataset.lang===lang));
@@ -557,6 +606,7 @@ function render(){
   safe("blockWeek",  renderBlockWeek);
   safe("courses",    renderCourses);
   safe("canvas",     renderCanvas);
+  safe("mdBold",     applyBold);
 
   document.getElementById("footer").innerHTML =
     `Wharton · WEMBA 52 Survival Dashboard · ${DATA.meta.author}`;
@@ -665,40 +715,78 @@ function renderHero(sorted){
   document.getElementById("heroUnit").textContent = n===0 ? "" : T.days[lang];
 }
 
-function renderDeadlines(sorted){
-  const box = document.getElementById("deadlines"); box.innerHTML="";
+const NEAR_DAYS = 30;   // 이 일수 이내만 기본 노출, 나머지는 접어둠
+
+function deadlineRow(it){
+  const n = daysUntil(toDate(it.date).d);
+  const pt = ptOf(it.date);
+  const urgent = n<=2, soon = n<=7 && n>2;
+  const row = document.createElement("div");
+  row.className = "row";
+  const ddText = n===0 ? T.today[lang] : "D-"+n;
+  const dateBox = lang==="en" ? `${MON.en[pt.getMonth()]} ${pt.getDate()}` : `${pt.getMonth()+1}/${pt.getDate()}`;
+  row.innerHTML = `
+    <div class="dd ${urgent?'urgent':soon?'soon':''}">
+      <div class="big">${dateBox}</div>
+      <div class="sm">${ddText}</div>
+    </div>
+    <div class="body">
+      <div class="ttl">${L(it.title)} <span class="tag" style="--tg:${TYPE_COLOR[it.type]}">${T.typeNames[it.type][lang]}</span>${it.new?`<span class="newbadge">${T.newBadge[lang]}</span>`:""}</div>
+      ${L(it.detail)?`<div class="det">${L(it.detail)}</div>`:""}
+      <div class="when">${fmtWhen(it)}${it.course?" · "+it.course:""}</div>
+    </div>
+    ${it.hard?`<div class="pill" style="background:color-mix(in srgb,var(--hard) 18%,transparent); color:var(--hard)">${T.hard[lang]}</div>`:""}
+  `;
+  return row;
+}
+
+function fillDeadlines(container, items){
   let curMonth = null;
-  sorted.forEach(it=>{
-    const n = daysUntil(toDate(it.date).d);
-    if(isPastItem(it)) return;                 // 지난 일정(시간 기준)은 표시 안 함
-    // 월이 바뀌면 구분선 삽입
+  items.forEach(it=>{
     const mk = monthKey(it.date);
     if(mk !== curMonth){
       curMonth = mk;
       const sep = document.createElement("div"); sep.className="month-sep";
       sep.textContent = monthLabel(it.date);
-      box.appendChild(sep);
+      container.appendChild(sep);
     }
-    const pt = ptOf(it.date);
-    const urgent = n<=2, soon = n<=7 && n>2;
-    const row = document.createElement("div");
-    row.className = "row";
-    const ddText = n===0 ? T.today[lang] : "D-"+n;
-    const dateBox = lang==="en" ? `${MON.en[pt.getMonth()]} ${pt.getDate()}` : `${pt.getMonth()+1}/${pt.getDate()}`;
-    row.innerHTML = `
-      <div class="dd ${urgent?'urgent':soon?'soon':''}">
-        <div class="big">${dateBox}</div>
-        <div class="sm">${ddText}</div>
-      </div>
-      <div class="body">
-        <div class="ttl">${L(it.title)} <span class="tag" style="--tg:${TYPE_COLOR[it.type]}">${T.typeNames[it.type][lang]}</span>${it.new?`<span class="newbadge">${T.newBadge[lang]}</span>`:""}</div>
-        ${L(it.detail)?`<div class="det">${L(it.detail)}</div>`:""}
-        <div class="when">${fmtWhen(it)} · ${it.course}</div>
-      </div>
-      ${it.hard?`<div class="pill" style="background:color-mix(in srgb,var(--hard) 18%,transparent); color:var(--hard)">${T.hard[lang]}</div>`:""}
-    `;
-    box.appendChild(row);
+    container.appendChild(deadlineRow(it));
   });
+}
+
+function renderDeadlines(sorted){
+  const box = document.getElementById("deadlines"); box.innerHTML="";
+  const live = sorted.filter(it => !isPastItem(it));
+  const near  = live.filter(it => daysUntil(toDate(it.date).d) <= NEAR_DAYS);
+  const later = live.filter(it => daysUntil(toDate(it.date).d) >  NEAR_DAYS);
+
+  fillDeadlines(box, near);
+  if(!later.length) return;
+
+  const wrap = document.createElement("div");
+  wrap.className = "dl-later";
+  wrap.style.display = "none";
+  fillDeadlines(wrap, later);
+
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "dl-more";
+  const setLabel = open => {
+    btn.textContent = open
+      ? `▲ ${T.moreClose[lang]}`
+      : `▼ ${T.moreOpen[lang]} (${later.length}${T.moreCount[lang]})`;
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  };
+  setLabel(false);
+  btn.addEventListener("click", ()=>{
+    const open = wrap.style.display === "none";
+    wrap.style.display = open ? "" : "none";
+    setLabel(open);
+    if(open) applyBold(wrap);
+  });
+
+  box.appendChild(btn);
+  box.appendChild(wrap);
 }
 
 /* 주말의 실제 종료 시각 = 마지막 수업이 끝나는 시각 (시간 없으면 end일 자정) */
