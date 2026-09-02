@@ -1072,7 +1072,8 @@ function byLabel(s){
 function renderCanvas(){
   const wrap = document.getElementById("cvsoon");
   const S = DATA.canvasSoon;
-  if(S && (S.svg || S.img)){
+  /* 2026-09-02 · 삽화 없이 text 만 있어도 렌더 (자료 위치맵 배너에서 공사중 삽화 제거) */
+  if(S && (S.svg || S.img || (S.text && L(S.text)))){
     wrap.hidden = false;
     wrap.innerHTML = (S.svg || (S.img?`<img src="${S.img}" alt="">`:""))+
       (S.text&&L(S.text)?`<div class="cvtext">${L(S.text)}</div>`:"");
