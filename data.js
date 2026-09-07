@@ -315,7 +315,7 @@ const DATA = {
               cn:"**12/4(周五)** · **全范围** · 线下参加但**通过 Canvas 在线进行 → 需带笔记本电脑** · 闭卷,单面手写一张 + 计算器 · 权重为期中的 **两倍**" },
     },
     {
-      date:"2026-09-11", type:"exam", course:"STAT", hard:true, new:true,
+      date:"2026-09-11", type:"session", course:"STAT", hard:true, new:true,
       title:{ kr:"STAT 6130 면제 시험 (첫 수업 시간)", en:"STAT 6130 waiver exam (during the first class)", cn:"STAT 6130 免修考试(首堂课时间)" },
       detail:{ kr:"**9/11(금) 첫 수업 시간에 시행** · 불합격해도 불이익 없고 첫 수업 녹화를 볼 수 있습니다 · 샘플 문제와 풀이가 **Canvas ▸ Files** 에 이미 올라와 있습니다(`6130_example_exam.pdf` · Exam 1~3 + solutions)",
               en:"**Given during the first class on Fri Sep 11** · no penalty for not passing, and a recording of the first session is available · a sample exam with solutions is already on **Canvas ▸ Files** (`6130_example_exam.pdf` plus Exams 1 to 3 with solutions)",
