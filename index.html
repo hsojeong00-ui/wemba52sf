@@ -536,7 +536,8 @@ function fmtWhen(item){
 }
 
 /* ---------- render ---------- */
-function L(o){ return (o && (o[lang] ?? o.kr ?? o.en)) || ""; }
+/* 문자열이 그대로 들어와도 안전하게 통과시킨다 (구 데이터 호환) */
+function L(o){ if(typeof o === "string") return o; return (o && (o[lang] ?? o.kr ?? o.en)) || ""; }
 
 /* data.js 본문에 쓰인 **볼드** / *이탤릭* / `코드` 표기를 실제 서식으로 변환.
    텍스트 노드만 훑으므로 속성값·SVG·스크립트를 건드리지 않는다. */
@@ -795,7 +796,7 @@ function weekendEndTime(w){
   let last = null;
   w.days.forEach((day, i)=>{
     day.rows.forEach(r=>{
-      const t = parseTimeRange(r.time); if(!t) return;
+      const t = parseTimeRange(L(r.time)); if(!t) return;
       const en = new Date(ws); en.setDate(ws.getDate()+i); en.setHours(t.eh, t.em, 0, 0);
       if(!last || en > last) last = en;
     });
@@ -835,9 +836,9 @@ function renderSchedule(){
       const cell = o => o ? `${L(o)}${o.read?`<div class="cls-read">📖 ${L(o.read)}</div>`:""}` : "";
       if(r.both){
         const isExam = /Midterm|중간|期中/.test(L(r.both));
-        html += `<tr><td class="time">${r.time}</td><td class="both ${isExam?'exam':''}" colspan="2">${cell(r.both)}</td></tr>`;
+        html += `<tr><td class="time">${L(r.time)}</td><td class="both ${isExam?'exam':''}" colspan="2">${cell(r.both)}</td></tr>`;
       } else {
-        html += `<tr><td class="time">${r.time}</td><td class="cls">${cell(r.s1)}</td><td class="cls">${cell(r.s2)}</td></tr>`;
+        html += `<tr><td class="time">${L(r.time)}</td><td class="cls">${cell(r.s1)}</td><td class="cls">${cell(r.s2)}</td></tr>`;
       }
     });
   });
@@ -872,7 +873,7 @@ function renderNextClass(){
   for(let i=0; i<w.days.length; i++){
     const dayDate = new Date(ws); dayDate.setDate(ws.getDate()+i);
     for(const r of w.days[i].rows){
-      const t = parseTimeRange(r.time); if(!t) continue;
+      const t = parseTimeRange(L(r.time)); if(!t) continue;
       const txt = r.both ? L(r.both) : (L(r.s1)+" / "+L(r.s2));
       if(MEAL_RE.test(txt)) continue;                           // 식사·휴식은 제외
       const st = new Date(dayDate); st.setHours(t.sh, t.sm, 0, 0);
@@ -892,7 +893,7 @@ function renderNextClass(){
     ? `📍 <span class="nc-room">${roomM[0]}</span>${T.ncGoRoom[lang]}`
     : T.ncGo[lang];
   box.innerHTML =
-    `<div class="nc-head">${ongoing ? T.ncNow[lang] : T.ncNext[lang]} · ${found.time}</div>`+
+    `<div class="nc-head">${ongoing ? T.ncNow[lang] : T.ncNext[lang]} · ${L(found.time)}</div>`+
     `<div class="nc-body">${body}</div>`+
     `<div class="nc-go">${goLine}</div>`;
 }
@@ -1033,7 +1034,7 @@ function renderBlockWeek(){
     const d = L(o.desc);
     el.innerHTML = `<div class="code">${o.code}</div>`+
       `<div class="txt"><div class="t">${L(o.title)}</div>`+
-      (o.meta ? `<div class="p">${o.meta}</div>` : "")+
+      (o.meta ? `<div class="p">${L(o.meta)}</div>` : "")+
       (d ? `<div class="d">${d}</div>` : "")+
       `</div>`;
     box.appendChild(el);
@@ -1083,7 +1084,7 @@ function renderCanvas(){
   const head = T.canvasHead[lang];
   t.innerHTML = `<thead><tr>${head.map(h=>`<th>${h}</th>`).join("")}</tr></thead>`+
     `<tbody>${DATA.canvasMap.map(r=>
-      `<tr><td><b>${r.subject}</b></td><td>${L(r.where)}</td><td>${L(r.submit)}</td><td>${L(r.watch)}</td></tr>`
+      `<tr><td><b>${L(r.subject)}</b></td><td>${L(r.where)}</td><td>${L(r.submit)}</td><td>${L(r.watch)}</td></tr>`
     ).join("")}</tbody>`;
 }
 
@@ -1158,7 +1159,7 @@ function buildStory(){
   const wk = currentWeekend();
   if(wk){ let rows="";
     wk.days.forEach(d=>{ rows += `<li style="font-weight:800;opacity:.55;border:0;padding-top:6px">${L(d.label)}</li>`;
-      d.rows.forEach(r=>{ rows += `<li class="row2"><span class="dd2" style="font-size:12px">${r.time}</span>`+
+      d.rows.forEach(r=>{ rows += `<li class="row2"><span class="dd2" style="font-size:12px">${L(r.time)}</span>`+
         `<span>${r.both?L(r.both):L(r.s1)+' / '+L(r.s2)}</span></li>`; }); });
     slides.push(`<div class="slide paper fitslide"><div class="fit"><div class="kick">${T.schedule[lang]} · ${L(wk.label)}</div><ul>${rows}</ul></div></div>`);
   }
