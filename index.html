@@ -70,6 +70,16 @@
   .toggle button.on{background:var(--ink); color:var(--bg)}
   .toggle.theme button{padding:9px 12px; font-size:15px}
 
+  /* WEMBA Journey 버튼 (헤더 우상단, sally-illust 삽화) */
+  .coremap{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink); font:inherit; text-align:left; cursor:pointer; background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:6px 14px 6px 6px; box-shadow:var(--shadow); flex-basis:100%; transition:transform .15s ease, box-shadow .15s ease}
+  .coremap:hover{transform:translateY(-1px); box-shadow:0 1px 2px rgba(11,5,29,.06), 0 16px 32px rgba(11,5,29,.14)}
+  .coremap svg{display:block; height:78px; width:auto; flex:0 0 auto; border-radius:10px}
+  .coremap .cm-body{display:flex; flex-direction:column; gap:3px; min-width:0}
+  .coremap .cm-title{font-weight:800; font-size:14.5px; letter-spacing:-.01em; line-height:1.1; white-space:nowrap; color:var(--ink)}
+  .coremap .cm-term{font-family:var(--mono); font-weight:700; font-size:11px; color:var(--muted); letter-spacing:.02em}
+  .coremap .cm-arrow{font-weight:800; font-size:16px; margin-left:2px; color:var(--muted); flex:0 0 auto}
+  @media(min-width:720px){ .coremap{flex-basis:auto; order:-1} }
+
   /* hero countdown — 라임 그라데이션 카드 */
   .hero{margin:18px 0 28px; background:var(--grad); color:#0b051d; border-radius:24px; padding:26px 28px; box-shadow:var(--shadow); display:flex; align-items:center; gap:24px; flex-wrap:wrap}
   .hero > div:first-child{flex:1; min-width:200px}
@@ -302,6 +312,71 @@
   .slide .sbtn{align-self:flex-start; margin-top:20px; background:#0b051d; color:#fff; font-weight:800; font-size:14px; padding:13px 22px; border-radius:999px; text-decoration:none}
   .slide .hint{position:absolute; bottom:26px; left:0; right:0; text-align:center; font-size:12px; opacity:.6}
 
+    /* ===== WEMBA52 Journey (in-page overlay, 코어 과목 지도) ===== */
+  .journey{position:fixed; inset:0; z-index:60; overflow-y:auto; -webkit-overflow-scrolling:touch}
+  .journey .jtop{position:sticky; top:0; z-index:2; display:flex; align-items:center; gap:10px; padding:10px 20px; backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
+  .journey .jtop .jttl{font-weight:800; font-size:15px; margin-right:auto}
+  .journey .jtop .jttl small{font-family:var(--mono); font-weight:700; font-size:11px; opacity:.65; margin-left:8px}
+  .journey .jclose{border:1px solid var(--line); background:var(--panel); color:var(--ink); border-radius:999px; padding:8px 14px; font-weight:800; cursor:pointer; font-size:13px}
+  .jmap {
+    --bg: #f5f6f8;
+    --surface: #ffffff;
+    --ink: #1b222e;
+    --muted: #5c6575;
+    --rule: #d7dbe2;
+    --acct: #3a5ba8;
+    --stat: #237f78;
+    --micro: #b86f12;
+    --macro: #7f4a96;
+    --mgmt: #2f6b3a;
+    --lgst: #8c2f39;
+    --acct-soft: #e6ecf8;
+    --stat-soft: #deefed;
+    --micro-soft: #f8ecd9;
+    --macro-soft: #f0e5f4;
+    --mgmt-soft: #e2efe3;
+    --lgst-soft: #f7e6e8;
+    --font-body: "Pretendard","Apple SD Gothic Neo","Malgun Gothic","맑은 고딕","PingFang SC","Microsoft YaHei","Noto Sans KR","Noto Sans SC",system-ui,sans-serif;
+    --font-mono: ui-monospace,"SF Mono","JetBrains Mono","Cascadia Code","Roboto Mono",Consolas,"Pretendard","Apple SD Gothic Neo","Malgun Gothic","PingFang SC","Microsoft YaHei","Noto Sans KR","Noto Sans SC",monospace;
+  }
+  :root[data-theme="dark"] .jmap {
+    --bg: #141821; --surface: #1c222d; --ink: #e8ebf0; --muted: #9aa3b2; --rule: #2f3744;
+    --acct: #8aa6e6; --stat: #5cc0b6; --micro: #e2a257; --macro: #c08bd6; --mgmt: #7fc48c; --lgst: #e08a95;
+    --acct-soft: #243049; --stat-soft: #1e3a38; --micro-soft: #42311a; --macro-soft: #3a2a44; --mgmt-soft: #1f3524; --lgst-soft: #3d2327;
+  }
+  .journey{background:var(--bg)}
+  .journey .jtop{background:color-mix(in srgb, var(--bg) 82%, transparent)}
+  .jmap { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.6; padding-block: 40px 64px; padding-inline: 20px; }
+  .jmap .jwrap { max-width: 1120px; margin: 0 auto; display: grid; gap: 36px; }
+  .jmap header h1 { font-size: 26px; font-weight: 700; margin: 0 0 6px; letter-spacing: -0.01em; text-wrap: balance; }
+  .jmap header p { margin: 0; color: var(--muted); max-width: 66ch; }
+  .jmap .jeyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .jmap figure { margin: 0; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 20px; }
+  .jmap .jscroll { overflow-x: auto; }
+  .jmap svg { display: block; max-width: 100%; height: auto; color: var(--ink); font-family: var(--font-body); }
+  .jmap svg .mono { font-family: var(--font-mono); }
+  .jmap figcaption { margin-top: 14px; color: var(--muted); font-size: 13.5px; max-width: 74ch; }
+  .jmap .jgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px 18px; }
+  .jmap .jcard { border-top: 3px solid var(--c); padding: 12px 0 0; }
+  .jmap .jcard h3 { margin: 0 0 4px; font-size: 15px; font-weight: 600; color: var(--c); }
+  .jmap .jcard .jen { font-family: var(--font-mono); font-size: 12px; color: var(--muted); display: block; margin-bottom: 6px; }
+  .jmap .jcard p { margin: 0; font-size: 13.5px; color: var(--ink); }
+  .jmap .jcard .jterms { margin-top: 8px; font-family: var(--font-mono); font-size: 11.5px; color: var(--muted); line-height: 1.5; }
+
+  .jmap .jprog { display:grid; gap:10px; background: var(--surface); border:1px solid var(--rule); border-radius:6px; padding:14px 18px; }
+  .jmap .jprog .jbar { display:flex; gap:6px; align-items:center; }
+  .jmap .jprog .jbar i { display:block; flex:1; height:8px; border-radius:999px; background: var(--rule); }
+  .jmap .jprog .jbar i.done { background: var(--ink); }
+  .jmap .jprog .jbar i.now { background: linear-gradient(90deg, var(--ink) 50%, var(--rule) 50%); }
+  .jmap .jprog .jbar b { font-family: var(--font-mono); font-size: 12px; white-space:nowrap; margin-left:6px; }
+  .jmap .jprog .jterms { display:flex; gap:8px 18px; flex-wrap:wrap; font-size:13px; color: var(--muted); }
+  .jmap .jprog .jterms span { display:inline-flex; gap:6px; align-items:center; }
+  .jmap .jprog .jterms .jk { white-space:nowrap; font-family: var(--font-mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color: var(--ink); }
+  .jmap .jtag { display:inline-block; font-family: var(--font-mono); font-size:10px; letter-spacing:.06em; padding:2px 7px; border-radius:999px; border:1px solid var(--rule); color:var(--muted); vertical-align:middle; margin-left:6px; }
+  .jmap .jtag.done { border-color: var(--ink); color: var(--ink); }
+  .jmap .jtag.now { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+  .jmap[hidden]{display:none!important}
+
   footer{margin-top:30px; color:var(--faint); font-size:12.5px; text-align:center; border-top:1px solid var(--line); padding-top:18px}
 </style>
 </head>
@@ -318,6 +393,7 @@
       <div class="asof" id="asof"></div>
     </div>
     <div class="controls">
+      <button class="coremap" id="coreMap" hidden type="button"></button>
       <button class="iconbtn" id="storyBtn" title="Story view">📖</button>
       <div class="toggle theme" role="group" aria-label="theme">
         <button data-theme="light" title="Light">☀️</button>
@@ -330,6 +406,653 @@
       </div>
     </div>
   </header>
+
+  
+  <!-- WEMBA52 Journey 오버레이 (버튼 클릭 → 같은 페이지 안에서 열림) -->
+  <div class="journey" id="journey" hidden>
+    <div class="jtop"><span class="jttl" id="journeyTitle"></span><button class="jclose" id="journeyClose">✕</button></div>
+    <div class="jmap" data-lang="kr" hidden><div class="jwrap">
+  <header>
+    <div class="jeyebrow">WEMBA 52 · Core Term</div>
+    <h1>EMBA 코어 과목 지도</h1>
+    <p>거시경제·미시경제·회계는 세상을 읽는 <strong>내용</strong>, 통계는 그 읽기가 맞는지 판정하는 <strong>도구</strong>, Management(Strategy·HSC·Global)는 읽은 것을 결정과 조직으로 옮기는 <strong>실행</strong>, LGST(Responsibility in Business)는 그 모든 결정이 통과해야 하는 <strong>경계</strong>.</p>
+  </header>
+  <section class="jprog" aria-label="진행 상태">
+    <div class="jbar"><i class="done"></i><i class="now"></i><i></i><i></i><i></i><i></i><b>Term 2 / 6</b></div>
+    <div class="jterms">
+      <span><span class="jk">Term 1 ✅</span> 회계 · 미시경제 · Management(Strategy·HSC·Global)</span>
+      <span><span class="jk">Term 2 ▶ 지금</span> 거시경제(FNCE 6130) · 통계(STAT 6130) · LGST 6120</span>
+      <span><span class="jk">Term 3–6</span> 선택과목·블록위크 — 이 지도의 여섯 기둥 위에 쌓입니다</span>
+    </div>
+  </section>
+
+  <figure>
+    <div class="jeyebrow">Figure 1 · 여섯 과목의 관계</div>
+    <div class="jscroll">
+    <svg viewBox="0 0 1080 720" role="img" aria-label="거시경제, 미시경제, 회계가 위에서 아래로 연결되고, 각각이 Management의 Global, Strategy로 이어지며 Strategy가 HSC로 실행되고, 통계가 아래에서 모든 층을 검증하며, LGST가 전체를 둘러싼 경계로 그려진 지도">
+      <defs>
+        <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+        </marker>
+        <marker id="arw-stat" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--stat)"/>
+        </marker>
+        <marker id="arw-mgmt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--mgmt)"/>
+        </marker>
+      </defs>
+
+      <!-- LGST boundary -->
+      <rect x="30" y="44" width="1020" height="646" rx="10" fill="var(--lgst-soft)" fill-opacity="0.35" stroke="var(--lgst)" stroke-width="1.5" stroke-dasharray="8 5"/>
+      <text x="50" y="664" font-size="14" font-weight="700" fill="var(--lgst)">LGST <tspan class="mono" font-size="12" font-weight="500">Responsibility in Business</tspan></text>
+      <text x="50" y="681" font-size="12" fill="var(--lgst)">경계 과목: 안의 모든 결정이 통과해야 하는 법·윤리·이해관계자(stakeholder) 책임의 테두리</text>
+
+      <!-- column headers -->
+      <text x="320" y="74" text-anchor="middle" font-size="11" class="mono" fill="var(--muted)" letter-spacing="1.5">CONTENT · 내용 과목 (세상을 읽기)</text>
+      <text x="850" y="74" text-anchor="middle" font-size="11" class="mono" fill="var(--muted)" letter-spacing="1.5">MANAGEMENT · 실행 과목 (결정하고 움직이기)</text>
+
+      <!-- MACRO -->
+      <rect x="90" y="92" width="460" height="108" rx="6" fill="var(--macro-soft)" stroke="var(--macro)" stroke-width="1.5"/>
+      <text x="110" y="120" font-size="17" font-weight="700" fill="var(--macro)">거시경제 <tspan class="mono" font-size="12" font-weight="500">Macroeconomics</tspan></text>
+      <text x="110" y="143" font-size="13" fill="currentColor">외부 환경: 경제 전체의 움직임</text>
+      <text x="110" y="165" font-size="12" fill="var(--muted)" class="mono">GDP · inflation · interest rate (Fed) · exchange rate</text>
+      <text x="110" y="185" font-size="12" fill="var(--muted)" class="mono">monetary / fiscal policy · business cycle</text>
+
+      <!-- MICRO -->
+      <rect x="90" y="250" width="460" height="108" rx="6" fill="var(--micro-soft)" stroke="var(--micro)" stroke-width="1.5"/>
+      <text x="110" y="278" font-size="17" font-weight="700" fill="var(--micro)">미시경제 <tspan class="mono" font-size="12" font-weight="500">Microeconomics</tspan></text>
+      <text x="110" y="301" font-size="13" fill="currentColor">의사결정 논리: 기업·고객·경쟁사가 왜 그렇게 행동하나</text>
+      <text x="110" y="323" font-size="12" fill="var(--muted)" class="mono">supply &amp; demand · elasticity · marginal analysis</text>
+      <text x="110" y="343" font-size="12" fill="var(--muted)" class="mono">cost structure · market structure · game theory</text>
+
+      <!-- ACCOUNTING -->
+      <rect x="90" y="408" width="460" height="108" rx="6" fill="var(--acct-soft)" stroke="var(--acct)" stroke-width="1.5"/>
+      <text x="110" y="436" font-size="17" font-weight="700" fill="var(--acct)">회계 <tspan class="mono" font-size="12" font-weight="500">Financial Accounting</tspan></text>
+      <text x="110" y="459" font-size="13" fill="currentColor">측정·보고: 기업이 실제로 한 일을 숫자로 기록</text>
+      <text x="110" y="481" font-size="12" fill="var(--muted)" class="mono">balance sheet · income statement · cash flow</text>
+      <text x="110" y="501" font-size="12" fill="var(--muted)" class="mono">accrual vs. cash · depreciation · earnings ≠ cash</text>
+
+      <!-- Macro -> Micro -->
+      <line x1="320" y1="200" x2="320" y2="248" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+      <text x="332" y="221" font-size="12" fill="currentColor">금리·환율·경기가 수요곡선 자체를 이동</text>
+
+      <!-- Micro -> Accounting -->
+      <line x1="320" y1="358" x2="320" y2="406" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+      <text x="332" y="379" font-size="12" fill="currentColor">가격·비용·진입 결정이 손익·현금흐름으로 기록됨</text>
+
+      <!-- Macro -> Accounting (left bypass) -->
+      <path d="M90,146 C42,146 42,462 88,462" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arw)"/>
+      <text x="76" y="304" font-size="11.5" fill="currentColor" transform="rotate(-90 76 304)" text-anchor="middle">환율 → 매출·외화환산손익</text>
+
+      <!-- MANAGEMENT column -->
+      <rect x="690" y="92" width="330" height="448" rx="6" fill="var(--mgmt-soft)" stroke="var(--mgmt)" stroke-width="1.5"/>
+      <text x="706" y="118" font-size="15" font-weight="700" fill="var(--mgmt)">Management</text>
+
+      <!-- Global -->
+      <rect x="706" y="130" width="298" height="70" rx="4" fill="var(--surface)" stroke="var(--mgmt)" stroke-width="1"/>
+      <text x="730" y="152" font-size="14" font-weight="600" fill="currentColor">Global</text>
+      <text x="730" y="171" font-size="12" fill="currentColor">국가·시장 차이 속에서 어디서·어떻게 경쟁할지</text>
+      <text x="730" y="189" font-size="11.5" class="mono" fill="var(--muted)">entry mode · institutions · FX risk</text>
+
+      <!-- Strategy -->
+      <rect x="706" y="244" width="298" height="150" rx="4" fill="var(--surface)" stroke="var(--mgmt)" stroke-width="1"/>
+      <text x="730" y="266" font-size="14" font-weight="600" fill="currentColor">Strategy</text>
+      <text x="730" y="285" font-size="12" fill="currentColor">어디서 이기고, 왜 이기는지 — 경쟁우위의 논리</text>
+      <text x="730" y="303" font-size="11.5" class="mono" fill="var(--muted)">competitive advantage · five forces</text>
+      <text x="730" y="321" font-size="11.5" class="mono" fill="var(--muted)">value creation vs. capture</text>
+      <text x="730" y="352" font-size="12" fill="currentColor">미시경제가 "왜"를 주고,</text>
+      <text x="730" y="370" font-size="12" fill="currentColor">회계가 "우리와 경쟁사의 성적표"를 준다</text>
+
+      <!-- HSC -->
+      <rect x="706" y="448" width="298" height="78" rx="4" fill="var(--surface)" stroke="var(--mgmt)" stroke-width="1"/>
+      <text x="730" y="470" font-size="14" font-weight="600" fill="currentColor">HSC <tspan class="mono" font-size="11.5" font-weight="500" fill="var(--muted)">Human &amp; Social Capital</tspan></text>
+      <text x="730" y="489" font-size="12" fill="currentColor">전략을 사람·팀·조직으로 실제 움직이게 하기</text>
+      <text x="730" y="507" font-size="11.5" class="mono" fill="var(--muted)">teams · leadership · networks</text>
+
+      <!-- Strategy -> HSC -->
+      <line x1="850" y1="394" x2="850" y2="446" stroke="var(--mgmt)" stroke-width="1.5" marker-end="url(#arw-mgmt)"/>
+      <text x="862" y="424" font-size="11.5" fill="var(--mgmt)">실행은 사람을 통해서</text>
+
+      <!-- Content -> Management -->
+      <line x1="550" y1="146" x2="688" y2="165" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+      <text x="624" y="136" text-anchor="middle" font-size="11.5" fill="currentColor">환율·금리·제도 차이</text>
+
+      <line x1="550" y1="304" x2="688" y2="304" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+      <text x="624" y="294" text-anchor="middle" font-size="11.5" fill="currentColor">경쟁·가격의 논리</text>
+
+      <line x1="550" y1="462" x2="688" y2="372" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+      <text x="600" y="446" text-anchor="middle" font-size="11.5" fill="currentColor">경쟁사 재무제표 읽기</text>
+
+      <!-- STATISTICS band -->
+      <rect x="90" y="574" width="930" height="64" rx="6" fill="var(--stat-soft)" stroke="var(--stat)" stroke-width="1.5"/>
+      <text x="110" y="600" font-size="17" font-weight="700" fill="var(--stat)">통계 <tspan class="mono" font-size="12" font-weight="500">Statistics</tspan></text>
+      <text x="110" y="623" font-size="12" fill="var(--muted)" class="mono">descriptive → probability → hypothesis test → regression</text>
+      <text x="1004" y="600" text-anchor="end" font-size="13" fill="currentColor">도구 과목: 위의 모든 주장에 "우연이 아닌가?"를 묻는다</text>
+      <text x="1004" y="623" text-anchor="end" font-size="12" class="mono" fill="var(--muted)">elasticity · forecasting · A/B test · CAPM beta</text>
+
+      <!-- Stats -> up -->
+      <line x1="320" y1="574" x2="320" y2="520" stroke="var(--stat)" stroke-width="1.5" marker-end="url(#arw-stat)"/>
+      <text x="332" y="552" font-size="11.5" class="mono" fill="var(--stat)">검증 (내용 과목)</text>
+      <line x1="850" y1="574" x2="850" y2="544" stroke="var(--stat)" stroke-width="1.5" marker-end="url(#arw-stat)"/>
+      <text x="862" y="561" font-size="11.5" class="mono" fill="var(--stat)">검증 (전략의 근거)</text>
+    </svg>
+    </div>
+    <figcaption>왼쪽은 "환경 → 결정 → 기록"으로 내려가며 구체화되는 내용 과목, 오른쪽은 그 읽기를 실제 결정(Global·Strategy)과 조직 실행(HSC)으로 옮기는 Management. 통계는 아래에서 모든 층의 주장을 검증하고, LGST는 안의 어떤 결정도 벗어날 수 없는 책임의 테두리로 전체를 감싼다. 실선은 직접 인과, 점선은 거시가 미시를 건너뛰고 회계 숫자를 직접 흔드는 경로.</figcaption>
+  </figure>
+
+  <figure>
+    <div class="jeyebrow">Figure 2 · 하나의 사건이 여섯 과목을 통과하는 경로</div>
+    <div class="jscroll">
+    <svg viewBox="0 0 1080 262" role="img" aria-label="Fed 금리 인상이 거시경제, 미시경제, 회계, 통계, Management를 차례로 거쳐 기업의 대응 결정에 도달하고, LGST가 그 대응의 책임을 묻는 인과 사슬">
+      <rect x="18" y="40" width="180" height="84" rx="6" fill="var(--macro-soft)" stroke="var(--macro)" stroke-width="1.5"/>
+      <text x="108" y="66" text-anchor="middle" font-size="13.5" font-weight="600" fill="currentColor">Fed 금리 인상</text>
+      <text x="108" y="86" text-anchor="middle" font-size="12" fill="currentColor">달러 강세, 수요 둔화</text>
+      <text x="108" y="144" text-anchor="middle" font-size="11" class="mono" fill="var(--macro)">MACRO</text>
+
+      <line x1="198" y1="82" x2="230" y2="82" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+
+      <rect x="234" y="40" width="180" height="84" rx="6" fill="var(--micro-soft)" stroke="var(--micro)" stroke-width="1.5"/>
+      <text x="324" y="66" text-anchor="middle" font-size="13.5" font-weight="600" fill="currentColor">고객 WTP↓ · 경쟁사 반응</text>
+      <text x="324" y="86" text-anchor="middle" font-size="12" fill="currentColor">우리 가격·생산량의 논리</text>
+      <text x="324" y="144" text-anchor="middle" font-size="11" class="mono" fill="var(--micro)">MICRO</text>
+
+      <line x1="414" y1="82" x2="446" y2="82" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+
+      <rect x="450" y="40" width="180" height="84" rx="6" fill="var(--acct-soft)" stroke="var(--acct)" stroke-width="1.5"/>
+      <text x="540" y="66" text-anchor="middle" font-size="13.5" font-weight="600" fill="currentColor">손익계산서에 기록</text>
+      <text x="540" y="86" text-anchor="middle" font-size="12" fill="currentColor">매출 환산↓ · 마진 · 현금흐름</text>
+      <text x="540" y="144" text-anchor="middle" font-size="11" class="mono" fill="var(--acct)">ACCOUNTING</text>
+
+      <line x1="630" y1="82" x2="662" y2="82" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+
+      <rect x="666" y="40" width="180" height="84" rx="6" fill="var(--stat-soft)" stroke="var(--stat)" stroke-width="1.5"/>
+      <text x="756" y="66" text-anchor="middle" font-size="13.5" font-weight="600" fill="currentColor">금리 1%p당 실적 변화?</text>
+      <text x="756" y="86" text-anchor="middle" font-size="12" fill="currentColor">회귀로 추정, 유의성 검정</text>
+      <text x="756" y="144" text-anchor="middle" font-size="11" class="mono" fill="var(--stat)">STATISTICS</text>
+
+      <line x1="846" y1="82" x2="878" y2="82" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+
+      <rect x="882" y="40" width="180" height="84" rx="6" fill="var(--mgmt-soft)" stroke="var(--mgmt)" stroke-width="1.5"/>
+      <text x="972" y="66" text-anchor="middle" font-size="13.5" font-weight="600" fill="currentColor">대응 결정과 실행</text>
+      <text x="972" y="86" text-anchor="middle" font-size="12" fill="currentColor">가격·지역 포트폴리오·조직 조정</text>
+      <text x="972" y="144" text-anchor="middle" font-size="11" class="mono" fill="var(--mgmt)">MANAGEMENT</text>
+
+      <!-- LGST check -->
+      <line x1="18" y1="176" x2="1062" y2="176" stroke="var(--lgst)" stroke-width="1.5" stroke-dasharray="8 5"/>
+      <line x1="1040" y1="124" x2="1040" y2="172" stroke="var(--lgst)" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="18" y="200" font-size="13" font-weight="600" fill="var(--lgst)">LGST <tspan class="mono" font-size="11.5" font-weight="500">check</tspan></text>
+      <text x="18" y="220" font-size="12" fill="currentColor">그 대응(감원, 가격 전가, 공급망 이전)은 주주 외의 이해관계자에게도 정당한가? — 결정 뒤가 아니라 결정 안에서 묻는다</text>
+      <text x="1062" y="246" text-anchor="end" font-size="12" fill="var(--muted)">이 사슬을 영어로 3문장에 말할 수 있으면 여섯 과목의 "왜 배우나"가 한 번에 답해진다</text>
+    </svg>
+    </div>
+    <figcaption>같은 사건(Fed rate hike)을 각 과목이 어느 단계에서 맡는지. 거시는 원인, 미시는 결정의 논리, 회계는 결과의 기록, 통계는 그 인과가 진짜인지의 판정, Management는 실제 대응, LGST는 그 대응의 정당성.</figcaption>
+  </figure>
+
+  <section>
+    <div class="jeyebrow">과목별 한 줄 요약과 발음·표기 함정 용어</div>
+    <div class="jgrid">
+      <div class="jcard" style="--c: var(--acct)">
+        <h3>회계<span class="jtag done">TERM 1 ✓</span></h3><span class="jen">Financial Accounting</span>
+        <p>세 재무제표가 한 거래로 어떻게 동시에 움직이는지를 손으로 그릴 수 있으면 끝. 이익과 현금은 다르다.</p>
+        <div class="jterms">COGS(콕스) · GAAP(갭) · EBITDA(이비따) · Accrual · Depreciation · Retained Earnings · Gross Margin(매출총이익)</div>
+      </div>
+      <div class="jcard" style="--c: var(--stat)">
+        <h3>통계<span class="jtag now">TERM 2 · NOW</span></h3><span class="jen">Statistics</span>
+        <p>공식 암기보다 "이 질문엔 어떤 검정인가"의 의사결정 트리. 종착점은 회귀.</p>
+        <div class="jterms">p-value · Standard deviation ≠ Standard error · H₀ "H-naught" · Confidence interval · R-squared · Variance(분산) · Deviation(편차)</div>
+      </div>
+      <div class="jcard" style="--c: var(--micro)">
+        <h3>미시경제<span class="jtag done">TERM 1 ✓</span></h3><span class="jen">Microeconomics</span>
+        <p>그래프를 직접 그리기 — 수요곡선의 이동과 곡선 위의 이동을 구분. 영어 수식의 방어선은 그래프.</p>
+        <div class="jterms">Marginal(한계) · Sunk cost · Opportunity cost · Elasticity · WTP · Oligopoly(올리가폴리) · Nash equilibrium · Price discrimination(부정적 뉘앙스 없음)</div>
+      </div>
+      <div class="jcard" style="--c: var(--macro)">
+        <h3>거시경제<span class="jtag now">TERM 2 · NOW</span></h3><span class="jen">Macroeconomics</span>
+        <p>Fed 결정 → 금리 → 환율 → 자기 회사 실적까지 내려오는 인과 사슬 하나를 만들어 두고 수업 내용을 거기에 붙인다.</p>
+        <div class="jterms">The Fed · Federal funds rate · Inflation / Deflation / Disinflation · Real vs. Nominal · QE · Yield curve · Currency appreciation / depreciation(회계의 depreciation과 다른 뜻)</div>
+      </div>
+      <div class="jcard" style="--c: var(--mgmt)">
+        <h3>Management<span class="jtag done">TERM 1 ✓</span></h3><span class="jen">Strategy · HSC · Global</span>
+        <p>Strategy는 미시의 "왜"와 회계의 "성적표"를 경쟁우위 논리로 묶고, Global은 거시의 국가 차이를 진입·운영 결정으로, HSC는 그 결정을 사람과 조직으로 실행한다. 세 개가 한 과목인 이유: 결정(전략) 없이 실행(HSC) 없고, 국경(Global) 없는 전략은 없다.</p>
+        <div class="jterms">Competitive advantage · Porter's five forces · Value creation vs. value capture · Core competence · Entry mode · Liability of foreignness · Psychological safety · Social capital(인맥이 아니라 관계망의 자원)</div>
+      </div>
+      <div class="jcard" style="--c: var(--lgst)">
+        <h3>LGST<span class="jtag now">TERM 2 · NOW</span></h3><span class="jen">Responsibility in Business</span>
+        <p>다른 과목이 "어떻게 이기나"를 가르치면, 이 과목은 "누구에게, 무엇을 책임지며 이기나"를 묻는다. 법(compliance)은 바닥선이고 윤리·이해관계자 책임은 그 위의 판단. 케이스에서 "합법이지만 옳은가"를 구분하는 게 핵심 훈련.</p>
+        <div class="jterms">Stakeholder vs. Shareholder · Fiduciary duty · Compliance ≠ Ethics · Corporate social responsibility (CSR) · ESG · Whistleblowing · Conflict of interest · Duty of care / loyalty</div>
+      </div>
+    </div>
+  </section>
+</div></div>
+    <div class="jmap" data-lang="en" hidden><div class="jwrap">
+  <header>
+    <div class="jeyebrow">WEMBA 52 · Core Term</div>
+    <h1>EMBA Core Course Map</h1>
+    <p>Macro, Micro and Accounting are the <strong>content</strong> — how to read the world. Statistics is the <strong>method</strong> that tests whether the reading holds. Management (Strategy · HSC · Global) is the <strong>action</strong> layer that turns the reading into decisions and organizations. LGST (Responsibility in Business) is the <strong>boundary</strong> every one of those decisions has to pass through.</p>
+  </header>
+  <section class="jprog" aria-label="progress">
+    <div class="jbar"><i class="done"></i><i class="now"></i><i></i><i></i><i></i><i></i><b>Term 2 / 6</b></div>
+    <div class="jterms">
+      <span><span class="jk">Term 1 ✅</span> Accounting · Microeconomics · Management (Strategy, HSC, Global)</span>
+      <span><span class="jk">Term 2 ▶ now</span> Macroeconomics (FNCE 6130) · Statistics (STAT 6130) · LGST 6120</span>
+      <span><span class="jk">Terms 3–6</span> electives and block weeks — built on the six pillars in this map</span>
+    </div>
+  </section>
+
+  <figure>
+    <div class="jeyebrow">Figure 1 · How the six courses fit together</div>
+    <div class="jscroll">
+    <svg viewBox="0 0 1080 720" role="img" aria-label="Macro, Micro and Accounting flow top to bottom; Macro feeds Global and Micro plus Accounting feed Strategy, which is executed through HSC; Statistics tests every layer from below; LGST is drawn as the boundary around everything">
+      <defs>
+        <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+        </marker>
+        <marker id="arw-stat" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--stat)"/>
+        </marker>
+        <marker id="arw-mgmt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--mgmt)"/>
+        </marker>
+      </defs>
+
+      <!-- LGST boundary -->
+      <rect x="30" y="44" width="1020" height="646" rx="10" fill="var(--lgst-soft)" fill-opacity="0.35" stroke="var(--lgst)" stroke-width="1.5" stroke-dasharray="8 5"/>
+      <text x="50" y="664" font-size="14" font-weight="700" fill="var(--lgst)">LGST <tspan class="mono" font-size="12" font-weight="500">Responsibility in Business</tspan></text>
+      <text x="50" y="681" font-size="12" fill="var(--lgst)">The boundary course: every decision inside must clear legal, ethical and stakeholder responsibility</text>
+
+      <!-- column headers -->
+      <text x="320" y="74" text-anchor="middle" font-size="11" class="mono" fill="var(--muted)" letter-spacing="1.5">CONTENT · reading the world</text>
+      <text x="850" y="74" text-anchor="middle" font-size="11" class="mono" fill="var(--muted)" letter-spacing="1.5">MANAGEMENT · deciding and acting</text>
+
+      <!-- MACRO -->
+      <rect x="90" y="92" width="460" height="108" rx="6" fill="var(--macro-soft)" stroke="var(--macro)" stroke-width="1.5"/>
+      <text x="110" y="120" font-size="17" font-weight="700" fill="var(--macro)">Macroeconomics</text>
+      <text x="110" y="143" font-size="13" fill="currentColor">The outside environment: how the whole economy moves</text>
+      <text x="110" y="165" font-size="12" fill="var(--muted)" class="mono">GDP · inflation · interest rate (Fed) · exchange rate</text>
+      <text x="110" y="185" font-size="12" fill="var(--muted)" class="mono">monetary / fiscal policy · business cycle</text>
+
+      <!-- MICRO -->
+      <rect x="90" y="250" width="460" height="108" rx="6" fill="var(--micro-soft)" stroke="var(--micro)" stroke-width="1.5"/>
+      <text x="110" y="278" font-size="17" font-weight="700" fill="var(--micro)">Microeconomics</text>
+      <text x="110" y="301" font-size="13" fill="currentColor">Decision logic: why firms, customers and rivals act as they do</text>
+      <text x="110" y="323" font-size="12" fill="var(--muted)" class="mono">supply &amp; demand · elasticity · marginal analysis</text>
+      <text x="110" y="343" font-size="12" fill="var(--muted)" class="mono">cost structure · market structure · game theory</text>
+
+      <!-- ACCOUNTING -->
+      <rect x="90" y="408" width="460" height="108" rx="6" fill="var(--acct-soft)" stroke="var(--acct)" stroke-width="1.5"/>
+      <text x="110" y="436" font-size="17" font-weight="700" fill="var(--acct)">Financial Accounting</text>
+      <text x="110" y="459" font-size="13" fill="currentColor">Measure and report: what the firm actually did, in numbers</text>
+      <text x="110" y="481" font-size="12" fill="var(--muted)" class="mono">balance sheet · income statement · cash flow</text>
+      <text x="110" y="501" font-size="12" fill="var(--muted)" class="mono">accrual vs. cash · depreciation · earnings ≠ cash</text>
+
+      <!-- Macro -> Micro -->
+      <line x1="320" y1="200" x2="320" y2="248" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+      <text x="332" y="221" font-size="12" fill="currentColor">Rates, FX and the cycle shift the demand curve itself</text>
+
+      <!-- Micro -> Accounting -->
+      <line x1="320" y1="358" x2="320" y2="406" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+      <text x="332" y="379" font-size="12" fill="currentColor">Price/cost/entry decisions become P&amp;L and cash flow</text>
+
+      <!-- Macro -> Accounting (left bypass) -->
+      <path d="M90,146 C42,146 42,462 88,462" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arw)"/>
+      <text x="76" y="304" font-size="11.5" fill="currentColor" transform="rotate(-90 76 304)" text-anchor="middle">FX → revenue &amp; translation gains/losses</text>
+
+      <!-- MANAGEMENT column -->
+      <rect x="690" y="92" width="330" height="448" rx="6" fill="var(--mgmt-soft)" stroke="var(--mgmt)" stroke-width="1.5"/>
+      <text x="706" y="118" font-size="15" font-weight="700" fill="var(--mgmt)">Management</text>
+
+      <!-- Global -->
+      <rect x="706" y="130" width="298" height="70" rx="4" fill="var(--surface)" stroke="var(--mgmt)" stroke-width="1"/>
+      <text x="730" y="152" font-size="14" font-weight="600" fill="currentColor">Global</text>
+      <text x="730" y="171" font-size="12" fill="currentColor">Where and how to compete across borders</text>
+      <text x="730" y="189" font-size="11.5" class="mono" fill="var(--muted)">entry mode · institutions · FX risk</text>
+
+      <!-- Strategy -->
+      <rect x="706" y="244" width="298" height="150" rx="4" fill="var(--surface)" stroke="var(--mgmt)" stroke-width="1"/>
+      <text x="730" y="266" font-size="14" font-weight="600" fill="currentColor">Strategy</text>
+      <text x="730" y="285" font-size="12" fill="currentColor">Where you win, and why</text>
+      <text x="730" y="303" font-size="11.5" class="mono" fill="var(--muted)">competitive advantage · five forces</text>
+      <text x="730" y="321" font-size="11.5" class="mono" fill="var(--muted)">value creation vs. capture</text>
+      <text x="730" y="352" font-size="12" fill="currentColor">Micro supplies the "why";</text>
+      <text x="730" y="370" font-size="12" fill="currentColor">Accounting supplies our and rivals' scorecards</text>
+
+      <!-- HSC -->
+      <rect x="706" y="448" width="298" height="78" rx="4" fill="var(--surface)" stroke="var(--mgmt)" stroke-width="1"/>
+      <text x="730" y="470" font-size="14" font-weight="600" fill="currentColor">HSC <tspan class="mono" font-size="11.5" font-weight="500" fill="var(--muted)">Human &amp; Social Capital</tspan></text>
+      <text x="730" y="489" font-size="12" fill="currentColor">Getting strategy to move through people and teams</text>
+      <text x="730" y="507" font-size="11.5" class="mono" fill="var(--muted)">teams · leadership · networks</text>
+
+      <!-- Strategy -> HSC -->
+      <line x1="850" y1="394" x2="850" y2="446" stroke="var(--mgmt)" stroke-width="1.5" marker-end="url(#arw-mgmt)"/>
+      <text x="838" y="424" text-anchor="end" font-size="11.5" fill="var(--mgmt)">execution runs through people</text>
+
+      <!-- Content -> Management -->
+      <line x1="550" y1="146" x2="688" y2="165" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+      <text x="624" y="136" text-anchor="middle" font-size="11.5" fill="currentColor">FX, rates, institutions</text>
+
+      <line x1="550" y1="304" x2="688" y2="304" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+      <text x="619" y="282" text-anchor="middle" font-size="11.5" fill="currentColor">competition &amp;</text>
+      <text x="619" y="297" text-anchor="middle" font-size="11.5" fill="currentColor">pricing logic</text>
+
+      <line x1="550" y1="462" x2="688" y2="372" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+      <text x="606" y="454" text-anchor="middle" font-size="11.5" fill="currentColor">reading rivals' financials</text>
+
+      <!-- STATISTICS band -->
+      <rect x="90" y="574" width="930" height="64" rx="6" fill="var(--stat-soft)" stroke="var(--stat)" stroke-width="1.5"/>
+      <text x="110" y="600" font-size="17" font-weight="700" fill="var(--stat)">Statistics</text>
+      <text x="110" y="623" font-size="12" fill="var(--muted)" class="mono">descriptive → probability → hypothesis test → regression</text>
+      <text x="1004" y="600" text-anchor="end" font-size="13" fill="currentColor">The method course: asks every claim above, "or is it just noise?"</text>
+      <text x="1004" y="623" text-anchor="end" font-size="12" class="mono" fill="var(--muted)">elasticity · forecasting · A/B test · CAPM beta</text>
+
+      <!-- Stats -> up -->
+      <line x1="320" y1="574" x2="320" y2="520" stroke="var(--stat)" stroke-width="1.5" marker-end="url(#arw-stat)"/>
+      <text x="332" y="552" font-size="11.5" class="mono" fill="var(--stat)">tests the content</text>
+      <line x1="850" y1="574" x2="850" y2="544" stroke="var(--stat)" stroke-width="1.5" marker-end="url(#arw-stat)"/>
+      <text x="862" y="561" font-size="11.5" class="mono" fill="var(--stat)">tests the evidence</text>
+    </svg>
+    </div>
+    <figcaption>On the left, the content courses get more concrete as you go down: environment → decision → record. On the right, Management turns that reading into actual choices (Global, Strategy) and organizational execution (HSC). Statistics tests every layer from below, and LGST wraps the whole thing as the boundary of responsibility no decision can step outside. Solid arrows are direct causation; the dashed one is Macro bypassing Micro and moving the accounting numbers directly.</figcaption>
+  </figure>
+
+  <figure>
+    <div class="jeyebrow">Figure 2 · One event passing through all six courses</div>
+    <div class="jscroll">
+    <svg viewBox="0 0 1080 262" role="img" aria-label="A Fed rate hike passes through Macro, Micro, Accounting, Statistics and Management to reach the firm's response, with LGST questioning the responsibility of that response">
+      <rect x="18" y="40" width="180" height="84" rx="6" fill="var(--macro-soft)" stroke="var(--macro)" stroke-width="1.5"/>
+      <text x="108" y="66" text-anchor="middle" font-size="13.5" font-weight="600" fill="currentColor">Fed raises rates</text>
+      <text x="108" y="86" text-anchor="middle" font-size="12" fill="currentColor">stronger dollar, softer demand</text>
+      <text x="108" y="144" text-anchor="middle" font-size="11" class="mono" fill="var(--macro)">MACRO</text>
+
+      <line x1="198" y1="82" x2="230" y2="82" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+
+      <rect x="234" y="40" width="180" height="84" rx="6" fill="var(--micro-soft)" stroke="var(--micro)" stroke-width="1.5"/>
+      <text x="324" y="66" text-anchor="middle" font-size="13.5" font-weight="600" fill="currentColor">Customer WTP↓ · rival reaction</text>
+      <text x="324" y="86" text-anchor="middle" font-size="12" fill="currentColor">logic of our price &amp; volume</text>
+      <text x="324" y="144" text-anchor="middle" font-size="11" class="mono" fill="var(--micro)">MICRO</text>
+
+      <line x1="414" y1="82" x2="446" y2="82" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+
+      <rect x="450" y="40" width="180" height="84" rx="6" fill="var(--acct-soft)" stroke="var(--acct)" stroke-width="1.5"/>
+      <text x="540" y="66" text-anchor="middle" font-size="13.5" font-weight="600" fill="currentColor">Recorded on the P&amp;L</text>
+      <text x="540" y="86" text-anchor="middle" font-size="12" fill="currentColor">translated revenue↓ · margin · cash</text>
+      <text x="540" y="144" text-anchor="middle" font-size="11" class="mono" fill="var(--acct)">ACCOUNTING</text>
+
+      <line x1="630" y1="82" x2="662" y2="82" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+
+      <rect x="666" y="40" width="180" height="84" rx="6" fill="var(--stat-soft)" stroke="var(--stat)" stroke-width="1.5"/>
+      <text x="756" y="66" text-anchor="middle" font-size="13.5" font-weight="600" fill="currentColor">Earnings change per 1 pt of rates?</text>
+      <text x="756" y="86" text-anchor="middle" font-size="12" fill="currentColor">estimate by regression, test it</text>
+      <text x="756" y="144" text-anchor="middle" font-size="11" class="mono" fill="var(--stat)">STATISTICS</text>
+
+      <line x1="846" y1="82" x2="878" y2="82" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+
+      <rect x="882" y="40" width="180" height="84" rx="6" fill="var(--mgmt-soft)" stroke="var(--mgmt)" stroke-width="1.5"/>
+      <text x="972" y="66" text-anchor="middle" font-size="13.5" font-weight="600" fill="currentColor">Decide and execute the response</text>
+      <text x="972" y="86" text-anchor="middle" font-size="12" fill="currentColor">pricing · country mix · org changes</text>
+      <text x="972" y="144" text-anchor="middle" font-size="11" class="mono" fill="var(--mgmt)">MANAGEMENT</text>
+
+      <!-- LGST check -->
+      <line x1="18" y1="176" x2="1062" y2="176" stroke="var(--lgst)" stroke-width="1.5" stroke-dasharray="8 5"/>
+      <line x1="1040" y1="124" x2="1040" y2="172" stroke="var(--lgst)" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="18" y="200" font-size="13" font-weight="600" fill="var(--lgst)">LGST <tspan class="mono" font-size="11.5" font-weight="500">check</tspan></text>
+      <text x="18" y="220" font-size="12" fill="currentColor">Is that response — layoffs, passing prices through, moving the supply chain — defensible to stakeholders beyond shareholders? Asked inside the decision, not after it.</text>
+      <text x="1062" y="246" text-anchor="end" font-size="12" fill="var(--muted)">If you can tell this chain in three sentences, you have answered "why these six courses" at once</text>
+    </svg>
+    </div>
+    <figcaption>Which course owns which step of the same event. Macro is the cause, Micro the decision logic, Accounting the record of the result, Statistics the verdict on whether the causation is real, Management the actual response, and LGST the legitimacy of that response.</figcaption>
+  </figure>
+
+  <section>
+    <div class="jeyebrow">One-line summary and key vocabulary per course</div>
+    <div class="jgrid">
+      <div class="jcard" style="--c: var(--acct)">
+        <h3>Accounting<span class="jtag done">TERM 1 ✓</span></h3><span class="jen">Financial Accounting</span>
+        <p>You are done when you can draw by hand how one transaction moves all three statements at once. Earnings are not cash.</p>
+        <div class="jterms">COGS · GAAP · EBITDA · Accrual · Depreciation · Retained earnings · Gross margin · Working capital</div>
+      </div>
+      <div class="jcard" style="--c: var(--stat)">
+        <h3>Statistics<span class="jtag now">TERM 2 · NOW</span></h3><span class="jen">Statistics</span>
+        <p>Less formula memorization, more of a decision tree: "which test answers this question?" The destination is regression.</p>
+        <div class="jterms">p-value · Standard deviation ≠ standard error · H₀ · Confidence interval · R-squared · Variance · Outlier · Correlation ≠ causation</div>
+      </div>
+      <div class="jcard" style="--c: var(--micro)">
+        <h3>Microeconomics<span class="jtag done">TERM 1 ✓</span></h3><span class="jen">Managerial Economics</span>
+        <p>Draw the graphs yourself — a shift of the demand curve versus a move along it. When the algebra goes fast, the graph is your defense.</p>
+        <div class="jterms">Marginal · Sunk cost · Opportunity cost · Elasticity · Willingness to pay · Oligopoly · Nash equilibrium · Price discrimination (no negative connotation)</div>
+      </div>
+      <div class="jcard" style="--c: var(--macro)">
+        <h3>Macroeconomics<span class="jtag now">TERM 2 · NOW</span></h3><span class="jen">Macroeconomics</span>
+        <p>Build one causal chain — Fed decision → rates → FX → your own company's results — and hang everything from class on it.</p>
+        <div class="jterms">The Fed · Federal funds rate · Inflation / deflation / disinflation · Real vs. nominal · QE · Yield curve · Currency appreciation / depreciation (not the accounting sense)</div>
+      </div>
+      <div class="jcard" style="--c: var(--mgmt)">
+        <h3>Management<span class="jtag done">TERM 1 ✓</span></h3><span class="jen">Strategy · HSC · Global</span>
+        <p>Strategy binds Micro's "why" and Accounting's scorecard into the logic of competitive advantage; Global turns Macro's country differences into entry and operating choices; HSC executes those choices through people and organizations. Why one course: no execution (HSC) without a decision (Strategy), and no strategy without borders (Global).</p>
+        <div class="jterms">Competitive advantage · Porter's five forces · Value creation vs. value capture · Core competence · Entry mode · Liability of foreignness · Psychological safety · Social capital (a network's resources, not "networking")</div>
+      </div>
+      <div class="jcard" style="--c: var(--lgst)">
+        <h3>LGST<span class="jtag now">TERM 2 · NOW</span></h3><span class="jen">Responsibility in Business</span>
+        <p>The other courses teach how to win; this one asks whom you answer to, and for what, while winning. Compliance is the floor; ethics and stakeholder responsibility are the judgment above it. The core drill in every case: "legal, but is it right?"</p>
+        <div class="jterms">Stakeholder vs. Shareholder · Fiduciary duty · Compliance ≠ Ethics · Corporate social responsibility (CSR) · ESG · Whistleblowing · Conflict of interest · Duty of care / loyalty</div>
+      </div>
+    </div>
+  </section>
+</div></div>
+    <div class="jmap" data-lang="cn" hidden><div class="jwrap">
+  <header>
+    <div class="jeyebrow">WEMBA 52 · Core Term</div>
+    <h1>EMBA 核心课程地图</h1>
+    <p>宏观经济、微观经济与会计是读懂世界的<strong>内容</strong>；统计是检验这一解读是否成立的<strong>方法</strong>；Management（Strategy · HSC · Global）是把解读转化为决策与组织的<strong>行动</strong>层；LGST（Responsibility in Business）则是每一项决策都必须通过的<strong>边界</strong>。</p>
+  </header>
+  <section class="jprog" aria-label="progress">
+    <div class="jbar"><i class="done"></i><i class="now"></i><i></i><i></i><i></i><i></i><b>Term 2 / 6</b></div>
+    <div class="jterms">
+      <span><span class="jk">Term 1 ✅</span> 会计 · 微观经济 · Management(Strategy·HSC·Global)</span>
+      <span><span class="jk">Term 2 ▶ 现在</span> 宏观经济(FNCE 6130) · 统计(STAT 6130) · LGST 6120</span>
+      <span><span class="jk">Term 3–6</span> 选修与 Block Week — 建立在本图六大支柱之上</span>
+    </div>
+  </section>
+
+  <figure>
+    <div class="jeyebrow">Figure 1 · 六门课程如何相互衔接</div>
+    <div class="jscroll">
+    <svg viewBox="0 0 1080 720" role="img" aria-label="Macro, Micro and Accounting flow top to bottom; Macro feeds Global and Micro plus Accounting feed Strategy, which is executed through HSC; Statistics tests every layer from below; LGST is drawn as the boundary around everything">
+      <defs>
+        <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+        </marker>
+        <marker id="arw-stat" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--stat)"/>
+        </marker>
+        <marker id="arw-mgmt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--mgmt)"/>
+        </marker>
+      </defs>
+
+      <!-- LGST boundary -->
+      <rect x="30" y="44" width="1020" height="646" rx="10" fill="var(--lgst-soft)" fill-opacity="0.35" stroke="var(--lgst)" stroke-width="1.5" stroke-dasharray="8 5"/>
+      <text x="50" y="664" font-size="14" font-weight="700" fill="var(--lgst)">LGST <tspan class="mono" font-size="12" font-weight="500">Responsibility in Business</tspan></text>
+      <text x="50" y="681" font-size="12" fill="var(--lgst)">边界课程：框内的每一项决策都必须通过法律、伦理与利益相关者（stakeholder）责任的检验</text>
+
+      <!-- column headers -->
+      <text x="320" y="74" text-anchor="middle" font-size="11" class="mono" fill="var(--muted)" letter-spacing="1.5">CONTENT · 内容课程（读懂世界）</text>
+      <text x="850" y="74" text-anchor="middle" font-size="11" class="mono" fill="var(--muted)" letter-spacing="1.5">MANAGEMENT · 行动课程（决策与执行）</text>
+
+      <!-- MACRO -->
+      <rect x="90" y="92" width="460" height="108" rx="6" fill="var(--macro-soft)" stroke="var(--macro)" stroke-width="1.5"/>
+      <text x="110" y="120" font-size="17" font-weight="700" fill="var(--macro)">宏观经济学 Macroeconomics</text>
+      <text x="110" y="143" font-size="13" fill="currentColor">外部环境：整体经济如何运行</text>
+      <text x="110" y="165" font-size="12" fill="var(--muted)" class="mono">GDP · inflation · interest rate (Fed) · exchange rate</text>
+      <text x="110" y="185" font-size="12" fill="var(--muted)" class="mono">monetary / fiscal policy · business cycle</text>
+
+      <!-- MICRO -->
+      <rect x="90" y="250" width="460" height="108" rx="6" fill="var(--micro-soft)" stroke="var(--micro)" stroke-width="1.5"/>
+      <text x="110" y="278" font-size="17" font-weight="700" fill="var(--micro)">微观经济学 Microeconomics</text>
+      <text x="110" y="301" font-size="13" fill="currentColor">决策逻辑：企业、客户与竞争对手为何如此行动</text>
+      <text x="110" y="323" font-size="12" fill="var(--muted)" class="mono">supply &amp; demand · elasticity · marginal analysis</text>
+      <text x="110" y="343" font-size="12" fill="var(--muted)" class="mono">cost structure · market structure · game theory</text>
+
+      <!-- ACCOUNTING -->
+      <rect x="90" y="408" width="460" height="108" rx="6" fill="var(--acct-soft)" stroke="var(--acct)" stroke-width="1.5"/>
+      <text x="110" y="436" font-size="17" font-weight="700" fill="var(--acct)">财务会计 Financial Accounting</text>
+      <text x="110" y="459" font-size="13" fill="currentColor">计量与报告：企业实际做了什么，用数字表达</text>
+      <text x="110" y="481" font-size="12" fill="var(--muted)" class="mono">balance sheet · income statement · cash flow</text>
+      <text x="110" y="501" font-size="12" fill="var(--muted)" class="mono">accrual vs. cash · depreciation · earnings ≠ cash</text>
+
+      <!-- Macro -> Micro -->
+      <line x1="320" y1="200" x2="320" y2="248" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+      <text x="332" y="221" font-size="12" fill="currentColor">利率、汇率与经济周期会移动整条需求曲线</text>
+
+      <!-- Micro -> Accounting -->
+      <line x1="320" y1="358" x2="320" y2="406" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+      <text x="332" y="379" font-size="12" fill="currentColor">定价/成本/进入决策最终成为 P&amp;L 与现金流</text>
+
+      <!-- Macro -> Accounting (left bypass) -->
+      <path d="M90,146 C42,146 42,462 88,462" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arw)"/>
+      <text x="76" y="304" font-size="11.5" fill="currentColor" transform="rotate(-90 76 304)" text-anchor="middle">汇率 → 营收与折算损益</text>
+
+      <!-- MANAGEMENT column -->
+      <rect x="690" y="92" width="330" height="448" rx="6" fill="var(--mgmt-soft)" stroke="var(--mgmt)" stroke-width="1.5"/>
+      <text x="706" y="118" font-size="15" font-weight="700" fill="var(--mgmt)">Management 管理</text>
+
+      <!-- Global -->
+      <rect x="706" y="130" width="298" height="70" rx="4" fill="var(--surface)" stroke="var(--mgmt)" stroke-width="1"/>
+      <text x="730" y="152" font-size="14" font-weight="600" fill="currentColor">Global 全球化</text>
+      <text x="730" y="171" font-size="12" fill="currentColor">在哪里、以何种方式跨境竞争</text>
+      <text x="730" y="189" font-size="11.5" class="mono" fill="var(--muted)">entry mode · institutions · FX risk</text>
+
+      <!-- Strategy -->
+      <rect x="706" y="244" width="298" height="150" rx="4" fill="var(--surface)" stroke="var(--mgmt)" stroke-width="1"/>
+      <text x="730" y="266" font-size="14" font-weight="600" fill="currentColor">Strategy 战略</text>
+      <text x="730" y="285" font-size="12" fill="currentColor">在哪里取胜，以及为什么</text>
+      <text x="730" y="303" font-size="11.5" class="mono" fill="var(--muted)">competitive advantage · five forces</text>
+      <text x="730" y="321" font-size="11.5" class="mono" fill="var(--muted)">value creation vs. capture</text>
+      <text x="730" y="352" font-size="12" fill="currentColor">微观提供"为什么"；</text>
+      <text x="730" y="370" font-size="12" fill="currentColor">会计提供我方与对手的成绩单</text>
+
+      <!-- HSC -->
+      <rect x="706" y="448" width="298" height="78" rx="4" fill="var(--surface)" stroke="var(--mgmt)" stroke-width="1"/>
+      <text x="730" y="470" font-size="14" font-weight="600" fill="currentColor">HSC <tspan class="mono" font-size="11.5" font-weight="500" fill="var(--muted)">Human &amp; Social Capital</tspan></text>
+      <text x="730" y="489" font-size="12" fill="currentColor">让战略通过人与团队真正运转起来</text>
+      <text x="730" y="507" font-size="11.5" class="mono" fill="var(--muted)">teams · leadership · networks</text>
+
+      <!-- Strategy -> HSC -->
+      <line x1="850" y1="394" x2="850" y2="446" stroke="var(--mgmt)" stroke-width="1.5" marker-end="url(#arw-mgmt)"/>
+      <text x="838" y="424" text-anchor="end" font-size="11.5" fill="var(--mgmt)">执行要靠人来完成</text>
+
+      <!-- Content -> Management -->
+      <line x1="550" y1="146" x2="688" y2="165" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+      <text x="624" y="136" text-anchor="middle" font-size="11.5" fill="currentColor">汇率、利率、制度</text>
+
+      <line x1="550" y1="304" x2="688" y2="304" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+      <text x="619" y="282" text-anchor="middle" font-size="11.5" fill="currentColor">竞争与</text>
+      <text x="619" y="297" text-anchor="middle" font-size="11.5" fill="currentColor">定价逻辑</text>
+
+      <line x1="550" y1="462" x2="688" y2="372" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+      <text x="606" y="454" text-anchor="middle" font-size="11.5" fill="currentColor">读懂对手的财务报表</text>
+
+      <!-- STATISTICS band -->
+      <rect x="90" y="574" width="930" height="64" rx="6" fill="var(--stat-soft)" stroke="var(--stat)" stroke-width="1.5"/>
+      <text x="110" y="600" font-size="17" font-weight="700" fill="var(--stat)">统计学 Statistics</text>
+      <text x="110" y="623" font-size="12" fill="var(--muted)" class="mono">descriptive → probability → hypothesis test → regression</text>
+      <text x="1004" y="600" text-anchor="end" font-size="13" fill="currentColor">方法课程：对上面的每个论断追问"还是只是噪音？"</text>
+      <text x="1004" y="623" text-anchor="end" font-size="12" class="mono" fill="var(--muted)">elasticity · forecasting · A/B test · CAPM beta</text>
+
+      <!-- Stats -> up -->
+      <line x1="320" y1="574" x2="320" y2="520" stroke="var(--stat)" stroke-width="1.5" marker-end="url(#arw-stat)"/>
+      <text x="332" y="552" font-size="11.5" class="mono" fill="var(--stat)">检验内容</text>
+      <line x1="850" y1="574" x2="850" y2="544" stroke="var(--stat)" stroke-width="1.5" marker-end="url(#arw-stat)"/>
+      <text x="862" y="561" font-size="11.5" class="mono" fill="var(--stat)">检验证据</text>
+    </svg>
+    </div>
+    <figcaption>左侧的内容课程自上而下越来越具体：环境 → 决策 → 记录。右侧的 Management 把这一解读转化为实际选择（Global、Strategy）与组织执行（HSC）。统计从下方检验每一层，LGST 则将整体包裹为任何决策都不能逾越的责任边界。实线箭头表示直接因果；虚线表示宏观绕过微观、直接牵动会计数字。</figcaption>
+  </figure>
+
+  <figure>
+    <div class="jeyebrow">Figure 2 · 一个事件贯穿全部六门课程</div>
+    <div class="jscroll">
+    <svg viewBox="0 0 1080 262" role="img" aria-label="A Fed rate hike passes through Macro, Micro, Accounting, Statistics and Management to reach the firm's response, with LGST questioning the responsibility of that response">
+      <rect x="18" y="40" width="180" height="84" rx="6" fill="var(--macro-soft)" stroke="var(--macro)" stroke-width="1.5"/>
+      <text x="108" y="66" text-anchor="middle" font-size="13.5" font-weight="600" fill="currentColor">美联储加息</text>
+      <text x="108" y="86" text-anchor="middle" font-size="12" fill="currentColor">美元走强，需求走弱</text>
+      <text x="108" y="144" text-anchor="middle" font-size="11" class="mono" fill="var(--macro)">MACRO</text>
+
+      <line x1="198" y1="82" x2="230" y2="82" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+
+      <rect x="234" y="40" width="180" height="84" rx="6" fill="var(--micro-soft)" stroke="var(--micro)" stroke-width="1.5"/>
+      <text x="324" y="66" text-anchor="middle" font-size="13.5" font-weight="600" fill="currentColor">客户 WTP↓ · 对手反应</text>
+      <text x="324" y="86" text-anchor="middle" font-size="12" fill="currentColor">我方价格与销量的逻辑</text>
+      <text x="324" y="144" text-anchor="middle" font-size="11" class="mono" fill="var(--micro)">MICRO</text>
+
+      <line x1="414" y1="82" x2="446" y2="82" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+
+      <rect x="450" y="40" width="180" height="84" rx="6" fill="var(--acct-soft)" stroke="var(--acct)" stroke-width="1.5"/>
+      <text x="540" y="66" text-anchor="middle" font-size="13.5" font-weight="600" fill="currentColor">记入 P&amp;L</text>
+      <text x="540" y="86" text-anchor="middle" font-size="12" fill="currentColor">折算营收↓ · 利润率 · 现金</text>
+      <text x="540" y="144" text-anchor="middle" font-size="11" class="mono" fill="var(--acct)">ACCOUNTING</text>
+
+      <line x1="630" y1="82" x2="662" y2="82" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+
+      <rect x="666" y="40" width="180" height="84" rx="6" fill="var(--stat-soft)" stroke="var(--stat)" stroke-width="1.5"/>
+      <text x="756" y="66" text-anchor="middle" font-size="13.5" font-weight="600" fill="currentColor">利率每变 1 个点，盈利变多少？</text>
+      <text x="756" y="86" text-anchor="middle" font-size="12" fill="currentColor">用回归估计，再做检验</text>
+      <text x="756" y="144" text-anchor="middle" font-size="11" class="mono" fill="var(--stat)">STATISTICS</text>
+
+      <line x1="846" y1="82" x2="878" y2="82" stroke="currentColor" stroke-width="1.5" marker-end="url(#arw)"/>
+
+      <rect x="882" y="40" width="180" height="84" rx="6" fill="var(--mgmt-soft)" stroke="var(--mgmt)" stroke-width="1.5"/>
+      <text x="972" y="66" text-anchor="middle" font-size="13.5" font-weight="600" fill="currentColor">决定并执行应对</text>
+      <text x="972" y="86" text-anchor="middle" font-size="12" fill="currentColor">定价 · 国家组合 · 组织调整</text>
+      <text x="972" y="144" text-anchor="middle" font-size="11" class="mono" fill="var(--mgmt)">MANAGEMENT</text>
+
+      <!-- LGST check -->
+      <line x1="18" y1="176" x2="1062" y2="176" stroke="var(--lgst)" stroke-width="1.5" stroke-dasharray="8 5"/>
+      <line x1="1040" y1="124" x2="1040" y2="172" stroke="var(--lgst)" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="18" y="200" font-size="13" font-weight="600" fill="var(--lgst)">LGST <tspan class="mono" font-size="11.5" font-weight="500">check</tspan></text>
+      <text x="18" y="220" font-size="12" fill="currentColor">这一应对——裁员、价格转嫁、供应链迁移——对股东之外的利益相关者是否站得住脚？这个问题要在决策之中提出，而不是事后。</text>
+      <text x="1062" y="246" text-anchor="end" font-size="12" fill="var(--muted)">若能用三句话讲清这条链条，就一并回答了"为什么是这六门课"</text>
+    </svg>
+    </div>
+    <figcaption>同一事件的每一步分别由哪门课负责。宏观是起因，微观是决策逻辑，会计是结果的记录，统计裁定这一因果是否真实，Management 是实际应对，LGST 则关乎这一应对的正当性。</figcaption>
+  </figure>
+
+  <section>
+    <div class="jeyebrow">各课程一句话总结与关键词汇</div>
+    <div class="jgrid">
+      <div class="jcard" style="--c: var(--acct)">
+        <h3>会计<span class="jtag done">第1学期 ✓</span></h3><span class="jen">Financial Accounting</span>
+        <p>能徒手画出一笔交易如何同时牵动三张报表，就算学到位了。利润不等于现金。</p>
+        <div class="jterms">COGS(销货成本) · GAAP · EBITDA · Accrual(权责发生制) · Depreciation(折旧) · Retained earnings(留存收益) · Gross margin(毛利率) · Working capital(营运资金)</div>
+      </div>
+      <div class="jcard" style="--c: var(--stat)">
+        <h3>统计<span class="jtag now">第2学期 · 当前</span></h3><span class="jen">Statistics</span>
+        <p>少背公式，多建一棵决策树："这个问题该用哪种检验？"终点是回归。</p>
+        <div class="jterms">p-value · Standard deviation(标准差) ≠ standard error(标准误) · H₀ · Confidence interval(置信区间) · R-squared · Variance(方差) · Outlier(离群值) · Correlation ≠ causation(相关不等于因果)</div>
+      </div>
+      <div class="jcard" style="--c: var(--micro)">
+        <h3>微观经济<span class="jtag done">第1学期 ✓</span></h3><span class="jen">Managerial Economics</span>
+        <p>自己动手画图——分清需求曲线的移动与沿曲线的移动。代数推得太快时，图就是你的防线。</p>
+        <div class="jterms">Marginal(边际) · Sunk cost(沉没成本) · Opportunity cost(机会成本) · Elasticity(弹性) · Willingness to pay(支付意愿) · Oligopoly(寡头) · Nash equilibrium(纳什均衡) · Price discrimination(价格歧视，无贬义)</div>
+      </div>
+      <div class="jcard" style="--c: var(--macro)">
+        <h3>宏观经济<span class="jtag now">第2学期 · 当前</span></h3><span class="jen">Macroeconomics</span>
+        <p>搭好一条因果链——Fed 决策 → 利率 → 汇率 → 自己公司的业绩——再把课上的所有内容挂到这条链上。</p>
+        <div class="jterms">The Fed(美联储) · Federal funds rate(联邦基金利率) · Inflation / deflation / disinflation(通胀/通缩/通胀放缓) · Real vs. nominal(实际 vs. 名义) · QE · Yield curve(收益率曲线) · Currency appreciation / depreciation(货币升值/贬值，与会计的 depreciation 不同)</div>
+      </div>
+      <div class="jcard" style="--c: var(--mgmt)">
+        <h3>Management<span class="jtag done">第1学期 ✓</span></h3><span class="jen">Strategy · HSC · Global</span>
+        <p>Strategy 把微观的"为什么"与会计的"成绩单"绑成竞争优势的逻辑；Global 把宏观的国家差异转化为进入与运营选择；HSC 则通过人与组织执行这些选择。三者合为一门课的原因：没有决策（Strategy）就没有执行（HSC），没有国界（Global）就谈不上战略。</p>
+        <div class="jterms">Competitive advantage(竞争优势) · Porter's five forces · Value creation vs. value capture(价值创造 vs. 价值获取) · Core competence(核心能力) · Entry mode(进入模式) · Liability of foreignness(外来者劣势) · Psychological safety(心理安全) · Social capital(关系网络中的资源，而非"拉关系")</div>
+      </div>
+      <div class="jcard" style="--c: var(--lgst)">
+        <h3>LGST<span class="jtag now">第2学期 · 当前</span></h3><span class="jen">Responsibility in Business</span>
+        <p>其他课程教你如何取胜；这门课追问的是：在取胜的同时，你对谁负责、负什么责。合规（compliance）是底线，伦理与利益相关者责任是底线之上的判断。每个案例的核心训练："合法，但对吗？"</p>
+        <div class="jterms">Stakeholder(利益相关者) vs. Shareholder(股东) · Fiduciary duty(受托责任) · Compliance ≠ Ethics(合规不等于伦理) · Corporate social responsibility (CSR) · ESG · Whistleblowing(举报) · Conflict of interest(利益冲突) · Duty of care / loyalty(注意义务/忠实义务)</div>
+      </div>
+    </div>
+  </section>
+</div></div>
+  </div>
 
   <div class="examcheer" id="examCheer" hidden></div>
 
@@ -577,6 +1300,27 @@ function applyBold(root){
   for(const node of hits) node.parentNode.replaceChild(build(node.nodeValue), node);
 }
 
+const JOURNEY_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 110" role="img" aria-label="WEMBA journey: term 2 of 6, you are here"><rect x="0" y="0" width="300" height="110" rx="12" fill="#f8f1e2"/><g stroke="#2b2320" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M20 88 C60 84 80 92 124 88 C160 85 190 91 228 88 C250 86 265 89 280 88" stroke-dasharray="3 5"/><circle cx="20" cy="88" r="4.5" fill="#2b2320"/><circle cx="124" cy="88" r="4.5" fill="#fffdf6"/><circle cx="176" cy="88" r="4.5" fill="#fffdf6"/><circle cx="228" cy="88" r="4.5" fill="#fffdf6"/><circle cx="280" cy="88" r="4.5" fill="#fffdf6"/><path d="M280 84 L280 58"/><path d="M280 58 L297 64 L280 70 Z" fill="#f2a9c4"/><g transform="translate(43.2,15.7) scale(0.32)"><ellipse cx="90" cy="92" rx="22" ry="24" fill="#3a2e28"/><path d="M107 102 C118 108 122 124 117 140 C112 128 108 116 103 110 Z" fill="#3a2e28"/><circle cx="107" cy="107" r="2.6" fill="#f2a9c4" stroke-width="1.1"/><ellipse cx="90" cy="102" rx="18" ry="20" fill="#fdf6ea"/><path d="M90 82 L90 87" stroke-width="1.3"/><path d="M76 96 C78 94 82 93 85 94" stroke-width="1.3"/><path d="M95 94 C98 93 102 94 104 96" stroke-width="1.3"/><path d="M79 104 C81 107 85 107 87 104" stroke-width="1.6"/><path d="M93 104 C95 107 99 107 101 104" stroke-width="1.6"/><path d="M86 114 C89 117 91 117 94 114" stroke-width="1.5"/><circle cx="77" cy="110" r="3" fill="#f4b8c8" stroke="none" opacity="0.75"/><circle cx="103" cy="110" r="3" fill="#f4b8c8" stroke="none" opacity="0.75"/><path d="M72 128 C62 132 60 148 62 178 L118 178 C120 148 118 132 108 128 C100 124 80 124 72 128 Z" fill="#7ba05b"/><path d="M84 128 C87 133 93 133 96 128" stroke="#c9a227" stroke-width="1.2"/><circle cx="90" cy="134" r="1.6" fill="#c9a227" stroke="none"/><path d="M70 134 C60 140 54 150 52 160" stroke="#7ba05b" stroke-width="6.5"/><circle cx="51" cy="163" r="4.2" fill="#fdf6ea" stroke-width="1.4"/><path d="M110 132 C122 124 132 112 138 102" stroke="#7ba05b" stroke-width="6.5"/><circle cx="141" cy="99" r="4.2" fill="#fdf6ea" stroke-width="1.4"/><path d="M80 178 L78 222 M100 178 L102 222"/><ellipse cx="74" cy="226" rx="8" ry="3.6" fill="#2b2320" stroke="none"/><ellipse cx="106" cy="226" rx="8" ry="3.6" fill="#2b2320" stroke="none"/></g><path d="M118 22 C108 24 100 30 94 40" stroke="#c14e78" stroke-width="2"/><path d="M94 40 L93 32 M94 40 L101 37" stroke="#c14e78" stroke-width="2"/></g><text x="122" y="24" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#c14e78">here</text></svg>`;
+function renderCoreMap(){
+  const a = document.getElementById("coreMap"); const C = DATA.coreMap;
+  if(!a || !C){ if(a) a.hidden = true; return; }
+  a.title = L(C.label) + " · " + L(C.termLabel);
+  a.innerHTML =
+    JOURNEY_SVG +
+    `<span class="cm-body">` +
+      `<span class="cm-title">${L(C.label)}</span>` +
+      `<span class="cm-term">${L(C.termLabel)}</span>` +
+    `</span>` +
+    `<span class="cm-arrow">↗</span>`;
+  a.hidden = false;
+  const jt = document.getElementById("journeyTitle"); if(jt) jt.innerHTML = `${L(C.label)}<small>${L(C.termLabel)}</small>`;
+  document.querySelectorAll("#journey .jmap").forEach(m=> m.hidden = (m.dataset.lang !== (lang==="cn"?"cn":lang==="en"?"en":"kr")));
+}
+function openJourney(){ document.getElementById("journey").hidden=false; document.body.style.overflow="hidden"; document.getElementById("journey").scrollTop=0; }
+function closeJourney(){ document.getElementById("journey").hidden=true; document.body.style.overflow=""; }
+document.getElementById("coreMap").addEventListener("click", openJourney);
+document.getElementById("journeyClose").addEventListener("click", closeJourney);
+document.addEventListener("keydown", e=>{ if(e.key==="Escape" && !document.getElementById("journey").hidden) closeJourney(); });
 function render(){
   document.documentElement.lang = lang==="kr"?"ko":(lang==="cn"?"zh":"en");
   document.querySelectorAll(".toggle.lang button").forEach(b=> b.classList.toggle("on", b.dataset.lang===lang));
@@ -600,6 +1344,7 @@ function render(){
   safe("examCheer",  renderExamCheer);
   safe("kickoff",    renderKickoff);
   safe("notice",     renderNotice);
+  safe("coreMap",    renderCoreMap);
   safe("prep",       renderPrep);
   safe("deadlines",  ()=>renderDeadlines(sorted));
   safe("schedule",   renderSchedule);
