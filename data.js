@@ -12,7 +12,7 @@
 const DATA = {
   "meta": {
     "cohort": "WEMBA 52",
-    "lastUpdated": "2026-10-01",
+    "lastUpdated": "2026-10-07",
     "author": "Sally",
     "tzLabel": "PT",
     "cheerOverride": {
@@ -26,18 +26,18 @@ const DATA = {
   },
   "prep": {
     "window": {
-      "kr": "10/1(목) → 10/8–10 수업 주말",
-      "en": "Thu Oct 1 → the Oct 8–10 class weekend",
-      "cn": "10/1(周四)→ 10/8–10 上课周末"
+      "kr": "10/7(수) → 10/8–10 수업 주말",
+      "en": "Wed Oct 7 → the Oct 8–10 class weekend",
+      "cn": "10/7(周三)→ 10/8–10 上课周末"
     },
     "note": {
-      "kr": "**10/8(목)~10(토) 공식 시간표가 나왔습니다**(아래 일정표). 마감 순서: **10/4 FNCE Quiz #2 → 10/8 FNCE 중간 9:30 · LGST 슬라이드 17:00 · STAT Quiz 2 20:59 → 10/9 블록위크 ADD 9:00 · Bootcamp 등록 12:00 · STAT HW2 23:59**. ⚠️ 블록위크 ADD 마감은 **10/5 가 아니라 10/9(금)** 입니다(학교 안내 PDF 기준 정정).",
-      "en": "**The official Oct 8–10 schedule is out** (timetable below). Deadlines in order: **Oct 4 FNCE Quiz #2 → Oct 8 FNCE midterm 9:30 · LGST slides 5 PM · STAT Quiz 2 8:59 PM → Oct 9 block week ADD 9 AM · Bootcamp sign-up noon · STAT HW2 11:59 PM**. ⚠️ The block week ADD deadline is **Fri Oct 9, not Oct 5** (corrected per the school's instructions PDF).",
-      "cn": "**10/8(周四)~10(周六)正式课表已发布**(见下方课表)。截止顺序:**10/4 FNCE Quiz #2 → 10/8 FNCE 期中 9:30 · LGST 幻灯片 17:00 · STAT Quiz 2 20:59 → 10/9 Block Week 加课 9:00 · Bootcamp 报名 12:00 · STAT HW2 23:59**。⚠️ Block Week 加课截止是 **10/9(周五),不是 10/5**(依学校说明 PDF 更正)。"
+      "kr": "⚠️ **STAT Quiz 2 마감이 10/7(수) 23:59 PT 로 당겨졌습니다**(Canvas 확인 · 10/8 아님). 마감 순서: **10/7 STAT Quiz 2 23:59 → 10/8 FNCE 중간 10:00 정각 · LGST 슬라이드 17:00 → 10/9 블록위크 ADD 9:00 · Bootcamp 등록 12:00 · STAT HW2 23:59**. FNCE 중간은 **10:00 정각 시작** — 그 전에 배정 강의실에 앉아 LockDown Browser 를 설치해 둔 상태로 대기(조식은 9:30 까지) · 블록위크 ADD 는 10/5 가 아니라 **10/9(금)** 입니다.",
+      "en": "⚠️ **STAT Quiz 2 now closes Wed Oct 7, 11:59 PM PT** (per Canvas, not Oct 8). Deadlines in order: **Oct 7 STAT Quiz 2 11:59 PM → Oct 8 FNCE midterm 10:00 AM sharp · LGST slides 5 PM → Oct 9 block week ADD 9 AM · Bootcamp sign-up noon · STAT HW2 11:59 PM**. The FNCE midterm **starts at 10:00 sharp** — be seated in your assigned room before then with the LockDown Browser already installed (breakfast ends at 9:30) · the block week ADD deadline is **Fri Oct 9**, not Oct 5.",
+      "cn": "⚠️ **STAT Quiz 2 截止提前至 10/7(周三)23:59 PT**(以 Canvas 为准,不是 10/8)。截止顺序:**10/7 STAT Quiz 2 23:59 → 10/8 FNCE 期中 10:00 准时 · LGST 幻灯片 17:00 → 10/9 Block Week 加课 9:00 · Bootcamp 报名 12:00 · STAT HW2 23:59**。FNCE 期中 **10:00 准时开始** — 请在此之前到指定教室就座,并已装好 LockDown Browser(早餐供应至 9:30)· Block Week 加课截止是 **10/9(周五)**,不是 10/5。"
     },
     "cards": [
       {
-        "course": "10/1–10/9",
+        "course": "10/7–10/9",
         "color": "#ffb3c7",
         "when": {
           "kr": "이번 주 → 10/9",
@@ -51,27 +51,19 @@ const DATA = {
         },
         "lines": [
           {
-            "icon": "⏰",
-            "text": {
-              "kr": "**10/4(일) 23:59 PT — FNCE Quiz #2 마감**(9/12 부터 열려 있음, 3회 시도·최고점·AI 허용 · 마감 시각에 잠김)",
-              "en": "**Sun Oct 4, 11:59 PM PT — FNCE Quiz #2 due** (open since Sep 12; 3 attempts, best score counts, AI allowed · locks at the deadline)",
-              "cn": "**10/4(周日)23:59 PT — FNCE Quiz #2 截止**(9/12 起开放,3次机会·取最高分·可用 AI · 截止即锁定)"
-            }
-          },
-          {
             "icon": "📊",
             "text": {
-              "kr": "**STAT Quiz 2 — 10/2(금) 23:59 PT 공개 → 10/8(목) 20:59 PT 마감** · 범위 Class 3–4 · 생성 AI 금지 · 10/8 은 일정이 몰리니 **10/7 까지**",
-              "en": "**STAT Quiz 2 — opens Fri Oct 2, 11:59 PM PT → due Thu Oct 8, 8:59 PM PT** · covers Classes 3–4 · no generative AI · Oct 8 is packed, so **finish by Oct 7**",
-              "cn": "**STAT Quiz 2 — 10/2(周五)23:59 PT 开放 → 10/8(周四)20:59 PT 截止** · 范围 Class 3–4 · 禁用生成式 AI · 10/8 日程密集,**最好 10/7 前完成**"
+              "kr": "**STAT Pre-class Quiz 2 — 10/7(수) 23:59 PT 마감**(⚠️ 10/8 20:59 에서 약 21시간 당겨짐 · Canvas 원문 10/8 02:59 ET) · 5점 · 범위 Class 3–4 · 생성 AI 금지",
+              "en": "**STAT Pre-class Quiz 2 — due Wed Oct 7, 11:59 PM PT** (⚠️ moved up about 21 hours from Oct 8, 8:59 PM · Canvas shows Oct 8, 2:59 AM ET) · 5 points · covers Classes 3–4 · no generative AI",
+              "cn": "**STAT Pre-class Quiz 2 — 10/7(周三)23:59 PT 截止**(⚠️ 比原定 10/8 20:59 提前约21小时 · Canvas 原文 10/8 02:59 ET)· 5分 · 范围 Class 3–4 · 禁用生成式 AI"
             }
           },
           {
             "icon": "📝",
             "text": {
-              "kr": "**10/8(목) 9:30 PT — FNCE 중간고사**(9:30–11:30 · 강의실 성별 A–N 660 · P–S 612 · T–Z 615 · LockDown · 손글씨 단면 1장) → **13:00 STAT 두 섹션 합반 Room 660** → 저녁 오프캠퍼스 디너 #1",
-              "en": "**Thu Oct 8, 9:30 AM PT — FNCE midterm** (9:30–11:30 · rooms by last name A–N 660 · P–S 612 · T–Z 615 · LockDown · one handwritten single-sided sheet) → **1 PM joint STAT, Room 660** → off-campus dinner #1 in the evening",
-              "cn": "**10/8(周四)9:30 PT — FNCE 期中**(9:30–11:30 · 按姓氏 A–N 660 · P–S 612 · T–Z 615 · LockDown · 单面手写一张)→ **13:00 STAT 两班合上 Room 660** → 晚上校外晚餐 #1"
+              "kr": "**10/8(목) 10:00 PT 정각 — FNCE 중간고사**(시간표 블록 9:30–11:30 · 10:00 전에 배정 강의실 착석 · 강의실 성별 A–N 660 · O–S 612 · T–Z 615 · ⚠️ **LockDown Browser 미리 설치·테스트, 없으면 응시 불가** · 손글씨 단면 1장) → **13:00 STAT 두 섹션 합반 Room 660** → 저녁 오프캠퍼스 디너 #1",
+              "en": "**Thu Oct 8, 10:00 AM PT sharp — FNCE midterm** (9:30–11:30 block on the timetable · be seated in your assigned room before 10:00 · rooms by last name A–N 660 · O–S 612 · T–Z 615 · ⚠️ **install and test the LockDown Browser beforehand; without it you cannot sit the exam** · one handwritten single-sided sheet) → **1 PM joint STAT, Room 660** → off-campus dinner #1 in the evening",
+              "cn": "**10/8(周四)10:00 PT 准时 — FNCE 期中**(课表时段 9:30–11:30 · 10:00 前到指定教室就座 · 按姓氏 A–N 660 · O–S 612 · T–Z 615 · ⚠️ **提前安装并测试 LockDown Browser,否则无法参加考试** · 单面手写一张)→ **13:00 STAT 两班合上 Room 660** → 晚上校外晚餐 #1"
             }
           },
           {
@@ -120,43 +112,35 @@ const DATA = {
         "course": "FNCE",
         "color": "#0b051d",
         "when": {
-          "kr": "지금 → 10/4 · 10/8(목) 9:30",
-          "en": "Now → Oct 4 · Thu Oct 8, 9:30",
-          "cn": "现在 → 10/4 · 10/8(周四)9:30"
+          "kr": "지금 → 10/8(목) 10:00 정각",
+          "en": "Now → Thu Oct 8, 10:00 sharp",
+          "cn": "现在 → 10/8(周四)10:00 准时"
         },
         "badge": {
-          "kr": "Quiz #2 + 중간 준비",
-          "en": "Quiz #2 + midterm prep",
-          "cn": "Quiz #2 + 期中准备"
+          "kr": "중간고사 준비",
+          "en": "Midterm prep",
+          "cn": "期中准备"
         },
         "lines": [
           {
-            "icon": "⏰",
-            "text": {
-              "kr": "**Quiz #2 가 9/12 에 열렸습니다 → 10/4(일) 23:59 PT 마감** · 범위 노동시장·소비·저축·투자(L5–7) · 3회 시도 · 최고점 반영 · AI·팀 협업 허용",
-              "en": "**Quiz #2 opened on Sep 12 → due Sun Oct 4, 11:59 PM PT** · covers the labor market, consumption, saving and investment (L5–7) · three attempts, highest counts · AI and teamwork allowed",
-              "cn": "**Quiz #2 已于 9/12 开放 → 10/4(周日)23:59 PT 截止** · 范围劳动力市场·消费·储蓄·投资(L5–7)· 3次机会取最高 · 允许 AI 与协作"
-            }
-          },
-          {
             "icon": "📝",
             "text": {
-              "kr": "**중간고사 10/8(목) 9:30–11:30 블록**(교수 슬라이드는 10:00 시작·약 90분) · 강의실 **성 A–N 660 · P–S 612 · T–Z 615** — 객관식 ~30 + 에세이 1~2(\"퀴즈 + Practice = 객관식 60, 에세이 2\") · 손글씨 단면 1장 · 기본 계산기 OK, 휴대폰 ✕ · 재응시 없음",
-              "en": "**Midterm Thu Oct 8, 9:30–11:30 block** (the professor's slide: starts 10:00, ~90 min) · rooms by **last name A–N 660 · P–S 612 · T–Z 615** — ~30 multiple choice + 1–2 essays (\"quizzes + practice = 60 MC, 2 essays\") · one handwritten single-sided sheet · basic calculator OK, no phone · no retakes",
-              "cn": "**期中 10/8(周四)9:30–11:30 时段**(教授幻灯片:10:00 开始,约90分钟)· 教室**按姓氏 A–N 660 · P–S 612 · T–Z 615** — 约30道选择 + 1~2道论述(\"测验 + 模拟 = 60道选择、2道论述\")· 单面手写一张 · 基本计算器可,手机不可 · 不得重考"
+              "kr": "**중간고사 10/8(목) 10:00 PT 정각 시작**(시간표 블록 9:30–11:30 · 10:00 전에 배정 강의실 착석, LockDown 설치 완료 상태로 대기 · 조식은 9:30 까지) · 강의실 **성 A–N 660 · O–S 612 · T–Z 615**(교수 10/6 공지 기준) — 객관식 ~30 + 에세이 1~2(\"퀴즈 + Practice = 객관식 60, 에세이 2\") · 손글씨 단면 1장(뒷면은 계산용 OK) · 기본 계산기 OK(Canvas 안에도 있음), 휴대폰 ✕ · 재응시 없음",
+              "en": "**Midterm Thu Oct 8, starts 10:00 AM PT sharp** (9:30–11:30 block on the timetable · be seated in your assigned room with LockDown installed before 10:00 · breakfast ends at 9:30) · rooms by **last name A–N 660 · O–S 612 · T–Z 615** (per the professor's Oct 6 announcement) — ~30 multiple choice + 1–2 essays (\"quizzes + practice = 60 MC, 2 essays\") · one handwritten single-sided sheet (the back is fine for scratch work) · basic calculator OK (Canvas also has one), no phone · no retakes",
+              "cn": "**期中 10/8(周四)10:00 PT 准时开始**(课表时段 9:30–11:30 · 10:00 前到指定教室就座并装好 LockDown · 早餐供应至 9:30)· 教室**按姓氏 A–N 660 · O–S 612 · T–Z 615**(以教授 10/6 公告为准)— 约30道选择 + 1~2道论述(\"测验 + 模拟 = 60道选择、2道论述\")· 单面手写一张(背面可作演算)· 基本计算器可(Canvas 内也有),手机不可 · 不得重考"
             },
             "sub": {
-              "kr": "준비 5종: ① LockDown 연습퀴즈 ② Practice Midterm 재풀이(Canvas 퀴즈 형식 + PDF, 정답은 `Midterm Practice … AK.pdf`; Essay 2(AI)는 해설이 없으니 자습) ③ L7 슬라이드 44 의 복습질문 7개 ④ 각 덱 뒤 복습질문 ⑤ Quiz #1 문항·정답 재검토(`Q1 … AK.pdf`) · 선택: Jones 각 장 연습문제(해답 `Jones5_answers.pdf`)",
-              "en": "Five-step prep: ① the LockDown practice quiz ② redo the practice midterm (Canvas quiz format plus PDFs; answers in `Midterm Practice … AK.pdf`; Essay 2 on AI has no key, so self-study) ③ the seven review questions on L7 slide 44 ④ the review questions at the end of each deck ⑤ re-check Quiz #1 questions and answers (`Q1 … AK.pdf`) · optional: Jones end-of-chapter problems (`Jones5_answers.pdf`)",
-              "cn": "五步准备:① LockDown 练习测验 ② 重做模拟期中(Canvas 测验形式 + PDF,答案在 `Midterm Practice … AK.pdf`;Essay 2(AI)无解析,自学)③ L7 第44页的7道复习题 ④ 各讲末的复习题 ⑤ 复核 Quiz #1 题目与答案(`Q1 … AK.pdf`)· 可选:Jones 各章练习(答案 `Jones5_answers.pdf`)"
+              "kr": "준비 5종: ① LockDown 연습퀴즈 ② Practice Midterm 재풀이(Canvas 퀴즈 형식 + PDF, 정답은 `Midterm Practice … AK.pdf`; Essay 2(AI)는 해설이 없으니 자습) ③ L7 슬라이드 44 의 복습질문 7개 ④ 각 덱 뒤 복습질문 ⑤ Quiz #1·#2 문항·정답 재검토(`Q1 … AK.pdf` · `Q2 AK …pdf`) · 선택: Jones 각 장 연습문제(해답 `Jones5_answers.pdf`)",
+              "en": "Five-step prep: ① the LockDown practice quiz ② redo the practice midterm (Canvas quiz format plus PDFs; answers in `Midterm Practice … AK.pdf`; Essay 2 on AI has no key, so self-study) ③ the seven review questions on L7 slide 44 ④ the review questions at the end of each deck ⑤ re-check Quiz #1 and #2 questions and answers (`Q1 … AK.pdf`, `Q2 AK …pdf`) · optional: Jones end-of-chapter problems (`Jones5_answers.pdf`)",
+              "cn": "五步准备:① LockDown 练习测验 ② 重做模拟期中(Canvas 测验形式 + PDF,答案在 `Midterm Practice … AK.pdf`;Essay 2(AI)无解析,自学)③ L7 第44页的7道复习题 ④ 各讲末的复习题 ⑤ 复核 Quiz #1·#2 题目与答案(`Q1 … AK.pdf` · `Q2 AK …pdf`)· 可选:Jones 各章练习(答案 `Jones5_answers.pdf`)"
             }
           },
           {
             "icon": "🎥",
             "text": {
-              "kr": "**모든 수업 녹화가 10/5(월) 에 Canvas ▸ Class Recordings 에 일괄 공개**됩니다(중간 3일 전) · 그 전에는 결석 사유가 인정된 사람에게만 · 개인 학습용, 공유 금지",
-              "en": "**All class recordings are released on Canvas ▸ Class Recordings on Mon Oct 5**, three days before the midterm · before that only students with an excused absence get access · personal study only, no sharing",
-              "cn": "**所有课堂录像将于 10/5(周一)在 Canvas ▸ Class Recordings 统一公开**(期中前三天)· 此前仅限获准缺席者 · 仅供个人学习,禁止分享"
+              "kr": "✅ **수업 녹화가 Canvas ▸ Class Recordings 에 공개됐습니다**(10/5) · 과목 홈페이지에 **Quiz 1·2 문제 PDF + 정답** · 개인 학습용, 공유 금지",
+              "en": "✅ **Class recordings are up under Canvas ▸ Class Recordings** (Oct 5) · **Quiz 1 and 2 PDFs with answer keys** are on the course home page · personal study only, no sharing",
+              "cn": "✅ **课堂录像已在 Canvas ▸ Class Recordings 公开**(10/5)· 课程主页有 **Quiz 1·2 题目 PDF 及答案** · 仅供个人学习,禁止分享"
             }
           }
         ]
@@ -165,9 +149,9 @@ const DATA = {
         "course": "STAT",
         "color": "#8e8a99",
         "when": {
-          "kr": "10/2 → 10/8 · 10/9",
-          "en": "Oct 2 → Oct 8 · Oct 9",
-          "cn": "10/2 → 10/8 · 10/9"
+          "kr": "10/2 → 10/7 · 10/9",
+          "en": "Oct 2 → Oct 7 · Oct 9",
+          "cn": "10/2 → 10/7 · 10/9"
         },
         "badge": {
           "kr": "Quiz 2 + HW2",
@@ -199,9 +183,9 @@ const DATA = {
           {
             "icon": "⏰",
             "text": {
-              "kr": "**Quiz 2 — 10/2(금) 23:59 PT 공개 → 10/8(목) 20:59 PT 마감**(Canvas · 실라버스의 10/7 아님) · 5점 · 범위 Class 3–4 · 🤖 생성 AI 금지",
-              "en": "**Quiz 2 — opens Fri Oct 2, 11:59 PM PT → due Thu Oct 8, 8:59 PM PT** (Canvas, not the syllabus's Oct 7) · 5 points · Classes 3–4 · 🤖 no generative AI",
-              "cn": "**Quiz 2 — 10/2(周五)23:59 PT 开放 → 10/8(周四)20:59 PT 截止**(以 Canvas 为准,非大纲的 10/7)· 5分 · 范围 Class 3–4 · 🤖 禁用生成式 AI"
+              "kr": "**Pre-class Quiz 2 — 10/7(수) 23:59 PT 마감**(⚠️ Canvas 마감이 당겨져 실라버스 날짜와 같아졌습니다 · 원문 10/8 02:59 ET) · 5점 · 범위 Class 3–4(신뢰구간·샘플링·가설검정·two-sample·Wilcoxon·paired) · 🤖 생성 AI 금지",
+              "en": "**Pre-class Quiz 2 — due Wed Oct 7, 11:59 PM PT** (⚠️ Canvas moved it up to match the syllabus date · ET original Oct 8, 2:59 AM) · 5 points · Classes 3–4 (confidence intervals, sampling, hypothesis tests, two-sample, Wilcoxon, paired) · 🤖 no generative AI",
+              "cn": "**Pre-class Quiz 2 — 10/7(周三)23:59 PT 截止**(⚠️ Canvas 截止已提前,与大纲日期一致 · 东部时间原文 10/8 02:59)· 5分 · 范围 Class 3–4(置信区间·抽样·假设检验·two-sample·Wilcoxon·paired)· 🤖 禁用生成式 AI"
             }
           },
           {
@@ -220,9 +204,9 @@ const DATA = {
           {
             "icon": "🧑‍🏫",
             "text": {
-              "kr": "**Pras 헬프 세션**(East·West 합동 Zoom) — Session 4(가설검정)는 9/30 진행·녹화 공유 · 다음은 Wilcoxon·상관/공분산, 그다음 기출 풀이(날짜 미정) · 링크는 Stats & Pras 왓츠앱",
-              "en": "**Pras help sessions** (joint East/West Zoom) — Session 4 (hypothesis testing) ran Sep 30 and the recording is shared · next: Wilcoxon and correlation/covariance, then past-exam walkthroughs (dates TBD) · links in the Stats & Pras WhatsApp group",
-              "cn": "**Pras 辅导课**(东西部合并 Zoom)— 第4次(假设检验)9/30 已上,录像已分享 · 下次讲 Wilcoxon 与相关/协方差,之后讲历年真题(日期待定)· 链接见 Stats & Pras WhatsApp 群"
+              "kr": "**Pras 헬프 세션**(East·West 합동 Zoom) — Session 4(가설검정) 9/30 · **Session 5(중간고사 리뷰: 10/6 실전 시험 한 세트를 같이 풂)** 녹화·연습문제 PDF 공유(10/7) · 링크는 Stats & Pras 왓츠앱",
+              "en": "**Pras help sessions** (joint East/West Zoom) — Session 4 (hypothesis testing) Sep 30 · **Session 5 (midterm review: a full practice exam worked together on Oct 6)** recording and practice-problem PDF shared Oct 7 · links in the Stats & Pras WhatsApp group",
+              "cn": "**Pras 辅导课**(东西部合并 Zoom)— 第4次(假设检验)9/30 · **第5次(期中复习:10/6 一起做了一整套模拟考)** 录像与练习题 PDF 已于 10/7 分享 · 链接见 Stats & Pras WhatsApp 群"
             },
             "sub": {
               "kr": "시험 팁(Pras): p-value 정의는 거의 매년 출제 · 비정규분포에 경험법칙(68–95–99.7)을 적용하게 만드는 함정 · t 계산엔 JMP 의 SE 를 그대로 · JMP 의 \"Prob > F\" 도 p-value · 상관도 중간고사 범위",
@@ -289,6 +273,36 @@ const DATA = {
   },
   "notice": null,
   "changelog": [
+    {
+      "date": "2026-10-07",
+      "items": [
+        {
+          "kr": "⚠️ **STAT Quiz 2 마감이 10/7(수) 23:59 PT 로 당겨졌습니다**(Canvas 10/4·10/7 확인, 원문 10/8 02:59 ET) — 기존 표기 10/8 20:59 보다 약 21시간 빠릅니다 · Canvas 이름 \"Pre-class Quiz 2\" · 마감 목록·준비 카드·STAT 카드·일정표 모두 수정",
+          "en": "⚠️ **STAT Quiz 2 now closes Wed Oct 7, 11:59 PM PT** (checked on Canvas Oct 4 and Oct 7; ET original Oct 8, 2:59 AM) — about 21 hours earlier than the Oct 8, 8:59 PM shown before · named \"Pre-class Quiz 2\" on Canvas · fixed in the deadline list, prep cards, STAT card and timetable",
+          "cn": "⚠️ **STAT Quiz 2 截止提前至 10/7(周三)23:59 PT**(10/4·10/7 Canvas 核实,东部时间原文 10/8 02:59)— 比此前标注的 10/8 20:59 早约21小时 · Canvas 名称 \"Pre-class Quiz 2\" · 截止列表、准备卡、STAT 卡、课表均已更正"
+        },
+        {
+          "kr": "⏰ **FNCE 중간고사는 10/8(목) 10:00 정각 시작**(Cohort Communication 10/7 공지) — 10:00 전에 배정 강의실 착석, LockDown 설치 완료 상태로 대기 · 조식은 9:30 까지 · 🚪 강의실 **O–S = 612**(교수 10/6 공지 기준, 학교 일정표 표기 정정) · A–N 660 · T–Z 615",
+          "en": "⏰ **The FNCE midterm starts at 10:00 sharp on Thu Oct 8** (Cohort Communication, Oct 7) — be seated in your assigned room before 10:00 with LockDown installed · breakfast ends at 9:30 · 🚪 room **O–S = 612** (per the professor's Oct 6 announcement, correcting the school schedule) · A–N 660 · T–Z 615",
+          "cn": "⏰ **FNCE 期中 10/8(周四)10:00 准时开始**(10/7 Cohort Communication 公告)— 10:00 前到指定教室就座并装好 LockDown · 早餐供应至 9:30 · 🚪 教室 **O–S = 612**(以教授 10/6 公告为准,更正学校课表写法)· A–N 660 · T–Z 615"
+        },
+        {
+          "kr": "📝 **FNCE 시험 규칙 보강**(교수 10/6 공지) — **LockDown 은 목요일 전에 설치·테스트, 없으면 응시 불가**(문의 courseware@wharton.upenn.edu) · 노트 뒷면은 계산용 OK, 연습지 별도 제공 · Canvas 안에도 계산기 · macOS 를 업그레이드했다면 Rosetta 가 필요할 수 있음(동기 제보) · Files 에 Quiz 2 문제·정답(10/5)",
+          "en": "📝 **FNCE exam rules filled in** (professor, Oct 6) — **install and test LockDown before Thursday; without it you cannot take the exam** (help: courseware@wharton.upenn.edu) · the back of your sheet is fine for calculations, and scratch paper is provided · Canvas has a built-in calculator · after a macOS upgrade LockDown may need Rosetta (classmate tip) · Quiz 2 questions and key in Files (Oct 5)",
+          "cn": "📝 **补充 FNCE 考试规则**(教授 10/6 公告)— **周四前务必安装并测试 LockDown,没有则无法应考**(咨询 courseware@wharton.upenn.edu)· 笔记背面可作演算,另发草稿纸 · Canvas 内置计算器 · 升级过 macOS 的话 LockDown 可能需要 Rosetta(同学提醒)· Files 新增 Quiz 2 题目与答案(10/5)"
+        },
+        {
+          "kr": "📊 **STAT HW1 채점 공개**(평균 13.43 / 16) · 해설·분포 파일(10/5) · Pras Session 5(중간고사 리뷰) 녹화·연습문제 공유(10/7) · 🪔 Diwali 드링크 티켓은 목 아침부터 프런트 데스크 옆 Credenza · 🍽 디너 #1 Greenphire 크레딧 사용 안내는 Cohort Communication",
+          "en": "📊 **STAT HW1 grades are out** (mean 13.43 / 16) · solutions and distribution files (Oct 5) · Pras's Session 5 (midterm review) recording and practice problems shared (Oct 7) · 🪔 Diwali drink tickets at the credenza by the front desk from Thursday morning · 🍽 how to use the dinner #1 Greenphire credit: see Cohort Communication",
+          "cn": "📊 **STAT HW1 成绩公布**(平均 13.43 / 16)· 答案与分布文件(10/5)· Pras 第5次辅导(期中复习)录像与练习题已分享(10/7)· 🪔 排灯节饮品券周四上午起在前台旁边柜领取 · 🍽 晚餐 #1 Greenphire 额度使用说明见 Cohort Communication"
+        },
+        {
+          "kr": "➕ 새 일정 — **10/8 Len Lodish 교수 어드바이징 신청**(SignUpGenius, 자리 소수) · **10/10 SF 코호트 본파이어**(토 수업 후) · **10/19–21 Cloudflare Connect**(와튼 학생 무료) · 🗑 지난 FNCE Quiz #2(10/4)·AI for Nonprofits(10/6) 삭제",
+          "en": "➕ New dates — **Oct 8: sign up for advising with Prof. Len Lodish** (SignUpGenius, few slots) · **Oct 10: SF cohort bonfire** (after Saturday class) · **Oct 19–21: Cloudflare Connect** (free for Wharton students) · 🗑 removed the past FNCE Quiz #2 (Oct 4) and AI for Nonprofits (Oct 6)",
+          "cn": "➕ 新日程 — **10/8 Len Lodish 教授咨询报名**(SignUpGenius,名额少)· **10/10 SF 班篝火聚会**(周六课后)· **10/19–21 Cloudflare Connect**(沃顿学生免费)· 🗑 删除已过的 FNCE Quiz #2(10/4)与 AI for Nonprofits(10/6)"
+        }
+      ]
+    },
     {
       "date": "2026-10-01",
       "items": [
@@ -711,8 +725,7 @@ const DATA = {
         "kr": "⚠️ **정정: 11/23 이 아니라 11/27(금)** — 학교 Add/Drop 안내 PDF 기준 · OIDD 6140 Innovation(SFO, 9 AM PT) · HCMG 8600(PHL, 9 AM ET = 6 AM PT) · P/F·DROP 12/1 · ⚠️ **Innovation 은 대기 71명**이고 **Audit 도 불가** — 이 시각까지 자리가 안 나면 수강 불가 · 📄 OIDD 6140 SF CMQ 가 Cohort Communication ▸ Files 에(10/1 갱신)",
         "en": "⚠️ **Correction: Fri Nov 27, not Nov 23** — per the school's Add/Drop instructions PDF · OIDD 6140 Innovation (SFO, 9 AM PT) · HCMG 8600 (PHL, 9 AM ET = 6 AM PT) · P/F and DROP Dec 1 · ⚠️ **Innovation has 71 on the waitlist** and **no audit** — no seat by then means no course · 📄 the OIDD 6140 SF CMQ is in Cohort Communication ▸ Files (updated Oct 1)",
         "cn": "⚠️ **更正:是 11/27(周五),不是 11/23** — 依据学校 Add/Drop 说明 PDF · OIDD 6140 Innovation(SFO,太平洋时间上午9点)· HCMG 8600(PHL,东部时间上午9点 = 太平洋时间6点)· P/F·退课截止 12/1 · ⚠️ **Innovation 候补71人**且**不可旁听** — 届时无空位即无法修读 · 📄 OIDD 6140 SF 的 CMQ 在 Cohort Communication ▸ Files(10/1 更新)"
-      },
-      "new": true
+      }
     },
     {
       "date": "2026-12-11T09:00",
@@ -727,8 +740,7 @@ const DATA = {
         "kr": "⚠️ **정정: 12/7 이 아니라 12/11(금)** — 학교 Add/Drop 안내 PDF 기준 · LGST 6420 Accountable AI(SFO, Werbach) · P/F·DROP 12/15 · ⚠️ **대기 42명**, **Audit 불가** · 가을 마지막 블록위크",
         "en": "⚠️ **Correction: Fri Dec 11, not Dec 7** — per the school's Add/Drop instructions PDF · LGST 6420 Accountable AI (SFO, Werbach) · P/F and DROP Dec 15 · ⚠️ **42 on the waitlist**, **no audit** · the last fall block week",
         "cn": "⚠️ **更正:是 12/11(周五),不是 12/7** — 依据学校 Add/Drop 说明 PDF · LGST 6420 Accountable AI(SFO,Werbach)· P/F·退课截止 12/15 · ⚠️ **候补42人**,**不可旁听** · 秋季最后一个 Block Week"
-      },
-      "new": true
+      }
     },
     {
       "date": "2026-12-19T09:00",
@@ -762,37 +774,20 @@ const DATA = {
       }
     },
     {
-      "date": "2026-10-04T23:59",
-      "type": "quiz",
-      "course": "FNCE",
-      "hard": true,
-      "new": false,
-      "title": {
-        "kr": "FNCE 6130 Quiz #2",
-        "en": "FNCE 6130 Quiz #2",
-        "cn": "FNCE 6130 Quiz #2"
-      },
-      "detail": {
-        "kr": "범위 **노동시장 · 소비 · 저축 · 투자(L5–7)** · ✅ **9/12 Canvas 에 열렸습니다** → **10/4(일) 23:59 PT** 마감 · 3회 시도 · 최고점 반영 · AI·팀 협업 허용 · Quiz #1 은 채점·정답 PDF 게시 완료",
-        "en": "Covers **the labor market, consumption, saving and investment (L5–7)** · ✅ **open on Canvas since Sep 12** → due **Sun Oct 4, 11:59 PM PT** · three attempts, highest counts · AI and teamwork allowed · Quiz #1 is graded, with the answer key posted",
-        "cn": "范围 **劳动力市场 · 消费 · 储蓄 · 投资(L5–7)** · ✅ **9/12 已在 Canvas 开放** → **10/4(周日)23:59 PT** 截止 · 3次机会取最高 · 允许 AI 与协作 · Quiz #1 已评分并公布答案"
-      }
-    },
-    {
-      "date": "2026-10-08T09:30",
+      "date": "2026-10-08T10:00",
       "type": "exam",
       "course": "FNCE",
       "hard": true,
       "new": true,
       "title": {
-        "kr": "FNCE 6130 중간고사 · 9:30 PT · 강의실은 성(last name)별",
-        "en": "FNCE 6130 Midterm · 9:30 AM PT · room by last name",
-        "cn": "FNCE 6130 期中考试 · 太平洋时间 9:30 · 按姓氏分教室"
+        "kr": "FNCE 6130 중간고사 · 10:00 PT 정각 시작 · 강의실은 성(last name)별",
+        "en": "FNCE 6130 Midterm · starts 10:00 AM PT sharp · room by last name",
+        "cn": "FNCE 6130 期中考试 · 太平洋时间 10:00 准时开始 · 按姓氏分教室"
       },
       "detail": {
-        "kr": "⏰ **주말 시간표: 9:30–11:30 블록** · 강의실은 **성(last name) A–N = 660 · P–S = 612 · T–Z = 615**(일정표에 O 는 빠져 있으니 해당되면 확인) · 교수 슬라이드는 \"10:00 시작, 약 90분\"이었으니 **9:30 까지 착석** · 객관식 ~30 + 에세이 1~2 · 대면 응시하되 **Canvas + LockDown Browser → 노트북 필수** · **클로즈드북**, 손글씨 노트 **단면 1장(8.5×11, 슬라이드 대량 복제 금지)** 과 기본 계산기만, 휴대폰 ✕ · **Practice Midterm + 정답이 Canvas Files 에, 전체 녹화는 10/5 공개** · ⚠️ **재응시·일정 변경 없음** · 기말 성적이 더 좋으면 중간 점수는 버려집니다(보험) · 끝나면 13:00 STAT 합반(Room 660)",
-        "en": "⏰ **Weekend schedule: 9:30–11:30 AM block** · rooms by **last name: A–N = 660 · P–S = 612 · T–Z = 615** (the schedule skips O, so check if that's you) · the professor's slide said \"starts 10:00, about 90 minutes\", so **be seated by 9:30** · ~30 multiple choice + 1–2 essays · in person but **on Canvas + LockDown Browser, so bring a laptop** · **closed book**: one **handwritten single-sided sheet (8.5×11, no mass-copied slides)** and a basic calculator only, no phones · **Practice Midterm + answer key in Canvas Files; all recordings release Oct 5** · ⚠️ **no retakes or rescheduling** · if your final is better, the midterm is dropped (insurance) · afterwards: joint STAT at 1 PM (Room 660)",
-        "cn": "⏰ **周末课表:9:30–11:30 时段** · 教室**按姓氏:A–N = 660 · P–S = 612 · T–Z = 615**(课表漏了 O,姓 O 的同学请确认)· 教授幻灯片写的是\"10:00 开始,约90分钟\",**请 9:30 前就座** · 约30道选择 + 1~2道论述 · 现场考试但**用 Canvas + LockDown Browser,须带笔记本电脑** · **闭卷**:仅限**单面手写笔记一张(8.5×11,禁止大段照抄幻灯片)**和基本计算器,禁用手机 · **Practice Midterm 及答案在 Canvas Files,全部录像 10/5 开放** · ⚠️ **不得重考或改期** · 期末更好则期中成绩舍弃(保险)· 考后 13:00 STAT 合班(Room 660)"
+        "kr": "⏰ **10:00 정각 시작**(Cohort Communication 10/7 공지) — **10:00 전에 배정 강의실에 착석**해 LockDown Browser 를 설치해 둔 상태로 대기 · 조식은 **9:30 까지만** · 시간표 블록은 9:30–11:30 · 강의실은 **성(last name) A–N = 660 · O–S = 612 · T–Z = 615**(교수 10/6 공지 기준) · 객관식 ~30 + 에세이 1~2 · 대면 응시하되 **Canvas + LockDown Browser → 노트북 필수** · ⚠️ **LockDown 은 목요일 전에 내려받아 설치·테스트하세요. 없으면 응시할 수 없습니다**(기술 문제 courseware@wharton.upenn.edu) · 💡 macOS 를 업그레이드했다면 LockDown 에 Rosetta 설치가 필요할 수 있습니다(동기 제보 10/6) — 목요일 전에 Canvas 연습 퀴즈를 LockDown 으로 열어 확인 · **클로즈드북**, 손글씨 노트 **단면 1장(8.5×11, 슬라이드 대량 복제 금지)** — **뒷면은 계산용으로 써도 되고 연습지도 따로 줍니다** · 기본 계산기 OK(**Canvas 안에도 계산기**), 휴대폰 ✕ · 복습: **Practice Midterm + 정답(Files) · Quiz 1·2 PDF + 정답(과목 홈페이지) · 수업 녹화(Class Recordings 탭)** · ⚠️ **재응시·일정 변경 없음** · 기말 성적이 더 좋으면 중간 점수는 버려집니다(보험) · 끝나면 13:00 STAT 합반(Room 660)",
+        "en": "⏰ **Starts at 10:00 sharp** (Cohort Communication, Oct 7) — **be seated in your assigned room before 10:00** with the LockDown Browser already installed · breakfast is served **only until 9:30** · the timetable block is 9:30–11:30 · rooms by **last name: A–N = 660 · O–S = 612 · T–Z = 615** (per the professor's Oct 6 announcement) · ~30 multiple choice + 1–2 essays · in person but **on Canvas + LockDown Browser, so bring a laptop** · ⚠️ **download, install and test LockDown before Thursday — without it you cannot take the exam** (tech issues: courseware@wharton.upenn.edu) · 💡 if you upgraded macOS, LockDown may need Rosetta installed (classmate tip, Oct 6) — open a Canvas practice quiz in LockDown before Thursday to check · **closed book**: one **handwritten single-sided sheet (8.5×11, no mass-copied slides)** — **the back may be used for calculations, and scratch paper is provided** · basic calculator OK (**Canvas also has one built in**), no phones · review: **Practice Midterm + key (Files) · Quiz 1 and 2 PDFs + keys (course home page) · class recordings (Class Recordings tab)** · ⚠️ **no retakes or rescheduling** · if your final is better, the midterm is dropped (insurance) · afterwards: joint STAT at 1 PM (Room 660)",
+        "cn": "⏰ **10:00 准时开始**(10/7 Cohort Communication 公告)— **请在 10:00 前到指定教室就座**,并已装好 LockDown Browser · 早餐**只供应到 9:30** · 课表时段为 9:30–11:30 · 教室**按姓氏:A–N = 660 · O–S = 612 · T–Z = 615**(以教授 10/6 公告为准)· 约30道选择 + 1~2道论述 · 现场考试但**用 Canvas + LockDown Browser,须带笔记本电脑** · ⚠️ **周四前务必下载、安装并测试 LockDown,没有它无法参加考试**(技术问题请联系 courseware@wharton.upenn.edu)· 💡 若升级过 macOS,LockDown 可能需要安装 Rosetta(同学 10/6 提醒)— 周四前用 LockDown 打开 Canvas 练习测验确认 · **闭卷**:仅限**单面手写笔记一张(8.5×11,禁止大段照抄幻灯片)**— **背面可用于演算,另发草稿纸** · 基本计算器可(**Canvas 内也有计算器**),禁用手机 · 复习:**Practice Midterm 及答案(Files)· Quiz 1·2 PDF 及答案(课程主页)· 课堂录像(Class Recordings 标签)** · ⚠️ **不得重考或改期** · 期末更好则期中成绩舍弃(保险)· 考后 13:00 STAT 合班(Room 660)"
       }
     },
     {
@@ -847,20 +842,20 @@ const DATA = {
       }
     },
     {
-      "date": "2026-10-08T20:59",
+      "date": "2026-10-07T23:59",
       "type": "quiz",
       "course": "STAT",
       "hard": true,
-      "new": false,
+      "new": true,
       "title": {
-        "kr": "STAT 6130 Quiz 2 (5점)",
-        "en": "STAT 6130 Quiz 2 (5 pts)",
-        "cn": "STAT 6130 Quiz 2(5分)"
+        "kr": "STAT 6130 Pre-class Quiz 2 (5점)",
+        "en": "STAT 6130 Pre-class Quiz 2 (5 pts)",
+        "cn": "STAT 6130 Pre-class Quiz 2(5分)"
       },
       "detail": {
-        "kr": "**10/2(금) 23:59 PT 공개 → 10/8(목) 20:59 PT 마감**(Canvas · 원문 10/3 02:59 → 10/8 23:59 ET; 실라버스는 10/7) · 5점 · 시간제한 없음 · 3회 시도 · **범위 Class 3–4**: 신뢰구간·t-분포·샘플링·표본 크기·가설검정 프레임(Type I/II·p-value)·two-sample t·Wilcoxon·paired t · 🤖 생성 AI 금지 · ⚠️ 10/8 은 중간고사·수업·디너가 겹치니 **10/7 까지** 끝내 두세요",
-        "en": "**Opens Fri Oct 2, 11:59 PM PT → due Thu Oct 8, 8:59 PM PT** (Canvas; ET original Oct 3 2:59 AM → Oct 8 11:59 PM; the syllabus said Oct 7) · 5 points · no time limit · 3 attempts · **covers Classes 3–4**: confidence intervals, t-distribution, sampling, sample size, the hypothesis-testing framework (Type I/II, p-value), two-sample t, Wilcoxon, paired t · 🤖 no generative AI · ⚠️ Oct 8 stacks the midterm, class and dinner, so **finish by Oct 7**",
-        "cn": "**10/2(周五)23:59 PT 开放 → 10/8(周四)20:59 PT 截止**(Canvas;东部时间原文 10/3 02:59 → 10/8 23:59;大纲写 10/7)· 5分 · 不限时 · 3次机会 · **范围 Class 3–4**:置信区间·t 分布·抽样·样本量·假设检验框架(I/II 类错误·p 值)·two-sample t·Wilcoxon·paired t · 🤖 禁用生成式 AI · ⚠️ 10/8 期中、上课、晚餐叠在一起,**最好 10/7 前完成**"
+        "kr": "⚠️ **마감이 당겨졌습니다 → 10/7(수) 23:59 PT**(Canvas 10/4·10/7 확인, 원문 10/8 02:59 ET) — 처음 안내한 10/8(목) 20:59 보다 **약 21시간 빠릅니다** · Canvas 이름은 **\"Pre-class Quiz 2\"**(10/2 부터 열려 있음) · 5점 · 시간제한 없음 · 3회 시도 · **범위 Class 3–4**: 신뢰구간·t-분포·샘플링·표본 크기·가설검정 프레임(Type I/II·p-value)·two-sample t·Wilcoxon·paired t · 🤖 생성 AI 금지(실라버스)",
+        "en": "⚠️ **The deadline moved up → Wed Oct 7, 11:59 PM PT** (checked on Canvas Oct 4 and Oct 7; ET original Oct 8, 2:59 AM) — about **21 hours earlier** than the Thu Oct 8, 8:59 PM first posted · listed on Canvas as **\"Pre-class Quiz 2\"** (open since Oct 2) · 5 points · no time limit · 3 attempts · **covers Classes 3–4**: confidence intervals, t-distribution, sampling, sample size, the hypothesis-testing framework (Type I/II, p-value), two-sample t, Wilcoxon, paired t · 🤖 no generative AI (syllabus)",
+        "cn": "⚠️ **截止提前了 → 10/7(周三)23:59 PT**(10/4·10/7 Canvas 核实,东部时间原文 10/8 02:59)— 比最初公布的 10/8(周四)20:59 **早约21小时** · Canvas 名称为 **\"Pre-class Quiz 2\"**(10/2 起开放)· 5分 · 不限时 · 3次机会 · **范围 Class 3–4**:置信区间·t 分布·抽样·样本量·假设检验框架(I/II 类错误·p 值)·two-sample t·Wilcoxon·paired t · 🤖 禁用生成式 AI(大纲)"
       }
     },
     {
@@ -1004,16 +999,16 @@ const DATA = {
       "type": "session",
       "course": "WEMBA",
       "hard": false,
-      "new": false,
+      "new": true,
       "title": {
         "kr": "🍽️ Term 2 오프캠퍼스 디너 #1",
         "en": "🍽️ Term 2 off-campus dinner #1",
         "cn": "🍽️ 第二学期校外晚餐 #1"
       },
       "detail": {
-        "kr": "**10/8(목)** · 두 번의 디너(10/8 · 12/4)에 **Greenphire 크레딧 $120** 지급(1회 $60 기준이지만 배분은 자유) · ✅ **Greenphire ClinCard 에 $120 적립 완료**(9/22 \"ClinCard Deposit Notification\" 메일, 안 보이면 스팸함) · 미리 쓰면 추가 적립 없음 · 시간·장소 미정 · ⚠️ 같은 날 FNCE 중간고사·STAT Class 5",
-        "en": "**Thu Oct 8** · **$120 in Greenphire credit** covers both dinners (Oct 8 and Dec 4), nominally $60 each but split however you like · ✅ **$120 is already loaded on your Greenphire ClinCard** (Sep 22 \"ClinCard Deposit Notification\" email; check spam if missing) · spend it early and nothing is reloaded · time and venue TBD · ⚠️ same day as the FNCE midterm and STAT Class 5",
-        "cn": "**10/8(周四)** · 两次晚餐(10/8·12/4)共发 **Greenphire 额度 $120**(名义每次 $60,可自由分配)· ✅ **Greenphire ClinCard 已充值 $120**(9/22 \"ClinCard Deposit Notification\" 邮件,未见请查垃圾箱)· 提前用完不会补充 · 时间地点待定 · ⚠️ 与 FNCE 期中、STAT 第5次课同日"
+        "kr": "**10/8(목)** · 두 번의 디너(10/8 · 12/4)에 **Greenphire 크레딧 $120** 지급(1회 $60 기준이지만 배분은 자유) · ✅ **Greenphire ClinCard 에 $120 적립 완료**(9/22 \"ClinCard Deposit Notification\" 메일, 안 보이면 스팸함) · 10/7 공지: 목요일 오프사이트 디너용 크레딧이 **모두에게 지급됐을 것**이고 **사용 안내는 Canvas Cohort Communication 게시물**에 있습니다 · 미리 쓰면 추가 적립 없음 · 시간은 일정표상 'Evening', 장소 미정 · ⚠️ 같은 날 FNCE 중간고사·STAT Class 5",
+        "en": "**Thu Oct 8** · **$120 in Greenphire credit** covers both dinners (Oct 8 and Dec 4), nominally $60 each but split however you like · ✅ **$120 is already loaded on your Greenphire ClinCard** (Sep 22 \"ClinCard Deposit Notification\" email; check spam if missing) · Oct 7 announcement: the credit for Thursday's off-site dinner **should now be loaded for everyone**, and **how to use it is in the Canvas Cohort Communication post** · spend it early and nothing is reloaded · time: 'Evening' on the schedule, venue TBD · ⚠️ same day as the FNCE midterm and STAT Class 5",
+        "cn": "**10/8(周四)** · 两次晚餐(10/8·12/4)共发 **Greenphire 额度 $120**(名义每次 $60,可自由分配)· ✅ **Greenphire ClinCard 已充值 $120**(9/22 \"ClinCard Deposit Notification\" 邮件,未见请查垃圾箱)· 10/7 公告:周四校外晚餐的额度**应已发放给所有人**,**使用说明见 Canvas Cohort Communication 帖子** · 提前用完不会补充 · 时间按课表为'Evening',地点待定 · ⚠️ 与 FNCE 期中、STAT 第5次课同日"
       }
     },
     {
@@ -1021,7 +1016,7 @@ const DATA = {
       "type": "registration",
       "course": "WEMBA",
       "hard": false,
-      "new": true,
+      "new": false,
       "title": {
         "kr": "🚀 WEMBA Startup Bootcamp 등록 마감 (12:00 PT)",
         "en": "🚀 WEMBA Startup Bootcamp sign-up closes (noon PT)",
@@ -1038,16 +1033,16 @@ const DATA = {
       "type": "session",
       "course": "WEMBA",
       "hard": false,
-      "new": false,
+      "new": true,
       "title": {
         "kr": "🪔 Diwali 디너 + Hyatt 댄스 파티 (Festival of Lights)",
         "en": "🪔 Diwali dinner + Hyatt dance party (Festival of Lights)",
         "cn": "🪔 排灯节晚餐 + Hyatt 舞会(Festival of Lights)"
       },
       "detail": {
-        "kr": "**10/9(금) 18:00–19:30 캠퍼스 Dining Room 에서 인도 음식 디너** → **20:30–23:30 Hyatt Regency Garden Room 댄스 파티** · 반짝이는 옷 환영 · 출처 10/8–10 주말 시간표",
-        "en": "**Fri Oct 9, 6:00–7:30 PM: Indian dinner in the campus Dining Room** → **8:30–11:30 PM: dance party in the Hyatt Regency Garden Room** · come ready to sparkle · source: Oct 8–10 weekend schedule",
-        "cn": "**10/9(周五)18:00–19:30 校园 Dining Room 印度美食晚餐** → **20:30–23:30 Hyatt Regency Garden Room 舞会** · 欢迎闪亮装扮 · 来源 10/8–10 周末课表"
+        "kr": "**10/9(금) 18:00–19:30 캠퍼스 Dining Room 에서 인도 음식 디너** → **20:30–23:30 Hyatt Regency Garden Room 댄스 파티** · 반짝이는 옷 환영 · 🎟 **파티 드링크 티켓은 목요일 아침부터 프런트 데스크 옆 Credenza 에서** 받아 가세요 · 출처 10/8–10 주말 시간표 · Cohort Communication 10/7 공지",
+        "en": "**Fri Oct 9, 6:00–7:30 PM: Indian dinner in the campus Dining Room** → **8:30–11:30 PM: dance party in the Hyatt Regency Garden Room** · come ready to sparkle · 🎟 **pick up party drink tickets at the credenza next to the front desk, from Thursday morning** · sources: Oct 8–10 weekend schedule, Cohort Communication Oct 7",
+        "cn": "**10/9(周五)18:00–19:30 校园 Dining Room 印度美食晚餐** → **20:30–23:30 Hyatt Regency Garden Room 舞会** · 欢迎闪亮装扮 · 🎟 **舞会饮品券自周四上午起在前台旁的边柜(credenza)领取** · 来源 10/8–10 周末课表 · 10/7 Cohort Communication 公告"
       }
     },
     {
@@ -1079,9 +1074,9 @@ const DATA = {
         "cn": "🔴 LGST 小组展示 · 提交幻灯片(组代表)"
       },
       "detail": {
-        "kr": "**조 대표 한 명이 슬라이드를 Feinstein 교수에게 메일** · **10/8(목) 17:00 PT 마감**\n\n⚠️ **같은 날 FNCE 중간고사와 STAT Quiz 2 가 있습니다.** 슬라이드는 **10/8 이전에 끝내 두는 것이 사실상 필수**입니다",
-        "en": "**One representative emails the deck to Prof. Feinstein** · **due Thu Oct 8, 5:00 PM PT**\n\n⚠️ **The FNCE midterm and STAT Quiz 2 are the same day.** Finishing the deck **before Oct 8 is effectively mandatory**",
-        "cn": "**由一名组代表将幻灯片邮件给 Feinstein 教授** · **10/8(周四)17:00 PT 截止**\n\n⚠️ **当日还有 FNCE 期中与 STAT Quiz 2。** 幻灯片**须在 10/8 之前完成**"
+        "kr": "**조 대표 한 명이 슬라이드를 Feinstein 교수에게 메일** · **10/8(목) 17:00 PT 마감**\n\n⚠️ **같은 날 FNCE 중간고사가 있고, STAT Quiz 2 는 전날 밤(10/7 23:59) 마감입니다.** 슬라이드는 **10/8 이전에 끝내 두는 것이 사실상 필수**입니다",
+        "en": "**One representative emails the deck to Prof. Feinstein** · **due Thu Oct 8, 5:00 PM PT**\n\n⚠️ **The FNCE midterm is the same day, and STAT Quiz 2 closes the night before (Oct 7, 11:59 PM).** Finishing the deck **before Oct 8 is effectively mandatory**",
+        "cn": "**由一名组代表将幻灯片邮件给 Feinstein 教授** · **10/8(周四)17:00 PT 截止**\n\n⚠️ **当日还有 FNCE 期中,STAT Quiz 2 则于前一晚(10/7 23:59)截止。** 幻灯片**须在 10/8 之前完成**"
       }
     },
     {
@@ -1170,27 +1165,11 @@ const DATA = {
       }
     },
     {
-      "date": "2026-10-06T12:00",
-      "type": "session",
-      "course": "WEMBA",
-      "new": false,
-      "title": {
-        "kr": "🤝 AI for Nonprofits Learning Lab · Silicon Valley (선택)",
-        "en": "🤝 AI for Nonprofits Learning Lab · Silicon Valley (optional)",
-        "cn": "🤝 AI for Nonprofits Learning Lab · 硅谷(可选)"
-      },
-      "detail": {
-        "kr": "10/6(화) 12:00–16:20 · 비영리·재단 종사자 대상 반일 워크숍(Darian Rodriguez Heyman 진행) · 선착순 등록(givebutter) · Cohort Communication 9/25",
-        "en": "Tue Oct 6, 12:00–4:20 PM · half-day workshop for nonprofit and foundation people, led by Darian Rodriguez Heyman · first-come registration on givebutter · Cohort Communication Sep 25",
-        "cn": "10/6(周二)12:00–16:20 · 面向非营利·基金会人士的半日工作坊(Darian Rodriguez Heyman 主持)· 先到先得(givebutter)· Cohort Communication 9/25"
-      }
-    },
-    {
       "date": "2026-10-11T14:00",
       "type": "session",
       "course": "WEMBA",
       "hard": false,
-      "new": true,
+      "new": false,
       "title": {
         "kr": "🎤 Authors@Wharton · Adam Grant × M. Night Shyamalan (라이브스트림 · 선택)",
         "en": "🎤 Authors@Wharton · Adam Grant × M. Night Shyamalan (livestream · optional)",
@@ -1224,7 +1203,7 @@ const DATA = {
       "type": "session",
       "course": "WEMBA",
       "hard": false,
-      "new": true,
+      "new": false,
       "title": {
         "kr": "🎓 Penn Student Life 점심 발표",
         "en": "🎓 Penn Student Life lunchtime presentation",
@@ -1234,6 +1213,57 @@ const DATA = {
         "kr": "**11/6(금) 점심시간** · 시간·장소는 11/6–7 주말 시간표에서 확정 · 출처 10/8–10 주말 시간표 Save the Dates",
         "en": "**Fri Nov 6, over lunch** · time and room will be on the Nov 6–7 weekend schedule · source: Save the Dates in the Oct 8–10 weekend schedule",
         "cn": "**11/6(周五)午餐时间** · 具体时间地点以 11/6–7 周末课表为准 · 来源 10/8–10 周末课表 Save the Dates"
+      }
+    },
+    {
+      "date": "2026-10-08",
+      "type": "registration",
+      "course": "WEMBA",
+      "hard": false,
+      "new": true,
+      "title": {
+        "kr": "💡 Len Lodish 교수 어드바이징 세션 신청 (선택)",
+        "en": "💡 Advising sessions with Prof. Len Lodish · sign-up (optional)",
+        "cn": "💡 Len Lodish 教授咨询时段报名(可选)"
+      },
+      "detail": {
+        "kr": "Wharton **Venture Initiation Program(VIP)** 공동 리더이자 Senior Advisor 인 **Len Lodish 교수**가 이번 수업 주말(10/8–10) 캠퍼스에 옵니다 · 어드바이징 세션 **자리가 소수**라 관심 있으면 **일찍 신청**하세요 · 신청은 **SignUpGenius**, 링크는 Cohort Communication 10/7 공지 \"Class Weekend Important Reminders\" · 선택",
+        "en": "**Prof. Len Lodish**, co-lead and Senior Advisor of Wharton's **Venture Initiation Program (VIP)**, is on campus this class weekend (Oct 8–10) · there are **only a few advising slots**, so **sign up early** if you're interested · sign-up is on **SignUpGenius**; the link is in the Oct 7 Cohort Communication announcement \"Class Weekend Important Reminders\" · optional",
+        "cn": "沃顿 **Venture Initiation Program(VIP)** 联合负责人兼 Senior Advisor **Len Lodish 教授**本上课周末(10/8–10)到校 · 咨询时段**名额很少**,有兴趣请**尽早报名** · 通过 **SignUpGenius** 报名,链接见 10/7 Cohort Communication 公告 \"Class Weekend Important Reminders\" · 可选"
+      }
+    },
+    {
+      "date": "2026-10-10",
+      "type": "session",
+      "course": "WEMBA",
+      "hard": false,
+      "new": true,
+      "title": {
+        "kr": "🔥 SF 코호트 본파이어 (토 수업 후 · 선택)",
+        "en": "🔥 SF cohort bonfire (after Saturday class · optional)",
+        "cn": "🔥 SF 班篝火聚会(周六课后 · 可选)"
+      },
+      "detail": {
+        "kr": "**10/10(토) 수업(16:00 종료) 후** · 일몰 18:40, 해가 지면 추우니 **따뜻한 옷**을 챙기세요 · 스모어·장작은 준비돼 있고 간식은 환영 · **BYOB** · 비치 담요가 있으면 가져오기 · 차 있는 베이 지역 거주자는 **카풀**을 도와 달라는 요청 · 장소는 **SF 코호트 왓츠앱 공지**에서 확인",
+        "en": "**Sat Oct 10, after class (ends 4 PM)** · sunset is 6:40 PM and it gets cold after that, so **bring warm layers** · s'mores and firewood are covered, snacks welcome · **BYOB** · bring a beach blanket if you have one · Bay Area locals with a car are asked to **help with carpools** · check the **SF cohort WhatsApp announcement** for the location",
+        "cn": "**10/10(周六)课后(16:00 下课)** · 日落 18:40,之后会转冷,**请带保暖衣物** · 已备好 s'mores 与木柴,欢迎带零食 · **酒水自带(BYOB)** · 有沙滩毯请带上 · 请有车的湾区同学**帮忙拼车** · 地点见 **SF 班 WhatsApp 公告**"
+      }
+    },
+    {
+      "date": "2026-10-19",
+      "type": "session",
+      "course": "WEMBA",
+      "hard": false,
+      "new": true,
+      "title": {
+        "kr": "☁️ Cloudflare Connect 2026 · SF (와튼 학생 무료 · 선택)",
+        "en": "☁️ Cloudflare Connect 2026 · SF (free for Wharton students · optional)",
+        "cn": "☁️ Cloudflare Connect 2026 · 旧金山(沃顿学生免费 · 可选)"
+      },
+      "detail": {
+        "kr": "**10/19(월)–21(수) · Moscone West(SF)** · 인터넷·사이버보안·AI 세션, Cloudflare 경영진·개발자 참석 · **와튼 학생은 무료 등록**(AI & Analytics Club 안내) · 등록 코드는 **SF 코호트 왓츠앱 10/6 메시지** 참고 · 공식 사이트 cloudflare.com/connect",
+        "en": "**Mon Oct 19 – Wed Oct 21 · Moscone West, SF** · sessions on the internet, cybersecurity and AI, with Cloudflare executives and developers · **free registration for Wharton students** (via the AI & Analytics Club) · for the registration code, see the **Oct 6 message in the SF cohort WhatsApp** · official site: cloudflare.com/connect",
+        "cn": "**10/19(周一)–21(周三)· Moscone West(旧金山)** · 互联网、网络安全、AI 主题,Cloudflare 高管与开发者出席 · **沃顿学生可免费注册**(AI & Analytics Club 通知)· 注册码见 **SF 班 WhatsApp 10/6 消息** · 官网 cloudflare.com/connect"
       }
     }
   ],
@@ -1313,16 +1343,16 @@ const DATA = {
         "cn": "宏观经济与全球经济环境 · Anthony Landry"
       },
       "headline": {
-        "kr": "✅ L1–7 완료 · 다음 10/8(목) 중간 9:30 → 10/9 L8–9 · Full Term (8/28–12/5) · 1.0 CU · 📄 실라버스 확정본(9/12)",
-        "en": "✅ L1–7 done · next: Thu Oct 8 midterm at 9:30 AM, then L8–9 on Oct 9 · full term (Aug 28 – Dec 5) · 1.0 CU · 📄 final syllabus (Sep 12)",
-        "cn": "✅ L1–7 已完成 · 下次 10/8(周四)9:30 期中 → 10/9 L8–9 · 全学期(8/28–12/5)· 1.0 CU · 📄 最终版大纲(9/12)"
+        "kr": "✅ L1–7 완료 · 다음 10/8(목) 중간 10:00 정각 → 10/9 L8–9 · Full Term (8/28–12/5) · 1.0 CU · 📄 실라버스 확정본(9/12)",
+        "en": "✅ L1–7 done · next: Thu Oct 8 midterm at 10:00 AM sharp, then L8–9 on Oct 9 · full term (Aug 28 – Dec 5) · 1.0 CU · 📄 final syllabus (Sep 12)",
+        "cn": "✅ L1–7 已完成 · 下次 10/8(周四)期中 10:00 准时开考 → 10/9 L8–9 · 全学期(8/28–12/5)· 1.0 CU · 📄 最终版大纲(9/12)"
       },
       "points": [
         {
           "new": false,
-          "kr": "📝 **중간고사 상세(9/11–12 수업 확정)** — **10/8(목) 9:30–11:30 블록**(교수 슬라이드는 10:00 시작·약 90분) · 강의실 **성 A–N 660 · P–S 612 · T–Z 615** · 객관식 ~30 + 에세이 1~2 (교수: \"퀴즈 + Practice Midterm 합치면 객관식 60개, 에세이 2개 — 그게 시험 범위\") · 손글씨 단면 1장(슬라이드 대량 복제 금지) · 기본 계산기 OK, 휴대폰 ✕ · 재응시·일정 변경 없음 · **기말이 더 좋으면 중간 점수는 버려지는 보험** 구조 · 반복 강조한 함정: 저축은 flow(소득−소비) · c_today = ½·PVLR(log 효용) · r↑ → c_today↓ · Okun 법칙 (Y−Ȳ)/Ȳ = −2(u−ū) · 대출제약 가구는 MPC≈1",
-          "en": "📝 **Midterm details (confirmed in the Sep 11–12 classes)** — **Thu Oct 8, 9:30–11:30 AM block** (slide said a 10 AM start, about 90 minutes) · rooms by **last name A–N 660 · P–S 612 · T–Z 615** · roughly 30 multiple choice plus one or two essays (his words: \"quizzes plus the practice midterm give you 60 MC and 2 essays — that is the exam\") · one handwritten single-sided sheet, no wholesale copying of slides · basic calculator OK, no phone · no retakes or rescheduling · **if the final is better, the midterm is dropped** (insurance) · traps he kept repeating: saving is a flow (income minus consumption) · c_today = ½·PVLR under log utility · r up means c_today down · Okun's law (Y−Ȳ)/Ȳ = −2(u−ū) · credit-constrained households have MPC ≈ 1",
-          "cn": "📝 **期中详情(9/11–12 课上确认)** — **10/8(周四)9:30–11:30 时段**(幻灯片写 10:00 开始,约90分钟)· 教室**按姓氏 A–N 660 · P–S 612 · T–Z 615** · 约30道选择题 + 1~2道论述(教授:\"测验加模拟期中共60道选择、2道论述,那就是考试范围\")· 单面手写笔记一张(禁止大段照抄幻灯片)· 基本计算器可,手机不可 · 不得重考或改期 · **期末更好则期中成绩舍弃**(保险)· 反复强调的陷阱:储蓄是流量(收入−消费)· 对数效用下 c_today = ½·PVLR · r↑ → c_today↓ · 奥肯定律 (Y−Ȳ)/Ȳ = −2(u−ū) · 借贷受限家庭 MPC≈1"
+          "kr": "📝 **중간고사 상세(9/11–12 수업 확정)** — **10/8(목) 10:00 PT 정각 시작**(시간표 블록 9:30–11:30 · 약 90분 · 10:00 전에 배정 강의실 착석) · 강의실 **성 A–N 660 · O–S 612 · T–Z 615**(교수 10/6 공지) · 객관식 ~30 + 에세이 1~2 (교수: \"퀴즈 + Practice Midterm 합치면 객관식 60개, 에세이 2개 — 그게 시험 범위\") · 손글씨 단면 1장(슬라이드 대량 복제 금지 · 뒷면은 계산용 OK, 연습지 별도 제공) · 기본 계산기 OK(Canvas 안에도 계산기), 휴대폰 ✕ · ⚠️ LockDown 은 목요일 전에 설치·테스트(없으면 응시 불가) · 재응시·일정 변경 없음 · **기말이 더 좋으면 중간 점수는 버려지는 보험** 구조 · 반복 강조한 함정: 저축은 flow(소득−소비) · c_today = ½·PVLR(log 효용) · r↑ → c_today↓ · Okun 법칙 (Y−Ȳ)/Ȳ = −2(u−ū) · 대출제약 가구는 MPC≈1",
+          "en": "📝 **Midterm details (confirmed in the Sep 11–12 classes)** — **Thu Oct 8, starts 10:00 AM PT sharp** (9:30–11:30 block on the timetable, about 90 minutes; be seated in your assigned room before 10:00) · rooms by **last name A–N 660 · O–S 612 · T–Z 615** (professor's Oct 6 announcement) · roughly 30 multiple choice plus one or two essays (his words: \"quizzes plus the practice midterm give you 60 MC and 2 essays — that is the exam\") · one handwritten single-sided sheet, no wholesale copying of slides (the back may be used for calculations; scratch paper provided) · basic calculator OK (Canvas also has one), no phone · ⚠️ install and test LockDown before Thursday (no LockDown, no exam) · no retakes or rescheduling · **if the final is better, the midterm is dropped** (insurance) · traps he kept repeating: saving is a flow (income minus consumption) · c_today = ½·PVLR under log utility · r up means c_today down · Okun's law (Y−Ȳ)/Ȳ = −2(u−ū) · credit-constrained households have MPC ≈ 1",
+          "cn": "📝 **期中详情(9/11–12 课上确认)** — **10/8(周四)10:00 PT 准时开始**(课表时段 9:30–11:30,约90分钟;请于 10:00 前到指定教室就座)· 教室**按姓氏 A–N 660 · O–S 612 · T–Z 615**(教授 10/6 公告)· 约30道选择题 + 1~2道论述(教授:\"测验加模拟期中共60道选择、2道论述,那就是考试范围\")· 单面手写笔记一张(禁止大段照抄幻灯片;背面可演算,另发草稿纸)· 基本计算器可(Canvas 内也有),手机不可 · ⚠️ 周四前装好并测试 LockDown(没有则无法应考)· 不得重考或改期 · **期末更好则期中成绩舍弃**(保险)· 反复强调的陷阱:储蓄是流量(收入−消费)· 对数效用下 c_today = ½·PVLR · r↑ → c_today↓ · 奥肯定律 (Y−Ȳ)/Ȳ = −2(u−ū) · 借贷受限家庭 MPC≈1"
         },
         {
           "new": false,
@@ -1332,9 +1362,9 @@ const DATA = {
         },
         {
           "new": false,
-          "kr": "🗂 **Files 에 올라온 시험 준비 세트(9/12)** — `Midterm Practice FNCE 6130 52W.pdf` + `… AK.pdf`(정답) · `Q1 FNCE 6130 52W.pdf` + `Q1 AK …pdf` · `lecture5/6/7.pdf` · `Jones5_answers.pdf`(교과서 5장 연습문제 해답) · Practice Midterm 은 Canvas 퀴즈 형식으로도 풀 수 있고 객관식 해설은 없음, 에세이 해설은 Canvas 피드백에 · 9/12 리뷰세션에서 Linda 대출제약 에세이(25점)와 노동시장 4분면을 풀이했습니다",
-          "en": "🗂 **Exam-prep set now in Files (Sep 12)** — `Midterm Practice FNCE 6130 52W.pdf` plus `… AK.pdf` (answers) · `Q1 FNCE 6130 52W.pdf` plus `Q1 AK …pdf` · `lecture5/6/7.pdf` · `Jones5_answers.pdf` (textbook Ch. 5 solutions) · the practice midterm can also be taken as a Canvas quiz; there is no MC explanation, essay feedback lives in Canvas · the Sep 12 review session worked the Linda credit-constraint essay (25 pts) and the labor-market four-quadrant diagram",
-          "cn": "🗂 **Files 已上传考试准备材料(9/12)** — `Midterm Practice FNCE 6130 52W.pdf` + `… AK.pdf`(答案)· `Q1 FNCE 6130 52W.pdf` + `Q1 AK …pdf` · `lecture5/6/7.pdf` · `Jones5_answers.pdf`(教材第5章习题解答)· 模拟期中也可以 Canvas 测验形式作答;选择题无解析,论述反馈在 Canvas · 9/12 复习课讲解了 Linda 借贷约束论述题(25分)与劳动力市场四象限"
+          "kr": "🗂 **Files 에 올라온 시험 준비 세트(9/12 · 10/5 추가)** — `Midterm Practice FNCE 6130 52W.pdf` + `… AK.pdf`(정답) · `Q1 FNCE 6130 52W.pdf` + `Q1 AK …pdf` · **`Q2 FNCE 6130 52W.pdf` + `Q2 AK FNCE 6130 52W.pdf`(정답, 10/5)** · `lecture5/6/7.pdf` · `Jones5_answers.pdf`(교과서 5장 연습문제 해답) · Practice Midterm 은 Canvas 퀴즈 형식으로도 풀 수 있고 객관식 해설은 없음, 에세이 해설은 Canvas 피드백에 · 9/12 리뷰세션에서 Linda 대출제약 에세이(25점)와 노동시장 4분면을 풀이했습니다",
+          "en": "🗂 **Exam-prep set now in Files (Sep 12, plus Oct 5)** — `Midterm Practice FNCE 6130 52W.pdf` plus `… AK.pdf` (answers) · `Q1 FNCE 6130 52W.pdf` plus `Q1 AK …pdf` · **`Q2 FNCE 6130 52W.pdf` plus `Q2 AK FNCE 6130 52W.pdf` (answers, Oct 5)** · `lecture5/6/7.pdf` · `Jones5_answers.pdf` (textbook Ch. 5 solutions) · the practice midterm can also be taken as a Canvas quiz; there is no MC explanation, essay feedback lives in Canvas · the Sep 12 review session worked the Linda credit-constraint essay (25 pts) and the labor-market four-quadrant diagram",
+          "cn": "🗂 **Files 已上传考试准备材料(9/12 · 10/5 补充)** — `Midterm Practice FNCE 6130 52W.pdf` + `… AK.pdf`(答案)· `Q1 FNCE 6130 52W.pdf` + `Q1 AK …pdf` · **`Q2 FNCE 6130 52W.pdf` + `Q2 AK FNCE 6130 52W.pdf`(答案,10/5)** · `lecture5/6/7.pdf` · `Jones5_answers.pdf`(教材第5章习题解答)· 模拟期中也可以 Canvas 测验形式作答;选择题无解析,论述反馈在 Canvas · 9/12 复习课讲解了 Linda 借贷约束论述题(25分)与劳动力市场四象限"
         },
         {
           "new": false,
@@ -1392,9 +1422,9 @@ const DATA = {
         },
         {
           "new": false,
-          "kr": "🗓 **학기 로드맵(실라버스)** — 8/28–29 L1–4 거시데이터·생산·성장 · 9/11–12 L5–7 노동시장·소비저축·투자 + 리뷰(✅ 완료, L7 은 9/12 진행) · **10/8(목) 9:30 중간고사** → 10/9 L8–9 경기변동·필립스곡선·AS/AD · 10/23–24 L10–13 연준·통화정책·무역환율·화폐인플레 · 11/6–7 L14–17 재정·**FOMC 토론**·리뷰·**게스트 Sylvain Leduc(FRB SF)** · **12/4(금) 기말 · 12/5(토) Fed Challenge 발표** · ⏰ 퀴즈 창: Q2 9/13→10/4 · Q3 10/25→11/5 · Q4 11/8→11/29 (23:59 PT, best 3 of 4)",
-          "en": "🗓 **Term roadmap (syllabus)** — Aug 28–29 L1–4 macro data, production, growth · Sep 11–12 L5–7 labor, consumption/saving, investment + review (✅ done; L7 ran on Sep 12) · **Thu Oct 8 midterm at 9:30 AM** → Oct 9 L8–9 business cycles, Phillips curve, AS/AD · Oct 23–24 L10–13 the Fed, monetary policy, trade & FX, money & inflation · Nov 6–7 L14–17 fiscal policy, **FOMC discussion**, review, **guest Sylvain Leduc (FRB SF)** · **Fri Dec 4 final · Sat Dec 5 Fed Challenge presentations** · ⏰ quiz windows: Q2 Sep 13→Oct 4 · Q3 Oct 25→Nov 5 · Q4 Nov 8→29 (11:59 PM PT, best 3 of 4)",
-          "cn": "🗓 **学期路线图(大纲)** — 8/28–29 L1–4 宏观数据·生产·增长 · 9/11–12 L5–7 劳动力·消费储蓄·投资 + 复习(✅ 已完成,L7 于 9/12 讲授)· **10/8(周四)9:30 期中** → 10/9 L8–9 经济周期·菲利普斯曲线·AS/AD · 10/23–24 L10–13 美联储·货币政策·贸易汇率·货币与通胀 · 11/6–7 L14–17 财政·**FOMC 讨论**·复习·**嘉宾 Sylvain Leduc(旧金山联储)** · **12/4(周五)期末 · 12/5(周六)Fed Challenge 展示** · ⏰ 测验窗口:Q2 9/13→10/4 · Q3 10/25→11/5 · Q4 11/8→11/29(23:59 PT,4次取最佳3次)"
+          "kr": "🗓 **학기 로드맵(실라버스)** — 8/28–29 L1–4 거시데이터·생산·성장 · 9/11–12 L5–7 노동시장·소비저축·투자 + 리뷰(✅ 완료, L7 은 9/12 진행) · **10/8(목) 10:00 중간고사** → 10/9 L8–9 경기변동·필립스곡선·AS/AD · 10/23–24 L10–13 연준·통화정책·무역환율·화폐인플레 · 11/6–7 L14–17 재정·**FOMC 토론**·리뷰·**게스트 Sylvain Leduc(FRB SF)** · **12/4(금) 기말 · 12/5(토) Fed Challenge 발표** · ⏰ 퀴즈 창: ✅ Q1·Q2 완료 · Q3 10/25→11/5 · Q4 11/8→11/29 (23:59 PT, best 3 of 4)",
+          "en": "🗓 **Term roadmap (syllabus)** — Aug 28–29 L1–4 macro data, production, growth · Sep 11–12 L5–7 labor, consumption/saving, investment + review (✅ done; L7 ran on Sep 12) · **Thu Oct 8 midterm at 10:00 AM** → Oct 9 L8–9 business cycles, Phillips curve, AS/AD · Oct 23–24 L10–13 the Fed, monetary policy, trade & FX, money & inflation · Nov 6–7 L14–17 fiscal policy, **FOMC discussion**, review, **guest Sylvain Leduc (FRB SF)** · **Fri Dec 4 final · Sat Dec 5 Fed Challenge presentations** · ⏰ quiz windows: ✅ Q1 and Q2 done · Q3 Oct 25→Nov 5 · Q4 Nov 8→29 (11:59 PM PT, best 3 of 4)",
+          "cn": "🗓 **学期路线图(大纲)** — 8/28–29 L1–4 宏观数据·生产·增长 · 9/11–12 L5–7 劳动力·消费储蓄·投资 + 复习(✅ 已完成,L7 于 9/12 讲授)· **10/8(周四)10:00 期中** → 10/9 L8–9 经济周期·菲利普斯曲线·AS/AD · 10/23–24 L10–13 美联储·货币政策·贸易汇率·货币与通胀 · 11/6–7 L14–17 财政·**FOMC 讨论**·复习·**嘉宾 Sylvain Leduc(旧金山联储)** · **12/4(周五)期末 · 12/5(周六)Fed Challenge 展示** · ⏰ 测验窗口:✅ Q1·Q2 已结束 · Q3 10/25→11/5 · Q4 11/8→11/29(23:59 PT,4次取最佳3次)"
         },
         {
           "kr": "📕 **교재: *Macroeconomics* 6판 · Charles Jones · ISBN 9781324063612** — 하드카피·ebook 둘 다 가능",
@@ -1423,6 +1453,16 @@ const DATA = {
       },
       "points": [
         {
+          "kr": "📊 **HW1 채점이 공개됐습니다**(10/4 공지) — 최고 16 · 최저 8.5 · 평균 13.43 · 표준편차 1.99 · Files 에 해설 `Statitstics 6130 Assignment 1 Solutions.pdf` 와 `Distribution of HW 1.png` 가 올라왔습니다(10/5)",
+          "en": "📊 **HW1 grades are out** (Oct 4 announcement) — high 16 · low 8.5 · mean 13.43 · SD 1.99 · the solutions `Statitstics 6130 Assignment 1 Solutions.pdf` and `Distribution of HW 1.png` are in Files (Oct 5)",
+          "cn": "📊 **HW1 成绩已公布**(10/4 公告)— 最高 16 · 最低 8.5 · 平均 13.43 · 标准差 1.99 · Files 已上传答案 `Statitstics 6130 Assignment 1 Solutions.pdf` 与 `Distribution of HW 1.png`(10/5)"
+        },
+        {
+          "kr": "🧑‍🏫 **Pras 스터디 Session 5(중간고사 리뷰)** — 10/6 에 실전 시험 한 세트를 같이 풀었고, **녹화와 연습문제 PDF 가 Stats & Pras 왓츠앱 방에 공유**됐습니다(10/7) · 10/23 중간고사 대비용으로 챙겨 두세요",
+          "en": "🧑‍🏫 **Pras study Session 5 (midterm review)** — a full practice exam was worked together on Oct 6, and **the recording and practice-problem PDF are shared in the Stats & Pras WhatsApp group** (Oct 7) · keep them for the Oct 23 midterm",
+          "cn": "🧑‍🏫 **Pras 辅导 Session 5(期中复习)** — 10/6 一起做了一整套模拟考,**录像与练习题 PDF 已分享到 Stats & Pras WhatsApp 群**(10/7)· 留作 10/23 期中备考之用"
+        },
+        {
           "new": false,
           "kr": "👤 **Richard Waterman** · 108 Steinberg Conference Center · waterman@wharton.upenn.edu · ⚠️ **모든 메일 제목에 \"WEMBA WEST\" 를 넣어달라**고 실라버스에 명시돼 있습니다 · TA 는 **Albert**(숙제 채점자, 이메일 문의) · 수업 녹화와 TA 의 JMP 튜토리얼 영상이 Canvas 에 있습니다",
           "en": "👤 **Richard Waterman** · 108 Steinberg Conference Center · waterman@wharton.upenn.edu · ⚠️ the syllabus asks that you **put \"WEMBA WEST\" in the subject line of every email** · the TA is **Albert** (grades the homework, reachable by email) · class recordings and the TA's JMP tutorial video are on Canvas",
@@ -1435,9 +1475,9 @@ const DATA = {
           "cn": "🧰 **现在要做的3项设置(Class 1–2)** — ① 安装 **JMP 19**(Canvas 链接,学生授权)并勾选 **File ▸ Preferences ▸ Menu ▸ Legacy Control Chart**(HW1 控制图所需)② 从 Files 下载完整 **data 目录 zip** ③ 登录 **Lecture Recall 聊天机器人**(若 404,在 UPenn 邮箱中去掉 \"wharton\";提问加 \"Waterman\" 更准)· ⚠️ **LockDown 浏览器在公司电脑上可能被拦截,建议用个人电脑** · JMP 以外的工具(Python·R)\"不禁止但不推荐\""
         },
         {
-          "kr": "📝 **HW1 · Quiz 1 완료 → 다음은 Quiz 2 · HW2** — ✅ HW1 9/26 제출(팀 PDF) · ✅ Quiz 1 9/24 · **Quiz 2 10/2(금) 23:59 PT 공개 → 10/8(목) 20:59 PT 마감**(Canvas), 5문항·3회 시도·생성 AI 금지·범위 Class 3–4 · **HW2 10/9(금) 23:59 PT**, 팀당 PDF 1개, 문제 = Files `Statistics 6130 Assignment 2.pdf` · 이후 퀴즈도 \"다음 세션 1주 전 공개\" 패턴",
-          "en": "📝 **HW1 and Quiz 1 done → next up Quiz 2 and HW2** — ✅ HW1 submitted Sep 26 (team PDF) · ✅ Quiz 1 Sep 24 · **Quiz 2 opens Fri Oct 2, 11:59 PM PT → due Thu Oct 8, 8:59 PM PT** (Canvas), 5 questions, three attempts, no generative AI, covers Classes 3–4 · **HW2 Fri Oct 9, 11:59 PM PT**, one PDF per team, questions in Files: `Statistics 6130 Assignment 2.pdf` · later quizzes keep the \"opens a week before the next session\" pattern",
-          "cn": "📝 **HW1 · Quiz 1 已完成 → 接下来是 Quiz 2 · HW2** — ✅ HW1 9/26 已提交(小组 PDF)· ✅ Quiz 1 9/24 · **Quiz 2 10/2(周五)23:59 PT 开放 → 10/8(周四)20:59 PT 截止**(Canvas),5题·3次机会·禁用生成式 AI·范围 Class 3–4 · **HW2 10/9(周五)23:59 PT**,每组一份 PDF,题目在 Files `Statistics 6130 Assignment 2.pdf` · 之后测验沿用\"下节课前一周开放\"模式"
+          "kr": "📝 **HW1 · Quiz 1 완료 → 다음은 Quiz 2 · HW2** — ✅ HW1 9/26 제출(팀 PDF) · ✅ Quiz 1 9/24 · **Pre-class Quiz 2 10/7(수) 23:59 PT 마감**(Canvas, 10/8 에서 당겨짐), 5문항·3회 시도·생성 AI 금지·범위 Class 3–4 · **HW2 10/9(금) 23:59 PT**, 팀당 PDF 1개, 문제 = Files `Statistics 6130 Assignment 2.pdf` · 이후 퀴즈도 \"다음 세션 1주 전 공개\" 패턴",
+          "en": "📝 **HW1 and Quiz 1 done → next up Quiz 2 and HW2** — ✅ HW1 submitted Sep 26 (team PDF) · ✅ Quiz 1 Sep 24 · **Pre-class Quiz 2 due Wed Oct 7, 11:59 PM PT** (Canvas; moved up from Oct 8), 5 questions, three attempts, no generative AI, covers Classes 3–4 · **HW2 Fri Oct 9, 11:59 PM PT**, one PDF per team, questions in Files: `Statistics 6130 Assignment 2.pdf` · later quizzes keep the \"opens a week before the next session\" pattern",
+          "cn": "📝 **HW1 · Quiz 1 已完成 → 接下来是 Quiz 2 · HW2** — ✅ HW1 9/26 已提交(小组 PDF)· ✅ Quiz 1 9/24 · **Pre-class Quiz 2 10/7(周三)23:59 PT 截止**(Canvas,由 10/8 提前),5题·3次机会·禁用生成式 AI·范围 Class 3–4 · **HW2 10/9(周五)23:59 PT**,每组一份 PDF,题目在 Files `Statistics 6130 Assignment 2.pdf` · 之后测验沿用\"下节课前一周开放\"模式"
         },
         {
           "kr": "🧪 **9/25–26 수업 요약(Class 3–4)** — 신뢰구간 x̄ ± 2·s/√n 과 t-분포 · 샘플링(확률표본만 \"good\", 비응답·인센티브 편향) · 표본 크기 n = (2s/MoE)² · 가설검정 프레임(배심 재판 비유, H₀ 는 \"기각\" 아니면 \"기각 실패\", Type I/II·α·β) · two-sample t(pooled vs unequal)·Wilcoxon(중앙값)·paired t · 교수 한 줄: **\"모든 검정은 표준오차 세기\"** · 상관·공분산은 10/8 로 이월",
@@ -1470,9 +1510,9 @@ const DATA = {
         },
         {
           "new": false,
-          "kr": "⏰ **퀴즈 공개→마감 창(실라버스)**: Q1 9/20→9/24 · Q2 10/3→10/7 · Q3 10/18→10/22 · Q4 11/1→11/5 · Q5 11/29→12/3, 모두 **23:59 PT** · ⚠️ **Canvas 의 마감 시각과 실라버스 날짜가 하루 어긋나는 항목이 있습니다**(Quiz 2 · HW2 · HW3 · HW4) — 아래 마감 목록은 **Canvas 기준**으로 두고 실라버스 날짜를 병기했습니다. 제출은 Canvas 를 따르세요",
-          "en": "⏰ **Quiz windows (syllabus)**: Q1 Sep 20→24 · Q2 Oct 3→7 · Q3 Oct 18→22 · Q4 Nov 1→5 · Q5 Nov 29→Dec 3, all **11:59 PM PT** · ⚠️ **a few Canvas due times are one day off from the syllabus dates** (Quiz 2, HW2, HW3, HW4) — the deadline list below keeps the **Canvas** time and shows the syllabus date alongside. Submit by the Canvas time",
-          "cn": "⏰ **测验开放→截止窗口(大纲)**:Q1 9/20→9/24 · Q2 10/3→10/7 · Q3 10/18→10/22 · Q4 11/1→11/5 · Q5 11/29→12/3,均为 **23:59 PT** · ⚠️ **部分 Canvas 截止时间与大纲日期相差一天**(Quiz 2 · HW2 · HW3 · HW4)— 下方截止列表以 **Canvas** 为准并并列大纲日期。提交请以 Canvas 为准"
+          "kr": "⏰ **퀴즈 공개→마감 창(실라버스)**: Q1 9/20→9/24 · Q2 10/3→10/7 · Q3 10/18→10/22 · Q4 11/1→11/5 · Q5 11/29→12/3, 모두 **23:59 PT** · ⚠️ **Canvas 의 마감 시각과 실라버스 날짜가 하루 어긋나는 항목이 있습니다**(HW2 · HW3 · HW4 · Quiz 2 는 Canvas 마감이 10/7 로 당겨져 이제 실라버스와 같음) — 아래 마감 목록은 **Canvas 기준**으로 두고 실라버스 날짜를 병기했습니다. 제출은 Canvas 를 따르세요",
+          "en": "⏰ **Quiz windows (syllabus)**: Q1 Sep 20→24 · Q2 Oct 3→7 · Q3 Oct 18→22 · Q4 Nov 1→5 · Q5 Nov 29→Dec 3, all **11:59 PM PT** · ⚠️ **a few Canvas due times are one day off from the syllabus dates** (HW2, HW3, HW4; Quiz 2 now matches the syllabus after Canvas moved it up to Oct 7) — the deadline list below keeps the **Canvas** time and shows the syllabus date alongside. Submit by the Canvas time",
+          "cn": "⏰ **测验开放→截止窗口(大纲)**:Q1 9/20→9/24 · Q2 10/3→10/7 · Q3 10/18→10/22 · Q4 11/1→11/5 · Q5 11/29→12/3,均为 **23:59 PT** · ⚠️ **部分 Canvas 截止时间与大纲日期相差一天**(HW2 · HW3 · HW4;Quiz 2 的 Canvas 截止已提前至 10/7,现与大纲一致)— 下方截止列表以 **Canvas** 为准并并列大纲日期。提交请以 Canvas 为准"
         },
         {
           "new": false,
@@ -1693,9 +1733,9 @@ const DATA = {
   },
   "schedule": {
     "notes": {
-      "kr": "📍 강의실 — LGST = Room 612 · STAT·FNCE 수업 = Room 615 · **목 STAT 합반 = Room 660** · FNCE 중간고사는 **성(last name) A–N 660 · P–S 612 · T–Z 615** · 🍽 식사는 모두 Dining Room · 📚 Hyatt 스터디룸 Board Rooms A·B·C **금 17:00–23:00** · 🏨 Hyatt Regency SF (5 Embarcadero Ctr) · 출처: 52SF Weekend Schedule 10/8–10 v1 (Cohort Communication ▸ Files, 10/1)",
-      "en": "📍 Rooms — LGST = Room 612 · STAT/FNCE classes = Room 615 · **Thursday joint STAT = Room 660** · FNCE midterm by **last name: A–N 660 · P–S 612 · T–Z 615** · 🍽 all meals in the Dining Room · 📚 Hyatt study rooms Board Rooms A, B, C **Fri 5–11 PM** · 🏨 Hyatt Regency SF (5 Embarcadero Ctr) · source: 52SF Weekend Schedule Oct 8–10 v1 (Cohort Communication ▸ Files, Oct 1)",
-      "cn": "📍 教室 — LGST = Room 612 · STAT·FNCE 课 = Room 615 · **周四 STAT 合班 = Room 660** · FNCE 期中**按姓氏:A–N 660 · P–S 612 · T–Z 615** · 🍽 用餐均在 Dining Room · 📚 Hyatt 自习室 Board Rooms A·B·C **周五 17:00–23:00** · 🏨 Hyatt Regency SF(5 Embarcadero Ctr)· 来源:52SF Weekend Schedule 10/8–10 v1(Cohort Communication ▸ Files,10/1)"
+      "kr": "📍 강의실 — LGST = Room 612 · STAT·FNCE 수업 = Room 615 · **목 STAT 합반 = Room 660** · FNCE 중간고사는 **10:00 정각 시작 · 성(last name) A–N 660 · O–S 612 · T–Z 615**(교수 10/6 공지 기준) · 🍽 식사는 모두 Dining Room · 📚 Hyatt 스터디룸 Board Rooms A·B·C **금 17:00–23:00** · 🏨 Hyatt Regency SF (5 Embarcadero Ctr) · 출처: 52SF Weekend Schedule 10/8–10 v2 최종본 (Cohort Communication ▸ Files, 10/6 · v1 대비 시간·강의실 변경 없음)",
+      "en": "📍 Rooms — LGST = Room 612 · STAT/FNCE classes = Room 615 · **Thursday joint STAT = Room 660** · FNCE midterm **starts 10:00 sharp · by last name: A–N 660 · O–S 612 · T–Z 615** (per the professor's Oct 6 announcement) · 🍽 all meals in the Dining Room · 📚 Hyatt study rooms Board Rooms A, B, C **Fri 5–11 PM** · 🏨 Hyatt Regency SF (5 Embarcadero Ctr) · source: 52SF Weekend Schedule Oct 8–10 v2, final (Cohort Communication ▸ Files, Oct 6 · no time or room changes from v1)",
+      "cn": "📍 教室 — LGST = Room 612 · STAT·FNCE 课 = Room 615 · **周四 STAT 合班 = Room 660** · FNCE 期中**10:00 准时开始 · 按姓氏:A–N 660 · O–S 612 · T–Z 615**(以教授 10/6 公告为准) · 🍽 用餐均在 Dining Room · 📚 Hyatt 自习室 Board Rooms A·B·C **周五 17:00–23:00** · 🏨 Hyatt Regency SF(5 Embarcadero Ctr)· 来源:52SF Weekend Schedule 10/8–10 v2 最终版(Cohort Communication ▸ Files,10/6 · 与 v1 相比时间和教室无变化)"
     },
     "weekends": [
       {
@@ -1725,13 +1765,13 @@ const DATA = {
               {
                 "time": "9:30–11:30",
                 "both": {
-                  "kr": "FNCE 6130 중간고사 · Landry · 강의실(성) A–N 660 · P–S 612 · T–Z 615",
-                  "en": "FNCE 6130 Midterm · Landry · by last name: A–N 660 · P–S 612 · T–Z 615",
-                  "cn": "FNCE 6130 期中考试 · Landry · 按姓氏:A–N 660 · P–S 612 · T–Z 615",
+                  "kr": "FNCE 6130 중간고사 · **10:00 정각 시작** · Landry · 강의실(성) A–N 660 · O–S 612 · T–Z 615",
+                  "en": "FNCE 6130 Midterm · **starts 10:00 sharp** · Landry · by last name: A–N 660 · O–S 612 · T–Z 615",
+                  "cn": "FNCE 6130 期中考试 · **10:00 准时开始** · Landry · 按姓氏:A–N 660 · O–S 612 · T–Z 615",
                   "read": {
-                    "kr": "노트북(LockDown) · 손글씨 단면 1장 · 기본 계산기 · 교수 슬라이드는 10:00 시작·약 90분",
-                    "en": "Laptop (LockDown) · one handwritten single-sided sheet · basic calculator · the professor's slide: starts 10:00, ~90 min",
-                    "cn": "笔记本电脑(LockDown)· 单面手写笔记一张 · 基本计算器 · 教授幻灯片:10:00 开始,约90分钟"
+                    "kr": "10:00 전에 배정 강의실 착석 · 노트북(LockDown 미리 설치·테스트) · 손글씨 단면 1장(뒷면 계산용 OK) · 기본 계산기 · 약 90분 · 조식은 9:30 까지",
+                    "en": "Be seated in your assigned room before 10:00 · laptop (LockDown installed and tested) · one handwritten single-sided sheet (back OK for scratch work) · basic calculator · ~90 min · breakfast ends at 9:30",
+                    "cn": "10:00 前到指定教室就座 · 笔记本电脑(提前装好并测试 LockDown)· 单面手写笔记一张(背面可演算)· 基本计算器 · 约90分钟 · 早餐供应至 9:30"
                   }
                 }
               },
@@ -1750,9 +1790,9 @@ const DATA = {
                   "en": "STAT 6130 · Waterman · **both sections together** · Room 660",
                   "cn": "STAT 6130 · Waterman · **两班合上** · Room 660",
                   "read": {
-                    "kr": "Class 5 — BBS 10 · BAUR 1 · SfB 17·19·20 · 상관·공분산(Class 4 이월) · 중간고사 안내 예정 · Quiz 2 는 오늘 20:59 PT 마감",
-                    "en": "Class 5 — BBS 10 · BAUR 1 · SfB 17, 19, 20 · correlation/covariance carried over from Class 4 · midterm briefing expected · Quiz 2 due tonight 8:59 PM PT",
-                    "cn": "Class 5 — BBS 10 · BAUR 1 · SfB 17·19·20 · 相关·协方差(Class 4 延续)· 预计讲解期中安排 · Quiz 2 今晚 20:59 PT 截止"
+                    "kr": "Class 5 — BBS 10 · BAUR 1 · SfB 17·19·20 · 상관·공분산(Class 4 이월) · 중간고사 안내 예정 · Quiz 2 는 전날 밤(10/7 23:59 PT) 마감",
+                    "en": "Class 5 — BBS 10 · BAUR 1 · SfB 17, 19, 20 · correlation/covariance carried over from Class 4 · midterm briefing expected · Quiz 2 closed the night before (Oct 7, 11:59 PM PT)",
+                    "cn": "Class 5 — BBS 10 · BAUR 1 · SfB 17·19·20 · 相关·协方差(Class 4 延续)· 预计讲解期中安排 · Quiz 2 已于前一晚(10/7 23:59 PT)截止"
                   }
                 }
               },
@@ -1858,9 +1898,9 @@ const DATA = {
               {
                 "time": "8:30–11:30 PM",
                 "both": {
-                  "kr": "🪔 Diwali 댄스 파티 · Hyatt Regency Garden Room",
-                  "en": "🪔 Diwali Dance Party · Hyatt Regency Garden Room",
-                  "cn": "🪔 排灯节舞会 · Hyatt Regency Garden Room"
+                  "kr": "🪔 Diwali 댄스 파티 · Hyatt Regency Garden Room · 🎟 드링크 티켓은 목 아침부터 프런트 데스크 옆 Credenza",
+                  "en": "🪔 Diwali Dance Party · Hyatt Regency Garden Room · 🎟 drink tickets at the credenza by the front desk from Thu morning",
+                  "cn": "🪔 排灯节舞会 · Hyatt Regency Garden Room · 🎟 饮品券周四上午起在前台旁边柜(credenza)领取"
                 }
               }
             ]
@@ -1987,9 +2027,9 @@ const DATA = {
     {
       "subject": "FNCE 6130 ✅",
       "where": {
-        "kr": "**Files** — `lecture1~7.pdf` · 실라버스 확정본(9/12) · **`Midterm Practice … .pdf` + `… AK.pdf`** · `Q1 … .pdf` + `Q1 AK`(퀴즈 1 문제·정답) · `Jones5_answers.pdf` · **Class Recordings** 는 10/5 · 12/1 일괄 공개",
-        "en": "**Files** — `lecture1–7.pdf` · the final syllabus (Sep 12) · **`Midterm Practice … .pdf` plus `… AK.pdf`** · `Q1 … .pdf` plus `Q1 AK` (Quiz 1 questions and answers) · `Jones5_answers.pdf` · **Class Recordings** are released in bulk on Oct 5 and Dec 1",
-        "cn": "**Files** — `lecture1~7.pdf` · 最终版大纲(9/12)· **`Midterm Practice … .pdf` + `… AK.pdf`** · `Q1 … .pdf` + `Q1 AK`(测验1题目与答案)· `Jones5_answers.pdf` · **Class Recordings** 于 10/5、12/1 统一公开"
+        "kr": "**Files** — `lecture1~7.pdf` · 실라버스 확정본(9/12) · **`Midterm Practice … .pdf` + `… AK.pdf`** · `Q1 … .pdf` + `Q1 AK`(퀴즈 1 문제·정답) · `Q2 … .pdf` + `Q2 AK`(퀴즈 2, 10/5) · `Jones5_answers.pdf` · **Class Recordings** 는 10/5 · 12/1 일괄 공개",
+        "en": "**Files** — `lecture1–7.pdf` · the final syllabus (Sep 12) · **`Midterm Practice … .pdf` plus `… AK.pdf`** · `Q1 … .pdf` plus `Q1 AK` (Quiz 1 questions and answers) · `Q2 … .pdf` plus `Q2 AK` (Quiz 2, Oct 5) · `Jones5_answers.pdf` · **Class Recordings** are released in bulk on Oct 5 and Dec 1",
+        "cn": "**Files** — `lecture1~7.pdf` · 最终版大纲(9/12)· **`Midterm Practice … .pdf` + `… AK.pdf`** · `Q1 … .pdf` + `Q1 AK`(测验1题目与答案)· `Q2 … .pdf` + `Q2 AK`(测验2,10/5)· `Jones5_answers.pdf` · **Class Recordings** 于 10/5、12/1 统一公开"
       },
       "submit": {
         "kr": "퀴즈 = **Quizzes 탭**(3회 시도 · 최고점 · AI·팀 협업 OK) · 시험 = 교실에서 Canvas + LockDown Browser",
