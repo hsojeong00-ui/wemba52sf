@@ -277,6 +277,11 @@ const DATA = {
       "date": "2026-10-07",
       "items": [
         {
+          "kr": "📖 **LGST Unit III 리딩 콜드콜 카드 페이지를 새로 만들었습니다** — Pershing · ABC와 FCC · Meyer · Uber의 핵심, 인물 카드 85개, 예상 콜드콜과 영어 답, 7쪽 요약본 인쇄 · LGST 과목 카드 맨 위 링크에서 열립니다",
+          "en": "📖 **New: LGST Unit III reading cold-call cards** — key points for Pershing, ABC & FCC, Meyer and Uber, 85 who's-who cards, likely cold calls with English answers, and a 7-page cram-sheet print · open it from the top link on the LGST course card",
+          "cn": "📖 **新增:LGST Unit III 阅读冷点名卡片** — Pershing、ABC 与 FCC、Meyer、Uber 的要点,85 张人物卡,可能被问的问题与英文回答,以及 7 页精简版打印 · 从 LGST 课程卡片顶部的链接打开"
+        },
+        {
           "kr": "⚠️ **STAT Quiz 2 마감이 10/7(수) 23:59 PT 로 당겨졌습니다**(Canvas 10/4·10/7 확인, 원문 10/8 02:59 ET) — 기존 표기 10/8 20:59 보다 약 21시간 빠릅니다 · Canvas 이름 \"Pre-class Quiz 2\" · 마감 목록·준비 카드·STAT 카드·일정표 모두 수정",
           "en": "⚠️ **STAT Quiz 2 now closes Wed Oct 7, 11:59 PM PT** (checked on Canvas Oct 4 and Oct 7; ET original Oct 8, 2:59 AM) — about 21 hours earlier than the Oct 8, 8:59 PM shown before · named \"Pre-class Quiz 2\" on Canvas · fixed in the deadline list, prep cards, STAT card and timetable",
           "cn": "⚠️ **STAT Quiz 2 截止提前至 10/7(周三)23:59 PT**(10/4·10/7 Canvas 核实,东部时间原文 10/8 02:59)— 比此前标注的 10/8 20:59 早约21小时 · Canvas 名称 \"Pre-class Quiz 2\" · 截止列表、准备卡、STAT 卡、课表均已更正"
@@ -1282,6 +1287,12 @@ const DATA = {
         "cn": "✅ 已完成 4/6 节 · 下次 10/9–10(Unit III · 小组展示 · 最后两节)· 上半学期(8/28–10/10)· 0.5 CU · 无教材"
       },
       "points": [
+        {
+          "kr": "📖 **Unit III 리딩 콜드콜 카드** — 금 Pershing's Expedition · ABC와 FCC 실습 배경 / 토 Meyer(헤어 브레이딩 면허) · Uber: 한 문장 요약, **인물 카드 85개(Who is X? 대비)**, 예상 콜드콜과 짧은 영어 답, 찬반 쟁점 · 수업 중 기기 금지라 **요약본 인쇄(7쪽)** 버튼 → <a href=\"lgst-unit3.html\" target=\"_blank\" rel=\"noopener\">페이지 열기 ↗</a>",
+          "en": "📖 **Unit III reading cold-call cards** — Fri: Pershing's Expedition · ABC & FCC background / Sat: Meyer (hair-braiding licenses) · Uber: one-line summaries, **85 who's-who cards** for “Who is X?” cold calls, likely questions with short spoken answers, the debate on each side · devices are banned in class, so there is a **7-page cram-sheet print** button → <a href=\"lgst-unit3.html\" target=\"_blank\" rel=\"noopener\">Open the page ↗</a>",
+          "cn": "📖 **Unit III 阅读冷点名卡片** — 周五 Pershing's Expedition · ABC 与 FCC 课堂练习背景 / 周六 Meyer(编发执照)· Uber:一句话总结、**85 张人物卡**(应对 “Who is X?”)、可能被问的问题与简短英文回答、正反论点 · 课堂禁用电子设备,可用 **7 页精简版打印** → <a href=\"lgst-unit3.html\" target=\"_blank\" rel=\"noopener\">打开页面 ↗</a>",
+          "new": true
+        },
         {
           "new": false,
           "kr": "📵 **수업 규칙(실라버스 v2)** — **노트북·태블릿·폰 전면 금지**(reMarkable 같은 저연결 기기와 Weingarten 승인자만 예외, 위반 시 참여 점수 감점) · **콜드콜** 있음, 좌석표대로 앉고 **명패 필수**(참여 크레딧 반영용) · 출석 체크는 없지만 **6회 중 3회 이상 결석이면 드롭 권고**, 결석은 사전 메일",

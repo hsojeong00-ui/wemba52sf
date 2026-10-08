@@ -1645,6 +1645,51 @@ function renderNextClass(){
 
 /* ── 시험 삽화 (Sally 손그림) ────────────────────────────────────────────
    시험 D-6~당일: 응원(만세+깃발) · 시험 종료(시작+3h)~그날 자정(PST): 축하(커피) */
+/* 시험 삽화 자막 자동 맞춤 (2026-10-07)
+   긴 시험 제목이 삽화 밖으로 넘치지 않게: 실제 글자 폭을 재서 ' · ' 단위로 줄을 나누고,
+   4줄 이상이면 글자를 줄이며, 그래도 넓은 줄은 textLength 로 폭에 맞춘다. '\n' 은 강제 줄바꿈. */
+function fitCheerSub(t, sub){
+  if(!t || typeof t.getComputedTextLength !== "function") return;
+  const MAXW = 430, CX = 420, BASE_Y = 152, TOP_Y = 146;
+  const measure = (s, fs) => { t.setAttribute("font-size", fs); t.textContent = s; return t.getComputedTextLength(); };
+  if(!t.getComputedTextLength()) return;           // 화면에 안 그려진 상태면 기존 렌더 유지
+  const wrap = fs => {
+    const out = [];
+    String(sub).split("\n").forEach(line => {
+      if(measure(line, fs) <= MAXW){ out.push(line); return; }
+      let cur = "";
+      line.split(" · ").forEach(seg => {
+        const cand = cur ? cur + " · " + seg : seg;
+        if(measure(cand, fs) <= MAXW){ cur = cand; return; }
+        if(cur) out.push(cur);
+        if(measure(seg, fs) <= MAXW){ cur = seg; return; }
+        let w = "";                                  // 한 조각도 넓으면 단어 단위로
+        seg.split(" ").forEach(word => {
+          const c2 = w ? w + " " + word : word;
+          if(!w || measure(c2, fs) <= MAXW){ w = c2; } else { out.push(w); w = word; }
+        });
+        cur = w;
+      });
+      if(cur) out.push(cur);
+    });
+    return out;
+  };
+  let fs = 17, lines = wrap(fs);
+  while(lines.length > 3 && fs > 13){ fs -= 1; lines = wrap(fs); }
+  const lh = Math.round(fs * 1.3);
+  t.setAttribute("font-size", fs);
+  t.setAttribute("y", Math.max(TOP_Y, BASE_Y - (lines.length - 1) * lh / 2));
+  t.textContent = "";
+  lines.forEach((ln, i) => {
+    const ts = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+    ts.setAttribute("x", CX);
+    ts.setAttribute("dy", i === 0 ? 0 : lh);
+    ts.textContent = ln;
+    t.appendChild(ts);
+    if(ts.getComputedTextLength() > MAXW){ ts.setAttribute("textLength", MAXW); ts.setAttribute("lengthAdjust", "spacingAndGlyphs"); }
+  });
+}
+
 function renderExamCheer(){
   const box = document.getElementById("examCheer");
   const now = ptNowD();
@@ -1740,8 +1785,9 @@ function renderExamCheer(){
     </g>
   </g>
   <text x="420" y="118" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="40" fill="#c14e78">${label}</text>
-  <text x="420" y="${subY}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="17" fill="#4c7a44">${subTspans}</text>
+  <text class="cheer-sub" x="420" y="${subY}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="17" fill="#4c7a44">${subTspans}</text>
 </svg>`;
+  fitCheerSub(box.querySelector("text.cheer-sub"), String(sub));
 }
 
 let _socialInit = false;
