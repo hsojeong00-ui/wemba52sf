@@ -79,6 +79,8 @@
   .coremap .cm-term{font-family:var(--mono); font-weight:700; font-size:11px; color:var(--muted); letter-spacing:.02em}
   .coremap .cm-arrow{font-weight:800; font-size:16px; margin-left:2px; color:var(--muted); flex:0 0 auto}
   @media(min-width:720px){ .coremap{flex-basis:auto; order:-1} }
+  /* 2026-10-12 · 폰(≤480px)에서 Journey 버튼이 화면보다 넓어 페이지가 옆으로 밀리던 문제 수정 */
+  @media(max-width:480px){ .coremap{min-width:0; max-width:100%} .coremap svg{height:auto; width:46%; max-width:213px; flex:0 1 auto} }
 
   /* hero countdown — 라임 그라데이션 카드 */
   .hero{margin:18px 0 28px; background:var(--grad); color:#0b051d; border-radius:24px; padding:26px 28px; box-shadow:var(--shadow); display:flex; align-items:center; gap:24px; flex-wrap:wrap}
@@ -155,6 +157,8 @@
        background:color-mix(in srgb,var(--tg) 17%,transparent) !important; color:var(--tg); border:1px solid color-mix(in srgb,var(--tg) 42%,transparent)}
 
   /* course cards */
+  .card.course{scroll-margin-top:72px}
+  .card.course:target{outline:2px solid color-mix(in srgb,var(--accent) 60%,transparent); outline-offset:2px}
   .course .top{display:flex; align-items:center; gap:10px; margin-bottom:6px}
   .course .dot{width:10px;height:10px;border-radius:50%}
   .course .code{font-family:var(--mono); font-weight:800; letter-spacing:.02em}
@@ -1082,7 +1086,7 @@
   </section>
 
   <section id="sec-upcoming">
-    <div class="h"><h3 data-t="upcoming"></h3><span class="hint" data-t="upcomingHint"></span></div>
+    <div class="h"><h3 data-t="upcoming"></h3><span class="hint" id="upHint"></span></div>
     <div class="dl" id="deadlines"></div>
   </section>
 
@@ -1139,13 +1143,17 @@
 const T = {
   kicker:       { kr:"생존 대시보드", en:"Survival Dashboard", cn:"生存看板" },
   nextDue:      { kr:"가장 임박한 마감", en:"Next critical deadline", cn:"最近的关键截止" },
-  prep:         { kr:"📖 지금 준비가 필요한 것", en:"📖 Prepare before class", cn:"📖 现在需要准备的" },
+  prep:         { kr:"📖 다음 수업 준비", en:"📖 Next class prep", cn:"📖 下次上课准备" },
   newBadge:     { kr:"NEW", en:"NEW", cn:"NEW" },
   upcoming:     { kr:"다가오는 일정", en:"Upcoming", cn:"近期日程" },
   upcomingHint: { kr:"오늘 기준 자동 정렬 · D-day 실시간 계산", en:"Auto-sorted from today · live D-day", cn:"按今天自动排序 · 实时倒计时" },
-  moreOpen:     { kr:"학기 전체 보기", en:"Show the rest of the term", cn:"查看本学期全部" },
+  /* 2026-10-12 · 다가오는 일정은 '다음 수업 주말'까지만 기본 노출 ({d} = 주말 마지막 날) */
+  upHintTo:     { kr:"다음 수업 주말({d})까지 · 나머지는 '더 보기'", en:"Through the next class weekend ({d}) · the rest under “More”", cn:"显示至下个上课周末({d})· 其余见“更多”" },
+  upHintThis:   { kr:"이번 수업 주말({d})까지 · 나머지는 '더 보기'", en:"Through this class weekend ({d}) · the rest under “More”", cn:"显示至本次上课周末({d})· 其余见“更多”" },
+  upHintDays:   { kr:"앞으로 2주 · 나머지는 '더 보기'", en:"Next two weeks · the rest under “More”", cn:"未来两周 · 其余见“更多”" },
+  moreOpen:     { kr:"더 보기", en:"More", cn:"更多" },
   moreClose:    { kr:"접기", en:"Collapse", cn:"收起" },
-  moreCount:    { kr:"건 더", en:" more", cn:"项" },
+  moreCount:    { kr:"건", en:"", cn:"项" },
   schedule:     { kr:"다음 수업 주말 일정표", en:"Next class weekend", cn:"下个上课周末课表" },
   sec1:         { kr:"섹션 1", en:"Section 1", cn:"第1班" },
   sec2:         { kr:"섹션 2", en:"Section 2", cn:"第2班" },
@@ -1162,7 +1170,7 @@ const T = {
   socialFallback:{ kr:"↑ 아래에 안 보이면 위 버튼으로 열어주세요", en:"↑ If it doesn't load below, use the button above", cn:"↑ 如下方未显示,请用上方按钮打开" },
   bwTitle:      { kr:"Block Week — Fall 2026", en:"Block Week — Fall 2026", cn:"Block Week — Fall 2026" },
   bwHint:       { kr:"라인업 · 규칙 · add/drop", en:"Lineup · rules · add/drop", cn:"课程 · 规则 · 加退" },
-  courses:      { kr:"과목별 현황", en:"By course", cn:"各科概况" },
+  courses:      { kr:"강의 정보", en:"Course info", cn:"课程信息" },
   canvas:       { kr:"Canvas 자료 위치 맵", en:"Canvas resource map", cn:"Canvas 资料位置图" },
   canvasHint:   { kr:"뭐가 어디에 있는지", en:"Where everything lives", cn:"东西都在哪里" },
   traps:        { kr:"함정 / 핵심", en:"Traps / key points", cn:"陷阱 / 要点" },
@@ -1182,11 +1190,11 @@ const T = {
   dashName:     { kr:"생존 대시보드", en:"Survival Dashboard", cn:"生存看板" },
   canvasHead:   { kr:["과목","자료 위치","제출/퀴즈","주의"], en:["Subject","Where","Submit","Watch"], cn:["科目","资料位置","提交/测验","注意"] },
   nav:          {
-    "sec-prep":{kr:"📖 지금 준비",en:"📖 Prepare now",cn:"📖 现在准备"},
+    "sec-prep":{kr:"📖 수업 준비",en:"📖 Class prep",cn:"📖 上课准备"},
     "sec-upcoming":{kr:"다가오는 일정",en:"Upcoming",cn:"近期日程"},
     "sec-schedule":{kr:"수업 일정표",en:"Class schedule",cn:"课程表"},
     "sec-bw":{kr:"Block Week",en:"Block Week",cn:"Block Week"},
-    "sec-courses":{kr:"과목",en:"Courses",cn:"科目"},
+    "sec-courses":{kr:"강의 정보",en:"Course info",cn:"课程信息"},
     "sec-canvas":{kr:"자료 맵",en:"Resource map",cn:"资料图"},
     "sec-social":{kr:"디너",en:"Dinner",cn:"聚餐"},
   },
@@ -1334,8 +1342,6 @@ function render(){
   const hl = document.getElementById("histOpen");
   if(hl) hl.addEventListener("click", e=>{ e.preventDefault(); openHistory(); });
 
-  renderNav();
-
   const sorted = [...DATA.deadlines].sort((a,b)=> toDate(a.date).d - toDate(b.date).d);
 
   const safe = (name, fn) => { try{ fn(); }catch(e){ console.error("[render] "+name+" 실패:", e); } };
@@ -1352,6 +1358,7 @@ function render(){
   safe("blockWeek",  renderBlockWeek);
   safe("courses",    renderCourses);
   safe("canvas",     renderCanvas);
+  safe("nav",        renderNav);        // 2026-10-12 · 섹션을 그린 뒤에 실행해야 숨긴 섹션을 메뉴에서 뺄 수 있다
   safe("mdBold",     applyBold);
 
   document.getElementById("footer").innerHTML =
@@ -1364,6 +1371,7 @@ function renderNav(){
   nav.innerHTML = NAV_ORDER.filter(id=>{
     const el = document.getElementById(id);
     if(!el) return false;
+    if(el.style.display === "none") return false;   // 내용이 없어 숨긴 섹션(지난 준비 카드 등)은 메뉴에서도 뺀다
     if(id==="sec-social" && (!DATA.social || !DATA.social.url)) return false;
     return true;
   }).map(id=>`<a href="#${id}">${T.nav[id][lang]}</a>`).join("");
@@ -1382,12 +1390,14 @@ function setupScrollSpy(){
   }, { rootMargin:"-72px 0px -65% 0px", threshold:0 });
   document.querySelectorAll("section[id]").forEach(s=>obs.observe(s));
 }
-/* ── 지금 준비가 필요한 것 (요약 카드) ─────────────────────────────────
-   DATA.prep = { window, note, cards:[{course, color, when, badge, lines:[{icon,text,sub}], flag}] } */
+/* ── 다음 수업 준비 (과목당 카드 1장: 언제 · 읽을 것 · 낼 것/가져갈 것 · 상세 링크) ──
+   DATA.prep = { window, until, note, cards:[{course, color, when, badge, lines:[{icon,text,sub}], flag}] }
+   until(YYYY-MM-DD, PT)이 지나면 카드가 낡은 것이므로 섹션을 자동으로 숨긴다 (2026-10-12) */
+function prepExpired(P){ return !!(P && P.until && daysUntil(toDate(P.until).d) < 0); }
 function renderPrep(){
   const sec = document.getElementById("sec-prep");
   const P = DATA.prep;
-  if(!P || !P.cards || !P.cards.length){ sec.style.display="none"; return; }
+  if(!P || !P.cards || !P.cards.length || prepExpired(P)){ sec.style.display="none"; return; }
   sec.style.display = "";
   document.getElementById("prepHint").textContent = L(P.window);
 
@@ -1461,7 +1471,15 @@ function renderHero(sorted){
   document.getElementById("heroUnit").textContent = n===0 ? "" : T.days[lang];
 }
 
-const NEAR_DAYS = 30;   // 이 일수 이내만 기본 노출, 나머지는 접어둠
+/* 다가오는 일정 기본 노출 범위 (2026-10-12 Sally 요청: "딱 다음 수업까지만, 나머지는 more")
+   = 다음(또는 진행 중인) 수업 주말의 마지막 날 23:59 PT 까지. 일정표에 주말이 없으면 NEAR_DAYS 일. */
+const NEAR_DAYS = 14;
+function upcomingCutoff(){
+  const w = currentWeekend();
+  if(w){ const t = ptOf(w.end); t.setHours(23,59,59,0); return { t, w }; }
+  const t = startOfTodayPT(); t.setDate(t.getDate() + NEAR_DAYS); t.setHours(23,59,59,0);
+  return { t, w:null };
+}
 
 function deadlineRow(it){
   const n = daysUntil(toDate(it.date).d);
@@ -1503,8 +1521,16 @@ function fillDeadlines(container, items){
 function renderDeadlines(sorted){
   const box = document.getElementById("deadlines"); box.innerHTML="";
   const live = sorted.filter(it => !isPastItem(it));
-  const near  = live.filter(it => daysUntil(toDate(it.date).d) <= NEAR_DAYS);
-  const later = live.filter(it => daysUntil(toDate(it.date).d) >  NEAR_DAYS);
+  const cut   = upcomingCutoff();
+  const near  = live.filter(it => ptOf(it.date) <= cut.t);
+  const later = live.filter(it => ptOf(it.date) >  cut.t);
+
+  const hint = document.getElementById("upHint");
+  if(hint){
+    hint.textContent = cut.w
+      ? (weekendForToday() === cut.w ? T.upHintThis : T.upHintTo)[lang].replace("{d}", shortDate(cut.w.end))
+      : T.upHintDays[lang];
+  }
 
   fillDeadlines(box, near);
   if(!later.length) return;
@@ -1611,6 +1637,12 @@ function renderNextClass(){
   const now = ptNowD();
   // 마지막 수업 종료 후 3시간 지나면 배너 숨김 (밤새 "수고했어요"가 남지 않게)
   if(now.getTime() > weekendEndTime(w).getTime() + 3*3600*1000){ box.hidden = true; return; }
+  // 시간표 공개 전(수업 시각이 하나도 없음)이면 배너를 띄우지 않는다 — '수업 끝' 오표시 방지 (2026-10-12)
+  const hasTimedClass = w.days.some(day => day.rows.some(r => {
+    if(!parseTimeRange(L(r.time))) return false;
+    return !MEAL_RE.test(r.both ? L(r.both) : (L(r.s1)+" / "+L(r.s2)));
+  }));
+  if(!hasTimedClass){ box.hidden = true; return; }
   const ws = ptOf(w.start); ws.setHours(0,0,0,0);
 
   let found = null, ongoing = false;
@@ -1838,6 +1870,7 @@ function renderCourses(){
   const box = document.getElementById("courses"); box.innerHTML="";
   DATA.courses.forEach(c=>{
     const el = document.createElement("div"); el.className="card course";
+    el.id = "course-" + String(c.code).split(" ")[0];   // 준비 카드의 '상세 ↓' 링크 목적지 (예: #course-STAT)
     const nb = o => o.new ? `<span class="newbadge">${T.newBadge[lang]}</span>` : "";
     const pts = c.points.map(p=>`<li>${L(p)}${nb(p)}</li>`).join("");
     const traps = (c.traps && c.traps.length) ? `<div class="traps"><div class="lab">${T.traps[lang]}</div><ul>${c.traps.map(t=>`<li>${L(t)}${nb(t)}</li>`).join("")}</ul></div>` : "";
@@ -1958,7 +1991,7 @@ function buildStory(){
   // 과목별 (tip/핵심 모두 포함, 길면 자동 축소)
   DATA.courses.forEach(c=>{
     const pts = c.points.map(p=>`<li>• ${L(p)}${nbS(p)}</li>`).join("");
-    const traps = c.traps.length
+    const traps = (c.traps && c.traps.length)   // 2026-10-12 · traps 없는 과목에서 매거진 보기가 멈추던 문제 수정
       ? `<li style="margin-top:8px;font-weight:800;color:${c.color};border:0;padding:0">${T.traps[lang]}</li>`+
         c.traps.map(t=>`<li>⚠ ${L(t)}${nbS(t)}</li>`).join("")
       : "";
@@ -1966,8 +1999,8 @@ function buildStory(){
       `<h3>${L(c.headline)}</h3><ul>${pts}${traps}</ul></div></div>`);
   });
 
-  // 지금 준비가 필요한 것 (길면 자동 축소)
-  if(DATA.prep && DATA.prep.cards && DATA.prep.cards.length){
+  // 다음 수업 준비 (길면 자동 축소 · until 지나면 생략)
+  if(DATA.prep && DATA.prep.cards && DATA.prep.cards.length && !prepExpired(DATA.prep)){
     DATA.prep.cards.forEach(c=>{
       const rows = (c.lines||[]).map(ln=>`<li>${ln.icon||'·'} ${L(ln.text)}</li>`).join("");
       const flag = (c.flag && L(c.flag)) ? `<li>⚠ ${L(c.flag)}</li>` : "";
