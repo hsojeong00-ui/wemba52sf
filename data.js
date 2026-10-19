@@ -13,7 +13,7 @@
 const DATA = {
   "meta": {
     "cohort": "WEMBA 52",
-    "lastUpdated": "2026-10-12",
+    "lastUpdated": "2026-10-19",
     "author": "Sally",
     "tzLabel": "PT",
     "cheerOverride": {
@@ -33,18 +33,18 @@ const DATA = {
     },
     "until": "2026-10-24",
     "note": {
-      "kr": "⏳ **주말 시간표(시간·강의실)는 아직 공개 전**입니다(10/12 확인) — 보통 1주 전 Cohort Communication ▸ Files 에 올라오면 바로 채웁니다",
-      "en": "⏳ **The weekend timetable (times and rooms) isn't out yet** (checked Oct 12) — it usually lands in Cohort Communication ▸ Files about a week ahead, and this page gets updated right away",
-      "cn": "⏳ **周末课表(时间与教室)尚未公布**(10/12 确认)— 通常提前约一周发布在 Cohort Communication ▸ Files,届时立即更新"
+      "kr": "🗓 **주말 시간표가 나왔습니다**(Cohort Communication ▸ Files, 10/16) — **금 10/23: 09:30–11:30 STAT 중간고사 → 13:00–16:00 FNCE**(둘 다 **Room 660 · 두 섹션 합반**) · 17:30 Career Conversations / **토 10/24: 섹션 1 = STAT(612) → FNCE(615) · 섹션 2 = FNCE(615) → STAT(612)** · 자세한 표는 아래 '다음 수업 주말 일정표'",
+      "en": "🗓 **The weekend timetable is out** (Cohort Communication ▸ Files, Oct 16) — **Fri Oct 23: STAT midterm 9:30–11:30, then FNCE 1:00–4:00** (both in **Room 660, sections together**) · Career Conversations at 5:30 PM / **Sat Oct 24: Section 1 = STAT (612) → FNCE (615) · Section 2 = FNCE (615) → STAT (612)** · full table under \"Next class weekend\" below",
+      "cn": "🗓 **周末课表已公布**(Cohort Communication ▸ Files,10/16)— **周五 10/23:09:30–11:30 STAT 期中 → 13:00–16:00 FNCE**(均在 **Room 660,两班合上**)· 17:30 Career Conversations / **周六 10/24:第1班 = STAT(612)→ FNCE(615)· 第2班 = FNCE(615)→ STAT(612)** · 完整课表见下方「下个上课周末课表」"
     },
     "cards": [
       {
         "course": "STAT",
         "color": "#8e8a99",
         "when": {
-          "kr": "10/22(목) → 10/23(금) 중간 · 10/24(토) C7",
-          "en": "Thu Oct 22 → Fri Oct 23 midterm · Sat Oct 24 C7",
-          "cn": "10/22(周四)→ 10/23(周五)期中 · 10/24(周六)C7"
+          "kr": "10/22(목) Quiz 3 → 10/23(금) 09:30 중간 · 10/24(토) C7",
+          "en": "Thu Oct 22 Quiz 3 → Fri Oct 23, 9:30 midterm · Sat Oct 24 C7",
+          "cn": "10/22(周四)Quiz 3 → 10/23(周五)09:30 期中 · 10/24(周六)C7"
         },
         "badge": {
           "kr": "중간고사",
@@ -55,30 +55,30 @@ const DATA = {
           {
             "icon": "⏰",
             "text": {
-              "kr": "**10/22(목) 23:59 PT — Quiz 3 제출** · 10/17(토) 21:00 공개 · 5점 · 🤖 생성 AI 금지",
-              "en": "**Thu Oct 22, 11:59 PM PT — Quiz 3 due** · opens Sat Oct 17, 9 PM · 5 pts · 🤖 no generative AI",
-              "cn": "**10/22(周四)23:59 PT — 提交 Quiz 3** · 10/17(周六)21:00 开放 · 5 分 · 🤖 禁用生成式 AI"
+              "kr": "**10/22(목) 23:59 PT — Quiz 3 제출** · 10/17(토) 21:00 공개(지금 열림, Canvas 이름 'Pre-class Quiz 3') · 5점 · 🤖 생성 AI 금지",
+              "en": "**Thu Oct 22, 11:59 PM PT — Quiz 3 due** · opened Sat Oct 17, 9 PM (listed as \"Pre-class Quiz 3\" on Canvas) · 5 pts · 🤖 no generative AI",
+              "cn": "**10/22(周四)23:59 PT — 提交 Quiz 3** · 10/17(周六)21:00 已开放(Canvas 上名为 \"Pre-class Quiz 3\")· 5 分 · 🤖 禁用生成式 AI"
             }
           },
           {
             "icon": "📝",
             "text": {
-              "kr": "**10/23(금) 중간고사** · 객관식 36문항 · 2시간 · 범위 케이스북(BBS) 1–10장(포트폴리오 최적화·회귀 제외)",
-              "en": "**Fri Oct 23 — midterm** · 36 multiple-choice · 2 hours · casebook (BBS) ch. 1–10 (no portfolio optimization, no regression)",
-              "cn": "**10/23(周五)期中考试** · 36 道选择题 · 2 小时 · 案例书(BBS)第 1–10 章(不含投资组合优化与回归)"
+              "kr": "**10/23(금) 09:30–11:30 PT 중간고사 · Room 660(두 섹션 합반)** · 객관식 36문항 · 2시간 · 범위 케이스북(BBS) 1–10장(포트폴리오 최적화·회귀 제외)",
+              "en": "**Fri Oct 23, 9:30–11:30 AM PT — midterm · Room 660 (both sections together)** · 36 multiple-choice · 2 hours · casebook (BBS) ch. 1–10 (no portfolio optimization, no regression)",
+              "cn": "**10/23(周五)09:30–11:30 PT 期中考试 · Room 660(两班合考)** · 36 道选择题 · 2 小时 · 案例书(BBS)第 1–10 章(不含投资组合优化与回归)"
             },
             "sub": {
-              "kr": "🎒 **노트북**(LockDown Browser 미리 설치 → Canvas 연습 퀴즈로 테스트) · **치트시트 1장 양면**(작성 방식 자유)",
-              "en": "🎒 **Laptop** (install LockDown Browser and test it with the practice quiz on Canvas) · **one cheat sheet, both sides** (any method)",
-              "cn": "🎒 **笔记本**(提前安装 LockDown Browser,并用 Canvas 练习测验测试)· **小抄 1 张双面**(制作方式不限)"
+              "kr": "🎒 **노트북·충전기**(LockDown Browser 미리 설치 → Canvas 'Practice Quiz using New Quizzes'로 테스트, 회사 노트북은 막힐 수 있음) · **치트시트 1장 양면**(작성 방식 자유) · 🧮 계산기 허용 여부는 아직 공지 없음 · 조식 8:30–9:30",
+              "en": "🎒 **Laptop and charger** (install LockDown Browser and test it with \"Practice Quiz using New Quizzes\" on Canvas; work laptops may block it) · **one cheat sheet, both sides** (any method) · 🧮 no word yet on calculators · breakfast 8:30–9:30",
+              "cn": "🎒 **笔记本与充电器**(提前安装 LockDown Browser,并用 Canvas 上的 \"Practice Quiz using New Quizzes\" 测试;公司电脑可能装不上)· **小抄 1 张双面**(制作方式不限)· 🧮 是否允许计算器尚未公布 · 早餐 8:30–9:30"
             }
           },
           {
             "icon": "📖",
             "text": {
-              "kr": "**10/24(토) Class 7** · C6 슬라이드 s.11–13(기울기 신뢰구간·예측구간) + 다중회귀 · BAUR 4장 · SfB 21.3–4 · 23장",
-              "en": "**Sat Oct 24 — Class 7** · C6 slides 11–13 (slope CI, prediction intervals) + multiple regression · BAUR ch. 4 · SfB 21.3–4 and ch. 23",
-              "cn": "**10/24(周六)第7课** · C6 第 11–13 页(斜率置信区间、预测区间)+ 多元回归 · BAUR 第 4 章 · SfB 21.3–4 及第 23 章"
+              "kr": "**10/24(토) Class 7**(섹션 1 09:00 · 섹션 2 13:00 · Room 612) · C6 슬라이드 s.11–13(기울기 신뢰구간·예측구간) + 다중회귀 · BAUR 4장 · SfB 21.3–4 · 23장",
+              "en": "**Sat Oct 24 — Class 7** (Section 1 at 9:00 · Section 2 at 1:00 · Room 612) · C6 slides 11–13 (slope CI, prediction intervals) + multiple regression · BAUR ch. 4 · SfB 21.3–4 and ch. 23",
+              "cn": "**10/24(周六)第7课**(第1班 09:00 · 第2班 13:00 · Room 612) · C6 第 11–13 页(斜率置信区间、预测区间)+ 多元回归 · BAUR 第 4 章 · SfB 21.3–4 及第 23 章"
             },
             "sub": {
               "kr": "📤 HW3 — Canvas Files ▸ HW 3 에서 **우리 팀 CSV** 확인 · 이번 주말 설명·JMP 시연 · 마감 11/5(목) 23:59",
@@ -100,9 +100,9 @@ const DATA = {
         "course": "FNCE",
         "color": "#0b051d",
         "when": {
-          "kr": "10/23(금) L10–11 · 10/24(토) L12–13",
-          "en": "Fri Oct 23 L10–11 · Sat Oct 24 L12–13",
-          "cn": "10/23(周五)L10–11 · 10/24(周六)L12–13"
+          "kr": "10/23(금) 13:00 L10–11 · 10/24(토) L12–13",
+          "en": "Fri Oct 23, 1:00 L10–11 · Sat Oct 24 L12–13",
+          "cn": "10/23(周五)13:00 L10–11 · 10/24(周六)L12–13"
         },
         "badge": {
           "kr": "리딩",
@@ -113,17 +113,17 @@ const DATA = {
           {
             "icon": "📖",
             "text": {
-              "kr": "**10/23(금) L10 연준 · L11 미국 통화정책** — FRB St. Louis *Making sense of the Federal Reserve* · Brookings 2편(연준 독립성 2025.5 · '최대 고용' 정의 2022.2) · FRBSF Economic Letter *How Quickly Do Prices Respond to Monetary Policy?*(2024.4)",
-              "en": "**Fri Oct 23 — L10 The Federal Reserve System · L11 U.S. Monetary Policy** — FRB St. Louis, *Making sense of the Federal Reserve* · two Brookings pieces (Fed independence, May 2025 · defining \"maximum employment,\" Feb 2022) · FRBSF Economic Letter, *How Quickly Do Prices Respond to Monetary Policy?* (Apr 2024)",
-              "cn": "**10/23(周五)L10 美联储体系 · L11 美国货币政策** — FRB St. Louis *Making sense of the Federal Reserve* · Brookings 两篇(美联储独立性 2025.5 · \"最大就业\"的定义 2022.2)· FRBSF Economic Letter *How Quickly Do Prices Respond to Monetary Policy?*(2024.4)"
+              "kr": "**10/23(금) 13:00 Room 660(합반) — L10 연준 · L11 미국 통화정책** — FRB St. Louis *Making sense of the Federal Reserve* · Brookings 2편(연준 독립성 2025.5 · '최대 고용' 정의 2022.2) · FRBSF Economic Letter *How Quickly Do Prices Respond to Monetary Policy?*(2024.4)",
+              "en": "**Fri Oct 23, 1:00 PM, Room 660 (sections together) — L10 The Federal Reserve System · L11 U.S. Monetary Policy** — FRB St. Louis, *Making sense of the Federal Reserve* · two Brookings pieces (Fed independence, May 2025 · defining \"maximum employment,\" Feb 2022) · FRBSF Economic Letter, *How Quickly Do Prices Respond to Monetary Policy?* (Apr 2024)",
+              "cn": "**10/23(周五)13:00 Room 660(两班合上)L10 美联储体系 · L11 美国货币政策** — FRB St. Louis *Making sense of the Federal Reserve* · Brookings 两篇(美联储独立性 2025.5 · \"最大就业\"的定义 2022.2)· FRBSF Economic Letter *How Quickly Do Prices Respond to Monetary Policy?*(2024.4)"
             }
           },
           {
             "icon": "📖",
             "text": {
-              "kr": "**10/24(토) L12 무역·환율·국제금융 · L13 화폐·물가·인플레이션** — Jones 20장 · 8장 · ABC 5·13·7장 · FRBSF Letter 관세와 인플레이션(2026.3) · Rogoff *The Age of Inflation*(Foreign Affairs 2022.12) · *Why Money Doesn't Talk Any More*(2025.8)",
-              "en": "**Sat Oct 24 — L12 Trade, Exchange Rates & International Finance · L13 Money, Prices & Inflation** — Jones ch. 20 and 8 · ABC ch. 5, 13 and 7 · FRBSF Letter on tariffs and inflation (Mar 2026) · Rogoff, *The Age of Inflation* (Foreign Affairs, Dec 2022) · *Why Money Doesn't Talk Any More* (Aug 2025)",
-              "cn": "**10/24(周六)L12 贸易、汇率与国际金融 · L13 货币、物价与通胀** — Jones 第 20、8 章 · ABC 第 5、13、7 章 · FRBSF 关于关税与通胀的 Letter(2026.3)· Rogoff *The Age of Inflation*(Foreign Affairs 2022.12)· *Why Money Doesn't Talk Any More*(2025.8)"
+              "kr": "**10/24(토) Room 615(섹션 1 13:00 · 섹션 2 09:00) — L12 무역·환율·국제금융 · L13 화폐·물가·인플레이션** — Jones 20장 · 8장 · ABC 5·13·7장 · FRBSF Letter 관세와 인플레이션(2026.3) · Rogoff *The Age of Inflation*(Foreign Affairs 2022.12) · *Why Money Doesn't Talk Any More*(2025.8)",
+              "en": "**Sat Oct 24, Room 615 (Section 1 at 1:00 · Section 2 at 9:00) — L12 Trade, Exchange Rates & International Finance · L13 Money, Prices & Inflation** — Jones ch. 20 and 8 · ABC ch. 5, 13 and 7 · FRBSF Letter on tariffs and inflation (Mar 2026) · Rogoff, *The Age of Inflation* (Foreign Affairs, Dec 2022) · *Why Money Doesn't Talk Any More* (Aug 2025)",
+              "cn": "**10/24(周六)Room 615(第1班 13:00 · 第2班 09:00)L12 贸易、汇率与国际金融 · L13 货币、物价与通胀** — Jones 第 20、8 章 · ABC 第 5、13、7 章 · FRBSF 关于关税与通胀的 Letter(2026.3)· Rogoff *The Age of Inflation*(Foreign Affairs 2022.12)· *Why Money Doesn't Talk Any More*(2025.8)"
             },
             "sub": {
               "kr": "링크는 Canvas 실라버스에 · 복습: L8 s.43 · L9 s.42 복습 질문 각 7개",
@@ -134,9 +134,17 @@ const DATA = {
           {
             "icon": "📤",
             "text": {
-              "kr": "**다음 제출: Quiz #3** 10/25(일) 공개 → 11/5(목) 23:59 PT(경기순환 · 연준·통화정책) · 이번 주말 학습팀 **Fed Challenge**(12/5 발표) 안내",
-              "en": "**Next due: Quiz #3**, opens Sun Oct 25 → due Thu Nov 5, 11:59 PM PT (business cycles · the Fed and monetary policy) · the learning-team **Fed Challenge** (presentations Dec 5) gets explained this weekend",
-              "cn": "**下一项提交:Quiz #3** 10/25(周日)开放 → 11/5(周四)23:59 PT(经济周期 · 美联储与货币政策)· 本周末介绍学习小组 **Fed Challenge**(12/5 展示)"
+              "kr": "**다음 제출: Quiz #3** 10/25(일) 공개 → 11/5(목) 23:59 PT(경기순환 · 연준·통화정책) · 학습팀 **Fed Challenge**(12/5 발표): 지침 PDF 10/14 Files 게시, **기관·발표 슬롯 신청 11/5까지**(Canvas Calendar · 선착순) · 이번 주말 수업에서 설명",
+              "en": "**Next due: Quiz #3**, opens Sun Oct 25 → due Thu Nov 5, 11:59 PM PT (business cycles · the Fed and monetary policy) · learning-team **Fed Challenge** (presentations Dec 5): guidelines posted in Files on Oct 14, **sign up for an institution and slot by Nov 5** (Canvas Calendar, first come first served) · explained in class this weekend",
+              "cn": "**下一项提交:Quiz #3** 10/25(周日)开放 → 11/5(周四)23:59 PT(经济周期 · 美联储与货币政策)· 学习小组 **Fed Challenge**(12/5 展示):指南 PDF 已于 10/14 发布在 Files,**11/5 前报名机构与展示时段**(Canvas Calendar · 先到先得)· 本周末课上说明"
+            }
+          },
+          {
+            "icon": "📝",
+            "text": {
+              "kr": "**중간고사 본인 시험지·피드백이 Canvas 에 공개됐습니다**(10/15–16) · 통계 평균 70.0 · 표준편차 12.8 · 재채점 요청은 공개 후 **1주 이내**(요청하면 시험 전체를 다시 채점) → **10/22(목)까지** 확인 권장",
+              "en": "**Your midterm and feedback are now on Canvas** (Oct 15–16) · stats: mean 70.0 · SD 12.8 · regrade requests within **one week** of release (a request re-grades the whole exam) → check it **by Thu Oct 22**",
+              "cn": "**期中本人试卷与反馈已在 Canvas 公开**(10/15–16)· 平均 70.0 · 标准差 12.8 · 复核申请须在公布后**一周内**提出(申请后整份试卷重新批改)→ 建议 **10/22(周四)前**查看"
             }
           },
           {
@@ -153,6 +161,36 @@ const DATA = {
   },
   "notice": null,
   "changelog": [
+    {
+      "date": "2026-10-19",
+      "items": [
+        {
+          "kr": "🗓 **10/23–24 주말 시간표 반영**(학교 PDF 10/16) — **금 09:30–11:30 STAT 중간고사 → 13:00 FNCE, 둘 다 Room 660 합반** · 토요일은 섹션별 교차(STAT 612 · FNCE 615) · 식사·Hyatt 스터디룸·Wharton Pub · '다음 수업 준비' 카드와 일정표에 시간·강의실을 채웠습니다",
+          "en": "🗓 **Oct 23–24 weekend timetable added** (school PDF, Oct 16) — **Fri: STAT midterm 9:30–11:30, then FNCE at 1:00, both in Room 660 with both sections** · Saturday sections swap (STAT 612 · FNCE 615) · meals, Hyatt study rooms and the Wharton Pub · times and rooms now fill the \"Next class prep\" cards and the timetable",
+          "cn": "🗓 **已加入 10/23–24 周末课表**(学校 PDF,10/16)— **周五 09:30–11:30 STAT 期中 → 13:00 FNCE,均在 Room 660 两班合上** · 周六两班交替(STAT 612 · FNCE 615)· 用餐、Hyatt 自习室与 Wharton Pub · 「下次上课准备」卡片与课表已补上时间与教室"
+        },
+        {
+          "kr": "📝 **STAT** — 기출 표지 공통 규칙(0.05 · 95% CI · 양측 · 자연로그 · 오답 감점 없음)과 기출별 형식 · Pras 녹화 세션이 중간 범위를 다 다룬다는 확인(10/14) · 계산기는 아직 공지 없음",
+          "en": "📝 **STAT** — rules repeated on past exam covers (0.05 · 95% CI · two-sided · natural log · no penalty for wrong answers) and each past exam's format · Pras confirmed his recorded sessions cover the full midterm range (Oct 14) · still no word on calculators",
+          "cn": "📝 **STAT** — 往年试卷封面共同规则(0.05 · 95% 置信区间 · 双侧 · 自然对数 · 答错不扣分)与各套真题形式 · Pras 确认录播课覆盖期中全部范围(10/14)· 计算器规定仍未公布"
+        },
+        {
+          "kr": "📈 **FNCE** — 중간 통계 정정(Canvas Home 평균 70.0 · 표준편차 12.8) · 본인 시험지 공개 → **재채점 요청은 1주 안(10/22까지 권장)** · **Fed Challenge 기관·슬롯 신청 마감 11/5(선착순)** 추가",
+          "en": "📈 **FNCE** — midterm stats corrected (Canvas Home: mean 70.0 · SD 12.8) · your exam is posted → **regrade requests within a week (aim for Oct 22)** · **Fed Challenge institution and slot sign-up closes Nov 5 (first come)** added",
+          "cn": "📈 **FNCE** — 期中统计更正(Canvas Home:平均 70.0 · 标准差 12.8)· 本人试卷已公开 → **复核申请须在一周内(建议 10/22 前)** · 新增 **Fed Challenge 机构与时段报名 11/5 截止(先到先得)**"
+        },
+        {
+          "kr": "➕ **새 일정** — Student Social Committee 대표 추천(10/26) · WEMBA 52 하우스 파티(11/6) · Excel for Finance 웨비나(11/11) · Career Reps 발표(SF Luis Valencia · 10/19)",
+          "en": "➕ **New** — Student Social Committee nominations (Oct 26) · WEMBA 52 house party (Nov 6) · Excel for Finance webinar (Nov 11) · Career Reps announced (SF: Luis Valencia · Oct 19)",
+          "cn": "➕ **新增** — Student Social Committee 代表提名(10/26)· WEMBA 52 家庭派对(11/6)· Excel for Finance 研讨会(11/11)· Career Reps 名单公布(SF:Luis Valencia · 10/19)"
+        },
+        {
+          "kr": "🧹 지난 항목 정리 — 10/13 블록위크 DROP·P/F 마감 · 10/14 LinkedIn 세션",
+          "en": "🧹 Cleared past items — the Oct 13 block-week DROP/P-F deadline · the Oct 14 LinkedIn session",
+          "cn": "🧹 已清理过期项目 — 10/13 Block Week DROP/P-F 截止 · 10/14 LinkedIn 讲座"
+        }
+      ]
+    },
     {
       "date": "2026-10-12",
       "items": [
@@ -581,21 +619,6 @@ const DATA = {
   ],
   "deadlines": [
     {
-      "date": "2026-10-13T09:00",
-      "type": "registration",
-      "hard": true,
-      "title": {
-        "kr": "10월 블록위크 DROP·P/F 마감 (9 AM PT)",
-        "en": "October block weeks — DROP / P-F deadline (9 AM PT)",
-        "cn": "10月 Block Week DROP·P/F 截止(9 AM PT)"
-      },
-      "detail": {
-        "kr": "⭐ **수업 둘째 날 아침입니다.** 10/12 첫날 들어보고 판단해도 늦지 않아요 · PHL 과목은 9 AM ET(=6 AM PT) · 일부 과목은 P/F·Audit 불가(Add/Drop 안내 PDF 표) · ⚠️ **P/F 로 들으면 전공(major)에 인정되지 않습니다**",
-        "en": "⭐ **It's the morning of day two.** You can sit in on Oct 12 before deciding · PHL courses: 9 AM ET (6 AM PT) · some courses allow no P/F or audit (see the table in the Add/Drop PDF) · ⚠️ **P/F courses don't count toward a major**",
-        "cn": "⭐ **是上课第二天早上。** 10/12 上完第一天再决定也来得及 · PHL 课程为东部时间上午9点(太平洋时间6点)· 部分课程不可 P/F 或旁听(见 Add/Drop 说明 PDF 表格)· ⚠️ **P/F 修读不计入专业(major)**"
-      }
-    },
-    {
       "date": "2026-11-03T23:59",
       "type": "paper",
       "course": "LGST",
@@ -609,8 +632,7 @@ const DATA = {
         "kr": "⚠️ **정정: 10/27 → 11/3(화) 23:59 PT**(교수 10/10 마지막 수업 안내 · Canvas ▸ Final Paper 100점) · **연장 없음** — 교수: \"1주 빠르다고 생각하고 10월 말까지 끝내라\" · 개방형, 수업 리딩·개념 1–3개를 깊게 · 인용은 \"(Oct. 10 lecture)\" 같은 괄호식 · AI 는 아이디어·영어 다듬기용으로 허용, 단 동기들과 상대평가",
         "en": "⚠️ **Corrected: Oct 27 → Tue Nov 3, 11:59 PM PT** (the professor in the last class on Oct 10 · Canvas ▸ Final Paper, 100 pts) · **no extensions** — \"pretend it's due a week earlier and finish by late October\" · open-ended; go deep on one to three readings or concepts · parenthetical citations like \"(Oct. 10 lecture)\" · AI is fine for ideas and polishing English, but papers are graded against classmates'",
         "cn": "⚠️ **更正:10/27 → 11/3(周二)23:59 PT**(教授 10/10 最后一课说明 · Canvas ▸ Final Paper 100 分)· **不予延期** — 教授:\"就当提前一周,10 月底前写完\" · 开放式题目,深入运用 1–3 个课程阅读或概念 · 引用用\"(Oct. 10 lecture)\"这样的括号形式 · 可用 AI 整理思路、润色英文,但与同学相对评分"
-      },
-      "new": true
+      }
     },
     {
       "date": "2026-11-27T09:00",
@@ -667,9 +689,9 @@ const DATA = {
         "cn": "FNCE Fed Challenge 发表(10%)"
       },
       "detail": {
-        "kr": "학습팀이 **FOMC 위원 역할**을 맡아 하는 발표 · 배점 **10%** · 교수가 **10/23–24 수업 때 설명** 예정(10/9 수업)",
-        "en": "Learning teams present in the role of **FOMC members** · worth **10%** · the professor will explain it **in class on Oct 23–24** (said Oct 9)",
-        "cn": "学习小组扮演 **FOMC 委员**进行展示 · 占 **10%** · 教授将在 **10/23–24 课上说明**(10/9 课上表示)"
+        "kr": "학습팀이 **FOMC 위원 역할**로 하는 발표 · 배점 **10%** · 12/5(토) 수업 중 발표, 슬라이드는 수업 전 업로드 · 지침 `FedChallenge_Guidelines.pdf` · `FedChallenge_GradesSheet.pdf`(Files, 10/14) · **기관·슬롯 신청은 11/5까지**(Canvas Calendar · 선착순) · 교수가 **10/23–24 수업 때 설명**",
+        "en": "Learning teams present in the role of **FOMC members** · worth **10%** · presentations in class on Sat Dec 5, slides uploaded beforehand · guidelines `FedChallenge_Guidelines.pdf` and `FedChallenge_GradesSheet.pdf` (Files, Oct 14) · **sign up for an institution and slot by Nov 5** (Canvas Calendar, first come first served) · explained **in class on Oct 23–24**",
+        "cn": "学习小组扮演 **FOMC 委员**进行展示 · 占 **10%** · 12/5(周六)课上展示,幻灯片课前上传 · 指南 `FedChallenge_Guidelines.pdf` · `FedChallenge_GradesSheet.pdf`(Files,10/14)· **11/5 前报名机构与时段**(Canvas Calendar · 先到先得)· 教授将在 **10/23–24 课上说明**"
       }
     },
     {
@@ -731,25 +753,25 @@ const DATA = {
         "cn": "STAT 6130 Quiz 3(5分)"
       },
       "detail": {
-        "kr": "**10/17(토) 21:00 PT 공개 → 10/22(목) 23:59 PT 마감**(Canvas) · 5점 · 🤖 생성 AI 금지 · 다음 날 STAT 중간고사",
-        "en": "**Opens Sat Oct 17, 9 PM PT → due Thu Oct 22, 11:59 PM PT** (Canvas) · 5 pts · 🤖 no generative AI · the STAT midterm is the next day",
-        "cn": "**10/17(周六)21:00 PT 开放 → 10/22(周四)23:59 PT 截止**(Canvas)· 5 分 · 🤖 禁用生成式 AI · 次日即 STAT 期中"
+        "kr": "**10/17(토) 21:00 PT 공개 → 10/22(목) 23:59 PT 마감**(Canvas 이름은 'Pre-class Quiz 3' · 지금 열림) · 5점 · 🤖 생성 AI 금지 · 다음 날 STAT 중간고사",
+        "en": "**Opened Sat Oct 17, 9 PM PT → due Thu Oct 22, 11:59 PM PT** (listed as \"Pre-class Quiz 3\" on Canvas · open now) · 5 pts · 🤖 no generative AI · the STAT midterm is the next day",
+        "cn": "**10/17(周六)21:00 PT 开放 → 10/22(周四)23:59 PT 截止**(Canvas 上名为 \"Pre-class Quiz 3\" · 现已开放)· 5 分 · 🤖 禁用生成式 AI · 次日即 STAT 期中"
       }
     },
     {
-      "date": "2026-10-23",
+      "date": "2026-10-23T09:30",
       "type": "exam",
       "course": "STAT",
       "hard": true,
       "title": {
-        "kr": "STAT 6130 중간고사 · 객관식 36문항 · 2시간",
-        "en": "STAT 6130 midterm · 36 multiple-choice · 2 hours",
-        "cn": "STAT 6130 期中考试 · 36 道选择题 · 2 小时"
+        "kr": "STAT 6130 중간고사 · 09:30 Room 660 · 객관식 36문항 · 2시간",
+        "en": "STAT 6130 midterm · 9:30 AM Room 660 · 36 multiple-choice · 2 hours",
+        "cn": "STAT 6130 期中考试 · 09:30 Room 660 · 36 道选择题 · 2 小时"
       },
       "detail": {
-        "kr": "**범위 케이스북(BBS) 1–10장**(10장 포트폴리오 최적화 제외 · 회귀 제외) · Canvas + LockDown Browser → **노트북 필수** · **치트시트 1장 양면**(작성 방식 자유) · ⏰ 시작 시각·강의실은 주말 시간표가 나오면 갱신(Canvas 의 20:59 는 성적 칸 마감일 뿐) · 전날 밤 Quiz 3 마감",
-        "en": "**Covers casebook (BBS) ch. 1–10** (no portfolio optimization, no regression) · Canvas + LockDown Browser → **bring a laptop** · **one two-sided cheat sheet** (any method) · ⏰ start time and room will be added once the weekend timetable is out (the 8:59 PM on Canvas is just the gradebook due date) · Quiz 3 closes the night before",
-        "cn": "**范围:案例书(BBS)第 1–10 章**(不含第 10 章投资组合优化 · 不含回归)· Canvas + LockDown Browser → **必须带笔记本** · **小抄 1 张双面**(制作方式不限)· ⏰ 开考时间与教室待周末课表公布后更新(Canvas 上的 20:59 只是成绩栏截止日)· 前一晚 Quiz 3 截止"
+        "kr": "**10/23(금) 09:30–11:30 PT · Room 660 · 두 섹션 합반**(주말 시간표 10/16) · 범위 **케이스북(BBS) 1–10장**(10장 포트폴리오 최적화 제외 · 회귀 제외) · Canvas + LockDown Browser → **노트북 필수** · **치트시트 1장 양면**(작성 방식 자유) · 🧮 계산기 허용 여부는 아직 공지 없음 · 전날 밤 Quiz 3 마감 · 13:00 FNCE(같은 강의실)",
+        "en": "**Fri Oct 23, 9:30–11:30 AM PT · Room 660 · both sections together** (weekend timetable, Oct 16) · covers **casebook (BBS) ch. 1–10** (no portfolio optimization, no regression) · Canvas + LockDown Browser → **bring a laptop** · **one two-sided cheat sheet** (any method) · 🧮 no word yet on calculators · Quiz 3 closes the night before · FNCE follows at 1:00 PM in the same room",
+        "cn": "**10/23(周五)09:30–11:30 PT · Room 660 · 两班合考**(周末课表 10/16)· 范围 **案例书(BBS)第 1–10 章**(不含第 10 章投资组合优化 · 不含回归)· Canvas + LockDown Browser → **必须带笔记本** · **小抄 1 张双面**(制作方式不限)· 🧮 是否允许计算器尚未公布 · 前一晚 Quiz 3 截止 · 13:00 同一教室上 FNCE"
       },
       "new": true
     },
@@ -783,8 +805,7 @@ const DATA = {
         "kr": "**50점 → 성적 6%** · **팀마다 고유 CSV 데이터**(Canvas Files ▸ HW 3 에서 자기 팀 파일 확인 → JMP 로 불러오기) · 교수가 **다음 수업 주말(10/23–24)에 설명·JMP 시연** · 같은 밤 STAT Quiz 4 · FNCE Quiz #3 도 마감 · 실라버스는 11/6 Class 8 제출 · 신용리스크 예측 경쟁 1부",
         "en": "**50 pts → 6% of the grade** · **every team gets its own CSV data** (find your team's file in Canvas Files ▸ HW 3 → import into JMP) · the professor **walks through it with a JMP demo next class weekend (Oct 23–24)** · STAT Quiz 4 and FNCE Quiz #3 close the same night · syllabus: hand in at Class 8 on Nov 6 · part 1 of the credit-risk prediction contest",
         "cn": "**50 分 → 占成绩 6%** · **每组有各自的 CSV 数据**(在 Canvas Files ▸ HW 3 找到本组文件 → 导入 JMP)· 教授将在**下个上课周末(10/23–24)讲解并演示 JMP** · 同一晚 STAT Quiz 4 与 FNCE Quiz #3 也截止 · 教学大纲为 11/6 第8课提交 · 信用风险预测竞赛第一部分"
-      },
-      "new": true
+      }
     },
     {
       "date": "2026-12-03T23:59",
@@ -851,22 +872,6 @@ const DATA = {
       }
     },
     {
-      "date": "2026-10-14T17:00",
-      "type": "session",
-      "course": "WEMBA",
-      "hard": false,
-      "title": {
-        "kr": "💼 LinkedIn + AI Career Secrets (Jeremy Schifeling) · 가상",
-        "en": "💼 LinkedIn + AI Career Secrets (Jeremy Schifeling) · virtual",
-        "cn": "💼 LinkedIn + AI Career Secrets(Jeremy Schifeling)· 线上"
-      },
-      "detail": {
-        "kr": "**10/14(수) 17:00–18:00 PT**(원문 8–9 PM EDT) · 온라인 · WEMBA Career Management 프로그램 · 등록은 CareerPath(12twenty) ▸ Events, **등록 마감 10/14 17:00 PT** · 참석자는 **사전 설문을 미리** 내 달라는 요청(9/28 메일) · 출처 Career Newsletter 9/15",
-        "en": "**Wed Oct 14, 5:00–6:00 PM PT** (8–9 PM EDT) · online · WEMBA Career Management program · register in CareerPath (12twenty) ▸ Events, **closes Oct 14, 5 PM PT** · attendees are asked to **fill in the pre-survey early** (Sep 28 email) · source: Career Newsletter Sep 15",
-        "cn": "**10/14(周三)17:00–18:00 PT**(东部 8–9 PM)· 线上 · WEMBA Career Management 项目 · 在 CareerPath(12twenty)▸ Events 报名,**10/14 17:00 PT 截止** · 请参加者**尽早填写会前问卷**(9/28 邮件)· 来源 Career Newsletter 9/15"
-      }
-    },
-    {
       "date": "2026-10-23T17:30",
       "type": "session",
       "course": "WEMBA",
@@ -909,9 +914,9 @@ const DATA = {
         "cn": "🚀 WEMBA Startup Bootcamp(Venture Lab · 可选)"
       },
       "detail": {
-        "kr": "**10/24(토) 16:15–19:30 PT · SF 캠퍼스** · 토요일 수업 직후 · Jeffrey Babin 교수(Venture Lab) · 대면 전용·정원 제한 · 등록은 10/9(금) 12:00 PT 에 마감 — 등록한 사람만",
-        "en": "**Sat Oct 24, 4:15–7:30 PM PT · SF campus** · right after Saturday class · Prof. Jeffrey Babin (Venture Lab) · in person only, limited seats · registration closed Fri Oct 9 at noon PT, so registered students only",
-        "cn": "**10/24(周六)16:15–19:30 PT · SF 校区** · 周六课后 · Jeffrey Babin 教授(Venture Lab)· 仅限线下、名额有限 · 报名已于 10/9(周五)12:00 PT 截止,仅限已报名者"
+        "kr": "**10/24(토) 16:15–19:30 PT · SF 캠퍼스 Room 660** · 토요일 수업 직후 · Jeffrey Babin 교수(Venture Lab) · 대면 전용·정원 제한 · 등록은 10/9(금) 12:00 PT 에 마감 — 등록한 사람만",
+        "en": "**Sat Oct 24, 4:15–7:30 PM PT · SF campus, Room 660** · right after Saturday class · Prof. Jeffrey Babin (Venture Lab) · in person only, limited seats · registration closed Fri Oct 9 at noon PT, so registered students only",
+        "cn": "**10/24(周六)16:15–19:30 PT · SF 校区 Room 660** · 周六课后 · Jeffrey Babin 教授(Venture Lab)· 仅限线下、名额有限 · 报名已于 10/9(周五)12:00 PT 截止,仅限已报名者"
       }
     },
     {
@@ -925,9 +930,9 @@ const DATA = {
         "cn": "🎓 Penn Student Life 午间介绍会"
       },
       "detail": {
-        "kr": "**11/6(금) 점심시간** · 시간·장소는 11/6–7 주말 시간표에서 확정 · 출처 10/8–10 주말 시간표 Save the Dates",
-        "en": "**Fri Nov 6, over lunch** · time and room will be on the Nov 6–7 weekend schedule · source: Save the Dates in the Oct 8–10 weekend schedule",
-        "cn": "**11/6(周五)午餐时间** · 具体时间地点以 11/6–7 周末课表为准 · 来源 10/8–10 周末课表 Save the Dates"
+        "kr": "**11/6(금) 점심시간** · Center for Civil Rights(Title IX) · Student Intervention Services · Penn Violence Prevention 담당자의 **성비위 예방·대응 인터랙티브 세션** · 시간·장소는 11/6–7 주말 시간표에서 확정 · 출처 주말 시간표 Save the Dates(10/8–10 · 10/23–24)",
+        "en": "**Fri Nov 6, over lunch** · an interactive session on preventing and addressing sexual misconduct at Penn, led by the Center for Civil Rights (Title IX), Student Intervention Services and Penn Violence Prevention · time and room will be on the Nov 6–7 weekend schedule · source: Save the Dates in the Oct 8–10 and Oct 23–24 weekend schedules",
+        "cn": "**11/6(周五)午餐时间** · 由 Center for Civil Rights(Title IX)、Student Intervention Services 与 Penn Violence Prevention 主持的**预防与应对性不当行为互动讲座** · 具体时间地点以 11/6–7 周末课表为准 · 来源 10/8–10 与 10/23–24 周末课表 Save the Dates"
       }
     },
     {
@@ -944,6 +949,91 @@ const DATA = {
         "kr": "**10/19(월)–21(수) · Moscone West(SF)** · 인터넷·사이버보안·AI 세션, Cloudflare 경영진·개발자 참석 · **와튼 학생은 무료 등록**(AI & Analytics Club 안내) · 등록 코드는 **SF 코호트 왓츠앱 10/6 메시지** 참고 · 공식 사이트 cloudflare.com/connect",
         "en": "**Mon Oct 19 – Wed Oct 21 · Moscone West, SF** · sessions on the internet, cybersecurity and AI, with Cloudflare executives and developers · **free registration for Wharton students** (via the AI & Analytics Club) · for the registration code, see the **Oct 6 message in the SF cohort WhatsApp** · official site: cloudflare.com/connect",
         "cn": "**10/19(周一)–21(周三)· Moscone West(旧金山)** · 互联网、网络安全、AI 主题,Cloudflare 高管与开发者出席 · **沃顿学生可免费注册**(AI & Analytics Club 通知)· 注册码见 **SF 班 WhatsApp 10/6 消息** · 官网 cloudflare.com/connect"
+      }
+    },
+    {
+      "date": "2026-10-22",
+      "type": "milestone",
+      "course": "FNCE",
+      "hard": false,
+      "new": true,
+      "title": {
+        "kr": "FNCE 중간고사 재채점 요청 — 공개 후 1주",
+        "en": "FNCE midterm regrade requests — one week after release",
+        "cn": "FNCE 期中复核申请 — 公布后一周内"
+      },
+      "detail": {
+        "kr": "본인 시험지·피드백 **Canvas 공개(10/15–16)** · 재채점 요청은 공개 후 **1주 이내**(실라버스) · 요청하면 **시험 전체**를 다시 채점 · 통계 평균 70.0 · 표준편차 12.8(Canvas Home) · 문제·정답 PDF는 Files(10/14)",
+        "en": "Your exam and feedback **went up on Canvas Oct 15–16** · regrade requests within **one week** of release (syllabus) · a request re-grades the **whole exam** · stats: mean 70.0 · SD 12.8 (Canvas Home) · question and answer-key PDFs in Files (Oct 14)",
+        "cn": "本人试卷与反馈 **10/15–16 已在 Canvas 公开** · 复核申请须在公布后**一周内**提出(教学大纲)· 申请后**整份试卷**重新批改 · 平均 70.0 · 标准差 12.8(Canvas Home)· 试题与答案 PDF 在 Files(10/14)"
+      }
+    },
+    {
+      "date": "2026-10-26",
+      "type": "milestone",
+      "course": "WEMBA",
+      "hard": false,
+      "new": true,
+      "title": {
+        "kr": "🙋 Student Social Committee 대표 추천 마감 (본인·동기 · 선택)",
+        "en": "🙋 Student Social Committee nominations close (self or classmates · optional)",
+        "cn": "🙋 Student Social Committee 代表提名截止(自荐或推荐同学 · 可选)"
+      },
+      "detail": {
+        "kr": "**10/26(월)까지** · 학업 담당 1명 + 커뮤니티·소셜 2–3명 · Class Manager 와 함께 코호트 연결·행사를 맡는 역할 · 추천은 Cohort Communication 공지(10/9)의 **Submit Nominations** 폼",
+        "en": "**By Mon Oct 26** · 1 academic rep + 2–3 community/social reps · works with the Class Manager on cohort connections and events · nominate through the **Submit Nominations** form in the Cohort Communication announcement (Oct 9)",
+        "cn": "**10/26(周一)前** · 学业代表 1 名 + 社群/社交代表 2–3 名 · 与 Class Manager 合作促进同学联系与活动 · 通过 Cohort Communication 公告(10/9)中的 **Submit Nominations** 表单提名"
+      }
+    },
+    {
+      "date": "2026-11-05",
+      "type": "registration",
+      "course": "FNCE",
+      "hard": true,
+      "new": true,
+      "title": {
+        "kr": "FNCE Fed Challenge 기관·발표 슬롯 신청 마감 (선착순)",
+        "en": "FNCE Fed Challenge: institution and slot sign-up closes (first come)",
+        "cn": "FNCE Fed Challenge 机构与展示时段报名截止(先到先得)"
+      },
+      "detail": {
+        "kr": "학습팀이 기관 1곳을 골라 **Canvas Calendar** 에서 발표 슬롯과 함께 신청 · **선착순** — FRB New York · Dallas · San Francisco · Board of Governors / ECB · BoE · BoJ · BoC · 지침 `FedChallenge_Guidelines.pdf`(Files, 10/14) · 발표는 12/5(토)",
+        "en": "Each learning team picks one institution and books a presentation slot in the **Canvas Calendar** · **first come, first served** — FRB New York · Dallas · San Francisco · Board of Governors / ECB · BoE · BoJ · BoC · guidelines `FedChallenge_Guidelines.pdf` (Files, Oct 14) · presentations Sat Dec 5",
+        "cn": "学习小组选定一个机构并在 **Canvas Calendar** 预约展示时段 · **先到先得** — FRB New York · Dallas · San Francisco · Board of Governors / ECB · BoE · BoJ · BoC · 指南 `FedChallenge_Guidelines.pdf`(Files,10/14)· 12/5(周六)展示"
+      }
+    },
+    {
+      "date": "2026-11-06T18:00",
+      "type": "session",
+      "course": "WEMBA",
+      "hard": false,
+      "new": true,
+      "title": {
+        "kr": "🎉 WEMBA 52 하우스 파티 (동기 주최 · 선택)",
+        "en": "🎉 WEMBA 52 house party (hosted by a classmate · optional)",
+        "cn": "🎉 WEMBA 52 家庭派对(同学主办 · 可选)"
+      },
+      "detail": {
+        "kr": "**11/6(금) 18:00–21:00 · SF** · 페르시아 음식·음료 · \"Just bring yourselves!\" · 복장 자유 · RSVP 는 SF 코호트 왓츠앱 10/14 공지의 초대 링크(VPN 이 켜져 있으면 오류) · 주소는 초대장에 · 대중교통·라이드셰어 권장",
+        "en": "**Fri Nov 6, 6–9 PM · SF** · Persian food and drinks · \"Just bring yourselves!\" · dress code: anything · RSVP through the invite link in the SF cohort WhatsApp (Oct 14; turn off your VPN if it errors) · address on the invite · transit or rideshare recommended",
+        "cn": "**11/6(周五)18:00–21:00 · SF** · 波斯美食与饮品 · \"Just bring yourselves!\" · 着装随意 · 通过 SF 班 WhatsApp 10/14 通知中的邀请链接报名(开着 VPN 会报错)· 地址见邀请函 · 建议公共交通或网约车"
+      }
+    },
+    {
+      "date": "2026-11-11T10:00",
+      "type": "session",
+      "course": "WEMBA",
+      "hard": false,
+      "new": true,
+      "title": {
+        "kr": "💻 Excel for Finance 웨비나 (Zoom · 선택)",
+        "en": "💻 Excel for Finance webinar (Zoom · optional)",
+        "cn": "💻 Excel for Finance 网络研讨会(Zoom · 可选)"
+      },
+      "detail": {
+        "kr": "**11/11(수) 10:00–11:00 PT 또는 17:00–18:00 PT**(같은 내용 두 번 · 동부 1–2 pm / 8–9 pm) · 강사 Craig Brody · 화폐의 시간가치·NPV·Goal Seek/Data Table·재무모델링 · Zoom 링크는 Cohort Communication 공지(10/19), 녹화는 Canvas ▸ Files ▸ Excel Workshop",
+        "en": "**Wed Nov 11, 10–11 AM PT or 5–6 PM PT** (same content twice · 1–2 pm / 8–9 pm ET) · instructor Craig Brody · time value of money, NPV, Goal Seek and Data Tables, finance modeling · Zoom links in the Cohort Communication announcement (Oct 19); the recording goes to Canvas ▸ Files ▸ Excel Workshop",
+        "cn": "**11/11(周三)10:00–11:00 PT 或 17:00–18:00 PT**(同一内容两场 · 东部时间 1–2 pm / 8–9 pm)· 讲师 Craig Brody · 货币时间价值、NPV、Goal Seek/Data Table、财务建模 · Zoom 链接见 Cohort Communication 公告(10/19),录像放在 Canvas ▸ Files ▸ Excel Workshop"
       }
     }
   ],
@@ -965,14 +1055,12 @@ const DATA = {
         {
           "kr": "📄 **최종 페이퍼(25%) — 11/3(화) 23:59 PT · Canvas 업로드 · 100점** — **600단어 이하** · **연장 없음**(교수: \"마감이 1주 빠르다고 생각하고 10월 말까지 끝내라\") · 정답 없는 개방형 과제, 과제문은 Canvas ▸ Assignments ▸ Final Paper · 수업 리딩·개념 **1–3개를 깊게** 적용하는 게 일반적(하나만 써도 되지만 그럼 정말 깊어야 함) · 인용은 \"(Oct. 10 lecture)\" 같은 괄호식이면 충분",
           "en": "📄 **Final paper (25%) — Tue Nov 3, 11:59 PM PT · upload on Canvas · 100 pts** — **600 words max** · **no extensions** (the professor: \"pretend the due date is a week earlier and have it done by late October\") · open-ended with no single right answer; the prompt is under Canvas ▸ Assignments ▸ Final Paper · most papers apply **one to three readings or concepts in depth** (one is fine if you go really deep) · simple parenthetical citations like \"(Oct. 10 lecture)\" are enough",
-          "cn": "📄 **期末论文(25%)— 11/3(周二)23:59 PT · Canvas 上传 · 100 分** — **不超过 600 词** · **不予延期**(教授:\"就当截止日提前一周,10 月底前写完\")· 开放式题目、没有标准答案,题目见 Canvas ▸ Assignments ▸ Final Paper · 一般深入运用 **1–3 个**课程阅读或概念(只用一个也可以,但要真正深入)· 引用用\"(Oct. 10 lecture)\"这样的括号形式即可",
-          "new": true
+          "cn": "📄 **期末论文(25%)— 11/3(周二)23:59 PT · Canvas 上传 · 100 分** — **不超过 600 词** · **不予延期**(教授:\"就当截止日提前一周,10 月底前写完\")· 开放式题目、没有标准答案,题目见 Canvas ▸ Assignments ▸ Final Paper · 一般深入运用 **1–3 个**课程阅读或概念(只用一个也可以,但要真正深入)· 引用用\"(Oct. 10 lecture)\"这样的括号形式即可"
         },
         {
           "kr": "🤖 **페이퍼 AI 정책** — 수업 밖 과제라 AI 사용 가능(교수는 AI 탐지기를 쓰지 않음) · 아이디어 정리·영어 다듬기에 쓰는 건 교수가 직접 권함 · 다만 코어 과목이라 **동기들 페이퍼와 상대평가** → AI 결과를 그대로 내면 불리, *\"be thoughtful and original\"* · ⚠️ 함정: **\"주주가치 극대화는 법적 의무\"라고 쓰지 말 것**(마지막 수업에서 교수가 못박음 — 경영판단원칙)",
           "en": "🤖 **AI on the paper** — it's outside class, so AI is allowed (he doesn't run AI detectors) · he explicitly OKs using it for ideas and to polish your English · but it's a core course, so **papers are graded against your classmates'** → pasting AI output is a losing bet; *\"be thoughtful and original\"* · ⚠️ trap: **don't claim managers have a legal duty to maximize shareholder value** (he stressed this in the last class; think business judgment rule)",
-          "cn": "🤖 **论文的 AI 政策** — 属课外作业,可以使用 AI(教授不用 AI 检测工具)· 教授明确支持用来整理思路、润色英文 · 但这是核心课,**论文与同学相对评分** → 直接交 AI 结果吃亏,*\"be thoughtful and original\"* · ⚠️ 陷阱:**不要写\"管理层有最大化股东价值的法律义务\"**(教授在最后一课特别强调,参见经营判断规则)",
-          "new": true
+          "cn": "🤖 **论文的 AI 政策** — 属课外作业,可以使用 AI(教授不用 AI 检测工具)· 教授明确支持用来整理思路、润色英文 · 但这是核心课,**论文与同学相对评分** → 直接交 AI 结果吃亏,*\"be thoughtful and original\"* · ⚠️ 陷阱:**不要写\"管理层有最大化股东价值的法律义务\"**(教授在最后一课特别强调,参见经营判断规则)"
         },
         {
           "kr": "📖 **Unit III 리딩 정리 카드** — Pershing's Expedition · ABC와 FCC · Meyer(헤어 브레이딩 면허) · Uber 의 한 문장 요약, 인물 카드 85개, 찬반 쟁점 · 페이퍼 재료를 찾을 때 → <a href=\"lgst-unit3.html\" target=\"_blank\" rel=\"noopener\">페이지 열기 ↗</a>",
@@ -1010,33 +1098,32 @@ const DATA = {
         "cn": "宏观经济与全球经济环境 · Anthony Landry"
       },
       "headline": {
-        "kr": "✅ L1–9 · 중간고사 완료 · 다음 **10/23(금)–24(토) L10–13** · 기말 12/4 · Fed Challenge 12/5 · Full Term · 1.0 CU",
-        "en": "✅ L1–9 and the midterm done · Next: **Fri Oct 23 – Sat Oct 24, L10–13** · Final Dec 4 · Fed Challenge Dec 5 · Full Term · 1.0 CU",
-        "cn": "✅ L1–9 · 期中已完成 · 下次 **10/23(周五)–24(周六)L10–13** · 期末 12/4 · Fed Challenge 12/5 · 全学期 · 1.0 CU"
+        "kr": "✅ L1–9 · 중간고사 완료(평균 70.0) · 다음 **10/23(금) 13:00 Room 660 L10–11 · 10/24(토) L12–13** · 기말 12/4 · Fed Challenge 12/5(신청 11/5까지) · Full Term · 1.0 CU",
+        "en": "✅ L1–9 and the midterm done (mean 70.0) · Next: **Fri Oct 23, 1:00 PM, Room 660: L10–11 · Sat Oct 24: L12–13** · Final Dec 4 · Fed Challenge Dec 5 (sign up by Nov 5) · Full Term · 1.0 CU",
+        "cn": "✅ L1–9 · 期中已完成(平均 70.0)· 下次 **10/23(周五)13:00 Room 660 L10–11 · 10/24(周六)L12–13** · 期末 12/4 · Fed Challenge 12/5(11/5 前报名)· 全学期 · 1.0 CU"
       },
       "points": [
         {
-          "kr": "📝 **중간고사 결과(10/9 수업 공지)** — 평균 69.9 · 표준편차 12.9 · 최고 97(교수: \"목표 그대로\") · 문항별 답안·피드백은 교수 점검 후 공개 예정 · 재채점 요청은 결과 공개 후 1주 이내(실라버스, 요청하면 시험 전체를 다시 검토) · **보험**: 기말을 중간보다 잘 보면 중간 점수는 버려짐",
-          "en": "📝 **Midterm results (announced in class Oct 9)** — mean 69.9 · SD 12.9 · high 97 (\"exactly what I aimed for\") · question-level answers and feedback come after his review · regrade requests within one week of release (syllabus; the whole exam gets re-reviewed) · **insurance**: if your final beats your midterm, the midterm score is dropped",
-          "cn": "📝 **期中成绩(10/9 课上公布)** — 平均 69.9 · 标准差 12.9 · 最高 97(教授:\"正是我想要的\")· 逐题答案与反馈待教授核查后公布 · 复核申请须在成绩公布后一周内提出(依教学大纲,申请后整份试卷重新审阅)· **保险机制**:期末若高于期中,期中成绩作废",
+          "kr": "📝 **중간고사 결과** — Canvas Home 통계 **평균 70.0 · 표준편차 12.8**(10/9 수업 구두 공지는 69.9 · 12.9) · 최고 97(교수: \"목표 그대로\") · **문제·정답 PDF 10/14 Files 게시 · 본인 시험지·피드백 10/15–16 Canvas 공개** · 재채점 요청은 공개 후 **1주 이내**(실라버스 · 요청하면 시험 전체를 다시 검토) → **10/22(목)까지** 확인 권장 · **보험**: 기말을 중간보다 잘 보면 중간 점수는 버려짐",
+          "en": "📝 **Midterm results** — Canvas Home stats: **mean 70.0 · SD 12.8** (the Oct 9 in-class figures were 69.9 · 12.9) · high 97 (\"exactly what I aimed for\") · **question and answer-key PDFs posted in Files on Oct 14; your own exam and feedback went up on Canvas Oct 15–16** · regrade requests within **one week** of release (syllabus; the whole exam gets re-reviewed) → check yours **by Thu Oct 22** · **insurance**: if your final beats your midterm, the midterm score is dropped",
+          "cn": "📝 **期中成绩** — Canvas Home 统计:**平均 70.0 · 标准差 12.8**(10/9 课上口头公布为 69.9 · 12.9)· 最高 97(教授:\"正是我想要的\")· **试题与答案 PDF 于 10/14 发布在 Files,本人试卷与反馈于 10/15–16 在 Canvas 公开** · 复核申请须在公布后**一周内**提出(依教学大纲,申请后整份试卷重新审阅)→ 建议 **10/22(周四)前**查看 · **保险机制**:期末若高于期中,期中成绩作废",
           "new": true
         },
         {
           "kr": "🗓 **학기 로드맵(실라버스)** — ✅ 8/28–10/9 L1–9 · 10/8 중간 · **10/23(금) L10 연준 · L11 미국 통화정책 / 10/24(토) L12 무역·환율·국제금융 · L13 화폐·물가·인플레이션** · 11/6(금) L14 정부와 거시경제 · L15 토론 \"What Should the FOMC Do?\" / 11/7(토) L16 정리·리뷰 · L17 게스트 Sylvain Leduc(FRB SF) · **12/4(금) 기말 · 12/5(토) Fed Challenge 발표** · ⏰ 퀴즈: ✅ Q1·Q2 · **Q3 10/25(일)→11/5(목)**(경기순환 · 연준·통화정책) · **Q4 11/8(일)→11/29(일)**(국제무역·금융 · 정부와 거시경제) · 23:59 PT · best 3 of 4",
           "en": "🗓 **Term roadmap (syllabus)** — ✅ Aug 28–Oct 9: L1–9 · Oct 8 midterm · **Fri Oct 23: L10 The Federal Reserve System · L11 U.S. Monetary Policy / Sat Oct 24: L12 Trade, Exchange Rates & International Finance · L13 Money, Prices & Inflation** · Fri Nov 6: L14 The Government and the Macroeconomy · L15 debate \"What Should the FOMC Do?\" / Sat Nov 7: L16 Lessons & Review · L17 guest Sylvain Leduc (FRB SF) · **Fri Dec 4 final · Sat Dec 5 Fed Challenge presentations** · ⏰ Quizzes: ✅ Q1, Q2 · **Q3 Sun Oct 25 → Thu Nov 5** (business cycles · the Fed & monetary policy) · **Q4 Sun Nov 8 → Sun Nov 29** (international trade & finance · government & the macroeconomy) · 11:59 PM PT · best 3 of 4",
-          "cn": "🗓 **学期路线图(教学大纲)** — ✅ 8/28–10/9 L1–9 · 10/8 期中 · **10/23(周五)L10 美联储体系 · L11 美国货币政策 / 10/24(周六)L12 贸易、汇率与国际金融 · L13 货币、物价与通胀** · 11/6(周五)L14 政府与宏观经济 · L15 辩论\"What Should the FOMC Do?\" / 11/7(周六)L16 总结复习 · L17 嘉宾 Sylvain Leduc(旧金山联储)· **12/4(周五)期末 · 12/5(周六)Fed Challenge 展示** · ⏰ 测验:✅ Q1·Q2 · **Q3 10/25(周日)→11/5(周四)**(经济周期 · 美联储与货币政策)· **Q4 11/8(周日)→11/29(周日)**(国际贸易与金融 · 政府与宏观经济)· 23:59 PT · 4 次取最好 3 次",
-          "new": true
+          "cn": "🗓 **学期路线图(教学大纲)** — ✅ 8/28–10/9 L1–9 · 10/8 期中 · **10/23(周五)L10 美联储体系 · L11 美国货币政策 / 10/24(周六)L12 贸易、汇率与国际金融 · L13 货币、物价与通胀** · 11/6(周五)L14 政府与宏观经济 · L15 辩论\"What Should the FOMC Do?\" / 11/7(周六)L16 总结复习 · L17 嘉宾 Sylvain Leduc(旧金山联储)· **12/4(周五)期末 · 12/5(周六)Fed Challenge 展示** · ⏰ 测验:✅ Q1·Q2 · **Q3 10/25(周日)→11/5(周四)**(经济周期 · 美联储与货币政策)· **Q4 11/8(周日)→11/29(周日)**(国际贸易与金融 · 政府与宏观经济)· 23:59 PT · 4 次取最好 3 次"
         },
         {
-          "kr": "🎯 **배점은 시험 70% · 퀴즈 10% · Fed Challenge 10% · 참여 10%**(실라버스 확정) · 퀴즈는 4회 중 best 3, 시험은 중간 1 : 기말 2 중 최저 하나를 버림 · **Fed Challenge** = 학습팀이 FOMC 위원 역할로 하는 **12/5(토) 발표** — 교수가 **10/23–24 수업 때 설명**하겠다고 함(10/9)",
-          "en": "🎯 **Grading: exams 70% · quizzes 10% · Fed Challenge 10% · participation 10%** (final syllabus) · quizzes count your best 3 of 4; exams drop the lowest of midterm ×1 vs. final ×2 · **Fed Challenge** = a learning-team presentation in the role of FOMC members on **Sat Dec 5** — the professor said he'll explain it **in class on Oct 23–24** (Oct 9)",
-          "cn": "🎯 **评分:考试 70% · 测验 10% · Fed Challenge 10% · 课堂参与 10%**(教学大纲定稿)· 测验 4 次取最好 3 次,考试在期中×1 与期末×2 中去掉最低一项 · **Fed Challenge** = 学习小组扮演 FOMC 委员的 **12/5(周六)展示** — 教授表示将在 **10/23–24 课上说明**(10/9)"
+          "kr": "🎯 **배점은 시험 70% · 퀴즈 10% · Fed Challenge 10% · 참여 10%**(실라버스 확정) · 퀴즈는 4회 중 best 3, 시험은 중간 1 : 기말 2 중 최저 하나를 버림 · **Fed Challenge** = 학습팀이 FOMC 위원 역할로 하는 **12/5(토) 발표** — 지침·채점표 PDF 10/14 Files 게시 · **기관·발표 슬롯 신청 11/5까지**(Canvas Calendar · 선착순) · 교수가 **10/23–24 수업 때 설명**",
+          "en": "🎯 **Grading: exams 70% · quizzes 10% · Fed Challenge 10% · participation 10%** (final syllabus) · quizzes count your best 3 of 4; exams drop the lowest of midterm ×1 vs. final ×2 · **Fed Challenge** = a learning-team presentation in the role of FOMC members on **Sat Dec 5** — guidelines and grade sheet PDFs posted in Files Oct 14 · **sign up for an institution and slot by Nov 5** (Canvas Calendar, first come first served) · explained **in class on Oct 23–24**",
+          "cn": "🎯 **评分:考试 70% · 测验 10% · Fed Challenge 10% · 课堂参与 10%**(教学大纲定稿)· 测验 4 次取最好 3 次,考试在期中×1 与期末×2 中去掉最低一项 · **Fed Challenge** = 学习小组扮演 FOMC 委员的 **12/5(周六)展示** — 指南与评分表 PDF 已于 10/14 发布在 Files · **11/5 前报名机构与展示时段**(Canvas Calendar · 先到先得)· 教授将在 **10/23–24 课上说明**",
+          "new": true
         },
         {
           "kr": "🖥 **L8부터 슬라이드가 PDF + Quarto(HTML) 두 형식** — 기준은 PDF, Quarto 는 베타(일부 애니메이션은 Quarto 에만)",
           "en": "🖥 **From L8 on, slides come in two formats: PDF and Quarto (HTML)** — the PDF is the official one; Quarto is in beta (some animations exist only there)",
-          "cn": "🖥 **从 L8 起课件有 PDF 与 Quarto(HTML)两种格式** — 以 PDF 为准,Quarto 为测试版(部分动画只在 Quarto 中)",
-          "new": true
+          "cn": "🖥 **从 L8 起课件有 PDF 与 Quarto(HTML)两种格式** — 以 PDF 为准,Quarto 为测试版(部分动画只在 Quarto 中)"
         },
         {
           "kr": "💻 **노트북 금지 조항은 없습니다** · 시험은 교실에서 **Canvas + Respondus LockDown Browser** 로 보므로 **12/4 기말에 노트북 필수** · 📷 강의 촬영·녹화는 화면에 띄운 것 포함 엄금(윤리강령)",
@@ -1109,21 +1196,26 @@ const DATA = {
         "cn": "回归分析 · Richard Waterman"
       },
       "headline": {
-        "kr": "✅ Class 1–6 완료 · 다음 **10/23(금) 중간고사** · 10/24(토) Class 7 · 기말 12/19 · 1.0 CU",
-        "en": "✅ Classes 1–6 done · Next: **Fri Oct 23 midterm** · Sat Oct 24 Class 7 · Final Dec 19 · 1.0 CU",
-        "cn": "✅ 第1–6课已完成 · 下次 **10/23(周五)期中** · 10/24(周六)第7课 · 期末 12/19 · 1.0 CU"
+        "kr": "✅ Class 1–6 완료 · 다음 **10/23(금) 09:30 중간고사 · Room 660** · 10/24(토) Class 7 · 기말 12/19 · 1.0 CU",
+        "en": "✅ Classes 1–6 done · Next: **Fri Oct 23, 9:30 AM midterm · Room 660** · Sat Oct 24 Class 7 · Final Dec 19 · 1.0 CU",
+        "cn": "✅ 第1–6课已完成 · 下次 **10/23(周五)09:30 期中 · Room 660** · 10/24(周六)第7课 · 期末 12/19 · 1.0 CU"
       },
       "points": [
         {
-          "kr": "📝 **중간고사 10/23(금) — 10/8 수업 확정 사항** · Canvas + **LockDown Browser**(노트북 필수) · **객관식 36문항 · 정확히 2시간**(일찍 나가도 됨, 속도 시험 아님) · 범위 **케이스북(BBS) 1–10장**, 단 10장 포트폴리오 '최적화'는 제외 · **회귀(Class 5 후반부터)는 범위 밖** · **치트시트 1장 양면**(손글씨·출력 등 작성 방식 자유) · **JMP 조작 문제는 없고 출력 해석은 많음** · 목표 평균 ~75%, SD 10% · ⏰ 시작 시각·강의실·계산기는 아직 공지 전",
-          "en": "📝 **Midterm, Fri Oct 23 — confirmed in class on Oct 8** · Canvas + **LockDown Browser** (bring a laptop) · **36 multiple-choice questions · exactly 2 hours** (you may leave early; it's not a speed test) · covers **casebook (BBS) chapters 1–10**, minus the portfolio *optimization* part of ch. 10 · **regression (from the second half of Class 5) is not on it** · **one cheat sheet, both sides** (handwritten or printed, any method) · **no JMP how-to questions, plenty of JMP output to interpret** · target mean ~75%, SD 10% · ⏰ start time, room and calculator policy not announced yet",
-          "cn": "📝 **期中考试 10/23(周五)— 10/8 课上确认** · Canvas + **LockDown Browser**(必须带笔记本)· **36 道选择题 · 整 2 小时**(可提前离场,不是速度测试)· 范围 **案例书(BBS)第 1–10 章**,不含第 10 章投资组合\"优化\"部分 · **回归(第5课后半起)不考** · **小抄 1 张双面**(手写、打印均可)· **不考 JMP 操作,但有大量 JMP 输出需解读** · 目标平均约 75%,标准差 10% · ⏰ 开考时间、教室、计算器规定尚未公布",
+          "kr": "📝 **중간고사 10/23(금) — 10/8 수업 확정 사항** · Canvas + **LockDown Browser**(노트북 필수) · **객관식 36문항 · 정확히 2시간**(일찍 나가도 됨, 속도 시험 아님) · 범위 **케이스북(BBS) 1–10장**, 단 10장 포트폴리오 '최적화'는 제외 · **회귀(Class 5 후반부터)는 범위 밖** · **치트시트 1장 양면**(손글씨·출력 등 작성 방식 자유) · **JMP 조작 문제는 없고 출력 해석은 많음** · 목표 평균 ~75%, SD 10% · ⏰ **09:30–11:30 PT · Room 660 · 두 섹션 합반**(주말 시간표 10/16) · 🧮 계산기 허용 여부는 아직 공지 없음(과거 지필 기출 표지는 계산기 지참·허용)",
+          "en": "📝 **Midterm, Fri Oct 23 — confirmed in class on Oct 8** · Canvas + **LockDown Browser** (bring a laptop) · **36 multiple-choice questions · exactly 2 hours** (you may leave early; it's not a speed test) · covers **casebook (BBS) chapters 1–10**, minus the portfolio *optimization* part of ch. 10 · **regression (from the second half of Class 5) is not on it** · **one cheat sheet, both sides** (handwritten or printed, any method) · **no JMP how-to questions, plenty of JMP output to interpret** · target mean ~75%, SD 10% · ⏰ **9:30–11:30 AM PT · Room 660 · both sections together** (weekend timetable, Oct 16) · 🧮 no word yet on calculators (older paper exams said to bring or allowed one)",
+          "cn": "📝 **期中考试 10/23(周五)— 10/8 课上确认** · Canvas + **LockDown Browser**(必须带笔记本)· **36 道选择题 · 整 2 小时**(可提前离场,不是速度测试)· 范围 **案例书(BBS)第 1–10 章**,不含第 10 章投资组合\"优化\"部分 · **回归(第5课后半起)不考** · **小抄 1 张双面**(手写、打印均可)· **不考 JMP 操作,但有大量 JMP 输出需解读** · 目标平均约 75%,标准差 10% · ⏰ **09:30–11:30 PT · Room 660 · 两班合考**(周末课表 10/16)· 🧮 计算器规定尚未公布(往年纸笔考试封面写明可带/允许计算器)",
           "new": true
         },
         {
           "kr": "🎯 **교수가 권한 공부법** — Canvas 기출 3회분 중 하나를 **실전처럼(sight unseen)** 풀고 → 틀린 문제의 공통 개념을 찾아 강의 노트·녹화·케이스북으로 메우고 → 두 번째, 세 번째 순으로 · 교수: 실제 문제는 기출과 **\"very strong\"** 하게 닮음 · 기출 추가는 없음(원하면 기출을 ChatGPT 에 넣어 비슷한 문제를 만들라고 함) · **출제 개념 8개**: 기술통계(중심 vs 퍼짐, robust vs sensitive) · 경험법칙(거의 매번 1–2문항) · 평균의 표준오차 · 관리도(x̄ 한계 = 평균 ± 3·SE) · 신뢰구간(\"812 가 그럴듯한 평균인가?\") · 샘플링(표본크기 공식) · 가설검정(H₀/H₁ · Type I/II · α·β) · 상관(그림을 말로 표현)",
           "en": "🎯 **How the professor says to study** — take one of the three past exams on Canvas **sight unseen** → find the common concept behind your misses and fill the gap with lecture notes, recordings and the casebook → then do the second and third · he says the real questions are **\"very strongly\"** correlated with past ones · no extra practice exams (he suggests feeding his exams to ChatGPT to generate look-alike questions) · **8 key concepts**: descriptive stats (center vs. spread, robust vs. sensitive) · the Empirical Rule (almost always 1–2 questions) · standard error of the mean · control charts (x̄ limits = mean ± 3·SE) · confidence intervals (\"is 812 a plausible mean?\") · sampling (sample-size formula) · hypothesis tests (H₀/H₁ · Type I/II · α and β) · correlation (describe a scatterplot in words)",
-          "cn": "🎯 **教授建议的复习法** — 从 Canvas 三套往年试题中挑一套**按实考方式(不先看)**做 → 找出错题背后的共同概念,用讲义、录像和案例书补上 → 再做第二、第三套 · 教授说正式考题与往年题**\"非常强\"**相关 · 不会再给更多模拟题(可把他的试题交给 ChatGPT 生成类似题)· **8 个考点**:描述统计(集中 vs 离散,稳健 vs 敏感)· 经验法则(几乎每次 1–2 题)· 均值标准误 · 控制图(x̄ 控制限 = 均值 ± 3·SE)· 置信区间(\"812 是否可能是均值?\")· 抽样(样本量公式)· 假设检验(H₀/H₁ · 第一/二类错误 · α 与 β)· 相关(用文字描述散点图)",
+          "cn": "🎯 **教授建议的复习法** — 从 Canvas 三套往年试题中挑一套**按实考方式(不先看)**做 → 找出错题背后的共同概念,用讲义、录像和案例书补上 → 再做第二、第三套 · 教授说正式考题与往年题**\"非常强\"**相关 · 不会再给更多模拟题(可把他的试题交给 ChatGPT 生成类似题)· **8 个考点**:描述统计(集中 vs 离散,稳健 vs 敏感)· 经验法则(几乎每次 1–2 题)· 均值标准误 · 控制图(x̄ 控制限 = 均值 ± 3·SE)· 置信区间(\"812 是否可能是均值?\")· 抽样(样本量公式)· 假设检验(H₀/H₁ · 第一/二类错误 · α 与 β)· 相关(用文字描述散点图)"
+        },
+        {
+          "kr": "📄 **기출 표지의 공통 규칙**(Exam 2·3 · 2016 · 2019 · 2007 예제) — '유의(significant)'는 통계적 유의 · p-value 기준 **0.05** · **95% 신뢰구간** · 대립가설은 **양측**(2019 표지) · 로그는 **자연로그(ln)** · **오답 감점 없음**(모르면 찍기) · 형식은 Exam 2·3 · 2016 · 2019 = 객관식 35–38문항 · 2시간으로 이번과 비슷하고, **Exam 1 은 옛 지필 형식**(서술 2 + 객관식 12) · Pras 가 공유한 2016 · 2019 기출은 정답 알파벳만 있음(해설 없음) — 올해 표지 지시가 다르면 그쪽이 우선",
+          "en": "📄 **Rules repeated on past exam covers** (Exams 2 and 3, 2016, 2019, the 2007 example) — \"significant\" means statistically significant · p-value cut-off **0.05** · **95% confidence intervals** · alternatives are **two-sided** (2019 cover) · logs are **natural logs (ln)** · **no penalty for wrong answers** (never leave one blank) · Exams 2 and 3, 2016 and 2019 are close to this year's format (35–38 multiple-choice, 2 hours); **Exam 1 is the old paper format** (2 written + 12 multiple-choice) · the 2016 and 2019 exams Pras shared have letter answers only, no worked solutions — if this year's cover says otherwise, follow it",
+          "cn": "📄 **往年试卷封面的共同规则**(Exam 2·3 · 2016 · 2019 · 2007 样卷)— \"significant\" 指统计显著 · p 值阈值 **0.05** · **95% 置信区间** · 备择假设为**双侧**(2019 封面)· 对数用**自然对数(ln)** · **答错不扣分**(不会也要选)· Exam 2·3、2016、2019 与今年形式相近(选择题 35–38 道 · 2 小时),**Exam 1 为旧式纸笔考试**(2 道简答 + 12 道选择)· Pras 分享的 2016、2019 真题只有字母答案、没有解析 — 若今年封面另有说明,以今年为准",
           "new": true
         },
         {
@@ -1132,21 +1224,20 @@ const DATA = {
           "cn": "🎯 **教授预告的考点(Class 1–2)** — **σ/√n 中的 n 是批量大小**而非批数(\"期中最常见的混淆\")· **手算 UCL/LCL = 总均值 ± 3·s/√n** — 模拟期中有同类题,**绝不考 S 图控制限** · 误报率 3σ 0.3%·2σ 5%·1σ 32%(经验法则)· 经验法则、z 分数、**VaR = 头寸 × 1.645 × σ** \"原样出题\" · 考试给 **JMP 输出问\"你看到什么\"**,不问操作 · 惊讶范式一句话(\"观察到罕见事件时,怀疑使其罕见的假设\")与 in control(统计)vs capable(工程)判定逻辑 · 历年 Exam 1–3 与模拟期中有 UCL/LCL 题"
         },
         {
-          "kr": "🧑‍🏫 **Pras 스터디(East·West 합동 Zoom)** — Session 5 중간 리뷰(10/6) 녹화·연습문제 PDF, **Session 4B 영상·연습시험 폴더(10/12)** 가 Stats & Pras 왓츠앱 방에 공유됐습니다 · Pras: 상관·공분산도 중간 범위 · 시험 팁: p-value 정의는 거의 매년 출제 · 비정규분포에 경험법칙을 쓰게 만드는 함정 · t 계산엔 JMP 의 SE 를 그대로 · JMP 의 \"Prob > F\" 도 p-value",
-          "en": "🧑‍🏫 **Pras study sessions (joint East/West Zoom)** — the Session 5 midterm review (Oct 6) recording and practice PDF, plus a **Session 4B video and practice-exam folder (Oct 12)**, are shared in the Stats & Pras WhatsApp group · Pras: correlation and covariance are on the midterm · exam tips: the p-value definition shows up almost every year · watch for traps that apply the Empirical Rule to non-normal data · use JMP's SE as is for t · JMP's \"Prob > F\" is also a p-value",
-          "cn": "🧑‍🏫 **Pras 学习辅导(East·West 联合 Zoom)** — 第5次期中复习(10/6)录像与练习 PDF,以及 **Session 4B 视频和模拟考试文件夹(10/12)** 已在 Stats & Pras WhatsApp 群分享 · Pras:相关与协方差也在期中范围 · 考试提示:p 值定义几乎每年都考 · 小心把经验法则用在非正态分布上的陷阱 · 算 t 时直接用 JMP 的 SE · JMP 的\"Prob > F\"也是 p 值"
+          "kr": "🧑‍🏫 **Pras 스터디(East·West 합동 Zoom)** — Session 5 중간 리뷰(10/6) 녹화·연습문제 PDF, **Session 4B 영상·연습시험 폴더(10/12)** 가 Stats & Pras 왓츠앱 방에 공유됐습니다 · Pras: 상관·공분산도 중간 범위 · 시험 팁: p-value 정의는 거의 매년 출제 · 비정규분포에 경험법칙을 쓰게 만드는 함정 · t 계산엔 JMP 의 SE 를 그대로 · JMP 의 \"Prob > F\" 도 p-value · Pras(10/14): 녹화 세션 5개(4B 상관까지)가 중간 범위를 다 다룸",
+          "en": "🧑‍🏫 **Pras study sessions (joint East/West Zoom)** — the Session 5 midterm review (Oct 6) recording and practice PDF, plus a **Session 4B video and practice-exam folder (Oct 12)**, are shared in the Stats & Pras WhatsApp group · Pras: correlation and covariance are on the midterm · exam tips: the p-value definition shows up almost every year · watch for traps that apply the Empirical Rule to non-normal data · use JMP's SE as is for t · JMP's \"Prob > F\" is also a p-value · Pras (Oct 14): his five recorded sessions (through 4B, correlation) cover the whole midterm range",
+          "cn": "🧑‍🏫 **Pras 学习辅导(East·West 联合 Zoom)** — 第5次期中复习(10/6)录像与练习 PDF,以及 **Session 4B 视频和模拟考试文件夹(10/12)** 已在 Stats & Pras WhatsApp 群分享 · Pras:相关与协方差也在期中范围 · 考试提示:p 值定义几乎每年都考 · 小心把经验法则用在非正态分布上的陷阱 · 算 t 时直接用 JMP 的 SE · JMP 的\"Prob > F\"也是 p 值 · Pras(10/14):5 次录播课(到 4B 相关)覆盖期中全部范围",
+          "new": true
         },
         {
           "kr": "📗 **숙제** — HW1 평균 13.43/16(해설 `Statitstics 6130 Assignment 1 Solutions.pdf`) · HW2 10/9 마감 · **HW3(50점 → 성적 6%)**: 팀마다 **고유 CSV 데이터**(Canvas Files ▸ HW 3 에서 자기 팀 파일 확인, CSV → JMP 로 불러오기) · 교수가 **다음 수업 주말(10/23–24)에 설명·JMP 시연** · 마감 **11/5(목) 23:59 PT**(실라버스는 11/6 Class 8) · **HW4(100점 → 12%)** 는 큰 다중회귀 예측 경쟁, 12/23 23:59(실라버스 12/24)",
           "en": "📗 **Homework** — HW1 mean 13.43/16 (solutions: `Statitstics 6130 Assignment 1 Solutions.pdf`) · HW2 was due Oct 9 · **HW3 (50 pts → 6% of the grade)**: every team gets its **own CSV data set** (find your team's file in Canvas Files ▸ HW 3 and import the CSV into JMP) · the professor **walks through it with a JMP demo next class weekend (Oct 23–24)** · due **Thu Nov 5, 11:59 PM PT** (syllabus: Nov 6, Class 8) · **HW4 (100 pts → 12%)** is a big multiple-regression prediction contest, due Dec 23, 11:59 PM (syllabus: Dec 24)",
-          "cn": "📗 **作业** — HW1 平均 13.43/16(题解 `Statitstics 6130 Assignment 1 Solutions.pdf`)· HW2 已于 10/9 截止 · **HW3(50 分 → 占成绩 6%)**:每组有**各自的 CSV 数据**(在 Canvas Files ▸ HW 3 找到本组文件,导入 JMP)· 教授将在**下个上课周末(10/23–24)讲解并演示 JMP** · 截止 **11/5(周四)23:59 PT**(教学大纲为 11/6 第8课)· **HW4(100 分 → 12%)** 为大型多元回归预测竞赛,12/23 23:59 截止(教学大纲 12/24)",
-          "new": true
+          "cn": "📗 **作业** — HW1 平均 13.43/16(题解 `Statitstics 6130 Assignment 1 Solutions.pdf`)· HW2 已于 10/9 截止 · **HW3(50 分 → 占成绩 6%)**:每组有**各自的 CSV 数据**(在 Canvas Files ▸ HW 3 找到本组文件,导入 JMP)· 教授将在**下个上课周末(10/23–24)讲解并演示 JMP** · 截止 **11/5(周四)23:59 PT**(教学大纲为 11/6 第8课)· **HW4(100 分 → 12%)** 为大型多元回归预测竞赛,12/23 23:59 截止(教学大纲 12/24)"
         },
         {
           "kr": "🧪 **Class 5–6 요약(10/8 · 10/10)** — 상관·공분산·선형결합의 분산(포트폴리오 위험, paired t 가 강력한 이유)까지가 **중간 범위** · 그 뒤 회귀 입문: 최소제곱 · 계수 해석과 단위 · 변환(log, 1/4 제곱) · 잔차 진단(물결 = 자기상관, 부채꼴 = 이분산) · 이상값·leverage · R²·RMSE(ŷ ± 2·RMSE) → **기말 범위** · 못 다룬 C6 s.11–13(기울기 신뢰구간·예측구간)은 10/24 에 이어서",
           "en": "🧪 **Classes 5–6 recap (Oct 8 · Oct 10)** — correlation, covariance and the variance of a linear combination (portfolio risk, why the paired t is so powerful) close out the **midterm material** · then intro regression: least squares · coefficient interpretation and units · transformations (log, fourth root) · residual diagnostics (waves = autocorrelation, fans = heteroscedasticity) · outliers and leverage · R² and RMSE (ŷ ± 2·RMSE) → **final-exam material** · C6 slides 11–13 (slope CI, prediction intervals) pick up on Oct 24",
-          "cn": "🧪 **第5–6课回顾(10/8 · 10/10)** — 相关、协方差与线性组合方差(投资组合风险、配对 t 检验为何强大)是**期中范围**的最后部分 · 之后进入回归入门:最小二乘 · 系数解读与单位 · 变换(对数、四次方根)· 残差诊断(波浪 = 自相关,扇形 = 异方差)· 异常值与杠杆点 · R² 与 RMSE(ŷ ± 2·RMSE)→ **期末范围** · 未讲完的 C6 第 11–13 页(斜率置信区间、预测区间)10/24 继续",
-          "new": true
+          "cn": "🧪 **第5–6课回顾(10/8 · 10/10)** — 相关、协方差与线性组合方差(投资组合风险、配对 t 检验为何强大)是**期中范围**的最后部分 · 之后进入回归入门:最小二乘 · 系数解读与单位 · 变换(对数、四次方根)· 残差诊断(波浪 = 自相关,扇形 = 异方差)· 异常值与杠杆点 · R² 与 RMSE(ŷ ± 2·RMSE)→ **期末范围** · 未讲完的 C6 第 11–13 页(斜率置信区间、预测区间)10/24 继续"
         },
         {
           "kr": "🧪 **9/25–26 수업 요약(Class 3–4)** — 신뢰구간 x̄ ± 2·s/√n 과 t-분포 · 샘플링(확률표본만 \"good\", 비응답·인센티브 편향) · 표본 크기 n = (2s/MoE)² · 가설검정 프레임(배심 재판 비유, H₀ 는 \"기각\" 아니면 \"기각 실패\", Type I/II·α·β) · two-sample t(pooled vs unequal)·Wilcoxon(중앙값)·paired t · 교수 한 줄: **\"모든 검정은 표준오차 세기\"**",
@@ -1400,82 +1491,154 @@ const DATA = {
   },
   "schedule": {
     "notes": {
-      "kr": "⏳ **학교 주말 시간표(시간·강의실·식사)는 아직 공개 전**입니다(10/12 Cohort Communication ▸ Files 확인) — 올라오면 섹션별 표로 바꿉니다 · 위 순서는 실라버스 기준이라 실제 시간 순서와 다를 수 있어요 · 같은 주말 행사: 💼 Career Conversations 10/23(금) 17:30 · 🚀 Startup Bootcamp 10/24(토) 16:15(등록자만)",
-      "en": "⏳ **The school's weekend timetable (times, rooms, meals) isn't out yet** (checked Cohort Communication ▸ Files on Oct 12) — this becomes a by-section table once it is · the order above follows the syllabus and may not match the actual time order · same weekend: 💼 Career Conversations Fri Oct 23, 5:30 PM · 🚀 Startup Bootcamp Sat Oct 24, 4:15 PM (registered students only)",
-      "cn": "⏳ **学校周末课表(时间、教室、用餐)尚未公布**(10/12 已查 Cohort Communication ▸ Files)— 公布后改为分班课表 · 以上顺序依教学大纲,可能与实际时间顺序不同 · 同周末活动:💼 Career Conversations 10/23(周五)17:30 · 🚀 Startup Bootcamp 10/24(周六)16:15(仅限已报名者)"
+      "kr": "📍 강의실 — **금요일은 STAT 중간·FNCE 모두 두 섹션 합반 Room 660** · **토요일 STAT = Room 612 · FNCE = Room 615**(섹션별 교차) · 🍽 식사는 모두 Dining Room · 📚 Hyatt 스터디룸 Board Rooms A·B·C **금 17:00–23:00** · 🍻 Wharton Pub = Hyatt Eclipse Bar **금 20:30–23:30** · 🎂 금 22:00 Raven Bar 코호트 생일 모임(SF 코호트 왓츠앱 10/18 공지 · 참석은 🩷) · 🏨 Hyatt Regency SF (5 Embarcadero Ctr) · 출처: 52SF Weekend Schedule 10/23–24 v1 (Cohort Communication ▸ Files, 10/16)",
+      "en": "📍 Rooms — **on Friday the STAT midterm and FNCE are both in Room 660 with both sections** · **Saturday STAT = Room 612 · FNCE = Room 615** (sections swap) · 🍽 all meals in the Dining Room · 📚 Hyatt study rooms Board Rooms A, B, C **Fri 5–11 PM** · 🍻 Wharton Pub = Hyatt Eclipse Bar **Fri 8:30–11:30 PM** · 🎂 cohort birthday drinks Fri 10 PM at Raven Bar (SF cohort WhatsApp, Oct 18 — react 🩷 if you're in) · 🏨 Hyatt Regency SF (5 Embarcadero Ctr) · source: 52SF Weekend Schedule Oct 23–24 v1 (Cohort Communication ▸ Files, Oct 16)",
+      "cn": "📍 教室 — **周五 STAT 期中与 FNCE 均为两班合上,Room 660** · **周六 STAT = Room 612 · FNCE = Room 615**(两班交替)· 🍽 用餐均在 Dining Room · 📚 Hyatt 自习室 Board Rooms A、B、C **周五 17:00–23:00** · 🍻 Wharton Pub = Hyatt Eclipse Bar **周五 20:30–23:30** · 🎂 周五 22:00 Raven Bar 同学生日聚会(SF 班 WhatsApp 10/18 通知 · 参加请点 🩷)· 🏨 Hyatt Regency SF(5 Embarcadero Ctr)· 来源:52SF Weekend Schedule 10/23–24 v1(Cohort Communication ▸ Files,10/16)"
     },
     "weekends": [
       {
         "start": "2026-10-23",
         "end": "2026-10-24",
         "label": {
-          "kr": "10월 23일(금)–24일(토) · SFO · 시간표 공개 전",
-          "en": "Oct 23 (Fri)–24 (Sat) · SFO · timetable not out yet",
-          "cn": "10月23日(周五)–24日(周六)· SFO · 课表尚未公布"
+          "kr": "10월 23일(금)–24일(토) · SFO · 2일 주말",
+          "en": "Oct 23 (Fri)–24 (Sat) · SFO · two-day weekend",
+          "cn": "10月23日(周五)–24日(周六)· SFO · 两天周末"
         },
         "days": [
           {
             "label": {
-              "kr": "금 10/23 · STAT 중간고사 + FNCE L10–11",
-              "en": "Fri Oct 23 · STAT midterm + FNCE L10–11",
-              "cn": "周五 10/23 · STAT 期中 + FNCE L10–11"
+              "kr": "금 10/23 · STAT 중간고사 + FNCE 합반",
+              "en": "Fri Oct 23 · STAT midterm + joint FNCE",
+              "cn": "周五 10/23 · STAT 期中 + FNCE 合上"
             },
             "rows": [
               {
-                "time": {
-                  "kr": "시간 미정",
-                  "en": "TBA",
-                  "cn": "待定"
-                },
+                "time": "8:30–9:30",
                 "both": {
-                  "kr": "📝 STAT 6130 중간고사 · Waterman · 객관식 36문항 · 2시간 · Canvas + LockDown(노트북 필수)",
-                  "en": "📝 STAT 6130 midterm · Waterman · 36 multiple-choice · 2 hours · Canvas + LockDown (bring a laptop)",
-                  "cn": "📝 STAT 6130 期中考试 · Waterman · 36 道选择题 · 2 小时 · Canvas + LockDown(必须带笔记本)"
+                  "kr": "조식 · Dining Room",
+                  "en": "Breakfast · Dining Room",
+                  "cn": "早餐 · Dining Room"
                 }
               },
               {
-                "time": {
-                  "kr": "시간 미정",
-                  "en": "TBA",
-                  "cn": "待定"
-                },
+                "time": "9:30–11:30",
                 "both": {
-                  "kr": "FNCE 6130 · Landry · L10 연준 · L11 미국 통화정책",
-                  "en": "FNCE 6130 · Landry · L10 The Federal Reserve System · L11 U.S. Monetary Policy",
-                  "cn": "FNCE 6130 · Landry · L10 美联储体系 · L11 美国货币政策"
+                  "kr": "📝 STAT 6130 중간고사 · Waterman · **두 섹션 합반 · Room 660**",
+                  "en": "📝 STAT 6130 Midterm · Waterman · **both sections together · Room 660**",
+                  "cn": "📝 STAT 6130 期中考试 · Waterman · **两班合考 · Room 660**",
+                  "read": {
+                    "kr": "Canvas + LockDown(노트북·충전기) · 객관식 36문항 · 2시간 · 케이스북 1–10장 · 치트시트 1장 양면 · 계산기 허용 여부 미공지",
+                    "en": "Canvas + LockDown (laptop and charger) · 36 multiple-choice · 2 hours · casebook ch. 1–10 · one two-sided cheat sheet · calculator policy not announced",
+                    "cn": "Canvas + LockDown(笔记本与充电器)· 36 道选择题 · 2 小时 · 案例书第 1–10 章 · 小抄 1 张双面 · 计算器规定未公布"
+                  }
+                }
+              },
+              {
+                "time": "11:30–1:00",
+                "both": {
+                  "kr": "중식 · Dining Room",
+                  "en": "Lunch · Dining Room",
+                  "cn": "午餐 · Dining Room"
+                }
+              },
+              {
+                "time": "1:00–4:00",
+                "both": {
+                  "kr": "FNCE 6130 · Landry · **두 섹션 합반 · Room 660**",
+                  "en": "FNCE 6130 · Landry · **both sections together · Room 660**",
+                  "cn": "FNCE 6130 · Landry · **两班合上 · Room 660**",
+                  "read": {
+                    "kr": "L10 연준 · L11 미국 통화정책 · Fed Challenge 안내 예정",
+                    "en": "L10 The Federal Reserve System · L11 U.S. Monetary Policy · Fed Challenge briefing expected",
+                    "cn": "L10 美联储体系 · L11 美国货币政策 · 预计说明 Fed Challenge"
+                  }
+                }
+              },
+              {
+                "time": "5:30–8:30 PM",
+                "both": {
+                  "kr": "💼 Career Conversations & Networking Reception(동문 소그룹 어드바이징 · CareerPath 등록)",
+                  "en": "💼 Career Conversations & Networking Reception (small-group advising with alumni · register in CareerPath)",
+                  "cn": "💼 Career Conversations & Networking Reception(校友小组咨询 · 在 CareerPath 报名)"
                 }
               }
             ]
           },
           {
             "label": {
-              "kr": "토 10/24 · STAT Class 7 + FNCE L12–13",
-              "en": "Sat Oct 24 · STAT Class 7 + FNCE L12–13",
-              "cn": "周六 10/24 · STAT 第7课 + FNCE L12–13"
+              "kr": "토 10/24 · 섹션별 교차 · STAT Class 7 + FNCE L12–13",
+              "en": "Sat Oct 24 · sections swap · STAT Class 7 + FNCE L12–13",
+              "cn": "周六 10/24 · 两班交替 · STAT 第7课 + FNCE L12–13"
             },
             "rows": [
               {
-                "time": {
-                  "kr": "시간 미정",
-                  "en": "TBA",
-                  "cn": "待定"
-                },
+                "time": "8:00–9:00",
                 "both": {
-                  "kr": "STAT 6130 · Waterman · Class 7 다중회귀 · HW3 설명",
-                  "en": "STAT 6130 · Waterman · Class 7 multiple regression · HW3 walkthrough",
-                  "cn": "STAT 6130 · Waterman · 第7课 多元回归 · HW3 讲解"
+                  "kr": "조식 · Dining Room",
+                  "en": "Breakfast · Dining Room",
+                  "cn": "早餐 · Dining Room"
                 }
               },
               {
-                "time": {
-                  "kr": "시간 미정",
-                  "en": "TBA",
-                  "cn": "待定"
+                "time": "9:00–12:00",
+                "s1": {
+                  "kr": "STAT 6130 · Waterman · Room 612",
+                  "en": "STAT 6130 · Waterman · Room 612",
+                  "cn": "STAT 6130 · Waterman · Room 612",
+                  "read": {
+                    "kr": "Class 7 — C6 s.11–13(기울기 CI·예측구간) + 다중회귀 · BAUR 4 · SfB 21.3–4·23 · HW3 설명·JMP 시연",
+                    "en": "Class 7 — C6 slides 11–13 (slope CI, prediction intervals) + multiple regression · BAUR 4 · SfB 21.3–4, 23 · HW3 walkthrough and JMP demo",
+                    "cn": "第7课 — C6 第 11–13 页(斜率置信区间、预测区间)+ 多元回归 · BAUR 4 · SfB 21.3–4、23 · HW3 讲解与 JMP 演示"
+                  }
                 },
+                "s2": {
+                  "kr": "FNCE 6130 · Landry · Room 615",
+                  "en": "FNCE 6130 · Landry · Room 615",
+                  "cn": "FNCE 6130 · Landry · Room 615",
+                  "read": {
+                    "kr": "L12 무역·환율·국제금융 · L13 화폐·물가·인플레이션",
+                    "en": "L12 Trade, Exchange Rates & International Finance · L13 Money, Prices & Inflation",
+                    "cn": "L12 贸易、汇率与国际金融 · L13 货币、物价与通胀"
+                  }
+                }
+              },
+              {
+                "time": "12:00–1:00",
                 "both": {
-                  "kr": "FNCE 6130 · Landry · L12 무역·환율·국제금융 · L13 화폐·물가·인플레이션",
-                  "en": "FNCE 6130 · Landry · L12 Trade, Exchange Rates & International Finance · L13 Money, Prices & Inflation",
-                  "cn": "FNCE 6130 · Landry · L12 贸易、汇率与国际金融 · L13 货币、物价与通胀"
+                  "kr": "중식 · Dining Room",
+                  "en": "Lunch · Dining Room",
+                  "cn": "午餐 · Dining Room"
+                }
+              },
+              {
+                "time": "1:00–4:00",
+                "s1": {
+                  "kr": "FNCE 6130 · Landry · Room 615",
+                  "en": "FNCE 6130 · Landry · Room 615",
+                  "cn": "FNCE 6130 · Landry · Room 615",
+                  "read": {
+                    "kr": "L12 무역·환율·국제금융 · L13 화폐·물가·인플레이션",
+                    "en": "L12 Trade, Exchange Rates & International Finance · L13 Money, Prices & Inflation",
+                    "cn": "L12 贸易、汇率与国际金融 · L13 货币、物价与通胀"
+                  }
+                },
+                "s2": {
+                  "kr": "STAT 6130 · Waterman · Room 612",
+                  "en": "STAT 6130 · Waterman · Room 612",
+                  "cn": "STAT 6130 · Waterman · Room 612",
+                  "read": {
+                    "kr": "Class 7 — C6 s.11–13(기울기 CI·예측구간) + 다중회귀 · BAUR 4 · SfB 21.3–4·23 · HW3 설명·JMP 시연",
+                    "en": "Class 7 — C6 slides 11–13 (slope CI, prediction intervals) + multiple regression · BAUR 4 · SfB 21.3–4, 23 · HW3 walkthrough and JMP demo",
+                    "cn": "第7课 — C6 第 11–13 页(斜率置信区间、预测区间)+ 多元回归 · BAUR 4 · SfB 21.3–4、23 · HW3 讲解与 JMP 演示"
+                  }
+                }
+              },
+              {
+                "time": "4:15–7:30 PM",
+                "both": {
+                  "kr": "🚀 Venture Lab Bootcamp · Room 660(사전 등록자만)",
+                  "en": "🚀 Venture Lab Bootcamp · Room 660 (registered students only)",
+                  "cn": "🚀 Venture Lab Bootcamp · Room 660(仅限已报名者)"
                 }
               }
             ]
@@ -1531,9 +1694,9 @@ const DATA = {
     {
       "subject": "FNCE 6130 ✅",
       "where": {
-        "kr": "**Files** — `lecture1~9.pdf`(L8부터 Quarto HTML 도) · 실라버스 확정본(9/12) · **`Midterm Practice … .pdf` + `… AK.pdf`** · `Q1 … .pdf` + `Q1 AK`(퀴즈 1 문제·정답) · `Q2 … .pdf` + `Q2 AK`(퀴즈 2, 10/5) · `Jones5_answers.pdf` · **Class Recordings** 는 10/5 · 12/1 일괄 공개",
-        "en": "**Files** — `lecture1–9.pdf` (Quarto HTML too from L8) · the final syllabus (Sep 12) · **`Midterm Practice … .pdf` plus `… AK.pdf`** · `Q1 … .pdf` plus `Q1 AK` (Quiz 1 questions and answers) · `Q2 … .pdf` plus `Q2 AK` (Quiz 2, Oct 5) · `Jones5_answers.pdf` · **Class Recordings** are released in bulk on Oct 5 and Dec 1",
-        "cn": "**Files** — `lecture1~9.pdf`(L8 起另有 Quarto HTML) · 最终版大纲(9/12)· **`Midterm Practice … .pdf` + `… AK.pdf`** · `Q1 … .pdf` + `Q1 AK`(测验1题目与答案)· `Q2 … .pdf` + `Q2 AK`(测验2,10/5)· `Jones5_answers.pdf` · **Class Recordings** 于 10/5、12/1 统一公开"
+        "kr": "**Files** — `lecture1~9.pdf`(L8부터 Quarto HTML 도) · 실라버스 확정본(9/12) · **`Midterm Practice … .pdf` + `… AK.pdf`** · `Q1 … .pdf` + `Q1 AK`(퀴즈 1 문제·정답) · `Q2 … .pdf` + `Q2 AK`(퀴즈 2, 10/5) · `Jones5_answers.pdf` · **Class Recordings** 는 10/5 · 12/1 일괄 공개 · **중간 문제·정답 `FNCE6130 MIDTERM Fall 2026.pdf` + `… AK.pdf`(10/14)** · **Fed Challenge 지침·채점표 PDF(10/14)**",
+        "en": "**Files** — `lecture1–9.pdf` (Quarto HTML too from L8) · the final syllabus (Sep 12) · **`Midterm Practice … .pdf` plus `… AK.pdf`** · `Q1 … .pdf` plus `Q1 AK` (Quiz 1 questions and answers) · `Q2 … .pdf` plus `Q2 AK` (Quiz 2, Oct 5) · `Jones5_answers.pdf` · **Class Recordings** are released in bulk on Oct 5 and Dec 1 · **midterm questions and key: `FNCE6130 MIDTERM Fall 2026.pdf` plus `… AK.pdf` (Oct 14)** · **Fed Challenge guidelines and grade sheet PDFs (Oct 14)**",
+        "cn": "**Files** — `lecture1~9.pdf`(L8 起另有 Quarto HTML) · 最终版大纲(9/12)· **`Midterm Practice … .pdf` + `… AK.pdf`** · `Q1 … .pdf` + `Q1 AK`(测验1题目与答案)· `Q2 … .pdf` + `Q2 AK`(测验2,10/5)· `Jones5_answers.pdf` · **Class Recordings** 于 10/5、12/1 统一公开 · **期中试题与答案 `FNCE6130 MIDTERM Fall 2026.pdf` + `… AK.pdf`(10/14)** · **Fed Challenge 指南与评分表 PDF(10/14)**"
       },
       "submit": {
         "kr": "퀴즈 = **Quizzes 탭**(3회 시도 · 최고점 · AI·팀 협업 OK) · 시험 = 교실에서 Canvas + LockDown Browser",
@@ -1549,9 +1712,9 @@ const DATA = {
     {
       "subject": "Cohort Communication",
       "where": {
-        "kr": "**Files ▸ Weekend Schedule** 에 주말 일정표 PDF · **Files ▸ Course Materials ▸ Term 5** 에 Add/Drop 안내와 Booklist · 최근 파일: **`52SF Weekend Schedule_08Oct26-10Oct26_v2.pdf`(10/6)** · 10/23–24 시간표는 아직 없음(10/12 확인) · `Cal_52_SF_T2_V4`(Term 2 캘린더, 9/29) · 블록위크 CMQ — `MKTG 8530 PHL`(9/30) · `OIDD 6140 SF Dec`(10/1) · `MGMT 7640` 실라버스·CMQ(9/18) · `LGST 7500 CMQ`(9/17) · 공지: 9/25 네트워킹 워크숍 녹화·덱(9/28) · Startup Bootcamp 등록 리마인더(10/1) · Authors@Wharton 10/11(10/1)",
-        "en": "**Files ▸ Weekend Schedule** holds the weekend schedule PDFs · **Files ▸ Course Materials ▸ Term 5** has the Add/Drop instructions and booklist · recent files: **`52SF Weekend Schedule_08Oct26-10Oct26_v2.pdf` (Oct 6)** · no Oct 23–24 timetable yet (checked Oct 12) · `Cal_52_SF_T2_V4` (Term 2 calendar, Sep 29) · block week CMQs — `MKTG 8530 PHL` (Sep 30) · `OIDD 6140 SF Dec` (Oct 1) · `MGMT 7640` syllabus and CMQ (Sep 18) · `LGST 7500 CMQ` (Sep 17) · announcements: Sep 25 networking workshop recording and deck (Sep 28) · Startup Bootcamp sign-up reminder (Oct 1) · Authors@Wharton Oct 11 (Oct 1)",
-        "cn": "**Files ▸ Weekend Schedule** 有周末课表 PDF · **Files ▸ Course Materials ▸ Term 5** 有 Add/Drop 说明与书单 · 最新文件:**`52SF Weekend Schedule_08Oct26-10Oct26_v2.pdf`(10/6)** · 10/23–24 课表尚未发布(10/12 确认) · `Cal_52_SF_T2_V4`(Term 2 日历,9/29)· Block Week CMQ — `MKTG 8530 PHL`(9/30)· `OIDD 6140 SF Dec`(10/1)· `MGMT 7640` 大纲与 CMQ(9/18)· `LGST 7500 CMQ`(9/17)· 公告:9/25 社交工作坊录像与讲义(9/28)· Startup Bootcamp 报名提醒(10/1)· Authors@Wharton 10/11(10/1)"
+        "kr": "**Files ▸ Weekend Schedule** 에 주말 일정표 PDF · **Files ▸ Course Materials ▸ Term 5** 에 Add/Drop 안내와 Booklist · 최근 파일: **`52SF Weekend Schedule_23Oct26-24Oct26_v1.pdf`(10/16)** · `Cal_52_SF_T2_V4`(Term 2 캘린더, 9/29) · 블록위크 CMQ — `MKTG 8530 PHL`(9/30) · `OIDD 6140 SF Dec`(10/1) · `MGMT 7640` 실라버스·CMQ(9/18) · `LGST 7500 CMQ`(9/17) · 최근 공지: **Career Reps 발표(10/19 — SF Luis Valencia · PHL Kia Richards · Global Michael Tanner)** · Excel for Finance 웨비나 11/11(10/19) · 10/23–24 주말 일정(10/16) · Student Social Committee 추천 10/26까지(10/9)",
+        "en": "**Files ▸ Weekend Schedule** holds the weekend schedule PDFs · **Files ▸ Course Materials ▸ Term 5** has the Add/Drop instructions and booklist · recent files: **`52SF Weekend Schedule_23Oct26-24Oct26_v1.pdf` (Oct 16)** · `Cal_52_SF_T2_V4` (Term 2 calendar, Sep 29) · block week CMQs — `MKTG 8530 PHL` (Sep 30) · `OIDD 6140 SF Dec` (Oct 1) · `MGMT 7640` syllabus and CMQ (Sep 18) · `LGST 7500 CMQ` (Sep 17) · recent announcements: **Career Reps named (Oct 19 — SF Luis Valencia · PHL Kia Richards · Global Michael Tanner)** · Excel for Finance webinar Nov 11 (Oct 19) · Oct 23–24 weekend schedule (Oct 16) · Student Social Committee nominations by Oct 26 (Oct 9)",
+        "cn": "**Files ▸ Weekend Schedule** 有周末课表 PDF · **Files ▸ Course Materials ▸ Term 5** 有 Add/Drop 说明与书单 · 最新文件:**`52SF Weekend Schedule_23Oct26-24Oct26_v1.pdf`(10/16)** · `Cal_52_SF_T2_V4`(Term 2 日历,9/29)· Block Week CMQ — `MKTG 8530 PHL`(9/30)· `OIDD 6140 SF Dec`(10/1)· `MGMT 7640` 大纲与 CMQ(9/18)· `LGST 7500 CMQ`(9/17)· 最新公告:**Career Reps 名单公布(10/19 — SF Luis Valencia · PHL Kia Richards · Global Michael Tanner)** · Excel for Finance 研讨会 11/11(10/19)· 10/23–24 周末日程(10/16)· Student Social Committee 提名截至 10/26(10/9)"
       },
       "submit": {
         "kr": "제출물 없음 (공지 전용)",
